@@ -1,6 +1,7 @@
 import Hero from "@/components/home/Hero";
 import ImmersiveExperience from "@/components/home/ImmersiveExperience";
 import MemoriesPreview from "@/components/home/MemoriesPreview";
+import UniqueExperiences from "@/components/home/UniqueExperiences";
 
 
 export default function Home() {
@@ -10,6 +11,8 @@ export default function Home() {
     <Hero/>
 
     <ImmersiveExperience/>
+
+    <UniqueExperiences/>
 
     <MemoriesPreview/>
 
