@@ -1,6 +1,7 @@
 import React from 'react';
 import MemoriesSection from '@/components/home/MemoriesSection';
 import Link from 'next/link';
+import HeroWithLogo from '@/components/layout/HeaderVideo';
 
 /**
  * Dedicated page for showcasing guest memories and experiences
@@ -11,7 +12,7 @@ export default function MemoriesPage() {
     {
       id: 'memory-1',
       type: 'image' as const,
-      src: '/images/memories/group-birds.jpg', // Replace with your image path
+      src: '/images/memories/group-birds.jpg',
       alt: 'Group of visitors with colorful birds',
       title: 'Tropical Bird Sanctuary Visit',
       description: 'Our guests enjoyed a day at the local bird sanctuary, where they got up close with beautiful tropical birds.',
@@ -21,7 +22,7 @@ export default function MemoriesPage() {
     {
       id: 'memory-2',
       type: 'image' as const,
-      src: '/images/memories/atv-jungle.jpg', // Replace with your image path
+      src: '/images/memories/atv-jungle.jpg',
       alt: 'Person riding ATV through jungle trail',
       title: 'Jungle ATV Adventure',
       description: 'Exploring the jungle trails via ATV is one of the most popular activities among our adventurous guests.',
@@ -31,7 +32,7 @@ export default function MemoriesPage() {
     {
       id: 'memory-3',
       type: 'image' as const,
-      src: '/images/memories/atv-action.jpg', // Replace with your image path
+      src: '/images/memories/atv-action.jpg',
       alt: 'ATV adventure through forest path',
       title: 'Off-Road Excitement',
       description: 'Taking on challenging terrain and experiencing the thrill of off-road driving through beautiful natural landscapes.',
@@ -73,6 +74,7 @@ export default function MemoriesPage() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
+      {/* Navigation link */}
       <div className="pt-8 pb-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <Link 
           href="/" 
@@ -90,15 +92,12 @@ export default function MemoriesPage() {
         </Link>
       </div>
 
-      {/* Hero Section */}
-      <div className="bg-emerald-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold mb-4">Adventure Memories</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Explore unforgettable experiences shared by our guests during their stays at The Glamping Spot
-          </p>
-        </div>
-      </div>
+      {/* Hero Section with Video Background */}
+      <HeroWithLogo 
+        height="h-[50vh]"
+        title="Adventure Memories"
+        subtitle="Explore unforgettable experiences shared by our guests during their stays at The Glamping Spot"
+      />
 
       {/* Memories Gallery */}
       <MemoriesSection 
