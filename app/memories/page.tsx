@@ -1,7 +1,7 @@
 import React from 'react';
 import MemoriesSection from '@/components/home/MemoriesSection';
 import Link from 'next/link';
-import HeroWithLogo from '@/components/layout/HeaderVideo';
+import HeroVideo from '@/components/layout/HeaderVideo';
 
 /**
  * Dedicated page for showcasing guest memories and experiences
@@ -73,7 +73,7 @@ export default function MemoriesPage() {
   ];
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className=" min-h-screen pt-10">
       {/* Navigation link */}
       <div className="pt-8 pb-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <Link 
@@ -93,11 +93,13 @@ export default function MemoriesPage() {
       </div>
 
       {/* Hero Section with Video Background */}
-      <HeroWithLogo 
-        height="h-[50vh]"
+      <div className="bg-black pb-8">
+      <HeroVideo
+        height="h-[60vh]"
         title="Adventure Memories"
         subtitle="Explore unforgettable experiences shared by our guests during their stays at The Glamping Spot"
       />
+      </div>
 
       {/* Memories Gallery */}
       <MemoriesSection 

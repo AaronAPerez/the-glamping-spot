@@ -14,9 +14,9 @@ interface VideoClip {
 }
 
 /**
- * Props for the HeroWithLogo component
+ * Props for the HeroVideo component
  */
-interface HeroWithLogoProps {
+interface HeroVideoProps {
     /**
      * Height of the hero section
      * @default "h-96"
@@ -63,7 +63,7 @@ export default function HeroVideo({
     showLogo = true,
     title,
     subtitle
-}: HeroWithLogoProps) {
+}: HeroVideoProps) {
     // Track the current video being displayed
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -106,7 +106,7 @@ export default function HeroVideo({
 
     return (
         <section 
-            className={`relative ${height} w-full overflow-hidden`} 
+            className={`relative ${height} w-full overflow-hidden rounded-full max-w-4xl mx-auto`} 
             aria-label="Hero section with video background"
         >
             {/* Video Background */}
