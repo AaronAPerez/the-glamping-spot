@@ -1,3 +1,4 @@
+import AboutSection from "@/components/home/AboutSection";
 import CategorySection from "@/components/home/CategorySection";
 import CTASection from "@/components/home/CTASection";
 import Hero from "@/components/home/Hero";
@@ -15,7 +16,7 @@ export default function Home() {
 
     <CategorySection/>
 
-    <ImmersiveExperience/>
+    <AboutSection/>
 
     <UniqueExperiences/>
 
