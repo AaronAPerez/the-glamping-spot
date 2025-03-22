@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CardBody, CardContainer, CardItem } from '../ui/3d-card';
-import { BackgroundGradient } from '../ui/background-gradient';
+import { BackgroundGradient } from '../ui/BackgroundGradient';
 
 export default function MemoriesPreview() {
   return (
