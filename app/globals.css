@@ -1,26 +1,515 @@
 @import "tailwindcss";
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --primary: #059669;
+  --primary-hover: #047857;
+  --primary-light: #d1fae5;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #1f2937;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --accent: #e9fdf7;
+  --accent-foreground: #047857;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #059669;
+  --radius: 0.5rem;
+  
+  /* Banner related variables */
+  --banner-height: 41px;
+  --header-height: 80px;
+  --header-height-scrolled: 60px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary: #059669;
+    --primary-hover: #047857;
+    --primary-light: #064e3b;
+    --primary-foreground: #ffffff;
+    --secondary: #1f2937;
+    --secondary-foreground: #f9fafb;
+    --muted: #1f2937;
+    --muted-foreground: #9ca3af;
+    --accent: #064e3b;
+    --accent-foreground: #10b981;
+    --border: #374151;
+    --input: #374151;
+    --ring: #10b981;
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 
+    Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 
+    'Noto Color Emoji';
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Form Elements */
+input,
+textarea,
+select {
+  font-family: inherit;
+  color: inherit;
+}
+
+/* Focus Styles for Accessibility */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted-foreground);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
+
+/* Remove number input spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Helper class for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Custom Components Styles */
+
+/* Maintenance banner styles */
+.maintenance-banner {
+  height: var(--banner-height);
+  transform-origin: top;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.maintenance-banner.dismissed {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Header positioning with banner */
+.header-with-banner {
+  top: var(--banner-height);
+  transition: top 0.3s ease-in-out, background-color 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+.header-without-banner {
+  top: 0;
+  transition: top 0.3s ease-in-out, background-color 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+/* Content adjustment when banner is present/absent */
+.content-with-banner {
+  padding-top: calc(var(--header-height) + var(--banner-height));
+}
+
+.content-without-banner {
+  padding-top: var(--header-height);
+}
+
+/* React DatePicker Customization */
+.react-datepicker {
+  font-family: inherit;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.react-datepicker__header {
+  background-color: var(--secondary);
+  border-bottom: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.react-datepicker__current-month {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  margin: 0.166rem;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  border-radius: 9999px;
+  color: var(--foreground);
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range {
+  background-color: var(--primary);
+  border-radius: 9999px;
+  color: var(--primary-foreground);
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: var(--primary-light);
+  border-radius: 9999px;
+  color: var(--primary);
+}
+
+.react-datepicker__day:hover {
+  background-color: var(--accent);
+  border-radius: 9999px;
+  color: var(--accent-foreground);
+}
+
+.react-datepicker__day--disabled {
+  color: var(--muted-foreground);
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.react-datepicker__day--disabled:hover {
+  background-color: transparent;
+}
+
+.react-datepicker__month-container {
+  float: left;
+  background-color: var(--background);
+}
+
+.react-datepicker__triangle {
+  display: none;
+}
+
+/* GuestSelector Component Styles */
+.guest-selector input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.guest-selector input[type="number"]::-webkit-inner-spin-button,
+.guest-selector input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* FlexibleBooking Component Styles */
+.flex-booking-policy {
+  transition: all 0.2s ease-in-out;
+}
+
+.flex-booking-policy:hover {
+  transform: translateY(-2px);
+}
+
+/* Hero component styles */
+.hero-gradient-button {
+  background-image: linear-gradient(to right, var(--primary), #10b981);
+  transition: transform 0.3s ease;
+}
+
+.hero-gradient-button:hover {
+  transform: translateY(-2px);
+}
+
+.mobile-nav {
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-item {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.mobile-nav-item:hover {
+  transform: translateY(-3px);
+}
+
+.mobile-nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.mobile-nav-item:hover::after {
+  transform: scaleX(1);
+}
+
+/* Custom Animation Classes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: moveBackground 8s linear infinite;
+}
+
+/* Loading Indicator */
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--primary);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+/* Focus styles for interactive elements */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Improved contrast for placeholder text */
+::placeholder {
+  color: var(--muted-foreground);
+  opacity: 0.7;
+}
+
+/* Custom Image gallery styles */
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:focus {
+  border: 2px solid var(--primary);
+}
+
+.image-gallery-thumbnail:hover {
+  border: 2px solid var(--primary-light);
+}
+
+/* Responsive utilities beyond Tailwind defaults */
+@media (max-width: 640px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  
+  :root {
+    --banner-height: 50px;
+    --header-height: 60px;
+    --header-height-scrolled: 50px;
+  }
+  
+  .mobile-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Helpers for smooth transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Improved focus outlines for keyboard navigation */
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring);
+}
+
+/* Utility class for gradient text */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--primary), #10b981);
+}
+
+/* For property preview cards hover effects */
+.property-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ====== Mobile Optimizations ====== */
+@media (max-width: 768px) {
+  .react-datepicker__month-container {
+    width: 100%;
+  }
+  
+  .react-datepicker__day-name, 
+  .react-datepicker__day, 
+  .react-datepicker__time-name {
+    width: 1.7rem;
+    height: 1.7rem;
+    line-height: 1.7rem;
+    margin: 0.1rem;
+  }
+  
+  /* Better touch targets on mobile */
+  button, 
+  a,
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-height: 2.5rem;
+    min-width: 2.5rem;
+  }
+  
+  /* Adjust content padding for header */
+  .content-with-banner,
+  .content-without-banner {
+    padding-top: var(--header-height-scrolled);
+  }
+}
+
+/* Development/Maintenance Banner */
+.dev-banner {
+  background: linear-gradient(45deg, #f59e0b, #d97706, #f59e0b);
+  background-size: 200% 200%;
+  animation: moveBackground 5s ease infinite;
+  color: white;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.dev-banner-dismiss {
+  transition: all 0.2s ease;
+}
+
+.dev-banner-dismiss:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+
+/* Environment indicator */
+.environment-indicator {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 100;
+  background-color: #8b5cf6;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-float,
+  .animate-gradient,
+  .animate-spin {
+    animation: none !important;
+  }
 }

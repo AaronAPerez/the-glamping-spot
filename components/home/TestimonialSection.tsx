@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-
-
 import { AnimatedTooltip } from '../ui/AnimatedTooltip';
-import { BackgroundGradient } from '../ui/background-gradient';
+import { BackgroundGradient } from '../ui/BackgroundGradient';
 import { InfiniteMovingCards } from '../ui/InfiniteMovingCards';
+
+
 
 
 
@@ -59,7 +59,7 @@ interface Person {
  */
 export default function TestimonialSection() {
   // Sample testimonial data
-  const testimonials: Testimonial[] = [
+  const testimonials = [
     {
       name: "Jessica R.",
       initials: "J",
@@ -103,40 +103,40 @@ export default function TestimonialSection() {
       id: 1,
       name: "Emma Wilson",
       designation: "Guest Experience Manager",
-      image: "/images/team/emma.jpg"
+      image: "/images/Profile1.jpg"
     },
     {
       id: 2,
       name: "James Chen",
       designation: "Property Curator",
-      image: "/images/team/james.jpg"
+      image: "/images/Profile2.jpg"
     },
     {
       id: 3,
       name: "Olivia Taylor",
       designation: "Adventure Guide",
-      image: "/images/team/olivia.jpg"
+      image: "/images/Profile3.jpg"
     },
     {
       id: 4,
       name: "Marcus Johnson",
       designation: "Sustainability Director",
-      image: "/images/team/marcus.jpg"
+      image: "/images/Profile4.jpg"
     }
   ];
 
   return (
-    <section className="py-16 bg-gray-50" aria-labelledby="testimonials-heading">
+    <section className="py-16" aria-labelledby="testimonials-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <BackgroundGradient className="inline-block p-[4px] mb-4 rounded-xl">
-            <div className="bg-white dark:bg-gray-950 rounded-lg px-4 py-2">
-              <h2 id="testimonials-heading" className="text-3xl font-bold text-gray-900">
+            <div className="rounded-lg px-4 py-2">
+              <h2 id="testimonials-heading" className="text-3xl font-bold ">
                 What Our Guests Say
               </h2>
             </div>
           </BackgroundGradient>
-          <p className="mt-4 text-xl text-gray-600">
+          <p className="mt-4 text-xl ">
             Unforgettable experiences shared by our happy glampers
           </p>
         </div>
@@ -160,11 +160,11 @@ export default function TestimonialSection() {
                       </div>
                     </div>
                   </div>
-                  <blockquote className="text-gray-700 italic">
+                  <blockquote className=" italic">
                     &quot;{testimonial.testimonial}&quot;
                   </blockquote>
                   {testimonial.meta && (
-                    <p className="mt-2 text-sm text-gray-500">{testimonial.meta}</p>
+                    <p className="mt-2 text-sm ">{testimonial.meta}</p>
                   )}
                 </div>
               )
@@ -176,8 +176,8 @@ export default function TestimonialSection() {
         
         {/* Our Team section with animated tooltips */}
         <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Meet Our Team</h3>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+          <h3 className="text-2xl font-bold mb-6">Meet Our Team</h3>
+          <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
             Our dedicated staff works tirelessly to ensure your glamping experience exceeds expectations
           </p>
           
@@ -189,4 +189,3 @@ export default function TestimonialSection() {
     </section>
   );
 }
-

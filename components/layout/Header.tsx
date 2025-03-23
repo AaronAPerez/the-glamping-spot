@@ -9,38 +9,51 @@ import { usePathname } from 'next/navigation';
 /**
  * Floating header component with responsive behavior and accessibility features
  */
-export default function Header() {
-  const logoSize = useResponsiveLogoSize();
-  const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  export default function Header() {
+    const logoSize = useResponsiveLogoSize();
+    const pathname = usePathname();
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    // State to track if banner is showing
+    const [isBannerVisible, setIsBannerVisible] = useState(true);
+    
+    // Calculate height based on the width to maintain aspect ratio
+    const logoHeight = Math.round(logoSize * 0.25); // 4:1 ratio
   
-  // Calculate height based on the width to maintain aspect ratio
-  const logoHeight = Math.round(logoSize * 0.25); // 4:1 ratio
-
-  // Track scroll position to change header appearance
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    
-    // Set initial state
-    handleScroll();
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    // Handle both scroll and banner visibility together
+    useEffect(() => {
+      // Check initial banner state from localStorage
+      const bannerDismissed = localStorage.getItem('maintenanceBannerDismissed') === 'true';
+      setIsBannerVisible(!bannerDismissed);
+      
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY > 10);
+      };
+      
+      // Listen for banner dismissal
+      const handleBannerDismiss = () => {
+        setIsBannerVisible(false);
+      };
+      
+      window.addEventListener('scroll', handleScroll);
+      window.addEventListener('maintenanceBannerDismissed', handleBannerDismiss);
+      
+      // Set initial state
+      handleScroll();
+      
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('maintenanceBannerDismissed', handleBannerDismiss);
+      };
+    }, []);
 
   return (
     <header 
       className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-sky-50 shadow-md py-2' 
-          : 'bg-transparent py-2'
-      }`}
+          ? 'bg-black/40 shadow-md h-24' 
+          : 'bg-transparent pb-2'
+      } ${isBannerVisible ? 'top-[41px]' : 'top-0'}`}
       role="banner"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
