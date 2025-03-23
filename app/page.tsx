@@ -1,13 +1,12 @@
 import BookingPromotionSection from "@/components/booking/BookingPromotionSection";
 import MidpageBookingCTA from "@/components/booking/MidpageBookingCTA";
+import AboutSection from "@/components/home/AboutSection";
 import CategorySection from "@/components/home/CategorySection";
 import CTASection from "@/components/home/CTASection";
 import FeaturedProperties from "@/components/home/FeaturedProperties";
 import Hero from "@/components/home/Hero";
-import ImmersiveExperience from "@/components/home/ImmersiveExperience";
 import MemoriesPreview from "@/components/home/MemoriesPreview";
 import TestimonialSection from "@/components/home/TestimonialSection";
-import UniqueExperiences from "@/components/home/UniqueExperiences";
 import WeatherHighlightsClient from "@/components/home/WeatherHighlightsClient";
 import NewsletterSignup from "@/components/marketing/NewsletterSignup";
 import { Suspense } from "react";
@@ -24,7 +23,7 @@ export default function Home() {
 
       {/* Experience Section */}
       <section id="experience" aria-labelledby="experience">
-        <ImmersiveExperience />
+        <AboutSection />
       </section>
 
 
@@ -47,17 +46,11 @@ export default function Home() {
         />
       </section>
       
-
-      
-      {/* Location and Accommodation Categories */}
-      <section id="categories" aria-labelledby="categories-heading">
-        <CategorySection />
-      </section>
       
       {/* Unique Experiences Section for activity upsells */}
-      <section id="unique-experiences" aria-labelledby="unique-experiences">
+      {/* <section id="unique-experiences" aria-labelledby="unique-experiences">
         <UniqueExperiences />
-      </section>
+      </section> */}
       
       {/* Weather-based activity recommendations */}
       <Suspense fallback={<div className="py-16 text-center">Loading weather data...</div>}>
@@ -80,6 +73,11 @@ export default function Home() {
       {/* Memories/Gallery Section showcasing guest experiences */}
       <section id="memories" aria-labelledby="memories">
         <MemoriesPreview />
+      </section>
+
+            {/* Location and Accommodation Categories */}
+      <section id="categories" aria-labelledby="categories-heading">
+        <CategorySection />
       </section>
       
       {/* Instagram Feed for social proof and engagement */}

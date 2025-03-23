@@ -10,15 +10,15 @@ export default function MemoriesPreview() {
   return (
     <>
  {/* Memories Preview Section */}
-        <section className="py-16 bg-black text-white" aria-labelledby="memories-heading">
+        <section className="py-16 " aria-labelledby="memories-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center">
             <BackgroundGradient className="inline-block p-[4px] mb-4 rounded-xl">
-              <div className="bg-white dark:bg-gray-950 rounded-lg px-4 py-2">
-                <h2 className="text-3xl font-bold text-gray-900">Adventure Memories</h2>
+              <div className="rounded-lg px-4 py-2">
+                <h2 className="text-3xl font-bold">Adventure Memories</h2>
               </div>
             </BackgroundGradient>
-            <p className="mt-4 text-xl text-gray-200">
+            <p className="mt-4 text-xl">
               Real moments from real guests enjoying extraordinary experiences
             </p>
           </div>
@@ -37,8 +37,8 @@ export default function MemoriesPreview() {
                   />
                 </div>
                 <CardItem translateZ="30" className="p-4">
-                <h3 className="font-lg text-emerald-600">Tropical Bird Sanctuary</h3>
-                  <p className="text-sm text-gray-200">Costa Rica</p>
+                <h3 className="font-medium text-emerald-600">Tropical Bird Sanctuary</h3>
+                  <p className="text-sm">Costa Rica</p>
                 </CardItem>
               </CardBody>
             </CardContainer>
@@ -56,7 +56,7 @@ export default function MemoriesPreview() {
                 </div>
                 <CardItem translateZ="30" className="p-4">
                 <h3 className="font-lg text-emerald-600">Jungle ATV Adventure</h3>
-                  <p className="text-sm text-gray-200">Riviera Maya, Mexico</p>
+                  <p className="text-sm">Riviera Maya, Mexico</p>
                 </CardItem>
               </CardBody>
             </CardContainer>
@@ -72,7 +72,7 @@ export default function MemoriesPreview() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white bg-opacity-75 rounded-full flex items-center justify-center">
+                    <div className="w-16 h-16 bg-opacity-75 rounded-full flex items-center justify-center">
                       <svg 
                         xmlns="http://www.w3.org/2000/svg" 
                         className="h-8 w-8 text-emerald-600" 
@@ -98,7 +98,7 @@ export default function MemoriesPreview() {
                 </div>
                 <CardItem translateZ="30" className="p-4">
                   <h3 className="font-lg text-emerald-600">Glamping Experiences</h3>
-                  <p className="text-sm text-gray-200">Guest Video Highlights</p>
+                  <p className="text-sm ">Guest Video Highlights</p>
                 </CardItem>
               </CardBody>
             </CardContainer>
