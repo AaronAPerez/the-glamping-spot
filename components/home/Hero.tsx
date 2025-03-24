@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BackgroundGradient } from '../ui/BackgroundGradient';
 import Link from 'next/link';
 import { TextGenerateEffect } from '../ui/TextGenerateEffect';
@@ -9,11 +9,34 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 /**
- * Hero component with responsive design
+ * Hero component with responsive design and banner awareness
  */
 const Hero = () => {
+  // State to track if maintenance banner is visible
+  const [isBannerVisible, setIsBannerVisible] = useState(false);
+
+  // Effect to check banner visibility from localStorage
+  useEffect(() => {
+    const bannerDismissed = localStorage.getItem('maintenanceBannerDismissed') === 'true';
+    setIsBannerVisible(!bannerDismissed);
+
+    // Listen for banner dismissal event
+    const handleBannerDismiss = () => {
+      setIsBannerVisible(false);
+    };
+
+    window.addEventListener('maintenanceBannerDismissed', handleBannerDismiss);
+
+    return () => {
+      window.removeEventListener('maintenanceBannerDismissed', handleBannerDismiss);
+    };
+  }, []);
+
   return (
-    <section className="relative h-[100vh] overflow-hidden" aria-labelledby="hero-heading">
+    <section 
+      className={`relative h-[100vh] overflow-hidden ${isBannerVisible ? 'pt-[41px]' : ''}`} 
+      aria-labelledby="hero-heading"
+    >
       {/* Background image with overlay */}
       <div className="absolute inset-0">
         <Image
@@ -51,18 +74,17 @@ const Hero = () => {
             <TextGenerateEffect words="Experience Nature in Luxury" />
           </h1>
           
-          {/* Animated subtitle - Fixed the nesting issue by not using <p> here */}
+          {/* Animated subtitle */}
           <div className="text-xl sm:text-2xl mb-8 md:mb-14 opacity-90">
-            <TextGenerateEffect 
-              words="Discover unique glamping experiences in breathtaking locations."
-              speed={30}
-            />
+          <p>
+            Discover unique glamping experiences in breathtaking locations.
+           </p>
           </div>
           
           {/* Enhanced CTA button with emerald gradient matching logo */}
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <BackgroundGradient 
-              className="inline-block rounded-xl p-[1px]"
+              className="inline-block rounded-xl p-[4px]"
               gradientColor="from-emerald-400 via-teal-500 to-emerald-600"
             >
               <Link 

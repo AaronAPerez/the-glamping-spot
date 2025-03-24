@@ -277,7 +277,7 @@ export default function WeatherHighlights() {
             
             {/* Seasonal activities */}
             <div className="bg-emerald-700 bg-opacity-10 rounded-lg p-6 max-w-3xl mx-auto text-center">
-              <h3 className="font-bold text-xl mb-3 text-gray-700">
+              <h3 className="font-bold text-xl mb-3 text-gray-100">
                 {currentSeason.charAt(0).toUpperCase() + currentSeason.slice(1)} Activities
               </h3>
               <p className="mb-4">Here are some perfect activities for this time of year:</p>

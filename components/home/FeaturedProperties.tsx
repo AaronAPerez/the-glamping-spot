@@ -237,7 +237,7 @@ export default function FeaturedProperties({
                   className="block h-full rounded-lg overflow-hidden shadow-md bg-white hover:shadow-xl transition-shadow duration-300"
                   aria-labelledby={`property-${property._id}-title`}
                 >
-                  <div className="relative h-64">
+                  <div className="relative h-80 xs:h-80 sm:h-100 md:h-70">
                     <Image
                       src={property.imageUrls[0] || '/images/placeholder.jpg'}
                       alt={`${property.name} at The Glamping Spot near Houston, Texas`}

@@ -9,13 +9,13 @@ export function useResponsiveLogoSize(): number {
   const handleResize = useCallback(() => {
     const width = window.innerWidth;
     if (width < 480) {
-      setLogoSize(110); // Small mobile
+      setLogoSize(120); // Small mobile
     } else if (width < 768) {
-      setLogoSize(120); // Mobile
+      setLogoSize(130); // Mobile
     } else if (width < 1024) {
-      setLogoSize(130); // Tablet
+      setLogoSize(140); // Tablet
     } else {
-      setLogoSize(140); // Desktop
+      setLogoSize(150); // Desktop
     }
   }, []);
   

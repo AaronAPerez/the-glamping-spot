@@ -24,30 +24,30 @@ export default function AboutSection() {
               <TextGenerateEffect words="Immerse Yourself in Nature" />
             </h2>
 
-
-            <p className="text-lg mb-8 text-emerald-100">
+         
+            <p className="text-lg mb-8 text-emerald-200">
               Our glamping experiences offer the perfect balance of adventure and comfort.
               Wake up to stunning sunrises, fall asleep under star-filled skies, and connect
               with nature without sacrificing modern luxuries.
             </p>
-            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100">
+            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-100">
               <p className="font-medium mb-4">Enjoy your experience with:</p>
               <ul className="space-y-4" aria-label="The Glamping Spot features">
                 <li className="flex items-start">
 
-                  <span className="text-emerald-300 mr-3 mt-1" aria-hidden="true">✓</span>
+                  <span className="text-emerald-200 mr-3 mt-1" aria-hidden="true">✓</span>
                   <span>Breathtaking locations away from crowds</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-emerald-300 mr-3 mt-1" aria-hidden="true">✓</span>
+                  <span className="text-emerald-200 mr-3 mt-1" aria-hidden="true">✓</span>
                   <span>Luxury amenities including premium bedding and climate control</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-emerald-300 mr-3 mt-1" aria-hidden="true">✓</span>
+                  <span className="text-emerald-200 mr-3 mt-1" aria-hidden="true">✓</span>
                   <span>Thoughtfully designed spaces that connect with the environment</span>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-emerald-300 mr-3 mt-1" aria-hidden="true">✓</span>
+                  <span className="text-emerald-200 mr-3 mt-1" aria-hidden="true">✓</span>
                   <span>Sustainable practices that minimize environmental impact</span>
                 </li>
               </ul>

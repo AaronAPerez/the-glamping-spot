@@ -51,7 +51,7 @@ import { usePathname } from 'next/navigation';
     <header 
       className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-black/40 shadow-md h-24' 
+          ? 'bg-black/40 shadow-md h-22' 
           : 'bg-transparent pb-2'
       } ${isBannerVisible ? 'top-[41px]' : 'top-0'}`}
       role="banner"
@@ -91,7 +91,7 @@ import { usePathname } from 'next/navigation';
               className={`font-medium transition-colors ${
                 pathname?.startsWith('/properties') 
                   ? 'text-emerald-600' 
-                  : isScrolled ? 'text-gray-800 hover:text-emerald-600' : 'text-white hover:text-emerald-300'
+                  : isScrolled ? 'text-gray-200 hover:text-emerald-600' : 'text-white hover:text-emerald-300'
               }`}
               aria-current={pathname?.startsWith('/properties') ? 'page' : undefined}
             >
@@ -102,7 +102,7 @@ import { usePathname } from 'next/navigation';
               className={`font-medium transition-colors ${
                 pathname?.startsWith('/memories') 
                   ? 'text-emerald-600' 
-                  : isScrolled ? 'text-gray-800 hover:text-emerald-600' : 'text-white hover:text-emerald-300'
+                  : isScrolled ? 'text-gray-200 hover:text-emerald-600' : 'text-white hover:text-emerald-300'
               }`}
               aria-current={pathname?.startsWith('/memories') ? 'page' : undefined}
             >
@@ -113,7 +113,7 @@ import { usePathname } from 'next/navigation';
               className={`font-medium transition-colors ${
                 pathname === '/about' 
                   ? 'text-emerald-600' 
-                  : isScrolled ? 'text-gray-800 hover:text-emerald-600' : 'text-white hover:text-emerald-300'
+                  : isScrolled ? 'text-gray-200 hover:text-emerald-600' : 'text-white hover:text-emerald-300'
               }`}
               aria-current={pathname === '/about' ? 'page' : undefined}
             >

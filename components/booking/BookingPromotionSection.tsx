@@ -149,7 +149,7 @@ export default function BookingPromotionSection({
         <BackgroundGradient className="p-8 rounded-2xl">
           <div className="flex flex-col md:flex-row items-center justify-between">
             {/* Promotion details */}
-            <div className="mb-8 md:mb-0 md:mr-8 md:max-w-xl">
+            <div className="px24 mb-8 md:mb-0 md:mr-8 md:max-w-xl">
               <h2 
                 id="booking-promotion-heading"
                 className="text-2xl md:text-3xl font-bold mb-4"
