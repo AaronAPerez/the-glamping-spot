@@ -58,7 +58,7 @@ interface InstagramFeedProps {
   /**
    * Instagram username
    */
-  username: 'the.glamping.spot';
+  username: string;
   
   /**
    * Title for the Instagram feed section
@@ -106,7 +106,7 @@ interface InstagramFeedProps {
  * otherwise falls back to mock data
  */
 export default function InstagramFeed({
-  username,
+  username = 'the.glamping.spot',
   title,
   subtitle,
   postCount = 6,
