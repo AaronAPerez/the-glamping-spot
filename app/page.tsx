@@ -203,7 +203,7 @@ export default function Home() {
       {/* Instagram Feed for social proof and engagement */}
       <section id="instagram" aria-labelledby="instagram-heading">
         <InstagramFeed 
-          username="theglampingspot"
+          username="the.glamping.spot"
           title="Follow Our Adventures"
           subtitle="Tag your photos with #TheGlampingSpot for a chance to be featured"
         />

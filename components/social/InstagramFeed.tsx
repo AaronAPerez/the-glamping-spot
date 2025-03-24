@@ -58,7 +58,7 @@ interface InstagramFeedProps {
   /**
    * Instagram username
    */
-  username: string;
+  username: 'the.glamping.spot';
   
   /**
    * Title for the Instagram feed section
@@ -259,11 +259,13 @@ export default function InstagramFeed({
       className={`py-16 ${className}`}
       aria-labelledby="instagram-heading"
     >
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
           <BackgroundGradient className="inline-block p-[3px] mb-4 rounded-xl">
             <div className="rounded-lg px-4 py-2">
+
               <h2 
                 id="instagram-heading" 
                 className="text-3xl font-bold flex items-center justify-center"
@@ -425,7 +427,7 @@ export default function InstagramFeed({
         {!isLoading && !error && (
           <div className="mt-12 text-center">
             <Link
-              href={`https://instagram.com/${username}`}
+              href={`https://www.instagram.com/the.glamping.spot`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 border border-emerald-600 text-base font-medium rounded-md text-emerald-600 hover:bg-emerald-50 transition-colors"
