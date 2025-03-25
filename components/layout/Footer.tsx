@@ -40,10 +40,10 @@ export default function Footer({ className = '' }: FooterProps) {
 
   // Social media links
   const socialLinks = [
-    { name: 'Instagram', href: 'https://www.instagram.com/the.glamping.spot/', icon: 'instagram', ariaLabel: 'Follow us on Instagram' },
-    { name: 'Facebook', href: 'https://facebook.com/theglampingspot', icon: 'facebook', ariaLabel: 'Follow us on Facebook' },
-    { name: 'Twitter', href: 'https://twitter.com/theglampingspot', icon: 'twitter', ariaLabel: 'Follow us on Twitter' },
-    { name: 'Pinterest', href: 'https://pinterest.com/theglampingspot', icon: 'pinterest', ariaLabel: 'Follow us on Pinterest' },
+    { name: 'Instagram', href: 'https://www.instagram.com/the.glamping.spot', icon: 'instagram', ariaLabel: 'Follow us on Instagram' },
+    { name: 'Facebook', href: '/', icon: 'facebook', ariaLabel: 'Follow us on Facebook' },
+    { name: 'Twitter', href: '/', icon: 'twitter', ariaLabel: 'Follow us on Twitter' },
+    { name: 'Pinterest', href: '/', icon: 'pinterest', ariaLabel: 'Follow us on Pinterest' },
   ];
 
   // Link categories for better organization

@@ -26,7 +26,7 @@ export default function AboutPage() {
       image: '/images/TheGlampingSpot_W.png'
     },
     {
-      name: 'Aaron',
+      name: 'Aaron Perez',
       role: 'Sustainability Director',
       bio: 'Leading our efforts to minimize environmental impact and promote responsible tourism.',
       image: '/images/TheGlampingSpot_W.png'
