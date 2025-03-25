@@ -38,7 +38,6 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} h-full`} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen bg-gray-50">
 
-     
         {/* Skip to main content link for accessibility */}
         <a
           href="#main-content"
@@ -47,26 +46,23 @@ export default function RootLayout({
           Skip to main content
         </a>
 
-    
         {/* Fixed position wrapper for banner and header */}
         <div className="fixed top-0 left-0 right-0 z-50 flex flex-col">
           <MaintenanceBanner expectedCompletion="Summer 2025" />
         </div>
-
         <Header />
-
         <div className="flex flex-col min-h-screen">
           {/* Add padding to push content below fixed header */}
-       
+
           <main id="main-content" className="flex-grow">
             {children}
           </main>
           <Footer />
-    
-        </div>
 
-        <DevEnvironmentIndicator show={isDevelopment} />
-     
+        </div>
+        <div className='environment-indicator'>
+          <DevEnvironmentIndicator show={isDevelopment} />
+        </div>
       </body>
     </html>
   )

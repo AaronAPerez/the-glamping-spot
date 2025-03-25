@@ -16,7 +16,7 @@ import NewsletterSignup from "@/components/marketing/NewsletterSignup";
 // import SpecialOffers from "@/components/booking/SpecialOffers";
 // import UpcomingEventsBanner from "@/components/marketing/UpcomingEventsBanner";
 import { Metadata } from "next";
-import ImmersiveExperience from "@/components/home/ImmersiveExperience";
+
 
 /**
  * SEO metadata for the homepage
@@ -167,7 +167,17 @@ export default function Home() {
         />
       </section>
       
-      {/* Mid-page Booking CTA to capture interest */}
+      {/* Location and Accommodation Categories */}
+      <section id="categories" aria-labelledby="categories-heading">
+        <CategorySection />
+      </section>
+      
+      {/* Unique Experiences Section for activity upsells */}
+      <section id="unique-experiences" aria-labelledby="unique-experiences">
+        <UniqueExperiences />
+      </section>
+
+            {/* Mid-page Booking CTA to capture interest */}
       <section id="mid-page-cta" aria-labelledby="mid-page-cta-heading">
         <MidpageBookingCTA 
           heading="Reserve Your Texas Glamping Experience"
@@ -178,22 +188,23 @@ export default function Home() {
         />
       </section>
       
-
-      
-      {/* Location and Accommodation Categories */}
-      <section id="categories" aria-labelledby="categories-heading">
-        <CategorySection />
-      </section>
-      
-      {/* Unique Experiences Section for activity upsells */}
-      <section id="unique-experiences" aria-labelledby="unique-experiences">
-        <UniqueExperiences />
-      </section>
-      
       {/* Weather-based activity recommendations */}
       <Suspense fallback={<div className="py-16 text-center">Loading weather data...</div>}>
         <WeatherHighlightsClient />
       </Suspense>
+      
+      {/* Booking Promotion Section with time-sensitive offers */}
+      <section id="booking-promotion" aria-labelledby="booking-promotion-heading">
+        <BookingPromotionSection
+          heading="Limited Time Offer"
+          description="Book your stay in the next 48 hours and receive a complimentary bottle of champagne and late checkout!"
+          expiryDate={new Date(Date.now() + 48 * 60 * 60 * 1000)}
+          couponCode="WELCOME48"
+          discount="Free extras"
+          ctaText="Book with this offer"
+          ctaLink="/booking?promo=WELCOME48"
+        />
+      </section>
       
       {/* Memories/Gallery Section showcasing guest experiences */}
       <section id="memories" aria-labelledby="memories">
@@ -209,19 +220,7 @@ export default function Home() {
         />
       </section>
 
-            
-      {/* Booking Promotion Section with time-sensitive offers */}
-      <section id="booking-promotion" aria-labelledby="booking-promotion-heading">
-        <BookingPromotionSection
-          heading="Limited Time Offer"
-          description="Book your stay in the next 48 hours and receive a complimentary bottle of champagne and late checkout!"
-          expiryDate={new Date(Date.now() + 48 * 60 * 60 * 1000)}
-          couponCode="WELCOME48"
-          discount="Free extras"
-          ctaText="Book with this offer"
-          ctaLink="/booking?promo=WELCOME48"
-        />
-      </section>
+      
       
       {/* Testimonial Section building trust */}
       <section id="testimonial" aria-labelledby="testimonial">
