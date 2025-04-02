@@ -1,16 +1,16 @@
 <h3>
   The Glamping Spot
 </h3>
-<br>
 
-<Image src=
-"C:\Users\aaper\Documents\.CodeStack Academy\React\GameApp\NextJS\Portfolio_Projects\Portfolio\NextJS-Portfolio\public\images\projects\theglampingspot\glamping-1.png![glamping-1]"(https://github.com/user-attachments/assets/c5cda022-c03f-48bb-a2d7-b4924a5d6e7c)
-
-<br>
 <p class="text-gray-300 text-sm sm:text-base mb-6 flex-1 line-clamp-5">
   Luxury camping booking platform with interactive map, reservation system, and user reviews. Responsive design optimized for all devices.
 </p>
 <br>
+
+![The Glamping Spot](public/images/glamping-1.png)
+
+<br>
+
 <p class="text-gray-300 text-sm sm:text-base mb-6 flex-1 line-clamp-5">
  tech: ["Next.js", "React", "TypeScript", "Tailwind", "Node.js", "Express", "MongoDB", "Mapbox API"],
 </p>
@@ -19,7 +19,8 @@
   codeLink: "https://github.com/AaronAPerez/glamping-spot",
     websiteLink: "https://the-glamping-spot.vercel.app/",
 </p>
-
+<br>
+<br>
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
