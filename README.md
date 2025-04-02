@@ -1,3 +1,20 @@
+<h3 class="text-xl sm:text-3xl font-bold mb-4 bg-clip-text text-transparent" 
+  style="background-image: linear-gradient(to right, rgb(245, 158, 11), rgb(21, 128, 61));">
+  The Glamping Spot
+</h3>
+
+<p class="text-gray-300 text-sm sm:text-base mb-6 flex-1 line-clamp-5">
+  Luxury camping booking platform with interactive map, reservation system, and user reviews. Responsive design optimized for all devices.
+</p>
+<p class="text-gray-300 text-sm sm:text-base mb-6 flex-1 line-clamp-5">
+ tech: ["Next.js", "React", "TypeScript", "Tailwind", "Node.js", "Express", "MongoDB", "Mapbox API"],
+</p>
+<p class="text-gray-300 text-sm sm:text-base mb-6 flex-1 line-clamp-5">
+  codeLink: "https://github.com/AaronAPerez/glamping-spot",
+    websiteLink: "https://the-glamping-spot.vercel.app/",
+</p>
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
