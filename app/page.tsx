@@ -16,6 +16,7 @@ import NewsletterSignup from "@/components/marketing/NewsletterSignup";
 // import SpecialOffers from "@/components/booking/SpecialOffers";
 // import UpcomingEventsBanner from "@/components/marketing/UpcomingEventsBanner";
 import { Metadata } from "next";
+import ActivitiesNearby from "@/location/ActivitiesNearby";
 
 
 /**
@@ -167,11 +168,6 @@ export default function Home() {
         />
       </section>
       
-      {/* Location and Accommodation Categories */}
-      <section id="categories" aria-labelledby="categories-heading">
-        <CategorySection />
-      </section>
-      
       {/* Unique Experiences Section for activity upsells */}
       <section id="unique-experiences" aria-labelledby="unique-experiences">
         <UniqueExperiences />
@@ -189,9 +185,22 @@ export default function Home() {
       </section>
       
       {/* Weather-based activity recommendations */}
+      <section id="weather-highlights" aria-labelledby="weather-highlights">
       <Suspense fallback={<div className="py-16 text-center">Loading weather data...</div>}>
         <WeatherHighlightsClient />
       </Suspense>
+      </section>
+
+      <section id="activities-nearby" aria-labelledby="activities-nearby">
+      <Suspense fallback={<div className="py-16 text-center">Loading weather data...</div>}>
+        <ActivitiesNearby />
+      </Suspense>
+      </section>
+
+            {/* Location and Accommodation Categories */}
+      <section id="categories" aria-labelledby="categories-heading">
+        <CategorySection />
+      </section>
       
       {/* Booking Promotion Section with time-sensitive offers */}
       <section id="booking-promotion" aria-labelledby="booking-promotion-heading">

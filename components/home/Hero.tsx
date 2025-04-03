@@ -7,6 +7,7 @@ import { TextGenerateEffect } from '../ui/TextGenerateEffect';
 import { SparklesCore } from '../ui/SparklesCore';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { CardContainer, CardBody, CardItem } from '../ui/3d-card';
 
 /**
  * Hero component with responsive design and banner awareness
@@ -14,6 +15,30 @@ import { motion } from 'framer-motion';
 const Hero = () => {
   // State to track if maintenance banner is visible
   const [isBannerVisible, setIsBannerVisible] = useState(false);
+
+  const categories = [
+    {
+      id: 'geo-domes',
+      title: 'Luxury Geo Domes',
+      description: 'Experience stargazing through transparent dome ceilings on wooden decks',
+      // image: '/images/geo-dome.jpg',
+      link: '/properties?category=geo-domes'
+    },
+    {
+      id: 'amenities',
+      title: 'Premium Amenities',
+      description: 'Luxury bathrooms, private jacuzzis, and comfortable furnishings',
+      // image: '/images/bathroom.jpg',
+      link: '/amenities'
+    },
+    {
+      id: 'activities',
+      title: 'Exciting Activities',
+      description: 'ATV track, volleyball court, ping pong, and evening bonfires',
+      // image: '/images/memories/atv-action.jpg', // Update with actual activity image
+      link: '/activities'
+    }
+  ];
 
   // Effect to check banner visibility from localStorage
   useEffect(() => {
@@ -47,11 +72,11 @@ const Hero = () => {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/20"></div>
       </div>
       
       {/* Sparkles effect overlay */}
-      <div className="absolute inset-0 w-full h-full z-10">
+      <div className="absolute inset-0 w-full h-5/12 z-10">
         <SparklesCore
           id="hero-sparkles"
           background="transparent"
@@ -65,7 +90,7 @@ const Hero = () => {
       
       {/* Hero content */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center items-start">
-        <div className="text-white max-w-3xl">
+        <div className="max-w-3xl">
           {/* Animated title with text generation effect */}
           <h1 
             id="hero-heading" 
@@ -76,25 +101,28 @@ const Hero = () => {
           
           {/* Animated subtitle */}
           <div className="text-xl sm:text-2xl mb-8 md:mb-14 opacity-90">
-          <p>
-            Discover unique glamping experiences in breathtaking locations.
-           </p>
+            <TextGenerateEffect 
+              words="Discover unique glamping experiences in breathtaking locations."
+              speed={30}
+            />
           </div>
           
           {/* Enhanced CTA button with emerald gradient matching logo */}
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <BackgroundGradient 
-              className="inline-block rounded-xl p-[4px]"
-              gradientColor="from-emerald-400 via-teal-500 to-emerald-600"
+              className="inline-block rounded-xl"
+              gradientColor="from-emerald-400 via-orange-500 to-sky-600"
             >
               <Link 
                 href="/bookings" 
-                className="bg-black/80 hover:bg-black text-white py-3 px-8 rounded-xl text-lg font-medium transition duration-150 w-full sm:w-auto text-center"
+                className="bg-transparent hover:bg-black text-white py-3 px-8 rounded-xl text-lg font-medium transition duration-150 w-full sm:w-auto text-center"
                 aria-label="Browse properties and book your adventure"
               >
                 Book Your Adventure
               </Link>
             </BackgroundGradient>
+
+            
             
             {/* Mobile friendly secondary navigation options */}
             <div className="hidden sm:flex mt-4 sm:mt-0">
@@ -190,6 +218,11 @@ const Hero = () => {
             </motion.div>
           </div>
         </div>
+
+       
+       
+
+
       </div>
       
       {/* Scroll indicator */}

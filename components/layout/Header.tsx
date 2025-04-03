@@ -1,235 +1,230 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useResponsiveLogoSize } from '@/hooks/useResponsiveLogoSize';
-import { usePathname } from 'next/navigation';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+import { useAuth } from "@/hooks/useAuth";
+import { User } from "lucide-react";
+import MobileMenu from "../header/MobileMenu";
+import UserMenu from "../header/UserMenu";
+import BookNowButton from "../header/BookNowButton";
+import { useResponsiveLogoSize } from "@/hooks/useResponsiveLogoSize";
 
 /**
- * Floating header component with responsive behavior and accessibility features
+ * Main site header component with navigation and booking button
+ * Includes responsive design and user authentication state
+ * Shows different links and options when user is logged in
  */
-  export default function Header() {
-    const logoSize = useResponsiveLogoSize();
-    const pathname = usePathname();
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    // State to track if banner is showing
-    const [isBannerVisible, setIsBannerVisible] = useState(true);
-    
-    // Calculate height based on the width to maintain aspect ratio
-    const logoHeight = Math.round(logoSize * 0.25); // 4:1 ratio
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+  const { user, loading, logout, isAdmin } = useAuth();
+  const logoSize = useResponsiveLogoSize();
+   
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // State to track if banner is showing
+  const [isBannerVisible, setIsBannerVisible] = useState(true);
   
-    // Handle both scroll and banner visibility together
-    useEffect(() => {
-      // Check initial banner state from localStorage
-      const bannerDismissed = localStorage.getItem('maintenanceBannerDismissed') === 'true';
-      setIsBannerVisible(!bannerDismissed);
-      
-      const handleScroll = () => {
-        setIsScrolled(window.scrollY > 10);
-      };
-      
-      // Listen for banner dismissal
-      const handleBannerDismiss = () => {
-        setIsBannerVisible(false);
-      };
-      
-      window.addEventListener('scroll', handleScroll);
-      window.addEventListener('maintenanceBannerDismissed', handleBannerDismiss);
-      
-      // Set initial state
-      handleScroll();
-      
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-        window.removeEventListener('maintenanceBannerDismissed', handleBannerDismiss);
-      };
-    }, []);
+  // Calculate height based on the width to maintain aspect ratio
+  const logoHeight = Math.round(logoSize * 0.25); // 4:1 ratio
 
+  // Handle both scroll and banner visibility together
+  useEffect(() => {
+    // Check initial banner state from localStorage
+    const bannerDismissed = localStorage.getItem('maintenanceBannerDismissed') === 'true';
+    setIsBannerVisible(!bannerDismissed);
+    
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 10);
+    };
+    
+    // Listen for banner dismissal
+    const handleBannerDismiss = () => {
+      setIsBannerVisible(false);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('maintenanceBannerDismissed', handleBannerDismiss);
+    
+    // Set initial state
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('maintenanceBannerDismissed', handleBannerDismiss);
+    };
+  }, []);
+  
+  // Navigation items - different based on authentication state
+  const getNavItems = () => {
+    const baseItems = [
+      { label: "Home", href: "/" },
+      { label: "Properties", href: "/properties" },
+      { label: "Experiences", href: "/experiences" },
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "/contact" },
+    ];
+    
+    // If user is logged in, add user-specific items
+    if (user) {
+      baseItems.push({ label: "My Bookings", href: "/account/bookings" });
+      
+      // Only add Admin Dashboard for admin users
+      if (isAdmin) {
+        baseItems.push({ label: "Admin Dashboard", href: "/admin" });
+      }
+    }
+    
+    return baseItems;
+  };
+  
+  const navItems = getNavItems();
+  
+  // Handle logout
+  const handleLogout = async () => {
+    try {
+      await logout();
+      router.push("/");
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
+  
   return (
     <header 
       className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-black/40 shadow-md h-22' 
-          : 'bg-transparent pb-2'
+          ? 'bg-black h-18' 
+          : 'bg-black h-18'
       } ${isBannerVisible ? 'top-[41px]' : 'top-0'}`}
       role="banner"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <div className="flex-shrink-0">
+        <div className="flex justify-between">
+          {/* Logo with circular gradient */}
+          <div className="flex-shrink-0 py-2">
             <Link href="/" aria-label="The Glamping Spot - Home">
-              <Image
-                src="/images/TheGlampingSpot_W.png"
-                alt=""
-                width={logoSize}
-                height={logoHeight}
-                priority
-                className="transition-all duration-300"
-                aria-hidden="true"
-              />
+              <div className="relative">
+                {/* Circular gradient background */}
+                <div 
+                  className="absolute -inset-1 rounded-full bg-gradient-to-r from-emerald-400 via-orange-500 to-sky-600 opacity-80 blur-sm"
+                  aria-hidden="true"
+                ></div>
+                
+                {/* Logo with black circular background */}
+                <div className="relative p-1 rounded-full bg-black">
+                  <Image
+                    src="/images/TheGlampingSpot_W.png"
+                    alt=""
+                    width={logoSize}
+                    height={logoHeight}
+                    priority
+                    className="transition-all duration-300 rounded-full"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
             </Link>
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
-            <Link 
-              href="/" 
-              className={`font-medium transition-colors ${
-                pathname === '/' 
-                  ? 'text-emerald-600' 
-                  : isScrolled ? 'text-gray-800 hover:text-emerald-600' : 'text-white hover:text-emerald-300'
-              }`}
-              aria-current={pathname === '/' ? 'page' : undefined}
-            >
-              Home
-            </Link>
-            <Link 
-              href="/properties" 
-              className={`font-medium transition-colors ${
-                pathname?.startsWith('/properties') 
-                  ? 'text-emerald-600' 
-                  : isScrolled ? 'text-gray-200 hover:text-emerald-600' : 'text-white hover:text-emerald-300'
-              }`}
-              aria-current={pathname?.startsWith('/properties') ? 'page' : undefined}
-            >
-              Properties
-            </Link>
-            <Link 
-              href="/memories" 
-              className={`font-medium transition-colors ${
-                pathname?.startsWith('/memories') 
-                  ? 'text-emerald-600' 
-                  : isScrolled ? 'text-gray-200 hover:text-emerald-600' : 'text-white hover:text-emerald-300'
-              }`}
-              aria-current={pathname?.startsWith('/memories') ? 'page' : undefined}
-            >
-              Memories
-            </Link>
-            <Link 
-              href="/about" 
-              className={`font-medium transition-colors ${
-                pathname === '/about' 
-                  ? 'text-emerald-600' 
-                  : isScrolled ? 'text-gray-200 hover:text-emerald-600' : 'text-white hover:text-emerald-300'
-              }`}
-              aria-current={pathname === '/about' ? 'page' : undefined}
-            >
-              About
-            </Link>
-            <Link 
-              href="/login" 
-              className={`px-4 py-2 rounded-md font-medium transition-colors ${
-                isScrolled
-                  ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
-                  : 'bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white'
-              }`}
-            >
-              Login
-            </Link>
+          <nav className="hidden md:flex items-start space-x-4 lg:space-x-6 py-6">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-lg transition-colors ${
+                  pathname === item.href
+                    ? (scrolled ? "text-emerald-600" : "text-gray-100 text-opacity-100")
+                    : (scrolled ? "text-gray-100 hover:text-emerald-700" : "text-white text-opacity-80 hover:text-opacity-100")
+                } ${item.label === "Admin Dashboard" ? "bg-amber-100 text-amber-800 px-3 py-1 rounded-md" : ""}`}
+                aria-current={pathname === item.href ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
           
-          {/* Mobile menu button */}
-          <button 
-            className="md:hidden rounded-md p-2 inline-flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="mobile-menu"
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-          >
-            <span className="sr-only">{isMobileMenuOpen ? 'Close menu' : 'Open menu'}</span>
-            {isMobileMenuOpen ? (
-              <svg 
-                className={`h-6 w-6 ${isScrolled ? 'text-gray-800' : 'text-white'}`} 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor" 
-                aria-hidden="true"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg 
-                className={`h-6 w-6 ${isScrolled ? 'text-gray-800' : 'text-white'}`} 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor" 
-                aria-hidden="true"
-              >
+          {/* Right side - Book now & user actions */}
+          <div className="flex items-start space-x-4 cursor-pointer py-4">
+            {/* Book Now Button */}
+            <BookNowButton isScrolled={scrolled} />
+            
+            {/* User Menu or Login/Logout Button */}
+            {!loading && (
+              user ? (
+                <div className="flex items-start space-x-4">
+                  {/* User Menu (profile picture/dropdown) */}
+                  <UserMenu isScrolled={scrolled} />
+                  
+                  {/* Direct logout button */}
+                  {/* <button
+                    onClick={handleLogout}
+                    className={`hidden md:flex items-center space-x-1 text-sm font-medium transition-colors ${
+                      scrolled ? "hover:text-red-600" : "text-white text-opacity-80 hover:text-opacity-100"
+                    }`}
+                    aria-label="Log out"
+                  >
+                    <LogOut className="h-4 w-4" />
+                    <span className="hidden lg:inline">Logout</span>
+                  </button> */}
+                </div>
+              ) : (
+                /* Login/Register Links */
+                <div className="hidden md:flex items-center space-x-2 py-2">
+                  <Link
+                    href="/login"
+                    className={`flex items-center text-sm font-medium transition-colors ${
+                      scrolled ? "text-white hover:text-emerald-700" : "text-white hover:text-emerald-400"
+                    }`}
+                  >
+                    <User className="mr-1 h-4 w-4" aria-hidden="true" />
+                    <span>Login</span>
+                  </Link>
+                  <span className={`${scrolled ? "text-gray-300" : "text-white opacity-50"}`}>|</span>
+                  <Link
+                    href="/register"
+                    className={`text-sm font-medium transition-colors ${
+                      scrolled ? "text-white hover:text-emerald-700" : "text-white hover:text-emerald-400"
+                    }`}
+                  >
+                    Register
+                  </Link>
+                </div>
+              )
+            )}
+            
+            {/* Mobile Menu Toggle */}
+            <button
+              type="button"
+              className="md:hidden text-gray-100 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              onClick={() => setMobileMenuOpen(true)}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label="Open main menu"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
-            )}
-          </button>
+            </button>
+          </div>
         </div>
       </div>
       
-      {/* Mobile menu */}
-      <div 
-        className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}
-        id="mobile-menu"
-      >
-        <div className={`px-2 pt-2 pb-3 space-y-1 ${isScrolled ? 'bg-white' : 'bg-gray-900'}`}>
-          <Link 
-            href="/" 
-            className={`block px-3 py-2 rounded-md text-base font-medium ${
-              pathname === '/' 
-                ? 'bg-emerald-500 text-white' 
-                : isScrolled ? 'text-gray-800 hover:bg-gray-100' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-            }`}
-            onClick={() => setIsMobileMenuOpen(false)}
-            aria-current={pathname === '/' ? 'page' : undefined}
-          >
-            Home
-          </Link>
-          <Link 
-            href="/properties" 
-            className={`block px-3 py-2 rounded-md text-base font-medium ${
-              pathname?.startsWith('/properties') 
-                ? 'bg-emerald-500 text-white' 
-                : isScrolled ? 'text-gray-800 hover:bg-gray-100' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-            }`}
-            onClick={() => setIsMobileMenuOpen(false)}
-            aria-current={pathname?.startsWith('/properties') ? 'page' : undefined}
-          >
-            Properties
-          </Link>
-          <Link 
-            href="/memories" 
-            className={`block px-3 py-2 rounded-md text-base font-medium ${
-              pathname?.startsWith('/memories') 
-                ? 'bg-emerald-500 text-white' 
-                : isScrolled ? 'text-gray-800 hover:bg-gray-100' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-            }`}
-            onClick={() => setIsMobileMenuOpen(false)}
-            aria-current={pathname?.startsWith('/memories') ? 'page' : undefined}
-          >
-            Memories
-          </Link>
-          <Link 
-            href="/about" 
-            className={`block px-3 py-2 rounded-md text-base font-medium ${
-              pathname === '/about' 
-                ? 'bg-emerald-500 text-white' 
-                : isScrolled ? 'text-gray-800 hover:bg-gray-100' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-            }`}
-            onClick={() => setIsMobileMenuOpen(false)}
-            aria-current={pathname === '/about' ? 'page' : undefined}
-          >
-            About
-          </Link>
-          <Link 
-            href="/login" 
-            className="block px-3 py-2 rounded-md text-base font-medium bg-emerald-600 hover:bg-emerald-700 text-white"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Login
-          </Link>
-        </div>
-      </div>
+      {/* Mobile Menu */}
+      <MobileMenu 
+        isOpen={mobileMenuOpen} 
+        onClose={() => setMobileMenuOpen(false)} 
+        navItems={navItems}
+        isLoggedIn={!!user}
+        onLogout={handleLogout}
+        isAdmin={isAdmin}
+      />
     </header>
   );
 }
