@@ -4,10 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { useAuth } from "@/hooks/useAuth";
-import { User } from "lucide-react";
-import MobileMenu from "../header/MobileMenu";
-import UserMenu from "../header/UserMenu";
+// import { useAuth } from "@/hooks/useAuth";
 import BookNowButton from "../header/BookNowButton";
 import { useResponsiveLogoSize } from "@/hooks/useResponsiveLogoSize";
 
@@ -21,7 +18,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  const { user, loading, logout, isAdmin } = useAuth();
+  // const { user, loading, logout, isAdmin } = useAuth();
   const logoSize = useResponsiveLogoSize();
    
   const [isScrolled, setIsScrolled] = useState(false);
@@ -69,30 +66,30 @@ export default function Header() {
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
     ];
-    
+  // };
     // If user is logged in, add user-specific items
-    if (user) {
-      baseItems.push({ label: "My Bookings", href: "/account/bookings" });
+  //   if (user) {
+  //     baseItems.push({ label: "My Bookings", href: "/account/bookings" });
       
-      // Only add Admin Dashboard for admin users
-      if (isAdmin) {
-        baseItems.push({ label: "Admin Dashboard", href: "/admin" });
-      }
-    }
+  //     // Only add Admin Dashboard for admin users
+  //     if (isAdmin) {
+  //       baseItems.push({ label: "Admin Dashboard", href: "/admin" });
+  //     }
+  //   }
     
-    return baseItems;
-  };
+  //   return baseItems;
+  // };
   
-  const navItems = getNavItems();
+  // const navItems = getNavItems();
   
   // Handle logout
-  const handleLogout = async () => {
-    try {
-      await logout();
-      router.push("/");
-    } catch (error) {
-      console.error("Logout error:", error);
-    }
+  // const handleLogout = async () => {
+  //   try {
+  //     await logout();
+  //     router.push("/");
+  //   } catch (error) {
+  //     console.error("Logout error:", error);
+  //   }
   };
   
   return (
@@ -101,13 +98,13 @@ export default function Header() {
         isScrolled 
           ? 'bg-black h-18' 
           : 'bg-black h-18'
-      } ${isBannerVisible ? 'top-[41px]' : 'top-0'}`}
+      } ${isBannerVisible ? 'top-[0px]' : 'top-0'}`}
       role="banner"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between">
           {/* Logo with circular gradient */}
-          <div className="flex-shrink-0 py-2">
+          <div className="flex-shrink-0 pt-2">
             <Link href="/" aria-label="The Glamping Spot - Home">
               <div className="relative">
                 {/* Circular gradient background */}
@@ -117,7 +114,7 @@ export default function Header() {
                 ></div>
                 
                 {/* Logo with black circular background */}
-                <div className="relative p-1 rounded-full bg-black">
+                <div className="relative py-2 rounded-full bg-black/50">
                   <Image
                     src="/images/TheGlampingSpot_W.png"
                     alt=""
@@ -134,7 +131,7 @@ export default function Header() {
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-start space-x-4 lg:space-x-6 py-6">
-            {navItems.map((item) => (
+            {/* {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -147,7 +144,7 @@ export default function Header() {
               >
                 {item.label}
               </Link>
-            ))}
+            ))} */}
           </nav>
           
           {/* Right side - Book now & user actions */}
@@ -155,49 +152,7 @@ export default function Header() {
             {/* Book Now Button */}
             <BookNowButton isScrolled={scrolled} />
             
-            {/* User Menu or Login/Logout Button */}
-            {!loading && (
-              user ? (
-                <div className="flex items-start space-x-4">
-                  {/* User Menu (profile picture/dropdown) */}
-                  <UserMenu isScrolled={scrolled} />
-                  
-                  {/* Direct logout button */}
-                  {/* <button
-                    onClick={handleLogout}
-                    className={`hidden md:flex items-center space-x-1 text-sm font-medium transition-colors ${
-                      scrolled ? "hover:text-red-600" : "text-white text-opacity-80 hover:text-opacity-100"
-                    }`}
-                    aria-label="Log out"
-                  >
-                    <LogOut className="h-4 w-4" />
-                    <span className="hidden lg:inline">Logout</span>
-                  </button> */}
-                </div>
-              ) : (
-                /* Login/Register Links */
-                <div className="hidden md:flex items-center space-x-2 py-2">
-                  <Link
-                    href="/login"
-                    className={`flex items-center text-sm font-medium transition-colors ${
-                      scrolled ? "text-white hover:text-emerald-700" : "text-white hover:text-emerald-400"
-                    }`}
-                  >
-                    <User className="mr-1 h-4 w-4" aria-hidden="true" />
-                    <span>Login</span>
-                  </Link>
-                  <span className={`${scrolled ? "text-gray-300" : "text-white opacity-50"}`}>|</span>
-                  <Link
-                    href="/register"
-                    className={`text-sm font-medium transition-colors ${
-                      scrolled ? "text-white hover:text-emerald-700" : "text-white hover:text-emerald-400"
-                    }`}
-                  >
-                    Register
-                  </Link>
-                </div>
-              )
-            )}
+  
             
             {/* Mobile Menu Toggle */}
             <button
@@ -217,14 +172,14 @@ export default function Header() {
       </div>
       
       {/* Mobile Menu */}
-      <MobileMenu 
+      {/* <MobileMenu 
         isOpen={mobileMenuOpen} 
         onClose={() => setMobileMenuOpen(false)} 
-        navItems={navItems}
-        isLoggedIn={!!user}
-        onLogout={handleLogout}
-        isAdmin={isAdmin}
-      />
+        // navItems={navItems}
+        // isLoggedIn={!!user}
+        // onLogout={handleLogout}
+        // isAdmin={isAdmin}
+      /> */}
     </header>
   );
-}
+};

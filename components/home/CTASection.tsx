@@ -40,7 +40,7 @@ export default function CTASection() {
       {/* Background image with overlay */}
       <div className="absolute inset-0">
         <Image
-          src="/images/nature.jpg"
+          src="/images/stars1.jpg"
           alt="Scenic nature background"
           fill
           style={{ objectFit: 'cover' }}
@@ -52,7 +52,7 @@ export default function CTASection() {
       {/* Background beams effect */}
       <BackgroundBeams 
         className="absolute inset-0" 
-        opacity={0.3}
+        opacity={0.5}
         background="transparent"
       />
       
@@ -61,7 +61,7 @@ export default function CTASection() {
         className="absolute inset-0 md:hidden"
         size={300}
         spotlightColour="white"
-        opacity={0.1}
+        opacity={0.5}
       />
       
       {/* Content container */}

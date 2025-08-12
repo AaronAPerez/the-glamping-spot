@@ -51,7 +51,7 @@ interface SpotlightProps {
 export function Spotlight({
   className,
   background = "transparent",
-  size = 200,
+  size = 100,
   spotlightColour = "#fff",
   opacity = 0.2,
   reduceMobileSpotlight = true,

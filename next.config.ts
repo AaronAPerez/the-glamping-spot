@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
 
   devIndicators: false,
   transpilePackages: ['@view360/core', '@view360/controls'],
+  
 };
 
 export default nextConfig;

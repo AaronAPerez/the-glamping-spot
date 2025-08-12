@@ -47,7 +47,7 @@ export function LampContainer({
   spotlightClassName,
   disabled = false,
   spotlightColor = "white",
-  size = 350,
+  size = 80,
 }: LampContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);

@@ -3,11 +3,11 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import { MaintenanceBanner } from '@/components/maintenance/MaintenanceBanner'
-import UpcomingEventsBanner from "@/components/banners/UpcomingEventsBanner";
+// import { MaintenanceBanner } from '@/components/maintenance/MaintenanceBanner'
+// import UpcomingEventsBanner from "@/components/banners/UpcomingEventsBanner";
 // import { FloatingNav } from '@/components/layout/FloatingNav'
-import { AuthProvider } from '@/context/AuthContext'
-import { Providers } from './providers'
+// import { AuthProvider } from '@/context/AuthContext'
+// import { Providers } from './providers'
 
 
 
@@ -57,8 +57,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
 
         {/* Fixed position wrapper for banner and header */}
-        <Providers>
-          <MaintenanceBanner />
+        {/* <Providers> */}
+          {/* <MaintenanceBanner /> */}
  
           <Header />
      
@@ -67,7 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* <FloatingNav /> */}
         
         <Footer/>
-        </Providers>
+        {/* </Providers> */}
       </body>
     </html>
   )

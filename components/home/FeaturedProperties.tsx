@@ -18,51 +18,28 @@ interface FeaturedPropertyData {
   amenities: string[];
   category: string;
   featured: boolean;
-  availability?: string[]; // Add upcoming availability dates
-  discountCode?: string; // Optional discount code
+  availability?: string[];
+  discountCode?: string;
 }
 
 interface FeaturedPropertiesProps {
-  /**
-   * Number of properties to display
-   * @default 3
-   */
   limit?: number;
-  
-  /**
-   * Title for the section
-   * @default "Featured Properties"
-   */
   title?: string;
-  
-  /**
-   * Subtitle for the section
-   */
   subtitle?: string;
-  
-  /**
-   * Custom className for the component
-   */
   className?: string;
-  
-  /**
-   * Additional properties data (if available)
-   */
   customProperties?: FeaturedPropertyData[];
 }
 
 /**
- * FeaturedProperties component displays highlighted glamping properties
- * with images, location, price, and a link to property details
+ * FeaturedProperties component with optimized images and enhanced accessibility
  */
 export default function FeaturedProperties({
   limit = 3,
-  title = "Our Luxury Dome Offerings",
-  subtitle = "Experience our premium geo domes with upscale amenities in the heart of Texas",
+  title = "Our Luxury Geodesic Dome Accommodations",
+  subtitle = "Experience our premium geo domes with upscale amenities in the heart of East Texas near the Big Thicket National Preserve",
   className = "",
   customProperties
 }: FeaturedPropertiesProps) {
-  // State for featured properties data
   const [properties, setProperties] = useState<FeaturedPropertyData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -70,66 +47,63 @@ export default function FeaturedProperties({
   // Fetch featured properties data
   useEffect(() => {
     const fetchFeaturedProperties = async () => {
-      // If custom properties were provided, use those
       if (customProperties) {
         setProperties(customProperties.slice(0, limit));
         setIsLoading(false);
         return;
       }
 
-      // Otherwise use sample data specific to The Glamping Spot
       try {
         setIsLoading(true);
         
-        // For demo purposes, using sample data specific to The Glamping Spot
+        // Optimized sample data for The Glamping Spot
         const sampleProperties: FeaturedPropertyData[] = [
           {
-            _id: 'dome1',
-            name: 'Stargazer Geo Dome',
-            description: 'Our premium geo dome with transparent ceiling for stargazing, featuring a king bed and luxury amenities',
-            location: 'The Glamping Spot, Near Houston, TX',
+            _id: 'stargazer-dome',
+            name: 'Stargazer Geodesic Dome',
+            description: 'Our premium geodesic dome with transparent ceiling for stargazing, featuring a king bed, luxury bathroom, and private hot tub',
+            location: 'The Glamping Spot, Kountze, East Texas',
             price: 219,
             imageUrls: ['/images/geo-dome.jpg'],
             capacity: 2,
-            amenities: ['Jacuzzi', 'Wi-Fi', 'Air conditioning', 'Luxury bathroom', 'Fire pit'],
+            amenities: ['Private Hot Tub', 'Stargazing Ceiling', 'King Bed', 'Luxury Bathroom', 'Fire Pit'],
             category: 'geo-dome',
             featured: true,
             availability: ['May 15-20', 'June 3-10', 'June 18-24'],
           },
           {
-            _id: 'dome2',
+            _id: 'sunset-dome-retreat',
             name: 'Sunset Dome Retreat',
-            description: 'Perfect for couples with premium views of Texas sunsets and a private deck with jacuzzi',
-            location: 'The Glamping Spot, Near Houston, TX',
+            description: 'Perfect for couples with premium views of Texas sunsets, private deck with hot tub, and outdoor shower experience',
+            location: 'The Glamping Spot, Kountze, East Texas',
             price: 249,
-            imageUrls: ['/images/geo-dome-sunset2.jpg'], // Update with actual image
+            imageUrls: ['/images/geo-dome-sunset2.jpg'],
             capacity: 2,
-            amenities: ['Jacuzzi', 'Wi-Fi', 'Outdoor shower', 'Kitchenette', 'BBQ grill'],
+            amenities: ['Private Hot Tub', 'Outdoor Shower', 'Sunset Views', 'Kitchenette', 'BBQ Grill'],
             category: 'geo-dome',
             featured: true,
             availability: ['May 10-17', 'May 28-31', 'June 15-22'],
             discountCode: 'SUNSET10'
           },
           {
-            _id: 'dome3',
+            _id: 'family-adventure-dome',
             name: 'Family Adventure Dome',
-            description: 'Larger dome with extra sleeping accommodations, perfect for small families wanting to experience glamping',
-            location: 'The Glamping Spot, Near Houston, TX',
+            description: 'Spacious geodesic dome with extra sleeping accommodations, perfect for small families wanting to experience luxury glamping',
+            location: 'The Glamping Spot, Kountze, East Texas',
             price: 289,
-            imageUrls: ['/images/family-dome.jpg'], // Update with actual image
+            imageUrls: ['/images/family-dome.jpg'],
             capacity: 4,
-            amenities: ['Queen bed + bunks', 'Large jacuzzi', 'Full bathroom', 'Kitchenette', 'Fire pit'],
+            amenities: ['Queen Bed + Bunks', 'Large Hot Tub', 'Full Bathroom', 'Kitchenette', 'Fire Pit'],
             category: 'geo-dome',
             featured: true,
             availability: ['May 22-29', 'June 5-12', 'June 25-30'],
           },
         ];
         
-        setTimeout(() => {
-          // Limit to requested number of properties
-          setProperties(sampleProperties.slice(0, limit));
-          setIsLoading(false);
-        }, 800); // Simulate network delay
+        // Simulate API delay for better UX
+        await new Promise(resolve => setTimeout(resolve, 600));
+        setProperties(sampleProperties.slice(0, limit));
+        setIsLoading(false);
       } catch (err) {
         console.error('Error fetching featured properties:', err);
         setError('Unable to load featured properties. Please try again later.');
@@ -140,13 +114,14 @@ export default function FeaturedProperties({
     fetchFeaturedProperties();
   }, [limit, customProperties]);
 
-  // Animation variants for staggered children
+  // Animation variants for performance optimization
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.15, // Reduced for better performance
+        delayChildren: 0.1
       }
     }
   };
@@ -157,54 +132,57 @@ export default function FeaturedProperties({
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5
+        duration: 0.4,
+        ease: "easeOut"
       }
     }
   };
 
   return (
     <section 
-      className={`py-16 ${className}`} 
+      className={`py-16 bg-gradient-to-b from-gray-50 to-white ${className}`} 
       aria-labelledby="featured-properties-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
+        {/* Enhanced section header */}
         <div className="text-center mb-12">
           <BackgroundGradient className="inline-block p-[3px] mb-4 rounded-xl">
-            <div className="rounded-lg px-4 py-2">
+            <div className="rounded-lg px-4 py-2 bg-white">
               <h2 
                 id="featured-properties-heading" 
-                className="text-3xl font-bold"
+                className="text-3xl font-bold text-gray-900"
               >
                 {title}
               </h2>
             </div>
           </BackgroundGradient>
           {subtitle && (
-            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               {subtitle}
             </p>
           )}
         </div>
 
-        {/* Loading state */}
+        {/* Optimized loading state */}
         {isLoading && (
-          <div className="flex justify-center items-center h-64">
+          <div className="flex justify-center items-center h-64" role="status" aria-label="Loading featured properties">
             <div className="w-12 h-12 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
+            <span className="sr-only">Loading featured geodesic domes...</span>
           </div>
         )}
 
-        {/* Error state */}
+        {/* Enhanced error state */}
         {error && (
           <div 
-            className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg text-center max-w-lg mx-auto"
+            className="bg-red-50 border border-red-200 text-red-700 p-6 rounded-lg text-center max-w-lg mx-auto"
             role="alert"
           >
             <svg 
-              className="h-6 w-6 text-red-600 mx-auto mb-2" 
+              className="h-8 w-8 text-red-600 mx-auto mb-3" 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor"
+              aria-hidden="true"
             >
               <path 
                 strokeLinecap="round" 
@@ -213,11 +191,12 @@ export default function FeaturedProperties({
                 d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" 
               />
             </svg>
-            <p>{error}</p>
+            <p className="font-medium">{error}</p>
+            <p className="mt-2 text-sm">Please refresh the page or contact us directly at <a href="tel:+1234567890" className="underline">123-456-7890</a></p>
           </div>
         )}
 
-        {/* Properties grid */}
+        {/* Optimized properties grid */}
         {!isLoading && !error && (
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -226,52 +205,70 @@ export default function FeaturedProperties({
             animate="visible"
           >
             {properties.map((property) => (
-              <motion.div
+              <motion.article
                 key={property._id}
-                className="property-card"
+                className="property-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                 variants={itemVariants}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
               >
                 <Link 
                   href={`/properties/${property._id}`}
-                  className="block h-full rounded-lg overflow-hidden shadow-md bg-white hover:shadow-xl transition-shadow duration-300"
-                  aria-labelledby={`property-${property._id}-title`}
+                  className="block h-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                  aria-label={`View details and book ${property.name}`}
                 >
-                  <div className="relative h-80 xs:h-80 sm:h-100 md:h-70">
+                  {/* Optimized property image */}
+                  <div className="relative h-64 sm:h-72 md:h-64">
                     <Image
-                      src={property.imageUrls[0] || '/images/placeholder.jpg'}
-                      alt={`${property.name} at The Glamping Spot near Houston, Texas`}
+                      src={property.imageUrls[0] || '/images/placeholder-dome.jpg'}
+                      alt={`${property.name} - luxury geodesic dome at The Glamping Spot featuring ${property.amenities.slice(0, 2).join(' and ')}`}
                       fill
                       style={{ objectFit: 'cover' }}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="transition-transform duration-500 group-hover:scale-105"
+                      quality={80}
+                      loading="lazy"
                     />
-                    {/* Featured badge */}
-                    <div className="absolute top-4 left-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-medium">
-                      Featured
+                    
+                    {/* Enhanced badges */}
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow-md">
+                        Featured
+                      </span>
                     </div>
-                    {/* Discount badge if available */}
+                    
                     {property.discountCode && (
-                      <div className="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-medium">
-                        Discount Available
+                      <div className="absolute top-4 right-4">
+                        <span className="bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-md">
+                          Special Offer
+                        </span>
                       </div>
                     )}
+
+                    {/* Capacity indicator */}
+                    <div className="absolute bottom-4 left-4">
+                      <span className="bg-black/70 text-white px-2 py-1 rounded-full text-xs flex items-center">
+                        <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                          <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                        </svg>
+                        {property.capacity} guests
+                      </span>
+                    </div>
                   </div>
-                  <div className="p-5">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <h3 
-                          id={`property-${property._id}-title`} 
-                          className="text-xl font-semibold mb-1 text-gray-900"
-                        >
+
+                  {/* Enhanced property details */}
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold mb-2 text-gray-900 line-clamp-2">
                           {property.name}
                         </h3>
                         <p className="text-gray-600 text-sm mb-2 flex items-center">
                           <svg 
-                            className="w-4 h-4 mr-1" 
+                            className="w-4 h-4 mr-1 text-emerald-600" 
                             fill="none" 
                             viewBox="0 0 24 24" 
                             stroke="currentColor"
+                            aria-hidden="true"
                           >
                             <path 
                               strokeLinecap="round" 
@@ -289,98 +286,114 @@ export default function FeaturedProperties({
                           {property.location}
                         </p>
                       </div>
-                      <p className="text-emerald-600 font-bold">
-                        ${property.price}
-                        <span className="text-sm font-normal text-gray-500"> /night</span>
-                      </p>
+                      <div className="text-right">
+                        <p className="text-emerald-600 font-bold text-lg">
+                          ${property.price}
+                        </p>
+                        <span className="text-sm font-normal text-gray-500">per night</span>
+                      </div>
                     </div>
+
+                    {/* Property description */}
+                    <p className="text-gray-700 text-sm mb-4 line-clamp-2">
+                      {property.description}
+                    </p>
                     
-                    {/* Key amenities */}
-                    <div className="mt-4">
-                      <h4 className="text-sm font-medium text-gray-700">Top Amenities:</h4>
-                      <div className="flex flex-wrap gap-2 mt-1">
+                    {/* Enhanced amenities display */}
+                    <div className="mb-4">
+                      <h4 className="text-sm font-semibold text-gray-800 mb-2">Featured Amenities:</h4>
+                      <div className="flex flex-wrap gap-2">
                         {property.amenities.slice(0, 3).map((amenity, index) => (
-                          <span key={index} className="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full">
+                          <span 
+                            key={`${property._id}-amenity-${index}`}
+                            className="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full border border-emerald-200"
+                          >
                             {amenity}
                           </span>
                         ))}
                         {property.amenities.length > 3 && (
-                          <span className="text-xs bg-gray-50 text-gray-500 px-2 py-1 rounded-full">
+                          <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
                             +{property.amenities.length - 3} more
                           </span>
                         )}
                       </div>
                     </div>
                     
-                    {/* Upcoming availability */}
+                    {/* Availability information */}
                     {property.availability && (
-                      <div className="mt-3 text-xs text-gray-600">
-                        <span className="font-medium">Next available:</span>{' '}
-                        {property.availability[0]}
+                      <div className="mb-4 p-3 bg-gray-50 rounded-lg">
+                        <p className="text-xs text-gray-600 mb-1">
+                          <span className="font-medium text-gray-800">Next Available:</span>
+                        </p>
+                        <p className="text-sm font-medium text-emerald-700">
+                          {property.availability[0]}
+                        </p>
                       </div>
                     )}
                     
-                    {/* View button with arrow icon */}
-                    <div className="mt-5 flex items-center text-emerald-600 font-medium">
-                      <span>View Details & Book</span>
+                    {/* Enhanced CTA */}
+                    <div className="flex items-center justify-between pt-2 border-t border-gray-100">
+                      <span className="text-emerald-600 font-semibold">
+                        View Details & Book
+                      </span>
                       <svg 
-                        className="ml-2 w-5 h-5" 
+                        className="w-5 h-5 text-emerald-600" 
                         fill="none" 
                         viewBox="0 0 24 24" 
                         stroke="currentColor"
+                        aria-hidden="true"
                       >
                         <path 
                           strokeLinecap="round" 
                           strokeLinejoin="round" 
                           strokeWidth={2} 
-                          d="M14 5l7 7m0 0l-7 7m7-7H3" 
+                          d="M17 8l4 4m0 0l-4 4m4-4H3" 
                         />
                       </svg>
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+              </motion.article>
             ))}
           </motion.div>
         )}
         
-        {/* Booking info section */}
-        <div className="mt-16 p-8 bg-emerald-50 rounded-lg shadow-inner">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        {/* Enhanced booking information section */}
+        <div className="mt-16 p-8 bg-gradient-to-r from-emerald-50 to-blue-50 rounded-2xl shadow-inner">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Ready to Book Your Texas Glamping Experience?</h3>
-              <p className="text-gray-700 mb-4">
-                Our geo domes book quickly, especially during weekends and holidays. 
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Ready to Book Your Texas Geodesic Dome Experience?
+              </h3>
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                Our luxury geodesic domes book quickly, especially during weekends and holidays. 
                 Reserve your stay now to secure your preferred dates and experience 
-                luxury glamping in the heart of Texas.
+                the ultimate glamping adventure in East Texas near the Big Thicket National Preserve.
               </p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-emerald-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Free cancellation up to 7 days before check-in</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-emerald-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Special weekday rates available</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-emerald-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Exclusive activities included with every booking</span>
-                </li>
+              <ul className="space-y-3 text-gray-700">
+                {[
+                  'Free cancellation up to 7 days before check-in',
+                  'Special weekday rates available',
+                  'Exclusive activities included with every booking',
+                  'Direct booking best rate guarantee'
+                ].map((benefit, index) => (
+                  <li key={index} className="flex items-start">
+                    <svg className="h-5 w-5 text-emerald-500 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{benefit}</span>
+                  </li>
+                ))}
               </ul>
             </div>
-            <div className="text-center">
-              <p className="text-lg font-medium text-emerald-800 mb-3">Book direct for the best rates</p>
+            <div className="text-center lg:text-right">
+              <p className="text-lg font-semibold text-emerald-800 mb-4">
+                Book Direct for Exclusive Benefits
+              </p>
               <Link 
                 href="/booking" 
-                className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                aria-label="Book your glamping experience now"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl text-white bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                aria-label="Check availability and book your geodesic dome experience"
               >
                 Check Availability
                 <svg 
@@ -388,6 +401,7 @@ export default function FeaturedProperties({
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <path 
                     strokeLinecap="round" 
@@ -397,20 +411,26 @@ export default function FeaturedProperties({
                   />
                 </svg>
               </Link>
-              <p className="mt-3 text-sm text-gray-600">
-                Or call us at <a href="tel:+1234567890" className="text-emerald-700 font-medium">123-456-7890</a>
+              <p className="mt-4 text-sm text-gray-600">
+                Questions? Call us at{' '}
+                <a 
+                  href="tel:+1234567890" 
+                  className="text-emerald-700 font-semibold hover:underline focus:outline-none focus:underline"
+                >
+                  (123) 456-7890
+                </a>
               </p>
             </div>
           </div>
         </div>
         
-        {/* View All Properties Button - When you expand to more properties */}
+        {/* View all properties CTA */}
         {!isLoading && !error && properties.length > 0 && (
           <div className="text-center mt-12">
             <Link 
               href="/properties" 
-              className="inline-flex items-center justify-center px-6 py-3 border border-emerald-600 text-base font-medium rounded-md text-emerald-600 hover:bg-emerald-50 transition-colors"
-              aria-label="View all available domes and properties"
+              className="inline-flex items-center justify-center px-6 py-3 border border-emerald-600 text-base font-medium rounded-md text-emerald-600 hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+              aria-label="View all available geodesic domes and accommodations"
             >
               View All Accommodations
               <svg 
@@ -418,6 +438,7 @@ export default function FeaturedProperties({
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor"
+                aria-hidden="true"
               >
                 <path 
                   strokeLinecap="round" 
