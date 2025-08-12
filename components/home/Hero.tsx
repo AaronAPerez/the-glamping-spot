@@ -225,7 +225,7 @@ const Hero = () => {
           }
         }}
         onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-        className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded-full p-2"
+        // className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded-full p-2"
       >
         <svg 
           className="h-8 w-8 text-white" 

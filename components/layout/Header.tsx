@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 // import { useAuth } from "@/hooks/useAuth";
-import BookNowButton from "../header/BookNowButton";
+// import BookNowButton from "../header/BookNowButton";
 import { useResponsiveLogoSize } from "@/hooks/useResponsiveLogoSize";
 
 /**
@@ -150,8 +150,8 @@ export default function Header() {
           {/* Right side - Book now & user actions */}
           <div className="flex items-start space-x-4 cursor-pointer py-4">
             {/* Book Now Button */}
-            <BookNowButton isScrolled={scrolled} />
-            
+            {/* <BookNowButton isScrolled={scrolled} />
+             */}
   
             
             {/* Mobile Menu Toggle */}
