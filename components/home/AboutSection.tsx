@@ -183,7 +183,7 @@ export default function AboutSection() {
             {showcaseImages.map((image, index) => (
               <motion.div
                 key={image.src}
-                variants={itemVariants}
+                // variants={itemVariants}
                 className="relative group"
               >
                 <div className="relative h-48 lg:h-64 rounded-xl overflow-hidden shadow-lg">

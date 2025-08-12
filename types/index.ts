@@ -6,6 +6,8 @@
  * Property data as returned from API and used in components
  */
 export interface PropertyData {
+    rating: number | undefined;
+    reviewCount: number | undefined;
     _id: string;
     name: string;
     description: string;

@@ -2,7 +2,7 @@ import Hero from "@/components/home/Hero";
 import AboutSection from "@/components/home/AboutSection";
 import FeaturedProperties from "@/components/home/FeaturedProperties";
 import WeatherHighlightsClient from "@/components/home/WeatherHighlightsClient";
-import MemoriesPreview from "@/components/home/MemoriesPreview";
+
 import UniqueExperiences from "@/components/home/UniqueExperiences";
 import TestimonialSection from "@/components/home/TestimonialSection";
 import CTASection from "@/components/home/CTASection";
@@ -12,6 +12,7 @@ import NewsletterSignup from "@/components/marketing/NewsletterSignup";
 import ActivitiesNearby from "@/location/ActivitiesNearby";
 import { Suspense } from "react";
 import { Metadata } from "next";
+import ExperiencesPreview from "@/components/home/ExperiencesPreview";
 
 /**
  * Enhanced SEO metadata for the homepage with comprehensive keywords and social sharing
@@ -158,7 +159,7 @@ const navItems = [
   },
   {
     name: "Photo Gallery",
-    link: "#memories",
+    link: "#experiences",
     icon: (
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
@@ -228,7 +229,7 @@ export default function Home() {
       </a>
 
       {/* Main content landmark */}
-      <main id="main-content">
+      <main id="main-content" className="pt-16">
         {/* Hero Section with priority loading */}
         <section id="hero" aria-labelledby="hero-heading">
           <Hero />
@@ -277,9 +278,9 @@ export default function Home() {
           />
         </section>
         
-        {/* Memories/Gallery Section showcasing guest experiences */}
+        {/* Experiences/Gallery Section showcasing guest experiences */}
         <section id="memories" aria-labelledby="memories-heading">
-          <MemoriesPreview />
+          <ExperiencesPreview />
         </section>
         
         {/* Instagram Feed for social proof and engagement */}

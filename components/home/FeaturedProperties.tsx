@@ -208,7 +208,7 @@ export default function FeaturedProperties({
               <motion.article
                 key={property._id}
                 className="property-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-                variants={itemVariants}
+                // variants={itemVariants}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
               >
                 <Link 
