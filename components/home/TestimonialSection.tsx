@@ -175,7 +175,7 @@ export default function TestimonialSection() {
         </div>
         
         {/* Our Team section with animated tooltips */}
-        <div className="mt-16 text-center">
+        {/* <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold mb-6">Meet Our Team</h3>
           <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
             Our dedicated staff works tirelessly to ensure your glamping experience exceeds expectations
@@ -184,7 +184,7 @@ export default function TestimonialSection() {
           <div className="flex flex-wrap items-center justify-center gap-6">
             <AnimatedTooltip items={people} />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

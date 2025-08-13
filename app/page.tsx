@@ -253,33 +253,10 @@ export default function Home() {
           <UniqueExperiences />
         </section>
 
-        {/* Weather-based activity recommendations with proper loading states */}
-        <section id="weather-highlights" aria-labelledby="weather-highlights-heading">
-          <Suspense fallback={<SectionLoadingFallback ariaLabel="Loading weather-based activity recommendations" />}>
-            <WeatherHighlightsClient />
-          </Suspense>
-        </section>
-
-        {/* Activities near Kountze, Texas */}
-        <section id="activities-nearby" aria-labelledby="activities-nearby-heading">
-          <Suspense fallback={<SectionLoadingFallback ariaLabel="Loading nearby activities and attractions" />}>
-            <ActivitiesNearby />
-          </Suspense>
-        </section>
-
-        {/* Mid-page Booking CTA to capture interest */}
-        <section id="mid-page-cta" aria-labelledby="mid-page-cta-heading">
-          <MidpageBookingCTA 
-            heading="Reserve Your Texas Geodesic Dome Glamping Experience"
-            description="Our luxury geo domes book quickly, especially during peak seasons. Secure your preferred dates for an unforgettable glamping adventure in East Texas!"
-            backgroundImage="/images/projector.jpg"
-            ctaText="Check Availability and Book Now"
-            ctaLink="/booking"
-          />
-        </section>
+      
         
         {/* Experiences/Gallery Section showcasing guest experiences */}
-        <section id="memories" aria-labelledby="memories-heading">
+        <section id="experiences" aria-labelledby="memories-heading">
           <ExperiencesPreview />
         </section>
         
@@ -291,11 +268,38 @@ export default function Home() {
             subtitle="Tag your photos with #TheGlampingSpot for a chance to be featured on our feed and win a free night stay!"
           />
         </section>
+
+          {/* Mid-page Booking CTA to capture interest */}
+        <section id="mid-page-cta" aria-labelledby="mid-page-cta-heading">
+          <MidpageBookingCTA 
+            heading="Reserve Your Texas Geodesic Dome Glamping Experience"
+            description="Our luxury geo domes book quickly, especially during peak seasons. Secure your preferred dates for an unforgettable glamping adventure in East Texas!"
+            backgroundImage="/images/projector.jpg"
+            ctaText="Check Availability and Book Now"
+            ctaLink="/booking"
+          />
+        </section>
+
+          {/* Weather-based activity recommendations with proper loading states */}
+        <section id="weather-highlights" aria-labelledby="weather-highlights-heading">
+          <Suspense fallback={<SectionLoadingFallback ariaLabel="Loading weather-based activity recommendations" />}>
+            <WeatherHighlightsClient />
+          </Suspense>
+        </section>
+
+       
+
+         {/* Activities near Kountze, Texas */}
+        <section id="activities-nearby" aria-labelledby="activities-nearby-heading">
+          <Suspense fallback={<SectionLoadingFallback ariaLabel="Loading nearby activities and attractions" />}>
+            <ActivitiesNearby />
+          </Suspense>
+        </section>
         
         {/* Testimonial Section building trust */}
-        <section id="testimonial" aria-labelledby="testimonial-heading">
+        {/* <section id="testimonial" aria-labelledby="testimonial-heading">
           <TestimonialSection />
-        </section>
+        </section> */}
         
         {/* Newsletter Signup for lead generation */}
         <section id="newsletter" aria-labelledby="newsletter-heading">

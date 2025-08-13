@@ -1,6 +1,6 @@
 import { NextConfig } from 'next';
 
-// 1. NEXT.JS CONFIGURATION OPTIMIZATIONS
+// NEXT.JS CONFIGURATION OPTIMIZATIONS
 export const nextConfig: NextConfig = {
   // Performance optimizations
   compiler: {
