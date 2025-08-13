@@ -1,27 +1,32 @@
-import type { NextConfig } from 'next'
+import { NextConfig } from 'next';
 
-const nextConfig: NextConfig = {
-  // Image optimization
+// NEXT.JS CONFIGURATION OPTIMIZATIONS
+export const nextConfig: NextConfig = {
+  // Performance optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: [
+      'framer-motion',
+      'lucide-react',
+      '@/components/ui',
+    ],
+  },
   images: {
-    domains: ['theglampingspot.net', 'www.theglampingspot.net'],
+    // Image optimization for better LCP
     formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 60,
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  
-  // Enable compression
-  compress: true,
-  
-  // Experimental features for Next.js 15
-  experimental: {
-    optimizePackageImports: ['lucide-react'],
-    serverComponentsExternalPackages: ['sharp'],
-  },
-  
-  // Webpack optimization
+  // Bundle analysis and optimization
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
+      // Minimize bundle size
       config.optimization.splitChunks = {
         chunks: 'all',
         cacheGroups: {
@@ -30,35 +35,72 @@ const nextConfig: NextConfig = {
             name: 'vendors',
             chunks: 'all',
           },
+          common: {
+            minChunks: 2,
+            priority: -10,
+            reuseExistingChunk: true,
+          },
         },
       };
     }
     return config;
   },
-  
-  // Headers for caching
+  // Security headers
   async headers() {
     return [
       {
-        source: '/images/:path*',
+        source: '/(.*)',
         headers: [
+          // HSTS Header (Lighthouse requirement)
           {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains; preload',
           },
-        ],
-      },
-      {
-        source: '/_next/static/:path*',
-        headers: [
+          // COOP Header (Lighthouse requirement)
           {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            key: 'Cross-Origin-Opener-Policy',
+            value: 'same-origin',
+          },
+          // Enhanced CSP (Lighthouse requirement)
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "img-src 'self' data: blob: https:",
+              "connect-src 'self' https:",
+              "media-src 'self' https:",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'",
+              "frame-ancestors 'none'",
+              "upgrade-insecure-requests",
+            ].join('; '),
+          },
+          // X-Frame-Options for clickjacking protection
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          // X-Content-Type-Options
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          // Referrer Policy
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          // Permissions Policy
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
           },
         ],
       },
     ];
   },
-}
-
-export default nextConfig
+};
