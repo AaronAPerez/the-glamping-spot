@@ -6,10 +6,14 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "ANALYZE=true npm run build",
+    "lighthouse": "lhci autorun",
+    "perf-test": "npm run build && npm run lighthouse"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
+    "@next/bundle-analyzer": "^15.4.6",
     "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
@@ -24,6 +28,7 @@
     "react-datepicker": "^8.2.1",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
+    "sharp": "^0.34.3",
     "tailwind-merge": "^3.0.2",
     "web-vitals": "^5.1.0",
     "zod": "^3.24.2",
@@ -36,6 +41,9 @@
     "@types/react": "^19",
     "@types/react-datepicker": "^6.2.0",
     "@types/react-dom": "^19",
+    "imagemin": "^9.0.1",
+    "imagemin-avif": "^0.1.6",
+    "imagemin-webp": "^8.0.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

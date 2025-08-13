@@ -2,31 +2,28 @@ import { NextConfig } from 'next';
 
 // NEXT.JS CONFIGURATION OPTIMIZATIONS
 export const nextConfig: NextConfig = {
-  // Performance optimizations
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
-  },
-  experimental: {
-    optimizeCss: true,
-    optimizePackageImports: [
-      'framer-motion',
-      'lucide-react',
-      '@/components/ui',
-    ],
-  },
+    // Image optimization
   images: {
-    // Image optimization for better LCP
-    formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 60,
+    formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  // Bundle analysis and optimization
+  
+  // Compression
+  compress: true,
+  
+  // Bundle optimization
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
+    serverComponentsExternalPackages: ['sharp'],
+  },
+  
+  // Webpack optimization
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
-      // Minimize bundle size
       config.optimization.splitChunks = {
         chunks: 'all',
         cacheGroups: {
@@ -35,72 +32,34 @@ export const nextConfig: NextConfig = {
             name: 'vendors',
             chunks: 'all',
           },
-          common: {
-            minChunks: 2,
-            priority: -10,
-            reuseExistingChunk: true,
-          },
         },
       };
     }
     return config;
   },
-  // Security headers
+  
+  // Headers for caching
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: '/images/:path*',
         headers: [
-          // HSTS Header (Lighthouse requirement)
           {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=31536000; includeSubDomains; preload',
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
-          // COOP Header (Lighthouse requirement)
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
           {
-            key: 'Cross-Origin-Opener-Policy',
-            value: 'same-origin',
-          },
-          // Enhanced CSP (Lighthouse requirement)
-          {
-            key: 'Content-Security-Policy',
-            value: [
-              "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: blob: https:",
-              "connect-src 'self' https:",
-              "media-src 'self' https:",
-              "object-src 'none'",
-              "base-uri 'self'",
-              "form-action 'self'",
-              "frame-ancestors 'none'",
-              "upgrade-insecure-requests",
-            ].join('; '),
-          },
-          // X-Frame-Options for clickjacking protection
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          // X-Content-Type-Options
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          // Referrer Policy
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
-          },
-          // Permissions Policy
-          {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()',
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },
     ];
   },
 };
+

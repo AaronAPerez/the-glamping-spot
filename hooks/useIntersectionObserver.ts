@@ -1,28 +1,40 @@
-import React from "react";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from 'react';
 
-// Intersection Observer for lazy loading
-export const useIntersectionObserver = (
-  ref: React.RefObject<Element>,
-  options: IntersectionObserverInit = {}
-) => {
-  const [isIntersecting, setIsIntersecting] = React.useState(false);
-  
+interface UseIntersectionObserverProps {
+  threshold?: number;
+  rootMargin?: string;
+  freezeOnceVisible?: boolean;
+}
+
+export function useIntersectionObserver({
+  threshold = 0.1,
+  rootMargin = '50px',
+  freezeOnceVisible = true
+}: UseIntersectionObserverProps = {}) {
+  const [entry, setEntry] = useState<IntersectionObserverEntry>();
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  const frozen = entry?.isIntersecting && freezeOnceVisible;
+
   useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-    
+    const element = elementRef.current;
+    const hasIOSupport = !!window.IntersectionObserver;
+
+    if (!hasIOSupport || frozen || !element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsIntersecting(entry.isIntersecting);
+        setEntry(entry);
+        setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1, ...options }
+      { threshold, rootMargin }
     );
-    
+
     observer.observe(element);
-    
+
     return () => observer.disconnect();
-  }, [ref, options]);
-  
-  return isIntersecting;
-};
+  }, [threshold, rootMargin, frozen]);
+
+  return { ref: elementRef, isVisible, entry };
+}

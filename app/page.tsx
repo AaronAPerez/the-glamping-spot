@@ -1,18 +1,34 @@
-import Hero from "@/components/home/Hero";
-import AboutSection from "@/components/home/AboutSection";
-import FeaturedProperties from "@/components/home/FeaturedProperties";
-import WeatherHighlightsClient from "@/components/home/WeatherHighlightsClient";
+import dynamic from 'next/dynamic';
+import { LoadingSkeleton } from '@/components/ui/LoadingSkeleton';
 
-import UniqueExperiences from "@/components/home/UniqueExperiences";
-import TestimonialSection from "@/components/home/TestimonialSection";
-import CTASection from "@/components/home/CTASection";
-import MidpageBookingCTA from "@/components/booking/MidpageBookingCTA";
-import InstagramFeed from "@/components/social/InstagramFeed";
-import NewsletterSignup from "@/components/marketing/NewsletterSignup";
-import ActivitiesNearby from "@/location/ActivitiesNearby";
-import { Suspense } from "react";
-import { Metadata } from "next";
-import ExperiencesPreview from "@/components/home/ExperiencesPreview";
+// Critical components - load immediately
+import Hero from '@/components/home/Hero';
+import AboutSection from '@/components/home/AboutSection';
+import { Metadata } from 'next';
+import MidpageBookingCTA from '@/components/booking/MidpageBookingCTA';
+import CTASection from '@/components/home/CTASection';
+import ExperiencesPreview from '@/components/home/ExperiencesPreview';
+import FeaturedProperties from '@/components/home/FeaturedProperties';
+import WeatherHighlightsClient from '@/components/home/WeatherHighlightsClient';
+import NewsletterSignup from '@/components/marketing/NewsletterSignup';
+import { Suspense } from 'react';
+
+// Non-critical components - load dynamically
+const InstagramFeed = dynamic(() => import('@/components/social/InstagramFeed'), {
+  loading: () => <LoadingSkeleton lines={3} height="h-64" />,
+});
+
+const ActivitiesNearby = dynamic(() => import('@/location/ActivitiesNearby'), {
+  loading: () => <LoadingSkeleton lines={5} height="h-48" />
+});
+
+const TestimonialSection = dynamic(() => import('@/components/home/TestimonialSection'), {
+  loading: () => <LoadingSkeleton lines={4} height="h-32" />
+});
+
+const UniqueExperiences = dynamic(() => import('@/components/home/UniqueExperiences'), {
+  loading: () => <LoadingSkeleton lines={6} height="h-40" />
+});
 
 /**
  * Enhanced SEO metadata for the homepage with comprehensive keywords and social sharing
