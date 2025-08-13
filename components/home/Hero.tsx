@@ -28,7 +28,7 @@ const Hero = () => {
       subtitle: 'Premium camping with all the comforts of home'
     },
     {
-      image: '/images/experiences/glampinghero.jpg',
+      image: '/images/experiences/GlampingHero.jpg',
       title: 'Where Comfort Meets Adventure',
       subtitle: 'Experience the perfect blend of luxury and nature'
     }
@@ -155,7 +155,7 @@ const Hero = () => {
               
               <button className="w-full md:w-auto mt-4 bg-gradient-to-r from-teal-500 to-green-500 text-white px-8 py-4 rounded-xl font-semibold hover:from-teal-600 hover:to-green-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
                 <Search className="inline-block mr-2 h-5 w-5" />
-                Search Glamping Spots
+                Search Availability
               </button>
             </div>
           </div>
