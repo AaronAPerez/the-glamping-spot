@@ -51,8 +51,8 @@ export default function Header() {
   // Enhanced navigation items with better accessibility
   const navItems = [
     { label: "Home", href: "/", description: "Go to homepage" },
-    { label: "Our Geodesic Domes", href: "/properties", description: "Browse available accommodations" },
-    { label: "Activities & Experiences", href: "/experiences", description: "Discover local activities" },
+    { label: "Our Domes", href: "/properties", description: "Browse available accommodations" },
+    { label: "Activities", href: "/experiences", description: "Discover local activities" },
     { label: "About", href: "/about", description: "Learn about our story" },
     { label: "Contact Us", href: "/contact", description: "Get in touch with us" },
   ];
@@ -106,7 +106,7 @@ export default function Header() {
                     <Image
                       src="/images/TheGlampingSpot_W.png"
                       alt="The Glamping Spot logo"
-                      width={110}
+                      width={106}
                       height={logoHeight}
                       priority
                       className="transition-all duration-300 rounded-full"
