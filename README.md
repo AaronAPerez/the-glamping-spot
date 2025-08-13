@@ -2,7 +2,7 @@
 
 A luxury geodesic dome glamping website built with Next.js 14+, TypeScript, and Tailwind CSS. Experience the perfect blend of luxury accommodation and nature in East Texas near Houston.
 
-![The Glamping Spot Hero](./public/images/GlampingHero.jpg)
+![The Glamping Spot Hero](./public/images/Hero-ATV.jpg)
 
 ## 🌟 Project Overview
 
