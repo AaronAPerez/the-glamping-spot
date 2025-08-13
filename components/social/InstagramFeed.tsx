@@ -290,7 +290,7 @@ export default function InstagramFeed({
             {posts.map((post) => (
               <motion.article
                 key={post.id}
-                variants={itemVariants}
+                // variants={itemVariants}
                 className="group relative aspect-square overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
               >
                 <a

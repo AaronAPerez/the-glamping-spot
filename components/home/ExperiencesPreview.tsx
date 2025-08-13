@@ -6,10 +6,10 @@ import Link from 'next/link';
 import { CardBody, CardContainer, CardItem } from '../ui/3d-card';
 import { BackgroundGradient } from '../ui/BackgroundGradient';
 
-export default function MemoriesPreview() {
+export default function ExperiencesPreview() {
   return (
     <>
- {/* Memories Preview Section */}
+ {/* Experiences Preview Section */}
         <section className="py-16 " aria-labelledby="memories-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -29,7 +29,7 @@ export default function MemoriesPreview() {
               <CardBody className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
                 <div className="relative aspect-square">
                   <Image
-                    src="/images/memories/group-birds.jpg"
+                    src="/images/experiences/group-birds.jpg"
                     alt="Group of visitors with colorful birds"
                     fill
                     style={{ objectFit: 'cover' }}
@@ -47,7 +47,7 @@ export default function MemoriesPreview() {
               <CardBody className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
                 <div className="relative aspect-square">
                   <Image
-                    src="/images/memories/atv-jungle.jpg"
+                    src="/images/experiences/atv-jungle.jpg"
                     alt="Person riding ATV through jungle trail"
                     fill
                     style={{ objectFit: 'cover' }}
@@ -65,7 +65,7 @@ export default function MemoriesPreview() {
               <CardBody className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
                 <div className="relative aspect-square">
                   <Image
-                    src="/images/memories/video-thumbnail.jpg"
+                    src="/images/experiences/video-thumbnail.jpg"
                     alt="Video thumbnail"
                     fill
                     style={{ objectFit: 'cover' }}
@@ -106,10 +106,10 @@ export default function MemoriesPreview() {
           
           <div className="text-center">
             <Link 
-              href="/memories" 
+              href="/experiences" 
               className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium"
             >
-              View All Memories
+              View All Experiences
               <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
