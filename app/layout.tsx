@@ -154,7 +154,7 @@ function Analytics() {
       )}
       
       {/* Facebook Pixel */}
-      {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
+      {/* {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
         <>
           <script
             dangerouslySetInnerHTML={{
@@ -182,10 +182,10 @@ function Analytics() {
             />
           </noscript>
         </>
-      )}
+      )} */}
 
       {/* Microsoft Clarity */}
-      {process.env.NEXT_PUBLIC_CLARITY_ID && (
+      {/* {process.env.NEXT_PUBLIC_CLARITY_ID && (
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -197,7 +197,7 @@ function Analytics() {
             `,
           }}
         />
-      )}
+      )} */}
     </>
   );
 }

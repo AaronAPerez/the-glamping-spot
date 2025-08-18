@@ -43,7 +43,7 @@ const Hero = () => {
 
   return (
     <>
-    <section className="relative h-screen overflow-hidden">
+    <section className="hero-section">
       {/* Background Slider */}
       <div className="absolute inset-0">
         {heroSlides.map((slide, index) => (

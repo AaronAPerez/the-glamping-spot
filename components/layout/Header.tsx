@@ -78,7 +78,7 @@ export default function Header() {
   return (
     <>
       <header 
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+        className={`nav-header fixed left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
             ? 'bg-black/90 backdrop-blur-sm h-16' 
             : 'bg-black/80 h-16'
@@ -91,22 +91,22 @@ export default function Header() {
             <div className="flex-shrink-0">
               <Link 
                 href="/" 
-                className="focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-black rounded-lg"
+                className="focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2 focus:ring-offset-black rounded-lg"
                 aria-label="The Glamping Spot - Return to homepage"
               >
                 <div className="relative group">
                   {/* Enhanced gradient background */}
                   <div 
-                    className="absolute -inset-1 rounded-full bg-gradient-to-r from-emerald-400 via-orange-500 to-sky-600 opacity-80 blur-sm group-hover:opacity-100 transition-opacity duration-200"
+                    className="absolute -inset-1 rounded-full bg-gradient-to-r from-emerald-700 via-orange-500 to-sky-600 opacity-80 blur-sm group-hover:opacity-100 transition-opacity duration-200"
                     aria-hidden="true"
                   />
                   
                   {/* Logo with optimized loading */}
-                  <div className="relative py-1 px-0 rounded-full bg-black/60">
+                  <div className="relative py-1 mt-2 px-0 rounded-full bg-black/60">
                     <Image
                       src="/images/TheGlampingSpot_W.png"
                       alt="The Glamping Spot logo"
-                      width={106}
+                      width={110}
                       height={logoHeight}
                       priority
                       className="transition-all duration-300 rounded-full"
@@ -119,17 +119,17 @@ export default function Header() {
             
             {/* Desktop Navigation with enhanced accessibility */}
             <nav 
-              className="hidden md:flex items-center space-x-6 lg:space-x-8 pb-8"
+              className="hidden md:flex items-center space-x-6 lg:space-x-8 mb-10"
               aria-label="Main navigation"
             >
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-base lg:text-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-black rounded px-2 ${
+                  className={`text-base lg:text-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2 focus:ring-offset-black rounded px-2 ${
                     pathname === item.href
-                      ? "text-emerald-400"
-                      : "text-gray-100 hover:text-emerald-300"
+                      ? "text-emerald-700"
+                      : "text-gray-100 hover:text-emerald-800"
                   }`}
                   aria-current={pathname === item.href ? "page" : undefined}
                   aria-label={item.description}
@@ -140,11 +140,11 @@ export default function Header() {
             </nav>
             
             {/* Right side - Book now & mobile menu */}
-            <div className="flex items-center space-x-4 pb-8">
+            <div className="flex items-center space-x-4 mb-10">
               {/* Book Now Button - Desktop */}
               <Link
                 href="/booking"
-                className="hidden md:inline-flex items-center px-4 py-2 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-black"
+                className="hidden md:inline-flex items-center px-4 py-2 bg-emerald-700 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2 focus:ring-offset-black"
                 aria-label="Book your glamping experience"
               >
                 Book Now
@@ -167,7 +167,7 @@ export default function Header() {
               {/* Mobile Menu Toggle with proper accessibility */}
               <button
                 type="button"
-                className="md:hidden text-gray-100 hover:text-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-black rounded-lg p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="md:hidden text-gray-100 hover:text-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2 focus:ring-offset-black rounded-lg p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 onClick={toggleMobileMenu}
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-menu"
@@ -214,7 +214,7 @@ export default function Header() {
                 </h2>
                 <button
                   type="button"
-                  className="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded-lg p-2"
+                  className="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-700 rounded-lg p-2"
                   onClick={toggleMobileMenu}
                   aria-label="Close menu"
                 >
@@ -231,9 +231,9 @@ export default function Header() {
                     <li key={item.href}>
                       <Link
                         href={item.href}
-                        className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 ${
+                        className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-700 ${
                           pathname === item.href
-                            ? "bg-emerald-600 text-white"
+                            ? "bg-emerald-700 text-white"
                             : "text-gray-300 hover:bg-gray-800 hover:text-white"
                         }`}
                         onClick={toggleMobileMenu}
@@ -250,7 +250,7 @@ export default function Header() {
               <div className="p-4 border-t border-gray-700">
                 <Link
                   href="/booking"
-                  className="block w-full px-4 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors duration-200 text-center focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-black"
+                  className="block w-full px-4 py-3 bg-emerald-700 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors duration-200 text-center focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2 focus:ring-offset-black"
                   onClick={toggleMobileMenu}
                   aria-label="Book your glamping experience"
                 >

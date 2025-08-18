@@ -8,14 +8,17 @@
     "start": "next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true npm run build",
-    "lighthouse": "lhci autorun",
-    "perf-test": "npm run build && npm run lighthouse"
+    "lighthouse": "lhci autorun lighthouse http://localhost:3000 --output html --output-path ./lighthouse-report.html",
+    "perf-test": "npm run build && npm run lighthouse",
+    "optimize-images": "node scripts/optimize-images.js",
+    "performance": "npm run optimize-images && npm run build && npm run lighthouse"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
     "@next/bundle-analyzer": "^15.4.6",
     "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
+    "critters": "^0.0.23",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.23.12",
     "immer": "^10.1.1",
@@ -35,15 +38,21 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.0.0",
+    "@swc/cli": "^0.7.8",
+    "@swc/core": "^1.13.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-datepicker": "^6.2.0",
     "@types/react-dom": "^19",
+    "cross-env": "^7.0.3",
     "imagemin": "^9.0.1",
     "imagemin-avif": "^0.1.6",
-    "imagemin-webp": "^8.0.0",
+    "imagemin-webp": "^4.1.0",
+    "lighthouse": "^12.8.1",
+    "sharp": "^0.32.6",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

@@ -245,7 +245,7 @@ export default function Home() {
       </a>
 
       {/* Main content landmark */}
-      <main id="main-content" className="pt-16">
+      <main id="main-content" className="pt-16" suppressHydrationWarning>
         {/* Hero Section with priority loading */}
         <section id="hero" aria-labelledby="hero-heading">
           <Hero />
