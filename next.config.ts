@@ -26,10 +26,10 @@ const nextConfig: NextConfig = {
   },
 
       // Remove this line: swcMinify: true,
-    serverComponentsExternalPackages: ['sharp'],
+    serverExternalPackages: ['sharp'],
 
   // Production compiler optimizations
-   compiler: {
+    compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
     reactRemoveProperties: process.env.NODE_ENV === 'production' ? {
       properties: ['^data-test']
@@ -133,4 +133,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
