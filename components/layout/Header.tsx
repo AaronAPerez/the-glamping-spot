@@ -54,7 +54,7 @@ export default function Header() {
     { label: "Our Domes", href: "/properties", description: "Browse available accommodations" },
     { label: "Activities", href: "/experiences", description: "Discover local activities" },
     { label: "About", href: "/about", description: "Learn about our story" },
-    { label: "Contact Us", href: "/contact", description: "Get in touch with us" },
+    { label: "Contact (Soon)", href: "/contact", description: "Contact form coming soon" },
   ];
 
   // Handle mobile menu toggle with accessibility
@@ -141,28 +141,28 @@ export default function Header() {
             
             {/* Right side - Book now & mobile menu */}
             <div className="flex items-center space-x-4 mb-10">
-              {/* Book Now Button - Desktop */}
-              <Link
-                href="/booking"
-                className="hidden md:inline-flex items-center px-4 py-2 bg-emerald-700 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2 focus:ring-offset-black"
-                aria-label="Book your glamping experience"
+              {/* Coming Soon Badge - Desktop (Replaces Book Now) */}
+              <div
+                className="hidden md:inline-flex items-center px-4 py-2 bg-amber-500/90 text-white font-semibold rounded-lg shadow-lg cursor-not-allowed opacity-90"
+                aria-label="Booking coming soon"
+                title="Booking system coming soon"
               >
-                Book Now
-                <svg 
-                  className="ml-2 h-4 w-4" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  className="mr-2 h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                   aria-hidden="true"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" 
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-              </Link>
+                Coming Soon
+              </div>
 
               {/* Mobile Menu Toggle with proper accessibility */}
               <button
@@ -246,16 +246,29 @@ export default function Header() {
                 </ul>
               </nav>
 
-              {/* Mobile Book Now Button */}
+              {/* Mobile Coming Soon Badge (Replaces Book Now) */}
               <div className="p-4 border-t border-gray-700">
-                <Link
-                  href="/booking"
-                  className="block w-full px-4 py-3 bg-emerald-700 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors duration-200 text-center focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2 focus:ring-offset-black"
-                  onClick={toggleMobileMenu}
-                  aria-label="Book your glamping experience"
+                <div
+                  className="flex items-center justify-center w-full px-4 py-3 bg-amber-500/90 text-white font-semibold rounded-lg cursor-not-allowed opacity-90"
+                  aria-label="Booking coming soon"
+                  title="Booking system coming soon"
                 >
-                  Book Now
-                </Link>
+                  <svg
+                    className="mr-2 h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  Coming Soon
+                </div>
               </div>
             </div>
           </div>

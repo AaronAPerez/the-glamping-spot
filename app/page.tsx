@@ -4,9 +4,10 @@ import { LoadingSkeleton } from '@/components/ui/LoadingSkeleton';
 // Critical components - load immediately
 import Hero from '@/components/home/Hero';
 import AboutSection from '@/components/home/AboutSection';
+import ComingSoonNotice from '@/components/notices/ComingSoonNotice';
 import { Metadata } from 'next';
-import MidpageBookingCTA from '@/components/booking/MidpageBookingCTA';
-import CTASection from '@/components/home/CTASection';
+// import MidpageBookingCTA from '@/components/booking/MidpageBookingCTA'; // DISABLED DURING DEVELOPMENT
+// import CTASection from '@/components/home/CTASection'; // DISABLED DURING DEVELOPMENT (Booking CTA)
 import ExperiencesPreview from '@/components/home/ExperiencesPreview';
 import FeaturedProperties from '@/components/home/FeaturedProperties';
 import WeatherHighlightsClient from '@/components/home/WeatherHighlightsClient';
@@ -103,120 +104,6 @@ export const metadata: Metadata = {
   }
 };
 
-/**
- * Navigation items with descriptive aria-labels for accessibility
- */
-const navItems = [
-  {
-    name: "Book Your Glamping Experience",
-    link: "/booking",
-    icon: (
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        width="24" 
-        height="24" 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
-        strokeLinejoin="round" 
-        className="h-4 w-4"
-        aria-hidden="true"
-      >
-        <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-      </svg>
-    ),
-  },
-  {
-    name: "Geodesic Domes",
-    link: "#featured-properties",
-    icon: (
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        width="24" 
-        height="24" 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
-        strokeLinejoin="round" 
-        className="h-4 w-4"
-        aria-hidden="true"
-      >
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-      </svg>
-    ),
-  },
-  {
-    name: "Activities and Adventures",
-    link: "#unique-experiences",
-    icon: (
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        width="24" 
-        height="24" 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
-        strokeLinejoin="round" 
-        className="h-4 w-4"
-        aria-hidden="true"
-      >
-        <circle cx="12" cy="12" r="10"></circle>
-        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-        <path d="M2 12h20"></path>
-      </svg>
-    ),
-  },
-  {
-    name: "Photo Gallery",
-    link: "#experiences",
-    icon: (
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        width="24" 
-        height="24" 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
-        strokeLinejoin="round" 
-        className="h-4 w-4"
-        aria-hidden="true"
-      >
-        <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path>
-        <circle cx="12" cy="13" r="3"></circle>
-      </svg>
-    ),
-  },
-  {
-    name: "Contact The Glamping Spot",
-    link: "/contact",
-    icon: (
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        width="24" 
-        height="24" 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
-        strokeLinejoin="round" 
-        className="h-4 w-4"
-        aria-hidden="true"
-      >
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-      </svg>
-    ),
-  },
-];
 
 /**
  * Loading fallback component with proper accessibility
@@ -251,6 +138,11 @@ export default function Home() {
           <Hero />
         </section>
 
+        {/* Coming Soon Notice - Prominent display that site is not yet open */}
+        <section id="coming-soon" aria-labelledby="coming-soon-heading">
+          <ComingSoonNotice />
+        </section>
+
         {/* About Section highlighting value proposition */}
         <section id="about" aria-labelledby="about-heading">
           <AboutSection />
@@ -278,23 +170,23 @@ export default function Home() {
         
         {/* Instagram Feed for social proof and engagement */}
         <section id="instagram" aria-labelledby="instagram-heading">
-          <InstagramFeed 
+          <InstagramFeed
             username="the.glamping.spot"
             title="Follow Our Glamping Adventures"
             subtitle="Tag your photos with #TheGlampingSpot for a chance to be featured on our feed and win a free night stay!"
           />
         </section>
 
-          {/* Mid-page Booking CTA to capture interest */}
-        <section id="mid-page-cta" aria-labelledby="mid-page-cta-heading">
-          <MidpageBookingCTA 
+          {/* Mid-page Booking CTA - DISABLED DURING DEVELOPMENT */}
+        {/* <section id="mid-page-cta" aria-labelledby="mid-page-cta-heading">
+          <MidpageBookingCTA
             heading="Reserve Your Texas Geodesic Dome Glamping Experience"
             description="Our luxury geo domes book quickly, especially during peak seasons. Secure your preferred dates for an unforgettable glamping adventure in East Texas!"
             backgroundImage="/images/projector.jpg"
             ctaText="Check Availability and Book Now"
             ctaLink="/booking"
           />
-        </section>
+        </section> */}
 
           {/* Weather-based activity recommendations with proper loading states */}
         <section id="weather-highlights" aria-labelledby="weather-highlights-heading">
@@ -319,17 +211,17 @@ export default function Home() {
         
         {/* Newsletter Signup for lead generation */}
         <section id="newsletter" aria-labelledby="newsletter-heading">
-          <NewsletterSignup 
+          <NewsletterSignup
             title="Join The Glamping Spot Community"
             description="Subscribe to receive exclusive offers, availability updates, seasonal specials, and insider tips for your Texas glamping adventure."
-            incentive="Get 10% off your first booking when you subscribe to our newsletter!"
+            incentive="Be the first to know when we launch and get exclusive early access to booking!"
           />
         </section>
-        
-        {/* Final CTA Section */}
-        <section id="cta" aria-labelledby="cta-heading">
+
+        {/* Final CTA Section - DISABLED DURING DEVELOPMENT (Booking CTA) */}
+        {/* <section id="cta" aria-labelledby="cta-heading">
           <CTASection />
-        </section>
+        </section> */}
       </main>
     </div>
   );

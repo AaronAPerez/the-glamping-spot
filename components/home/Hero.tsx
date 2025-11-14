@@ -93,9 +93,9 @@ const Hero = () => {
             </p>
 
             {/* Search Bar */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-2xl">
+            {/* <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-2xl"> */}
               <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="relative">
+                {/* <div className="relative">
                   <MapPin className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                   <input
                     type="text"
@@ -104,9 +104,9 @@ const Hero = () => {
                     onChange={(e) => setSearchData({...searchData, location: e.target.value})}
                     className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-colors"
                   />
-                </div>
+                </div> */}
 
-                  <div className="relative">
+                  {/* <div className="relative">
                   <Users className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                   <select
                     value={searchData.guests}
@@ -137,7 +137,7 @@ const Hero = () => {
                     onChange={(e) => setSearchData({...searchData, checkOut: e.target.value})}
                     className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-colors"
                   />
-                </div>
+                </div> */}
                 
                 {/* <div className="relative">
                   <Users className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
@@ -160,7 +160,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
 
       {/* Slide Indicators */}
       {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
