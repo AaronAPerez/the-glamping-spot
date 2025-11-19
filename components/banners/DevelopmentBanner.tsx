@@ -27,7 +27,7 @@ export default function DevelopmentBanner() {
 
   return (
     <div
-      className="fixed top-2 right-2 z-[100] bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 text-white shadow-lg w-140 text-center rounded-xl"
+      className="fixed top-2 right-2 z-[100] bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-white shadow-lg w-140 backdrop-blur-2xl text-center rounded-xl"
       role="alert"
       aria-live="polite"
     >
@@ -36,7 +36,7 @@ export default function DevelopmentBanner() {
           {/* Icon and Message */}
           <div className="flex items-center gap-3 flex-1">
             {/* Construction Icon */}
-            <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-full flex items-center justify-center animate-pulse">
+            <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 bg-black/20 rounded-full flex items-center justify-center animate-pulse">
               <svg
                 className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                 fill="none"

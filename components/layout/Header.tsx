@@ -143,7 +143,7 @@ export default function Header() {
             <div className="flex items-center space-x-4 mb-10">
               {/* Coming Soon Badge - Desktop (Replaces Book Now) */}
               <div
-                className="hidden md:inline-flex items-center px-4 py-2 bg-amber-500/90 text-white font-semibold rounded-lg shadow-lg cursor-not-allowed opacity-90"
+                className="hidden md:inline-flex items-center px-4 py-2 bg-amber-600/90 text-white font-semibold rounded-lg shadow-lg cursor-not-allowed opacity-90"
                 aria-label="Booking coming soon"
                 title="Booking system coming soon"
               >
