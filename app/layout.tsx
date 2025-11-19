@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import DevelopmentBanner from '@/components/banners/DevelopmentBanner'
 import { Suspense } from 'react'
 
 const inter = Inter({
@@ -154,7 +155,7 @@ function Analytics() {
       )}
       
       {/* Facebook Pixel */}
-      {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
+      {/* {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
         <>
           <script
             dangerouslySetInnerHTML={{
@@ -182,10 +183,10 @@ function Analytics() {
             />
           </noscript>
         </>
-      )}
+      )} */}
 
       {/* Microsoft Clarity */}
-      {process.env.NEXT_PUBLIC_CLARITY_ID && (
+      {/* {process.env.NEXT_PUBLIC_CLARITY_ID && (
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -197,7 +198,7 @@ function Analytics() {
             `,
           }}
         />
-      )}
+      )} */}
     </>
   );
 }
@@ -453,8 +454,11 @@ export default function RootLayout({
       </head>
       
       <body className="min-h-full bg-white text-gray-900 antialiased">
+        {/* Development Banner - Shows site is under construction */}
+        <DevelopmentBanner />
+
         {/* Skip to main content link for accessibility */}
-        <a 
+        <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-emerald-600 focus:text-white focus:rounded-md focus:shadow-lg transition-all duration-200"
         >
@@ -484,16 +488,6 @@ export default function RootLayout({
             <Footer />
           </Suspense>
         </div>
-
-        {/* Development environment indicator */}
-        {isDevelopment && (
-          <div 
-            className="fixed bottom-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold z-50 shadow-lg"
-            aria-hidden="true"
-          >
-            DEV
-          </div>
-        )}
 
         {/* Production analytics */}
         <Analytics />
