@@ -2,7 +2,6 @@
 
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Calendar, MapPin, Users, Search } from 'lucide-react';
 import Image from 'next/image';
 
 // Hero Section Component
@@ -43,7 +42,7 @@ const Hero = () => {
 
   return (
     <>
-    <section className="hero-section">
+    <section className="hero-section relative min-h-[85vh] md:min-h-[90vh]">
       {/* Background Slider */}
       <div className="absolute inset-0">
         {heroSlides.map((slide, index) => (
@@ -56,39 +55,29 @@ const Hero = () => {
             <Image
               src={slide.image}
               alt={slide.title}
-                        fill
-          style={{ objectFit: 'cover' }}
-          priority
-          sizes="100vw"
-          quality={85}
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-        />
-           
-            <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
+              fill
+              style={{ objectFit: 'cover' }}
+              priority
+              sizes="100vw"
+              quality={85}
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
         ))}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
-          <div className="max-w-3xl">
-            {/* <div className="mb-6">
-               <Image
-                src="/Glamping-Spot-Logo.png" 
-                alt="The Glamping Spot" 
-                width={100}
-                height={100}
-                className="h-24 w-auto"
-              /> 
-            </div> */}
-            
-            <h1 className="text-5xl sm:4x1 md:5x1 lg:text-6xl font-bold text-white mb-6 leading-tight">
+      <div className="relative z-10 h-full flex items-center min-h-[85vh] md:min-h-[90vh]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-24 md:py-32">
+          <div className="max-w-4xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
               {heroSlides[currentSlide].title}
             </h1>
-            
-            <p className="text-xl lg:text-2xl text-white/90 mb-8">
+
+            <p className="text-xl sm:text-2xl lg:text-3xl text-white/95 mb-10 font-light drop-shadow-lg max-w-2xl">
               {heroSlides[currentSlide].subtitle}
             </p>
 
@@ -153,10 +142,15 @@ const Hero = () => {
                 </div> */}
               </div>
               
-              <button className="w-full md:w-auto mt-4 bg-gradient-to-r from-teal-500 to-green-500 text-white px-8 py-4 rounded-xl font-semibold hover:from-teal-600 hover:to-green-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                <Search className="inline-block mr-2 h-5 w-5" />
-                Search Availability
-              </button>
+              {/* Coming Soon Badge - Replaces Search Button During Development */}
+              <div className="mt-6 inline-flex items-center gap-4">
+                <span className="inline-flex items-center px-6 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-semibold shadow-lg">
+                  <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Opening Soon - Bookings Not Yet Available
+                </span>
+              </div>
             </div>
           </div>
         </div>

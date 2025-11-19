@@ -139,25 +139,21 @@ export default function FeaturedProperties({
   };
 
   return (
-    <section 
-      className={`py-16 bg-gradient-to-b from-gray-50 to-white ${className}`} 
+    <section
+      className={`py-20 sm:py-24 bg-gradient-to-b from-slate-50 to-white ${className}`}
       aria-labelledby="featured-properties-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Enhanced section header */}
-        <div className="text-center mb-12">
-          <BackgroundGradient className="inline-block p-[3px] mb-4 rounded-xl">
-            <div className="rounded-lg px-4 py-2 bg-white">
-              <h2 
-                id="featured-properties-heading" 
-                className="text-3xl font-bold text-gray-900"
-              >
-                {title}
-              </h2>
-            </div>
-          </BackgroundGradient>
+        <div className="text-center mb-16">
+          <h2
+            id="featured-properties-heading"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+          >
+            {title}
+          </h2>
           {subtitle && (
-            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="mt-6 text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
               {subtitle}
             </p>
           )}
@@ -331,25 +327,14 @@ export default function FeaturedProperties({
                       </div>
                     )}
                     
-                    {/* Enhanced CTA */}
-                    <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-                      <span className="text-emerald-600 font-semibold">
-                        View Details & Book
+                    {/* Coming Soon CTA */}
+                    <div className="flex items-center justify-center pt-2 border-t border-gray-100">
+                      <span className="inline-flex items-center text-amber-600 font-semibold text-sm">
+                        <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Coming Soon
                       </span>
-                      <svg 
-                        className="w-5 h-5 text-emerald-600" 
-                        fill="none" 
-                        viewBox="0 0 24 24" 
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round" 
-                          strokeWidth={2} 
-                          d="M17 8l4 4m0 0l-4 4m4-4H3" 
-                        />
-                      </svg>
                     </div>
                   </div>
                 </Link>
@@ -358,27 +343,27 @@ export default function FeaturedProperties({
           </motion.div>
         )}
         
-        {/* Enhanced booking information section */}
-        <div className="mt-16 p-8 bg-gradient-to-r from-emerald-50 to-blue-50 rounded-2xl shadow-inner">
+        {/* Opening Soon Information Section */}
+        <div className="mt-16 p-8 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl shadow-inner border-2 border-amber-200">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Ready to Book Your Texas Geodesic Dome Experience?
+                Opening Soon - Reserve Your Spot!
               </h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Our luxury geodesic domes book quickly, especially during weekends and holidays. 
-                Reserve your stay now to secure your preferred dates and experience 
-                the ultimate glamping adventure in East Texas near the Big Thicket National Preserve.
+                Our luxury geodesic domes are in the final stages of preparation.
+                Be among the first to experience the ultimate glamping adventure in East Texas
+                near the Big Thicket National Preserve when we launch.
               </p>
               <ul className="space-y-3 text-gray-700">
                 {[
-                  'Free cancellation up to 7 days before check-in',
-                  'Special weekday rates available',
-                  'Exclusive activities included with every booking',
-                  'Direct booking best rate guarantee'
+                  'Prime location near Big Thicket National Preserve',
+                  'Luxury amenities and climate control',
+                  'Unique geodesic dome architecture',
+                  'Exclusive activities and experiences'
                 ].map((benefit, index) => (
                   <li key={index} className="flex items-start">
-                    <svg className="h-5 w-5 text-emerald-500 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <svg className="h-5 w-5 text-amber-500 mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>{benefit}</span>
@@ -387,37 +372,37 @@ export default function FeaturedProperties({
               </ul>
             </div>
             <div className="text-center lg:text-right">
-              <p className="text-lg font-semibold text-emerald-800 mb-4">
-                Book Direct for Exclusive Benefits
+              <p className="text-lg font-semibold text-amber-800 mb-4">
+                Get Notified When We Launch
               </p>
-              <Link 
-                href="/booking" 
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl text-white bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
-                aria-label="Check availability and book your geodesic dome experience"
+              <a
+                href="#newsletter"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl text-white bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+                aria-label="Subscribe to newsletter for launch updates"
               >
-                Check Availability
-                <svg 
-                  className="ml-2 h-5 w-5" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  className="mr-2 h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                   aria-hidden="true"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" 
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-              </Link>
+                Subscribe for Updates
+              </a>
               <p className="mt-4 text-sm text-gray-600">
-                Questions? Call us at{' '}
-                <a 
-                  href="tel:+1234567890" 
-                  className="text-emerald-700 font-semibold hover:underline focus:outline-none focus:underline"
+                Questions about our launch?{' '}
+                <a
+                  href="/contact"
+                  className="text-amber-700 font-semibold hover:underline focus:outline-none focus:underline"
                 >
-                  (123) 456-7890
+                  Contact Us
                 </a>
               </p>
             </div>

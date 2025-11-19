@@ -71,83 +71,82 @@ export default function CTASection() {
             
             {/* Enhanced heading with proper hierarchy */}
             <div className="mx-auto mb-8">
-              <h2 
+              <h2
                 id="cta-heading"
                 className="sr-only"
               >
-                Book Your Glamping Adventure
+                Opening Soon - Your Glamping Adventure Awaits
               </h2>
-              <TypewriterEffect 
-                words={words} 
+              <TypewriterEffect
+                words={words}
                 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white"
                 cursorClassName="bg-emerald-500"
               />
             </div>
-            
+
             {/* Enhanced description with better contrast */}
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
               className="mt-6 text-lg md:text-xl text-gray-100 max-w-3xl mx-auto mb-12 leading-relaxed"
             >
-              Book your extraordinary geodesic dome glamping experience today and create memories 
-              that will last a lifetime in the heart of East Texas.
+              We're putting the finishing touches on an extraordinary geodesic dome glamping experience
+              in the heart of East Texas. Be the first to know when we open!
             </motion.p>
             
-            {/* Enhanced CTA buttons with better accessibility */}
-            <motion.div 
+            {/* Enhanced CTA buttons - Opening Soon */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
             >
-              <Link 
-                href="/properties" 
+              <Link
+                href="/properties"
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-white rounded-xl text-base md:text-lg font-semibold text-white hover:bg-white hover:text-emerald-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-slate-900 min-w-[200px]"
-                aria-label="Browse all available geodesic dome properties"
+                aria-label="Preview our luxury geodesic dome properties"
               >
-                <svg 
-                  className="mr-2 h-5 w-5" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  className="mr-2 h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                   aria-hidden="true"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" 
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
                   />
                 </svg>
-                Browse Our Domes
+                Preview Our Domes
               </Link>
-              
-              <Link 
-                href="/booking" 
-                className="inline-flex items-center justify-center px-8 py-4 bg-emerald-600 rounded-xl text-base md:text-lg font-semibold text-white hover:bg-emerald-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-slate-900 min-w-[200px]"
-                aria-label="Start booking your glamping experience now"
+
+              <span
+                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl text-base md:text-lg font-semibold text-white shadow-xl cursor-default min-w-[200px]"
+                aria-label="Opening soon - bookings not yet available"
               >
-                <svg 
-                  className="mr-2 h-5 w-5" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  className="mr-2 h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                   aria-hidden="true"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" 
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                Book Now
-              </Link>
+                Opening Soon
+              </span>
             </motion.div>
 
-            {/* Additional trust indicators */}
+            {/* Coming Soon Features */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -155,61 +154,61 @@ export default function CTASection() {
               className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-300"
             >
               <div className="flex items-center">
-                <svg 
-                  className="h-5 w-5 text-emerald-400 mr-2" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  className="h-5 w-5 text-amber-400 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                   aria-hidden="true"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M5 13l4 4L19 7" 
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
                   />
                 </svg>
-                <span className="text-sm font-medium">Free Cancellation</span>
+                <span className="text-sm font-medium">Luxury Accommodations</span>
               </div>
-              
+
               <div className="flex items-center">
-                <svg 
-                  className="h-5 w-5 text-emerald-400 mr-2" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  className="h-5 w-5 text-amber-400 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                   aria-hidden="true"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" 
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
                   />
                 </svg>
-                <span className="text-sm font-medium">Secure Booking</span>
+                <span className="text-sm font-medium">Prime Location</span>
               </div>
-              
+
               <div className="flex items-center">
-                <svg 
-                  className="h-5 w-5 text-emerald-400 mr-2" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  className="h-5 w-5 text-amber-400 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
                   stroke="currentColor"
                   aria-hidden="true"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" 
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
                   />
                 </svg>
-                <span className="text-sm font-medium">Best Rate Guarantee</span>
+                <span className="text-sm font-medium">Unique Experiences</span>
               </div>
             </motion.div>
 
-            {/* Contact information for direct bookings */}
+            {/* Newsletter signup prompt */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -217,14 +216,14 @@ export default function CTASection() {
               className="mt-8 text-center"
             >
               <p className="text-gray-400 text-sm mb-2">
-                Questions? Call us directly at
+                Want to be notified when we launch?
               </p>
-              <a 
-                href="tel:+1234567890"
-                className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded"
-                aria-label="Call The Glamping Spot at 123-456-7890"
+              <a
+                href="#newsletter"
+                className="text-amber-400 hover:text-amber-300 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400 rounded"
+                aria-label="Subscribe to our newsletter for launch updates"
               >
-                (123) 456-7890
+                Subscribe to Our Newsletter Below ↓
               </a>
             </motion.div>
           </div>
