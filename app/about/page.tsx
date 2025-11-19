@@ -5,7 +5,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
 // Lazy load non-critical components for better performance
-const MotionDiv = dynamic(() => import('framer-motion').then(mod => ({ default: mod.motion.div })), {
+const MotionDiv = dynamic(() => import('@/components/ui/MotionDiv'), {
   loading: () => <div className="opacity-0" />
 });
 
