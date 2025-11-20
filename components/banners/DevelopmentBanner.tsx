@@ -27,18 +27,18 @@ export default function DevelopmentBanner() {
 
   return (
     <div
-      className="fixed top-2 right-2 z-[100] bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-white shadow-lg w-140 backdrop-blur-2xl text-center rounded-xl"
+      className="fixed top-16 left-3/10 right-0 rounded-l-xl md:top-2 md:left-auto md:right-2 md:w-auto z-[100] bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-white shadow-lg backdrop-blur-2xl text-center md:rounded-xl"
       role="alert"
       aria-live="polite"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-3 gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4  md:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-2 sm:py-3 gap-2 sm:gap-4">
           {/* Icon and Message */}
-          <div className="flex items-center gap-3 flex-1">
+          <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
             {/* Construction Icon */}
-            <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 bg-black/20 rounded-full flex items-center justify-center animate-pulse">
+            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-black/20 rounded-full flex items-center justify-center animate-pulse">
               <svg
-                className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -54,11 +54,11 @@ export default function DevelopmentBanner() {
             </div>
 
             {/* Message Text */}
-            <div className="flex-1">
-              <p className="text-sm sm:text-base font-semibold">
+            <div className="flex-1 min-w-0 text-left md:text-center">
+              <p className="text-xs sm:text-sm md:text-base font-semibold truncate sm:whitespace-normal">
                 🚧 Website Under Development
               </p>
-              <p className="text-xs sm:text-sm text-white/90 mt-0.5">
+              <p className="hidden sm:block text-xs md:text-sm text-white/90 mt-0.5">
                 The Glamping Spot is not yet open. We're working hard to bring you an amazing experience. Check back soon!
               </p>
             </div>
@@ -68,11 +68,11 @@ export default function DevelopmentBanner() {
           <button
             type="button"
             onClick={handleDismiss}
-            className="flex-shrink-0 p-1.5 rounded-full hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-500"
+            className="flex-shrink-0 p-1 sm:p-1.5 rounded-full hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-500"
             aria-label="Dismiss development notice"
           >
             <svg
-              className="w-5 h-5 text-white"
+              className="w-4 h-4 sm:w-5 sm:h-5 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
