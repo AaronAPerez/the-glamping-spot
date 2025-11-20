@@ -513,45 +513,6 @@ export default function RootLayout({
             }}
           />
         )}
-
-        {/* Cookie Consent (GDPR Compliance) */}
-        {isProduction && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                // Simple cookie consent implementation
-                if (!localStorage.getItem('cookieConsent')) {
-                  const banner = document.createElement('div');
-                  banner.innerHTML = \`
-                    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1f2937; color: white; padding: 1rem; z-index: 1000; text-align: center;">
-                      <p style="margin: 0 0 1rem 0; font-size: 0.875rem;">
-                        We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
-                        <a href="/privacy" style="color: #10b981; text-decoration: underline;">Learn more</a>
-                      </p>
-                      <button onclick="acceptCookies()" style="background: #10b981; color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.375rem; cursor: pointer; margin-right: 0.5rem;">
-                        Accept
-                      </button>
-                      <button onclick="declineCookies()" style="background: transparent; color: white; border: 1px solid white; padding: 0.5rem 1rem; border-radius: 0.375rem; cursor: pointer;">
-                        Decline
-                      </button>
-                    </div>
-                  \`;
-                  document.body.appendChild(banner);
-                  
-                  window.acceptCookies = function() {
-                    localStorage.setItem('cookieConsent', 'accepted');
-                    document.getElementById('cookie-banner').remove();
-                  };
-                  
-                  window.declineCookies = function() {
-                    localStorage.setItem('cookieConsent', 'declined');
-                    document.getElementById('cookie-banner').remove();
-                  };
-                }
-              `,
-            }}
-          />
-        )}
       </body>
     </html>
   )
