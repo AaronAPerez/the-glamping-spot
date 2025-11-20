@@ -210,13 +210,13 @@ export default function Home() {
         </section> */}
         
         {/* Newsletter Signup for lead generation */}
-        <section id="newsletter" aria-labelledby="newsletter-heading">
+        {/* <section id="newsletter" aria-labelledby="newsletter-heading">
           <NewsletterSignup
             title="Join The Glamping Spot Community"
             description="Subscribe to receive exclusive offers, availability updates, seasonal specials, and insider tips for your Texas glamping adventure."
             incentive="Be the first to know when we launch and get exclusive early access to booking!"
           />
-        </section>
+        </section> */}
 
         {/* Final CTA Section - DISABLED DURING DEVELOPMENT (Booking CTA) */}
         {/* <section id="cta" aria-labelledby="cta-heading">

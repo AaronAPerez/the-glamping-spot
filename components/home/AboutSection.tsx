@@ -68,10 +68,37 @@ export default function AboutSection() {
       aria-labelledby="about-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Heading and Intro (Mobile: Shows First) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative z-10 mb-12 lg:hidden"
+        >
+          <h2
+            id="about-heading"
+            className="text-4xl font-bold mb-8 text-white"
+          >
+            <TextGenerateEffect
+              words="Immerse Yourself in Nature's Luxury"
+              className="text-white"
+            />
+          </h2>
+
+          <div className="space-y-6 text-emerald-50">
+            <p className="text-xl leading-relaxed font-light">
+              Our geodesic dome glamping experiences offer the perfect balance of adventure and comfort.
+              Wake up to stunning East Texas sunrises, fall asleep under star-filled skies, and connect
+              with nature without sacrificing modern luxuries.
+            </p>
+          </div>
+        </motion.div>
+
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          {/* Enhanced Text Content */}
+          {/* Enhanced Text Content (Desktop Only - Full Content) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,24 +106,35 @@ export default function AboutSection() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative z-10 order-2 lg:order-1"
           >
-            <h2
-              id="about-heading"
-              className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 text-white"
-            >
-              <TextGenerateEffect
-                words="Immerse Yourself in Nature's Luxury"
-                className="text-white"
-              />
-            </h2>
+            {/* Desktop: Full heading and intro */}
+            <div className="hidden lg:block">
+              <h2
+                id="about-heading-desktop"
+                className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 text-white"
+              >
+                <TextGenerateEffect
+                  words="Immerse Yourself in Nature's Luxury"
+                  className="text-white"
+                />
+              </h2>
 
-            <div className="space-y-6 text-emerald-50">
-              <p className="text-xl lg:text-2xl leading-relaxed font-light">
-                Our geodesic dome glamping experiences offer the perfect balance of adventure and comfort.
-                Wake up to stunning East Texas sunrises, fall asleep under star-filled skies, and connect
-                with nature without sacrificing modern luxuries.
-              </p>
+              <div className="space-y-6 text-emerald-50">
+                <p className="text-xl lg:text-2xl leading-relaxed font-light">
+                  Our geodesic dome glamping experiences offer the perfect balance of adventure and comfort.
+                  Wake up to stunning East Texas sunrises, fall asleep under star-filled skies, and connect
+                  with nature without sacrificing modern luxuries.
+                </p>
 
-              <p className="text-lg lg:text-xl leading-relaxed opacity-90 font-light">
+                <p className="text-lg lg:text-xl leading-relaxed opacity-90 font-light">
+                  Located in the heart of the Big Thicket region near Kountze, Texas, our luxury domes
+                  provide an unparalleled glamping experience just minutes from Houston.
+                </p>
+              </div>
+            </div>
+
+            {/* Mobile: Second paragraph only (shows after images) */}
+            <div className="lg:hidden space-y-6 text-emerald-50 mb-8">
+              <p className="text-lg leading-relaxed opacity-90 font-light">
                 Located in the heart of the Big Thicket region near Kountze, Texas, our luxury domes
                 provide an unparalleled glamping experience just minutes from Houston.
               </p>
@@ -107,7 +145,7 @@ export default function AboutSection() {
               <h3 className="font-bold text-2xl mb-8 text-white">
                 Experience Luxury Glamping With:
               </h3>
-              
+
               <ul className="space-y-5" role="list">
                 {[
                   {
