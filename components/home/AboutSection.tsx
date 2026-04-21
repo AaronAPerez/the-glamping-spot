@@ -190,7 +190,7 @@ export default function AboutSection() {
             </div>
 
             {/* Call to Action - Opening Soon */}
-            <div className="mt-10">
+            {/* <div className="mt-10">
               <span
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold text-lg rounded-xl shadow-xl cursor-default"
                 aria-label="The Glamping Spot is opening soon"
@@ -211,7 +211,7 @@ export default function AboutSection() {
                 </svg>
                 Opening Soon - Stay Tuned!
               </span>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Optimized Image Grid */}
