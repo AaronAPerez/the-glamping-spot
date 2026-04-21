@@ -183,56 +183,7 @@ export default function Footer({ className = '' }: FooterProps) {
         </div>
 
         {/* Newsletter Subscription */}
-        <motion.div 
-          className="mt-12 pt-8 border-t border-gray-800"
-          variants={itemVariants}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-lg font-semibold mb-2 text-emerald-400">Subscribe to our Newsletter</h3>
-              <p className="text-gray-300 mb-4">Stay updated with our latest offers and experiences</p>
-              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2">
-                <label htmlFor="email-address" className="sr-only">Email address</label>
-                <input
-                  id="email-address"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="w-full min-w-0 px-4 py-2 text-base text-gray-900 placeholder-gray-500 bg-white border border-transparent rounded-md"
-                  placeholder="Enter your email"
-                />
-                <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <button
-                    type="submit"
-                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
-                  >
-                    Subscribe
-                  </button>
-                </div>
-              </form>
-            </div>
-
-            {/* Social Media Links */}
-            <div className="text-center md:text-right">
-              <h3 className="text-lg font-semibold mb-4 text-emerald-400">Follow Us</h3>
-              <div className="flex space-x-4 justify-center md:justify-end">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    className="text-gray-400 hover:text-emerald-400 transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.ariaLabel}
-                  >
-                    {renderSocialIcon(social.icon)}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        
 
         {/* Bottom Footer */}
         <motion.div 

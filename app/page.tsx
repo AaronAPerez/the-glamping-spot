@@ -10,6 +10,7 @@ import { Metadata } from 'next';
 // import CTASection from '@/components/home/CTASection'; // DISABLED DURING DEVELOPMENT (Booking CTA)
 import ExperiencesPreview from '@/components/home/ExperiencesPreview';
 import FeaturedProperties from '@/components/home/FeaturedProperties';
+import AirbnbBookingCTA from '@/components/booking/AirbnbBookingCTA';
 import WeatherHighlightsClient from '@/components/home/WeatherHighlightsClient';
 import NewsletterSignup from '@/components/marketing/NewsletterSignup';
 import { Suspense } from 'react';
@@ -138,10 +139,7 @@ export default function Home() {
           <Hero />
         </section>
 
-        {/* Coming Soon Notice - Prominent display that site is not yet open */}
-        <section id="coming-soon" aria-labelledby="coming-soon-heading">
-          <ComingSoonNotice />
-        </section>
+      
 
         {/* About Section highlighting value proposition */}
         <section id="about" aria-labelledby="about-heading">
@@ -150,9 +148,9 @@ export default function Home() {
         
         {/* Featured Geo Domes - Updated to focus on specific property types */}
         <section id="featured-properties" aria-labelledby="featured-properties-heading">
-          <FeaturedProperties 
-            title="Our Luxury Geodesic Dome Accommodations"
-            subtitle="Experience our premium geo domes with upscale amenities in the heart of East Texas near the Big Thicket National Preserve"
+          <FeaturedProperties
+            title="Our Luxury Geodesic Dome"
+            subtitle="A secluded dome retreat in Kountze, Texas — overlooking a private pond, surrounded by nature, now booking on Airbnb."
           />
         </section>
         
@@ -218,10 +216,10 @@ export default function Home() {
           />
         </section> */}
 
-        {/* Final CTA Section - DISABLED DURING DEVELOPMENT (Booking CTA) */}
-        {/* <section id="cta" aria-labelledby="cta-heading">
-          <CTASection />
-        </section> */}
+        {/* Airbnb Booking CTA */}
+        <section id="book" aria-labelledby="airbnb-cta-heading">
+          <AirbnbBookingCTA />
+        </section>
       </main>
     </div>
   );

@@ -1,749 +1,469 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { PropertyData } from '@/types';
-import PropertyCard from '@/components/properties/PropertyCard';
+import PropertyGallery from '@/components/properties/PropertyGallery';
 
-/**
- * Enhanced SEO metadata for properties page with comprehensive optimization
- * Addresses Lighthouse SEO recommendations
- */
+const AIRBNB_URL = 'https://www.airbnb.com/rooms/1461278647776104058';
+
+// ─── Metadata ─────────────────────────────────────────────────────────────────
+
 export const metadata: Metadata = {
-  title: 'Luxury Geodesic Dome Properties | The Glamping Spot Texas',
-  description: 'Browse our unique geodesic dome glamping accommodations near Houston, Texas. Luxury camping with premium amenities, stargazing ceilings, hot tubs, and breathtaking East Texas views. Book your luxury outdoor experience today.',
+  title: 'Our Geodesic Dome | The Glamping Spot — Kountze, Texas',
+  description:
+    'Stay in a luxury geodesic dome in Kountze, Texas. Sleeps up to 6 guests, 2 bedrooms, private pond, wooden deck, lake access, kitchen, Wifi, and more. Now booking on Airbnb.',
   keywords: [
-    'geodesic dome properties texas',
-    'luxury glamping houston',
-    'dome accommodations texas',
-    'stargazing domes',
-    'glamping properties east texas',
-    'luxury camping near houston',
-    'big thicket accommodations',
-    'dome rentals texas'
+    'geodesic dome kountze texas',
+    'glamping dome east texas',
+    'airbnb dome texas',
+    'luxury dome rental houston',
+    'big thicket glamping',
+    'dome house rental texas',
+    'private pond glamping',
+    'east texas nature retreat',
   ].join(', '),
   authors: [{ name: 'The Glamping Spot' }],
-  creator: 'The Glamping Spot',
-  publisher: 'The Glamping Spot',
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  robots: { index: true, follow: true },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://theglampingspot.com/properties',
     siteName: 'The Glamping Spot',
-    title: 'Luxury Geodesic Dome Properties | The Glamping Spot Texas',
-    description: 'Discover our unique geodesic dome glamping accommodations with premium amenities and stunning Texas views.',
-    images: [
-      {
-        url: '/images/geo-dome.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Luxury geodesic dome accommodation at The Glamping Spot'
-      }
-    ]
+    title: 'Our Geodesic Dome | The Glamping Spot — Kountze, Texas',
+    description:
+      'Luxury geodesic dome in Kountze, TX. Sleeps 6, private pond, wooden deck, lake access. Now booking on Airbnb.',
+    images: [{ url: '/images/glamping-dome.jpg', width: 1200, height: 630, alt: 'The Glamping Spot geodesic dome at night' }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@theglampingspot',
-    creator: '@theglampingspot',
-    title: 'Luxury Geodesic Dome Properties | The Glamping Spot Texas',
-    description: 'Discover our unique geodesic dome glamping accommodations with premium amenities and stunning Texas views.',
-    images: ['/images/geo-dome.jpg']
+    title: 'Our Geodesic Dome | The Glamping Spot — Kountze, Texas',
+    description: 'Luxury geodesic dome in Kountze, TX. Sleeps 6, private pond, wooden deck, lake access. Now booking on Airbnb.',
+    images: ['/images/glamping-dome.jpg'],
   },
-  alternates: {
-    canonical: 'https://theglampingspot.com/properties'
-  },
+  alternates: { canonical: 'https://theglampingspot.com/properties' },
   other: {
-    "geo.region": "US-TX",
-    "geo.placename": "Kountze, Texas",
-    "geo.position": "30.3727;-94.3099",
-    "ICBM": "30.3727, -94.3099"
-  }
+    'geo.region': 'US-TX',
+    'geo.placename': 'Kountze, Texas',
+    'geo.position': '30.3727;-94.3099',
+    ICBM: '30.3727, -94.3099',
+  },
 };
 
-// Enhanced property data with better descriptions and accessibility
-const getProperties = async (): Promise<PropertyData[]> => {
-  // In a real application, this would fetch from an API
-  const sampleProperties: PropertyData[] = [
-    {
-      _id: 'stargazer-dome',
-      name: 'Stargazer Geodesic Dome',
-      description: 'Premium geodesic dome featuring a transparent ceiling perfect for stargazing, luxury amenities, and panoramic East Texas views. Experience the ultimate connection with nature without sacrificing comfort.',
-      location: 'The Glamping Spot, Kountze, East Texas',
-      price: 249,
-      imageUrls: ['/images/geo-dome.jpg'],
-      capacity: 2,
-      amenities: ['Stargazing Ceiling', 'Private Hot Tub', 'Wi-Fi', 'Climate Control', 'Luxury Bathroom', 'Fire Pit'],
-      category: 'geodesic-dome',
-      featured: true,
-      // availability: ['Available year-round'],
-      rating: 4.9,
-      reviewCount: 127
-    },
-    {
-      _id: 'sunset-view-dome',
-      name: 'Sunset View Dome',
-      description: 'Geodesic dome positioned for optimal sunset viewing with premium amenities and private outdoor space. Watch spectacular Texas sunsets from your private hot tub.',
-      location: 'The Glamping Spot, Kountze, East Texas',
-      price: 279,
-      imageUrls: ['/images/geo-dome-sunset2.jpg'],
-      capacity: 2,
-      amenities: ['Sunset Views', 'Private Hot Tub', 'Outdoor Shower', 'Wi-Fi', 'Kitchenette', 'BBQ Grill'],
-      category: 'geodesic-dome',
-      featured: true,
-      // availability: ['Available weekends'],
-      rating: 4.8,
-      reviewCount: 93
-    },
-    {
-      _id: 'family-adventure-dome',
-      name: 'Family Adventure Dome',
-      description: 'Spacious geodesic dome designed for families with additional sleeping space and enhanced amenities. Perfect for creating lasting memories with your loved ones.',
-      location: 'The Glamping Spot, Kountze, East Texas',
-      price: 319,
-      imageUrls: ['/images/family-dome.jpg'],
-      capacity: 4,
-      amenities: ['Queen Bed + Bunks', 'Large Hot Tub', 'Full Kitchen', 'Wi-Fi', 'Fire Pit', 'Game Area'],
-      category: 'geodesic-dome',
-      featured: true,
-      // availability: ['Family-friendly scheduling'],
-      rating: 4.7,
-      reviewCount: 156
-    },
-    // {
-    //   _id: 'romantic-escape-dome',
-    //   name: 'Romantic Escape Dome',
-    //   description: 'Intimate geodesic dome perfect for couples with luxury touches and secluded location. Includes complimentary champagne service and premium amenities.',
-    //   location: 'The Glamping Spot, Kountze, East Texas',
-    //   price: 299,
-    //   imageUrls: ['/images/geo-dome.jpg'],
-    //   capacity: 2,
-    //   amenities: ['King Bed', 'Private Hot Tub', 'Champagne Service', 'Wi-Fi', 'Premium Linens', 'Rose Petals'],
-    //   category: 'geodesic-dome',
-    //   featured: true,
-    //   availability: ['Romantic packages available'],
-    //   rating: 5.0,
-    //   reviewCount: 84
-    // },
-    // {
-    //   _id: 'nature-explorer-dome',
-    //   name: 'Nature Explorer Dome',
-    //   description: 'Adventure-focused geodesic dome with enhanced outdoor access and nature exploration amenities. Includes guided nature walks and wildlife viewing equipment.',
-    //   location: 'The Glamping Spot, Kountze, East Texas',
-    //   price: 259,
-    //   imageUrls: ['/images/geo-dome.jpg'],
-    //   capacity: 3,
-    //   amenities: ['Nature Equipment', 'Hot Tub', 'Hiking Gear', 'Wi-Fi', 'Outdoor Shower', 'Binoculars'],
-    //   category: 'geodesic-dome',
-    //   featured: false,
-    //   availability: ['Seasonal availability'],
-    //   rating: 4.6,
-    //   reviewCount: 72
-    // },
-    // {
-    //   _id: 'luxury-retreat-dome',
-    //   name: 'Luxury Retreat Dome',
-    //   description: 'Our most premium geodesic dome experience featuring top-tier amenities, concierge service, and exclusive access to private trails and facilities.',
-    //   location: 'The Glamping Spot, Kountze, East Texas',
-    //   price: 399,
-    //   imageUrls: ['/images/geo-dome-sunset2.jpg'],
-    //   capacity: 2,
-    //   amenities: ['Concierge Service', 'Premium Hot Tub', 'Butler Service', 'Wi-Fi', 'Private Chef Option', 'Spa Services'],
-    //   category: 'geodesic-dome',
-    //   featured: true,
-    //   availability: ['By reservation only'],
-    //   rating: 5.0,
-    //   reviewCount: 45
-    // }
-  ];
+// ─── Listing data (Airbnb ID 1461278647776104058) ──────────────────────────────
 
-  return sampleProperties;
+const listing = {
+  name: 'The Glamping Spot',
+  type: 'Dome',
+  location: 'Kountze, Texas, United States',
+  capacity: 6,
+  bedrooms: 2,
+  beds: 2,
+  bathrooms: 1,
+  description:
+    'Wake up to the sounds of nature, explore scenic trails right outside your door, or simply relax on the spacious wooden deck overlooking a serene private pond. In the evenings, unwind under the stars with soft ambient lighting and the warm glow of the dome. Perfect for couples, solo travelers, or anyone looking to disconnect and recharge, this secluded getaway blends luxury comfort with the beauty of the East Texas wilderness.',
+  images: [
+    { src: '/images/glamping-dome.jpg', alt: 'The Glamping Spot geodesic dome exterior at night with ambient lighting' },
+    { src: '/images/lakeside.jpg', alt: 'Geodesic dome overlooking the serene private pond' },
+    { src: '/images/deck.jpg', alt: 'Spacious wooden deck at The Glamping Spot' },
+    { src: '/images/dining.jpg', alt: 'Interior dining area inside the geodesic dome' },
+    { src: '/images/bathroom.jpg', alt: 'Bathroom inside The Glamping Spot dome' },
+  ],
+  amenities: [
+    { icon: 'lake', label: 'Lake access' },
+    { icon: 'kitchen', label: 'Kitchen' },
+    { icon: 'wifi', label: 'Wifi' },
+    { icon: 'parking', label: 'Free parking on premises – 4 spaces' },
+    { icon: 'tv', label: 'TV with premium cable' },
+    { icon: 'deck', label: 'Spacious wooden deck' },
+    { icon: 'pond', label: 'Private pond' },
+    { icon: 'trails', label: 'Scenic trails' },
+    { icon: 'co', label: 'Carbon monoxide alarm' },
+    { icon: 'smoke', label: 'Smoke alarm' },
+    { icon: 'camera', label: 'Exterior security cameras on property' },
+  ],
+  host: 'Ivan',
+  checkIn: '2:00 PM',
+  checkOut: '12:00 PM',
+  maxGuests: 6,
 };
 
-/**
- * Enhanced filter options for better user experience
- */
-const filterOptions = [
-  { value: 'all', label: 'All Properties', icon: '🏠' },
-  { value: 'featured', label: 'Featured', icon: '⭐' },
-  { value: 'couples', label: 'For Couples', icon: '💕' },
-  { value: 'families', label: 'Family-Friendly', icon: '👨‍👩‍👧‍👦' },
-  { value: 'luxury', label: 'Luxury', icon: '💎' }
-] as const;
+// ─── Amenity icon map ──────────────────────────────────────────────────────────
 
-/**
- * Sort options for property listings
- */
-const sortOptions = [
-  { value: 'featured', label: 'Featured First' },
-  { value: 'price-low', label: 'Price: Low to High' },
-  { value: 'price-high', label: 'Price: High to Low' },
-  { value: 'rating', label: 'Highest Rated' },
-  { value: 'capacity', label: 'Guest Capacity' }
-] as const;
-
-/**
- * Properties page with enhanced accessibility, SEO, and user experience
- * Implements all Lighthouse performance, accessibility, best practices, and SEO recommendations
- */
-export default async function PropertiesPage() {
-  const properties = await getProperties();
-
-  // JSON-LD structured data for SEO
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Luxury Geodesic Dome Properties",
-    "description": "Premium glamping accommodations in geodesic domes near Houston, Texas",
-    "url": "https://theglampingspot.com/properties",
-    "numberOfItems": properties.length,
-    "itemListElement": properties.map((property, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "LodgingBusiness",
-        "@id": `https://theglampingspot.com/properties/${property._id}`,
-        "name": property.name,
-        "description": property.description,
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Kountze",
-          "addressRegion": "TX",
-          "addressCountry": "US"
-        },
-        "priceRange": `$${property.price}`,
-        "amenityFeature": property.amenities.map(amenity => ({
-          "@type": "LocationFeatureSpecification",
-          "name": amenity
-        })),
-        "aggregateRating": property.rating ? {
-          "@type": "AggregateRating",
-          "ratingValue": property.rating,
-          "reviewCount": property.reviewCount
-        } : undefined
-      }
-    }))
+function AmenityIcon({ type }: { type: string }) {
+  const cls = 'w-5 h-5 text-gray-500';
+  const paths: Record<string, React.ReactNode> = {
+    lake: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15c1.5 0 3-1 4.5-1s3 1 4.5 1 3-1 4.5-1 3 1 4.5 1M3 19c1.5 0 3-1 4.5-1s3 1 4.5 1 3-1 4.5-1 3 1 4.5 1M12 3v8" />,
+    kitchen: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />,
+    wifi: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />,
+    parking: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3m0 0h3l3 3v4h-3m-3 0H9M7 17a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4z" />,
+    tv: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />,
+    deck: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />,
+    pond: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3s-5 5-5 9a5 5 0 0010 0c0-4-5-9-5-9z" />,
+    trails: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />,
+    co: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />,
+    smoke: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />,
+    camera: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 00-2 2v4a2 2 0 002 2h9a2 2 0 002-2V10a2 2 0 00-2-2H3z" />,
   };
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Structured Data */}
+    <svg className={cls} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      {paths[type] ?? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />}
+    </svg>
+  );
+}
+
+// ─── Airbnb logo ───────────────────────────────────────────────────────────────
+
+function AirbnbIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 1000 1000" fill="currentColor" aria-hidden="true">
+      <path d="M499.3 736.7c-51-64-81-120.1-91-168.1-10-39-6-70 11-93 18-27 45-40 80-40s62 13 80 40c17 23 21 54 11 93-10 48-40 104.1-91 168.1zm362.2 43c-7 47-39 86-83 105-85 37-169.1-22-241.1-102 119.1-149.1 141.1-265.1 90-340.2-30-43-73-64-128.1-64-111 0-172.1 94-148.1 203.1 14 59 51 124.1 107 192.1-37 41-77.1 72-116.1 93-41 19-81 23-117 8-49-18-81-61-83-111-3-50 21-102 68-140.1l16-12s24-18 72.1-44c16-8 33-17 51-26-9-12-18-24-27-35-46-59-76-117.1-88-171.1C92 270.1 176 176 279 176c55 0 97 20 138.1 63l10 11 10-11c41-43 83-63 138.1-63 103 0 187.1 94.1 160.1 228.1-12 54-41 112.1-88 171.1-9 11-18 23-27 35 18 9 35 18 51 26 48.1 26 72.1 44 72.1 44l16 12c47 38.1 71 90.1 68 140.1z" />
+    </svg>
+  );
+}
+
+// ─── JSON-LD ───────────────────────────────────────────────────────────────────
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  name: 'The Glamping Spot',
+  description: listing.description,
+  url: 'https://theglampingspot.com/properties',
+  image: listing.images.map((i) => i.src),
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Kountze',
+    addressRegion: 'TX',
+    addressCountry: 'US',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: 30.3727, longitude: -94.3099 },
+  amenityFeature: listing.amenities.map((a) => ({
+    '@type': 'LocationFeatureSpecification',
+    name: a.label,
+    value: true,
+  })),
+  checkinTime: listing.checkIn,
+  checkoutTime: listing.checkOut,
+  numberOfRooms: listing.bedrooms,
+  petsAllowed: false,
+};
+
+// ─── Page ──────────────────────────────────────────────────────────────────────
+
+export default function PropertiesPage() {
+  return (
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      {/* Skip to main content for screen readers */}
-      <a 
-        href="#main-content" 
+      <a
+        href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-emerald-600 focus:text-white focus:rounded-md"
       >
         Skip to main content
       </a>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Breadcrumb navigation with enhanced accessibility */}
-        <nav 
-          className="pt-16 pb-4"
-          aria-label="Breadcrumb navigation"
-        >
-          <ol className="flex items-center space-x-2 text-sm" role="list">
-            <li>
-              <Link 
-                href="/" 
-                className="text-emerald-600 hover:text-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded"
-                aria-label="Return to homepage"
-              >
-                Home
-              </Link>
-            </li>
-            <li aria-hidden="true" className="text-gray-400">/</li>
-            <li className="text-gray-600 font-medium" aria-current="page">
-              Properties
-            </li>
+      <main id="main-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20">
+
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="mb-6">
+          <ol className="flex items-center gap-2 text-sm text-gray-500">
+            <li><Link href="/" className="hover:text-emerald-600 transition-colors focus:outline-none focus:underline">Home</Link></li>
+            <li aria-hidden="true">/</li>
+            <li className="text-gray-900 font-medium" aria-current="page">Our Dome</li>
           </ol>
         </nav>
 
-        {/* Enhanced header section with proper heading hierarchy */}
-        <header className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Our Luxury Geodesic Dome Properties
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl leading-relaxed">
-            Discover our curated collection of unique geodesic dome glamping experiences in the heart of East Texas. 
-            Each dome offers luxury amenities, stunning natural settings, and unforgettable stargazing opportunities 
-            just minutes from Houston.
-          </p>
+        {/* Property header */}
+        <header className="mb-6">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1">{listing.name}</h1>
+              <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600">
+                <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full font-medium text-xs">
+                  ★ New listing
+                </span>
+                <span>{listing.type} · {listing.location}</span>
+              </div>
+            </div>
+            <a
+              href={AIRBNB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-[#FF385C] transition-colors focus:outline-none focus:underline"
+              aria-label="View this listing on Airbnb"
+            >
+              <AirbnbIcon className="w-4 h-4 text-[#FF385C]" />
+              View on Airbnb
+            </a>
+          </div>
         </header>
 
-        {/* Main content with enhanced semantics */}
-        <main id="main-content">
-          {/* Property features highlight with improved accessibility */}
-          <section className="mb-12 bg-white rounded-2xl shadow-lg p-8" aria-labelledby="features-heading">
-            <h2 id="features-heading" className="text-2xl font-bold text-gray-900 mb-6">
-              What Makes Our Domes Special
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg 
-                    className="w-8 h-8 text-emerald-600" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" 
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Stargazing Ceilings</h3>
-                <p className="text-gray-600">Transparent dome ceilings for unparalleled night sky viewing</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg 
-                    className="w-8 h-8 text-emerald-600" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" 
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Luxury Amenities</h3>
-                <p className="text-gray-600">Private hot tubs, premium bedding, and modern conveniences</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg 
-                    className="w-8 h-8 text-emerald-600" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" 
-                    />
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" 
-                    />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Prime Location</h3>
-                <p className="text-gray-600">Minutes from Big Thicket National Preserve and Houston</p>
-              </div>
-            </div>
-          </section>
+        {/* Photo gallery */}
+        <PropertyGallery images={listing.images} airbnbUrl={AIRBNB_URL} />
 
-          {/* Filter and Sort Controls */}
-          <section className="mb-8 bg-white rounded-xl shadow-md p-6" aria-labelledby="filters-heading">
-            <h2 id="filters-heading" className="sr-only">Filter and sort properties</h2>
-            
-            <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
-              {/* Filter Options */}
-              <div className="flex flex-wrap gap-2">
-                <span className="text-sm font-medium text-gray-700 mr-2 py-2">Filter:</span>
-                {filterOptions.map((option) => (
-                  <button
-                    key={option.value}
-                    className="inline-flex items-center px-3 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-colors"
-                    aria-label={`Filter properties: ${option.label}`}
-                  >
-                    <span className="mr-2" aria-hidden="true">{option.icon}</span>
-                    {option.label}
-                  </button>
-                ))}
-              </div>
+        {/* Main content — details left, booking card right */}
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-12">
 
-              {/* Sort Options */}
-              <div className="flex items-center gap-2">
-                <label htmlFor="sort-select" className="text-sm font-medium text-gray-700">
-                  Sort by:
-                </label>
-                <select
-                  id="sort-select"
-                  className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                  aria-label="Sort properties by"
-                >
-                  {sortOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </section>
-          
-          {/* Properties grid with enhanced accessibility and performance */}
-          <section aria-labelledby="properties-heading">
-            <h2 id="properties-heading" className="text-3xl font-bold text-gray-900 mb-8">
-              Available Geodesic Domes ({properties.length} properties)
-            </h2>
-            
-            {properties.length > 0 ? (
-              <>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                  {properties.map((property) => (
-                    <PropertyCard
-                      key={property._id}
-                      id={property._id}
-                      name={property.name}
-                      location={property.location}
-                      price={property.price}
-                      imageUrl={property.imageUrls[0]}
-                      description={property.description}
-                      capacity={property.capacity}
-                      amenities={property.amenities}
-                      rating={property.rating}
-                      reviewCount={property.reviewCount}
-                      featured={property.featured}
-                    />
-                  ))}
-                </div>
+          {/* ── Left: Property details ── */}
+          <div className="lg:col-span-2 space-y-8">
 
-                {/* Load More / Pagination would go here */}
-                <div className="text-center py-8">
-                  <p className="text-gray-600 mb-4">
-                    Showing all {properties.length} properties
+            {/* Host + summary */}
+            <div className="pb-8 border-b border-gray-100">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-1">
+                    {listing.type} hosted by {listing.host}
+                  </h2>
+                  <p className="text-gray-600 text-sm">
+                    {listing.capacity} guests &nbsp;·&nbsp; {listing.bedrooms} bedrooms &nbsp;·&nbsp; {listing.beds} beds &nbsp;·&nbsp; {listing.bathrooms} bath
                   </p>
-                  <Link
-                    href="/booking"
-                    className="inline-flex items-center px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
-                    aria-label="Start booking process for any property"
-                  >
-                    Book Your Stay
-                    <svg 
-                      className="ml-2 h-5 w-5" 
-                      fill="none" 
-                      viewBox="0 0 24 24" 
-                      stroke="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        strokeWidth={2} 
-                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" 
-                      />
-                    </svg>
-                  </Link>
                 </div>
-              </>
-            ) : (
-              <div className="text-center py-16" role="status">
-                <svg 
-                  className="h-16 w-16 text-gray-400 mx-auto mb-4" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" 
-                  />
-                </svg>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">No Properties Found</h3>
-                <p className="text-gray-600 mb-4">
-                  We couldn't find any properties matching your criteria.
-                </p>
-                <button
-                  className="text-emerald-600 hover:text-emerald-700 font-medium focus:outline-none focus:underline"
-                  onClick={() => window.location.reload()}
-                >
-                  Reset Filters
-                </button>
-              </div>
-            )}
-          </section>
-
-          {/* Enhanced booking information section */}
-          <section className="mt-16 bg-gradient-to-r from-emerald-50 to-blue-50 rounded-2xl shadow-inner p-8" aria-labelledby="booking-info-heading">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 id="booking-info-heading" className="text-2xl font-bold text-gray-900 mb-4">
-                  Ready to Book Your Texas Geodesic Dome Experience?
-                </h2>
-                <p className="text-gray-700 mb-6 leading-relaxed">
-                  Our luxury geodesic domes book quickly, especially during weekends and holidays. 
-                  Reserve your stay now to secure your preferred dates and experience 
-                  the ultimate glamping adventure in East Texas near the Big Thicket National Preserve.
-                </p>
-                <ul className="space-y-3 text-gray-700" role="list">
-                  {[
-                    'Free cancellation up to 7 days before check-in',
-                    'Special weekday rates available',
-                    'Exclusive activities included with every booking',
-                    'Direct booking best rate guarantee',
-                    '24/7 concierge support during your stay'
-                  ].map((benefit, index) => (
-                    <li key={index} className="flex items-start">
-                      <svg 
-                        className="h-5 w-5 text-emerald-500 mr-3 mt-0.5 flex-shrink-0" 
-                        fill="none" 
-                        viewBox="0 0 24 24" 
-                        stroke="currentColor" 
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="text-center lg:text-right">
-                <p className="text-lg font-semibold text-emerald-800 mb-4">
-                  Book Direct for Exclusive Benefits
-                </p>
-                <Link 
-                  href="/booking" 
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl text-white bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
-                  aria-label="Check availability and book your geodesic dome experience"
-                >
-                  Check Availability
-                  <svg 
-                    className="ml-2 h-5 w-5" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" 
-                    />
-                  </svg>
-                </Link>
-                <p className="mt-4 text-sm text-gray-600">
-                  Questions? Call us at{' '}
-                  <a 
-                    href="tel:+1234567890" 
-                    className="text-emerald-700 font-semibold hover:underline focus:outline-none focus:underline"
-                    aria-label="Call The Glamping Spot at 123-456-7890"
-                  >
-                    (123) 456-7890
-                  </a>
-                </p>
+                <div className="shrink-0 w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-lg">
+                  {listing.host[0]}
+                </div>
               </div>
             </div>
-          </section>
 
-          {/* Property comparison section */}
-          <section className="mt-16 bg-white rounded-xl shadow-lg p-8" aria-labelledby="comparison-heading">
-            <h2 id="comparison-heading" className="text-2xl font-bold text-gray-900 mb-6">
-              Compare Our Properties
-            </h2>
-            <div className="overflow-x-auto">
-              <table className="w-full table-auto" role="table">
-                <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 font-semibold text-gray-900" scope="col">Property</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-900" scope="col">Capacity</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-900" scope="col">Price/Night</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-900" scope="col">Rating</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-900" scope="col">Key Features</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {properties.slice(0, 4).map((property) => (
-                    <tr key={property._id} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="py-4 px-4">
-                        <div className="font-medium text-gray-900">{property.name}</div>
-                      </td>
-                      <td className="py-4 px-4 text-gray-600">
-                        {property.capacity} guests
-                      </td>
-                      <td className="py-4 px-4">
-                        <span className="font-semibold text-emerald-600">${property.price}</span>
-                      </td>
-                      <td className="py-4 px-4">
-                        <div className="flex items-center">
-                          <span className="text-yellow-400 mr-1">⭐</span>
-                          <span className="font-medium">{property.rating}</span>
-                          <span className="text-gray-500 text-sm ml-1">({property.reviewCount})</span>
-                        </div>
-                      </td>
-                      <td className="py-4 px-4">
-                        <div className="space-y-1">
-                          {property.amenities.slice(0, 3).map((amenity, index) => (
-                            <span key={index} className="inline-block text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full mr-1">
-                              {amenity}
-                            </span>
-                          ))}
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          {/* FAQ Section */}
-          <section className="mt-16 bg-gray-50 rounded-xl p-8" aria-labelledby="faq-heading">
-            <h2 id="faq-heading" className="text-2xl font-bold text-gray-900 mb-8">
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-6">
-              <details className="group">
-                <summary className="flex justify-between items-center cursor-pointer py-4 px-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <h3 className="font-semibold text-gray-900">What's included in each geodesic dome stay?</h3>
-                  <svg className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <div className="mt-4 px-6 pb-4 text-gray-700">
-                  <p>Each geodesic dome includes luxury bedding, private bathroom facilities, climate control, Wi-Fi, and access to shared amenities like fire pits and recreational areas. Specific amenities vary by dome type - see individual property listings for details.</p>
-                </div>
-              </details>
-
-              <details className="group">
-                <summary className="flex justify-between items-center cursor-pointer py-4 px-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <h3 className="font-semibold text-gray-900">What is your cancellation policy?</h3>
-                  <svg className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <div className="mt-4 px-6 pb-4 text-gray-700">
-                  <p>We offer free cancellation up to 7 days before your check-in date. Cancellations within 7 days are subject to a 50% charge. No-shows or same-day cancellations forfeit the full payment.</p>
-                </div>
-              </details>
-
-              <details className="group">
-                <summary className="flex justify-between items-center cursor-pointer py-4 px-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <h3 className="font-semibold text-gray-900">Are pets allowed in the geodesic domes?</h3>
-                  <svg className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <div className="mt-4 px-6 pb-4 text-gray-700">
-                  <p>Select properties are pet-friendly with advance notice and a small additional fee. Please contact us during booking to arrange pet accommodations and review our pet policy.</p>
-                </div>
-              </details>
-
-              <details className="group">
-                <summary className="flex justify-between items-center cursor-pointer py-4 px-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <h3 className="font-semibold text-gray-900">What activities are available nearby?</h3>
-                  <svg className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <div className="mt-4 px-6 pb-4 text-gray-700">
-                  <p>Guests can enjoy hiking in Big Thicket National Preserve, ATV trail riding, bird watching, fishing, stargazing, and guided nature walks. We also offer on-site activities like fire pit gatherings and outdoor games.</p>
-                </div>
-              </details>
-            </div>
-          </section>
-
-          {/* Testimonials Section */}
-          <section className="mt-16 bg-white rounded-xl shadow-lg p-8" aria-labelledby="testimonials-heading">
-            <h2 id="testimonials-heading" className="text-2xl font-bold text-gray-900 mb-8 text-center">
-              What Our Guests Say
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Highlights */}
+            <div className="pb-8 border-b border-gray-100 space-y-4">
               {[
-                {
-                  name: "Sarah & Mike Johnson",
-                  rating: 5,
-                  review: "Absolutely magical experience! The stargazing dome was perfect for our anniversary. The hot tub under the stars was unforgettable.",
-                  property: "Romantic Escape Dome"
-                },
-                {
-                  name: "The Rodriguez Family",
-                  rating: 5,
-                  review: "Our kids loved the family dome! Plenty of space and the location was perfect for exploring Big Thicket. Will definitely return!",
-                  property: "Family Adventure Dome"
-                },
-                {
-                  name: "Jennifer Chen",
-                  rating: 5,
-                  review: "The luxury retreat exceeded all expectations. The concierge service was outstanding and the dome was absolutely pristine.",
-                  property: "Luxury Retreat Dome"
-                }
-              ].map((testimonial, index) => (
-                <div key={index} className="bg-gray-50 rounded-lg p-6">
-                  <div className="flex items-center mb-4">
-                    <div className="flex text-yellow-400">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <span key={i} aria-hidden="true">⭐</span>
-                      ))}
-                    </div>
-                    <span className="sr-only">{testimonial.rating} out of 5 stars</span>
+                { icon: 'deck', title: 'Scenic private pond views', desc: 'Relax on the spacious wooden deck overlooking a serene private pond.' },
+                { icon: 'trails', title: 'Nature at your doorstep', desc: 'Explore scenic trails and the beauty of the East Texas wilderness.' },
+                { icon: 'co', title: 'Safety first', desc: 'Exterior security cameras, carbon monoxide alarm, and smoke alarm on property.' },
+              ].map(({ icon, title, desc }) => (
+                <div key={title} className="flex gap-4">
+                  <div className="shrink-0 mt-0.5 text-gray-500">
+                    <AmenityIcon type={icon} />
                   </div>
-                  <blockquote className="text-gray-700 mb-4">
-                    "{testimonial.review}"
-                  </blockquote>
-                  <div className="text-sm">
-                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                    <div className="text-gray-600">{testimonial.property}</div>
+                  <div>
+                    <p className="font-semibold text-gray-900 text-sm">{title}</p>
+                    <p className="text-gray-500 text-sm">{desc}</p>
                   </div>
                 </div>
               ))}
             </div>
-          </section>
-        </main>
+
+            {/* Description */}
+            <div className="pb-8 border-b border-gray-100">
+              <p className="text-gray-700 leading-relaxed">{listing.description}</p>
+            </div>
+
+            {/* Amenities */}
+            <div className="pb-8 border-b border-gray-100">
+              <h2 className="text-xl font-semibold text-gray-900 mb-6">What this place offers</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {listing.amenities.map(({ icon, label }) => (
+                  <div key={label} className="flex items-center gap-3 text-gray-700 text-sm">
+                    <AmenityIcon type={icon} />
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
+              <a
+                href={AIRBNB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-gray-800 border border-gray-800 rounded-lg px-4 py-2.5 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-800"
+                aria-label="Show all 33 amenities on Airbnb"
+              >
+                Show all 33 amenities
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+
+            {/* House rules */}
+            <div className="pb-8 border-b border-gray-100">
+              <h2 className="text-xl font-semibold text-gray-900 mb-6">Things to know</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-3 text-sm">House rules</h3>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li>Check-in after {listing.checkIn}</li>
+                    <li>Checkout before {listing.checkOut}</li>
+                    <li>{listing.maxGuests} guests maximum</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-3 text-sm">Safety &amp; property</h3>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    <li>Exterior security cameras</li>
+                    <li>Carbon monoxide alarm</li>
+                    <li>Smoke alarm</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-3 text-sm">Cancellation policy</h3>
+                  <p className="text-sm text-gray-600">
+                    Add your trip dates to get the cancellation details for this stay.
+                  </p>
+                  <a
+                    href={AIRBNB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-semibold text-gray-800 underline hover:text-[#FF385C] transition-colors mt-1 inline-block focus:outline-none"
+                  >
+                    Add dates on Airbnb
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Where you'll be */}
+            <div>
+              <h2 className="text-xl font-semibold text-gray-900 mb-2">Where you&apos;ll be</h2>
+              <p className="text-gray-600 text-sm mb-4">{listing.location}</p>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Located in the heart of the Big Thicket region — one of the most biodiverse areas in the
+                United States, home to rare orchids, carnivorous plants, and abundant wildlife. The nearest
+                city is Kountze, TX, with Houston just over an hour away.
+              </p>
+            </div>
+          </div>
+
+          {/* ── Right: Booking card ── */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-24 border border-gray-200 rounded-2xl shadow-xl overflow-hidden">
+
+              {/* Card header */}
+              <div className="px-6 pt-6 pb-4 border-b border-gray-100">
+                <p className="text-sm text-gray-500 font-medium">Add dates for pricing</p>
+                <p className="text-xs text-gray-400 mt-0.5">Exact price shown on Airbnb after selecting dates</p>
+              </div>
+
+              {/* Date + guest fields */}
+              <div className="divide-y divide-gray-100">
+                <div className="grid grid-cols-2 divide-x divide-gray-100">
+                  <div className="px-5 py-4">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1">Check-in</p>
+                    <p className="text-sm text-gray-400">Add date</p>
+                  </div>
+                  <div className="px-5 py-4">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1">Checkout</p>
+                    <p className="text-sm text-gray-400">Add date</p>
+                  </div>
+                </div>
+                <div className="px-5 py-4 flex justify-between items-center">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1">Guests</p>
+                    <p className="text-sm text-gray-600">Up to {listing.capacity} guests</p>
+                  </div>
+                  <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Book CTA */}
+              <div className="px-6 py-5 space-y-3 bg-gray-50">
+                <a
+                  href={AIRBNB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2.5 w-full py-3.5 bg-[#FF385C] hover:bg-[#e0314f] text-white font-bold rounded-xl shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-2"
+                  aria-label="Book The Glamping Spot on Airbnb — opens in a new tab"
+                >
+                  <AirbnbIcon className="w-5 h-5" />
+                  Book on Airbnb
+                </a>
+                <p className="text-center text-xs text-gray-400">You won&apos;t be charged yet</p>
+
+                {/* AirCover */}
+                <div className="flex items-start gap-3 bg-white rounded-xl px-4 py-3 border border-gray-100 mt-2">
+                  <svg className="w-5 h-5 text-[#FF385C] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                  <div>
+                    <p className="text-xs font-bold text-gray-800">AirCover included</p>
+                    <p className="text-xs text-gray-500">Top-to-bottom protection, only on Airbnb.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* House rules summary */}
+              <div className="px-6 py-4 border-t border-gray-100 space-y-1 text-xs text-gray-500">
+                <div className="flex justify-between"><span>Check-in</span><span className="font-medium text-gray-700">After {listing.checkIn}</span></div>
+                <div className="flex justify-between"><span>Checkout</span><span className="font-medium text-gray-700">Before {listing.checkOut}</span></div>
+                <div className="flex justify-between"><span>Max guests</span><span className="font-medium text-gray-700">{listing.maxGuests}</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* FAQ */}
+        <section className="mt-20 bg-gray-50 rounded-2xl p-8" aria-labelledby="faq-heading">
+          <h2 id="faq-heading" className="text-2xl font-bold text-gray-900 mb-8">Frequently asked questions</h2>
+          <div className="space-y-4 max-w-3xl">
+            {[
+              {
+                q: "What's included in the dome stay?",
+                a: "The dome includes lake access, a full kitchen, Wifi, TV with premium cable, free parking for 4 vehicles, and a spacious wooden deck overlooking a private pond. Carbon monoxide and smoke alarms are also on the property for your safety.",
+              },
+              {
+                q: 'How many guests can stay?',
+                a: `The dome sleeps up to ${listing.capacity} guests across ${listing.bedrooms} bedrooms with ${listing.beds} beds and ${listing.bathrooms} bathroom.`,
+              },
+              {
+                q: 'What are the check-in and checkout times?',
+                a: `Check-in is after ${listing.checkIn} and checkout is before ${listing.checkOut}.`,
+              },
+              {
+                q: 'What activities are available nearby?',
+                a: 'Guests can explore scenic trails directly from the property, fish in the private pond, and visit the Big Thicket National Preserve — one of the most biodiverse areas in the US — just minutes away. Kountze and other East Texas towns are also nearby.',
+              },
+              {
+                q: 'How do I book?',
+                a: 'All bookings are handled securely through Airbnb. Click "Book on Airbnb" to select your dates, see pricing, and complete your reservation with AirCover guest protection included.',
+              },
+              {
+                q: 'What is the cancellation policy?',
+                a: 'Cancellation terms depend on your selected dates. Add your travel dates on Airbnb to see the exact cancellation policy for your stay.',
+              },
+            ].map(({ q, a }) => (
+              <details key={q} className="group bg-white rounded-xl shadow-sm border border-gray-100">
+                <summary className="flex justify-between items-center cursor-pointer py-4 px-6 list-none">
+                  <h3 className="font-semibold text-gray-900 text-sm pr-4">{q}</h3>
+                  <svg className="w-4 h-4 text-gray-400 shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="px-6 pb-5 text-sm text-gray-600 leading-relaxed">{a}</div>
+              </details>
+            ))}
+          </div>
+        </section>
 
         {/* Footer CTA */}
-        <aside className="mt-16 text-center bg-emerald-600 rounded-2xl p-8 text-white" aria-labelledby="footer-cta-heading">
-          <h2 id="footer-cta-heading" className="text-2xl font-bold mb-4">
-            Ready to Experience Luxury Glamping?
-          </h2>
-          <p className="text-emerald-100 mb-6 max-w-2xl mx-auto">
-            Don't wait - our unique geodesic domes book quickly. Secure your perfect Texas glamping getaway today.
+        <aside className="mt-16 bg-[#FF385C] rounded-2xl p-8 text-white text-center" aria-labelledby="footer-cta-heading">
+          <AirbnbIcon className="w-10 h-10 mx-auto mb-4 opacity-80" />
+          <h2 id="footer-cta-heading" className="text-2xl font-bold mb-3">Ready to book your stay?</h2>
+          <p className="text-white/80 mb-6 max-w-xl mx-auto text-sm leading-relaxed">
+            Check availability, select your dates, and book securely through Airbnb. AirCover guest protection included with every stay.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/booking"
-              className="inline-flex items-center justify-center px-8 py-3 bg-white text-emerald-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-emerald-600"
-              aria-label="Start booking your geodesic dome experience"
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href={AIRBNB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-white text-[#FF385C] font-bold rounded-xl hover:bg-gray-100 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#FF385C]"
+              aria-label="Book on Airbnb — opens in a new tab"
             >
-              Book Now
-            </Link>
+              <AirbnbIcon className="w-5 h-5" />
+              Book on Airbnb
+            </a>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-emerald-600 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-emerald-600"
-              aria-label="Contact us with questions about our properties"
+              className="inline-flex items-center justify-center px-8 py-3 border-2 border-white/60 text-white font-semibold rounded-xl hover:border-white hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#FF385C]"
             >
               Contact Us
             </Link>
           </div>
         </aside>
-      </div>
+      </main>
     </div>
   );
 }
