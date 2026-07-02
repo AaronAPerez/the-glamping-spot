@@ -25,7 +25,6 @@
     "immer": "^10.1.1",
     "lucide-react": "^0.487.0",
     "next": "^16.2.9",
-    "next-auth": "^3.29.10",
     "nodemailer": "^9.0.3",
     "react": "^19.2.1",
     "react-date-range": "^2.0.1",
