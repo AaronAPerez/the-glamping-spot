@@ -63,7 +63,6 @@ export default function Footer({ className = '' }: FooterProps) {
         { name: 'About Us', href: '/about' },
         { name: 'Blog', href: '/blog' },
         { name: 'Careers', href: '/careers' },
-        { name: 'Contact', href: '/contact' },
       ]
     },
     {

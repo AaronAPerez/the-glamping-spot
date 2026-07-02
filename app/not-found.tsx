@@ -11,7 +11,7 @@ export default function NotFound() {
   const popularPages = [
     { name: 'Properties', href: '/properties' },
     { name: 'About Us', href: '/about' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Activities', href: '/experiences' }
   ];
   
   return (

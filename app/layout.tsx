@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import DevelopmentBanner from '@/components/banners/DevelopmentBanner'
 import { Suspense } from 'react'
 
 const inter = Inter({
@@ -443,7 +442,7 @@ export default function RootLayout({
               ],
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+1-123-456-7890",
+                // "telephone": "+1-123-456-7890",
                 "contactType": "customer service",
                 "areaServed": "US",
                 "availableLanguage": "English"
@@ -454,8 +453,6 @@ export default function RootLayout({
       </head>
       
       <body className="min-h-full bg-white text-gray-900 antialiased">
-        {/* Development Banner - Shows site is under construction */}
-        <DevelopmentBanner />
 
         {/* Skip to main content link for accessibility */}
         <a

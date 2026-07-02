@@ -22,18 +22,18 @@ export default function AboutSection() {
       priority: false
     },
     {
-      src: "/images/dining.jpg",
-      alt: "Elegant dining setup inside luxury geodesic dome with modern amenities",
+      src: "/images/living-room.avif",
+      alt: "Elegant living space inside luxury geodesic dome with modern amenities",
       priority: false
     },
     {
-      src: "/images/bathroom.jpg",
+      src: "/images/full-bathroom-1.avif",
       alt: "Luxury bathroom with modern fixtures and premium amenities in geodesic dome",
       priority: false
     },
     {
-      src: "/images/treehouse1.jpg",
-      alt: "Luxury bathroom with modern fixtures and premium amenities in geodesic dome",
+      src: "/images/exterior.avif",
+      alt: "Geodesic dome exterior surrounded by East Texas nature",
       priority: false
     }
   ];
@@ -152,10 +152,10 @@ export default function AboutSection() {
                     text: "Breathtaking locations away from crowds in pristine East Texas wilderness",
                     icon: "🌲"
                   },
-                  {
-                    text: "Luxury amenities including premium bedding, climate control, and private hot tubs",
-                    icon: "🛁"
-                  },
+                  // {
+                  //   text: "Luxury amenities including premium bedding, climate control, and private hot tubs",
+                  //   icon: "🛁"
+                  // },
                   {
                     text: "Thoughtfully designed geodesic domes that connect you with the environment",
                     icon: "🏠"

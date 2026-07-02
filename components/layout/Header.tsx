@@ -54,7 +54,6 @@ export default function Header() {
     { label: "Our Dome", href: "/properties", description: "View our geodesic dome accommodation" },
     { label: "Activities", href: "/experiences", description: "Discover local activities" },
     { label: "About", href: "/about", description: "Learn about our story" },
-    { label: "Contact", href: "/contact", description: "Get in touch with us" },
   ];
 
   // Handle mobile menu toggle with accessibility

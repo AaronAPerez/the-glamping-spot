@@ -45,7 +45,7 @@ const LISTING: FeaturedPropertyData = {
   _id: 'the-glamping-spot-dome',
   name: 'The Glamping Spot',
   description:
-    'Wake up to the sounds of nature, explore scenic trails right outside your door, or simply relax on the spacious wooden deck overlooking a serene private pond. In the evenings, unwind under the stars with soft ambient lighting and the warm glow of the dome. Perfect for couples, solo travelers, or anyone looking to disconnect and recharge, this secluded getaway blends luxury comfort with the beauty of the East Texas wilderness.',
+    'Explore scenic trails right outside your door, or simply relax on the spacious wooden deck overlooking a serene private pond. In the evenings, unwind under the stars with soft ambient lighting and the warm glow of the dome. Perfect for couples, solo travelers, or anyone looking to disconnect and recharge, this secluded getaway blends rustic charm with a one-of-a-kind stay you won’t forget.',
   location: 'Kountze, Texas, United States',
   price: null,
   imageUrls: [
@@ -58,7 +58,7 @@ const LISTING: FeaturedPropertyData = {
     '/images/backyard-view.avif',
     '/images/backyard-top-view.avif',
   ],
-  capacity: 6,
+  capacity: 5,
   bedrooms: 2,
   beds: 2,
   bathrooms: 1,
@@ -88,7 +88,7 @@ const LISTING: FeaturedPropertyData = {
       ),
     },
     {
-      label: 'Free Parking – 4 Spaces',
+      label: 'Free Residential Garage – 4 Spaces',
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3m0 0h3l3 3v4h-3m-3 0H9M7 17a2 2 0 100 4 2 2 0 000-4zm10 0a2 2 0 100 4 2 2 0 000-4z" />

@@ -4,7 +4,6 @@ import { LoadingSkeleton } from '@/components/ui/LoadingSkeleton';
 // Critical components - load immediately
 import Hero from '@/components/home/Hero';
 import AboutSection from '@/components/home/AboutSection';
-import ComingSoonNotice from '@/components/notices/ComingSoonNotice';
 import { Metadata } from 'next';
 // import MidpageBookingCTA from '@/components/booking/MidpageBookingCTA'; // DISABLED DURING DEVELOPMENT
 // import CTASection from '@/components/home/CTASection'; // DISABLED DURING DEVELOPMENT (Booking CTA)
@@ -12,7 +11,7 @@ import ExperiencesPreview from '@/components/home/ExperiencesPreview';
 import FeaturedProperties from '@/components/home/FeaturedProperties';
 import AirbnbBookingCTA from '@/components/booking/AirbnbBookingCTA';
 import WeatherHighlightsClient from '@/components/home/WeatherHighlightsClient';
-import NewsletterSignup from '@/components/marketing/NewsletterSignup';
+// import NewsletterSignup from '@/components/marketing/NewsletterSignup';
 import { Suspense } from 'react';
 
 // Non-critical components - load dynamically
@@ -24,13 +23,13 @@ const ActivitiesNearby = dynamic(() => import('@/location/ActivitiesNearby'), {
   loading: () => <LoadingSkeleton lines={5} height="h-48" />
 });
 
-const TestimonialSection = dynamic(() => import('@/components/home/TestimonialSection'), {
-  loading: () => <LoadingSkeleton lines={4} height="h-32" />
-});
+// const TestimonialSection = dynamic(() => import('@/components/home/TestimonialSection'), {
+//   loading: () => <LoadingSkeleton lines={4} height="h-32" />
+// });
 
-const UniqueExperiences = dynamic(() => import('@/components/home/UniqueExperiences'), {
-  loading: () => <LoadingSkeleton lines={6} height="h-40" />
-});
+// const UniqueExperiences = dynamic(() => import('@/components/home/UniqueExperiences'), {
+//   loading: () => <LoadingSkeleton lines={6} height="h-40" />
+// });
 
 /**
  * Enhanced SEO metadata for the homepage with comprehensive keywords and social sharing
@@ -155,9 +154,9 @@ export default function Home() {
         </section>
         
         {/* Unique Experiences Section for activity upsells */}
-        <section id="unique-experiences" aria-labelledby="unique-experiences-heading">
+        {/* <section id="unique-experiences" aria-labelledby="unique-experiences-heading">
           <UniqueExperiences />
-        </section>
+        </section> */}
 
       
         

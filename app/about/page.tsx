@@ -207,14 +207,12 @@ export default function AboutPage() {
       title: 'Stargazing Experience'
     },
     {
-      src: '/images/dining.jpg',
-      // src: '/images/about/luxury-dining-optimized.webp',
-      alt: 'Elegant dining setup inside luxury geodesic dome with modern amenities and natural lighting',
+      src: '/images/living-room.avif',
+      alt: 'Elegant living space inside luxury geodesic dome with modern amenities and natural lighting',
       title: 'Luxury Amenities'
     },
     {
-      src: '/images/bathroom.jpg',
-      // src: '/images/about/nature-connection-optimized.webp',
+      src: '/images/full-bathroom-1.avif',
       alt: 'Guests connecting with nature while enjoying premium comfort at The Glamping Spot',
       title: 'Nature Connection'
     }
@@ -504,39 +502,25 @@ export default function AboutPage() {
                     View Properties
                   </Link>
                   
-                  <Link 
-                    href="/contact" 
+                  <a
+                    href="https://www.airbnb.com/rooms/1461278647776104058"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-emerald-700 font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-emerald-700"
-                    aria-label="Contact us to learn more about The Glamping Spot"
+                    aria-label="Message us on Airbnb — opens in a new tab"
                   >
                     <svg className="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    Contact Us
-                  </Link>
+                    Message Us on Airbnb
+                  </a>
                 </div>
 
                 {/* Contact information */}
                 <div className="mt-8 pt-6 border-t border-emerald-600">
-                  <p className="text-emerald-200 mb-4">
-                    Questions about our story or sustainability practices?
+                  <p className="text-emerald-200">
+                    Questions about our story or sustainability practices? Message us directly through Airbnb.
                   </p>
-                  <div className="flex flex-col sm:flex-row lg:flex-col gap-2 justify-center lg:justify-end text-sm">
-                    <a 
-                      href="tel:+1234567890"
-                      className="text-white hover:text-emerald-200 transition-colors focus:outline-none focus:underline"
-                      aria-label="Call us at 123-456-7890"
-                    >
-                      📞 (123) 456-7890
-                    </a>
-                    <a 
-                      href="mailto:info@theglampingspot.com"
-                      className="text-white hover:text-emerald-200 transition-colors focus:outline-none focus:underline"
-                      aria-label="Email us at info@theglampingspot.com"
-                    >
-                      ✉️ info@theglampingspot.com
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>

@@ -195,14 +195,6 @@ export default function ExperiencesPage() {
                 </svg>
                 Email Your Experience
               </a>
-              
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-6 py-3 border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white rounded-xl font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
-                aria-label="Contact us about sharing your experience"
-              >
-                Contact Us
-              </Link>
             </div>
 
             {/* Social media sharing encouragement */}

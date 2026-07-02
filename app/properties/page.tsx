@@ -10,7 +10,7 @@ const AIRBNB_URL = 'https://www.airbnb.com/rooms/1461278647776104058';
 export const metadata: Metadata = {
   title: 'Our Geodesic Dome | The Glamping Spot — Kountze, Texas',
   description:
-    'Stay in a luxury geodesic dome in Kountze, Texas. Sleeps up to 6 guests, 2 bedrooms, private pond, wooden deck, lake access, kitchen, Wifi, and more. Now booking on Airbnb.',
+    'Stay in a luxury geodesic dome in Kountze, Texas. Sleeps up to 5 guests, 2 bedrooms, private pond, wooden deck, lake access, kitchen, Wifi, and more. Now booking on Airbnb.',
   keywords: [
     'geodesic dome kountze texas',
     'glamping dome east texas',
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     siteName: 'The Glamping Spot',
     title: 'Our Geodesic Dome | The Glamping Spot — Kountze, Texas',
     description:
-      'Luxury geodesic dome in Kountze, TX. Sleeps 6, private pond, wooden deck, lake access. Now booking on Airbnb.',
+      'Luxury geodesic dome in Kountze, TX. Sleeps 5, private pond, wooden deck, lake access. Now booking on Airbnb.',
     images: [{ url: '/images/glamping-dome.jpg', width: 1200, height: 630, alt: 'The Glamping Spot geodesic dome at night' }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@theglampingspot',
     title: 'Our Geodesic Dome | The Glamping Spot — Kountze, Texas',
-    description: 'Luxury geodesic dome in Kountze, TX. Sleeps 6, private pond, wooden deck, lake access. Now booking on Airbnb.',
+    description: 'Luxury geodesic dome in Kountze, TX. Sleeps 5, private pond, wooden deck, lake access. Now booking on Airbnb.',
     images: ['/images/glamping-dome.jpg'],
   },
   alternates: { canonical: 'https://theglampingspot.com/properties' },
@@ -55,24 +55,36 @@ const listing = {
   name: 'The Glamping Spot',
   type: 'Dome',
   location: 'Kountze, Texas, United States',
-  capacity: 6,
+  capacity: 5,
   bedrooms: 2,
   beds: 2,
   bathrooms: 1,
   description:
-    'Wake up to the sounds of nature, explore scenic trails right outside your door, or simply relax on the spacious wooden deck overlooking a serene private pond. In the evenings, unwind under the stars with soft ambient lighting and the warm glow of the dome. Perfect for couples, solo travelers, or anyone looking to disconnect and recharge, this secluded getaway blends luxury comfort with the beauty of the East Texas wilderness.',
+    'Explore scenic trails right outside your door, or simply relax on the spacious wooden deck overlooking a serene private pond. In the evenings, unwind under the stars with soft ambient lighting and the warm glow of the dome. Perfect for couples, solo travelers, or anyone looking to disconnect and recharge, this secluded getaway blends rustic charm with a one-of-a-kind stay you won’t forget.',
   images: [
     { src: '/images/glamping-dome.jpg', alt: 'The Glamping Spot geodesic dome exterior at night with ambient lighting' },
-    { src: '/images/lakeside.jpg', alt: 'Geodesic dome overlooking the serene private pond' },
-    { src: '/images/deck.jpg', alt: 'Spacious wooden deck at The Glamping Spot' },
-    { src: '/images/dining.jpg', alt: 'Interior dining area inside the geodesic dome' },
-    { src: '/images/bathroom.jpg', alt: 'Bathroom inside The Glamping Spot dome' },
+    { src: '/images/exterior.avif', alt: 'Geodesic dome exterior overlooking the property' },
+    { src: '/images/deck.avif', alt: 'Spacious wooden deck at The Glamping Spot' },
+    { src: '/images/living-room.avif', alt: 'Interior living space inside the geodesic dome' },
+    { src: '/images/bedroom.avif', alt: 'Bedroom inside The Glamping Spot dome' },
+    { src: '/images/full-bathroom-1.avif', alt: 'Bathroom inside The Glamping Spot dome' },
+    { src: '/images/backyard.avif', alt: 'Backyard and private pond at The Glamping Spot' },
+    { src: '/images/exterior-2.avif', alt: 'Geodesic dome exterior, alternate view' },
+    { src: '/images/exterior-3.avif', alt: 'Geodesic dome exterior, alternate view' },
+    { src: '/images/exterior-4.avif', alt: 'Geodesic dome exterior, alternate view' },
+    { src: '/images/deck-2.avif', alt: 'Wooden deck at The Glamping Spot, alternate view' },
+    { src: '/images/bedroom-2.avif', alt: 'Bedroom inside The Glamping Spot dome, alternate view' },
+    { src: '/images/full-bathroom-2.avif', alt: 'Bathroom inside The Glamping Spot dome, alternate view' },
+    { src: '/images/full-bathroom-3.avif', alt: 'Bathroom inside The Glamping Spot dome, alternate view' },
+    { src: '/images/backyard-2.avif', alt: 'Backyard and private pond at The Glamping Spot, alternate view' },
+    { src: '/images/backyard-view.avif', alt: 'View of the private pond from the property' },
+    { src: '/images/backyard-top-view.avif', alt: 'Aerial view of the backyard and private pond' },
   ],
   amenities: [
     { icon: 'lake', label: 'Lake access' },
     { icon: 'kitchen', label: 'Kitchen' },
     { icon: 'wifi', label: 'Wifi' },
-    { icon: 'parking', label: 'Free parking on premises – 4 spaces' },
+    { icon: 'parking', label: 'Free residential garage on premises – 4 spaces' },
     { icon: 'tv', label: 'TV with premium cable' },
     { icon: 'deck', label: 'Spacious wooden deck' },
     { icon: 'pond', label: 'Private pond' },
@@ -84,7 +96,7 @@ const listing = {
   host: 'Ivan',
   checkIn: '2:00 PM',
   checkOut: '12:00 PM',
-  maxGuests: 6,
+  maxGuests: 5,
 };
 
 // ─── Amenity icon map ──────────────────────────────────────────────────────────
@@ -390,6 +402,16 @@ export default function PropertiesPage() {
                 <div className="flex justify-between"><span>Checkout</span><span className="font-medium text-gray-700">Before {listing.checkOut}</span></div>
                 <div className="flex justify-between"><span>Max guests</span><span className="font-medium text-gray-700">{listing.maxGuests}</span></div>
               </div>
+
+              {/* Already booked? */}
+              <div className="px-6 py-4 border-t border-gray-100 text-center">
+                <p className="text-xs text-gray-500">
+                  Already booked?{' '}
+                  <Link href="/waiver" className="font-semibold text-emerald-700 hover:text-emerald-800 underline focus:outline-none">
+                    Sign your liability waiver
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -455,12 +477,15 @@ export default function PropertiesPage() {
               <AirbnbIcon className="w-5 h-5" />
               Book on Airbnb
             </a>
-            <Link
-              href="/contact"
+            <a
+              href={AIRBNB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-3 border-2 border-white/60 text-white font-semibold rounded-xl hover:border-white hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#FF385C]"
+              aria-label="Message the host on Airbnb — opens in a new tab"
             >
-              Contact Us
-            </Link>
+              Message Host on Airbnb
+            </a>
           </div>
         </aside>
       </main>

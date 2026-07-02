@@ -17,12 +17,12 @@ const Hero = () => {
   // Sample hero backgrounds
   const heroSlides = [
     {
-      image:"/images/instagram/post1sunset.jpg",
+      image:"/images/deck.png",
       title: 'Escape to Nature\'s Luxury in Texas',
       subtitle: 'Discover unique glamping experiences in breathtaking locations'
     },
     {
-      image: '/images/instagram/post3atv.jpg',
+      image: '/images/exterior-3.avif',
       title: 'Unforgettable Outdoor Adventures',
       subtitle: 'Premium camping with all the comforts of home'
     },
