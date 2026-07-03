@@ -11,14 +11,18 @@ export const metadata: Metadata = {
   title: 'Guest Experiences & Adventures | The Glamping Spot',
   description: 'Discover unforgettable experiences shared by guests during their geodesic dome glamping stays. See real adventures, activities, and memories from The Glamping Spot near Houston, Texas.',
   keywords: [
+    'glamping texas',
     'glamping experiences',
     'texas outdoor adventures',
     'geodesic dome experiences',
     'glamping activities texas',
+    'atv trails texas glamping',
     'houston area adventures',
     'big thicket experiences',
+    'big thicket national preserve activities',
     'luxury camping memories',
-    'texas nature activities'
+    'texas nature activities',
+    'things to do near kountze texas'
   ].join(', '),
   openGraph: {
     title: 'Guest Experiences & Adventures | The Glamping Spot',

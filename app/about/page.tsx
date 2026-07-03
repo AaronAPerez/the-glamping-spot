@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: 'About The Glamping Spot | Our Story & Sustainable Luxury Mission',
   description: 'Learn about The Glamping Spot\'s passion for providing unique, luxurious geodesic dome glamping experiences that connect you with nature while promoting sustainable tourism in East Texas.',
   keywords: [
+    'glamping texas',
     'about glamping spot',
     'glamping company story',
     'sustainable luxury camping',
@@ -23,7 +24,9 @@ export const metadata: Metadata = {
     'nature retreat philosophy',
     'responsible tourism texas',
     'team behind glamping spot',
-    'sustainable accommodation texas'
+    'sustainable accommodation texas',
+    'east texas glamping story',
+    'kountze texas glamping'
   ].join(', '),
   authors: [{ name: 'The Glamping Spot Team' }],
   creator: 'The Glamping Spot',
@@ -602,18 +605,11 @@ export default function AboutPage() {
             },
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+1-123-456-7890",
               "contactType": "customer service"
             },
             "sameAs": [
-              "https://www.facebook.com/theglampingspot",
-              "https://www.instagram.com/theglampingspot"
-            ],
-            "award": [
-              "Best Sustainable Accommodation - Texas Tourism Board 2024",
-              "Excellence in Hospitality - East Texas Chamber 2024",
-              "Green Business Certification - Environmental Alliance 2023",
-              "Top Glamping Destination - Travel & Leisure 2023"
+              "https://www.facebook.com/people/The-Glamping-Spot/61574219567434/",
+              "https://www.instagram.com/the.glamping.spot"
             ]
           })
         }}

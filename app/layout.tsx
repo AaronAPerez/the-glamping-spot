@@ -28,18 +28,33 @@ export const metadata: Metadata = {
   },
   description: 'Experience luxury glamping in geodesic domes near Houston, TX with premium amenities, stunning views, stargazing, hot tubs, and exciting outdoor activities.',
   keywords: [
+    'glamping',
     'glamping texas',
-    'houston glamping', 
+    'glamping near houston',
+    'houston glamping',
+    'geodesic dome',
     'geodesic domes texas',
+    'geodesic dome rental',
+    'dome glamping',
     'luxury camping houston',
     'texas outdoor getaway',
     'stargazing accommodation',
+    'stargazing dome',
     'big thicket glamping',
+    'big thicket national preserve lodging',
     'kountze texas lodging',
+    'kountze texas glamping',
     'dome camping texas',
     'east texas glamping',
+    'southeast texas glamping',
+    'beaumont texas glamping',
+    'woodville texas glamping',
     'luxury outdoor accommodation',
-    'nature retreat texas'
+    'nature retreat texas',
+    'unique airbnb texas',
+    'romantic getaway texas',
+    'private pond rental texas',
+    'glamping domes near me',
   ].join(', '),
   authors: [{ name: 'The Glamping Spot' }],
   creator: 'The Glamping Spot',
@@ -354,7 +369,11 @@ export default function RootLayout({
         
         {/* Performance hints - preload critical resources */}
         <link rel="preload" href="/images/GlampingHero.jpg" as="image" type="image/jpeg" />
-        <link rel="preload" href="/images/TheGlampingSpot_W.png" as="image" type="image/png" />
+        {/* Logo preload is intentionally omitted here: the header's next/image
+            `priority` prop already emits a correctly-sized preload link for the
+            actual optimized asset served via /_next/image. A manual preload of
+            the raw /images path would fetch a different, larger file that the
+            browser can't reuse for the real request. */}
         
         {/* Resource hints for better performance */}
         <link rel="modulepreload" href="/_next/static/chunks/polyfills.js" />
@@ -369,14 +388,10 @@ export default function RootLayout({
               "name": "The Glamping Spot",
               "description": "Luxury geodesic dome glamping experience near Houston, Texas",
               "url": process.env.NEXT_PUBLIC_SITE_URL || "https://theglampingspot.com",
-              "telephone": "+1-123-456-7890",
-              "email": "info@theglampingspot.com",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "123 Glamping Way",
                 "addressLocality": "Kountze",
                 "addressRegion": "TX",
-                "postalCode": "77625",
                 "addressCountry": "US"
               },
               "geo": {
@@ -384,39 +399,16 @@ export default function RootLayout({
                 "latitude": "30.3727",
                 "longitude": "-94.3099"
               },
-              "priceRange": "$249-$399",
               "amenityFeature": [
-                {
-                  "@type": "LocationFeatureSpecification",
-                  "name": "Hot Tub"
-                },
-                {
-                  "@type": "LocationFeatureSpecification", 
-                  "name": "WiFi"
-                },
-                {
-                  "@type": "LocationFeatureSpecification",
-                  "name": "Climate Control"
-                },
-                {
-                  "@type": "LocationFeatureSpecification",
-                  "name": "Stargazing"
-                },
-                {
-                  "@type": "LocationFeatureSpecification",
-                  "name": "Private Bathroom"
-                }
+                { "@type": "LocationFeatureSpecification", "name": "Lake access" },
+                { "@type": "LocationFeatureSpecification", "name": "Kitchen" },
+                { "@type": "LocationFeatureSpecification", "name": "WiFi" },
+                { "@type": "LocationFeatureSpecification", "name": "Free residential garage on premises" },
+                { "@type": "LocationFeatureSpecification", "name": "TV with premium cable" },
+                { "@type": "LocationFeatureSpecification", "name": "Spacious wooden deck" },
+                { "@type": "LocationFeatureSpecification", "name": "Private pond" },
+                { "@type": "LocationFeatureSpecification", "name": "Scenic trails" }
               ],
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "127"
-              },
-              "openingHours": [
-                "Mo-Su 08:00-20:00"
-              ],
-              "paymentAccepted": "Cash, Credit Card, Debit Card",
-              "currenciesAccepted": "USD",
               "image": [
                 `${process.env.NEXT_PUBLIC_SITE_URL || 'https://theglampingspot.com'}/images/GlampingHero.jpg`,
                 `${process.env.NEXT_PUBLIC_SITE_URL || 'https://theglampingspot.com'}/images/geo-dome.jpg`
@@ -436,9 +428,8 @@ export default function RootLayout({
               "url": process.env.NEXT_PUBLIC_SITE_URL || "https://theglampingspot.com",
               "logo": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://theglampingspot.com'}/images/TheGlampingSpot_W.png`,
               "sameAs": [
-                "https://www.facebook.com/theglampingspot",
-                "https://www.instagram.com/theglampingspot",
-                "https://www.tripadvisor.com/theglampingspot"
+                "https://www.facebook.com/people/The-Glamping-Spot/61574219567434/",
+                "https://www.instagram.com/the.glamping.spot"
               ],
               "contactPoint": {
                 "@type": "ContactPoint",

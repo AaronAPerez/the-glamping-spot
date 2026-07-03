@@ -18,18 +18,18 @@ const Hero = () => {
   const heroSlides = [
     {
       image:"/images/deck.png",
-      title: 'Escape to Nature\'s Luxury in Texas',
-      subtitle: 'Discover unique glamping experiences in breathtaking locations'
+      title: 'Luxury Glamping in a Geodesic Dome',
+      subtitle: 'A one-of-a-kind glamping getaway near Houston, Texas'
     },
     {
       image: '/images/exterior-3.avif',
-      title: 'Unforgettable Outdoor Adventures',
-      subtitle: 'Premium camping with all the comforts of home'
+      title: 'Unforgettable Glamping Adventures',
+      subtitle: 'Premium dome glamping with all the comforts of home'
     },
     {
       image: '/images/experiences/GlampingHero.jpg',
-      title: 'Where Comfort Meets Adventure',
-      subtitle: 'Experience the perfect blend of luxury and nature'
+      title: 'Where Glamping Meets Texas Wilderness',
+      subtitle: 'Experience luxury dome glamping in the Big Thicket'
     }
   ];
 
