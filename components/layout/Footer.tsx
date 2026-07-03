@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -38,52 +37,36 @@ export default function Footer({ className = '' }: FooterProps) {
     visible: { opacity: 1, y: 0 }
   };
 
-  // Social media links
+  // Social media links — only real, active accounts
   const socialLinks = [
     { name: 'Instagram', href: 'https://www.instagram.com/the.glamping.spot', icon: 'instagram', ariaLabel: 'Follow us on Instagram' },
-    { name: 'Facebook', href: '/', icon: 'facebook', ariaLabel: 'Follow us on Facebook' },
-    { name: 'Twitter', href: '/', icon: 'twitter', ariaLabel: 'Follow us on Twitter' },
-    { name: 'Pinterest', href: '/', icon: 'pinterest', ariaLabel: 'Follow us on Pinterest' },
+    { name: 'Facebook', href: 'https://www.facebook.com/people/The-Glamping-Spot/61574219567434/', icon: 'facebook', ariaLabel: 'Follow us on Facebook' },
   ];
 
-  // Link categories for better organization
+  // Link categories for better organization — every href below points to a real page
   const linkCategories = [
     {
-      title: 'Experiences',
+      title: 'Explore',
       links: [
-        { name: 'Properties', href: '/properties' },
-        { name: 'Activities', href: '/activities' },
-        { name: 'Locations', href: '/locations' },
-        { name: 'Gift Cards', href: '/gift-cards' },
+        { name: 'Our Dome', href: '/properties' },
+        { name: 'Activities', href: '/experiences' },
       ]
     },
     {
       title: 'Company',
       links: [
         { name: 'About Us', href: '/about' },
-        { name: 'Blog', href: '/blog' },
-        { name: 'Careers', href: '/careers' },
       ]
     },
     {
       title: 'Support',
       links: [
-        { name: 'Help Center', href: '/help' },
-        { name: 'Cancellation Policy', href: '/cancellation-policy' },
-        { name: 'COVID-19 Response', href: '/covid-19' },
+        { name: 'Sign Waiver', href: '/waiver' },
         { name: 'Accessibility', href: '/accessibility' },
       ]
     }
   ];
 
-  /**
-   * Handle newsletter form submission
-   */
-  const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // In a real application, this would connect to an API endpoint
-    alert('Thank you for subscribing to our newsletter!');
-  };
 
   /**
    * Render the social media icon based on the platform name
@@ -100,18 +83,6 @@ export default function Footer({ className = '' }: FooterProps) {
         return (
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-          </svg>
-        );
-      case 'twitter':
-        return (
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-          </svg>
-        );
-      case 'pinterest':
-        return (
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z" />
           </svg>
         );
       default:
@@ -148,19 +119,32 @@ export default function Footer({ className = '' }: FooterProps) {
             <p className="text-gray-300 mb-6">
               Experience luxury glamping in breathtaking locations with premium amenities and unparalleled natural beauty.
             </p>
-            <div className="space-y-2">
-              <a href="mailto:info@theglampingspot.com" className="flex items-center text-gray-300 hover:text-white transition-colors">
-                <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                info@theglampingspot.net
-              </a>
-              <a href="tel:+15551234567" className="flex items-center text-gray-300 hover:text-white transition-colors">
-                <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                {/* (555) 123-4567 */}
-              </a>
+            <a
+              href="https://www.airbnb.com/rooms/1461278647776104058"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-gray-300 hover:text-white transition-colors mb-6"
+              aria-label="Message us through Airbnb — opens in a new tab"
+            >
+              <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Message us on Airbnb
+            </a>
+
+            <div className="flex items-center gap-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                  aria-label={social.ariaLabel}
+                >
+                  {renderSocialIcon(social.icon)}
+                </a>
+              ))}
             </div>
           </motion.div>
 
@@ -181,9 +165,6 @@ export default function Footer({ className = '' }: FooterProps) {
           ))}
         </div>
 
-        {/* Newsletter Subscription */}
-        
-
         {/* Bottom Footer */}
         <motion.div 
           className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center"
@@ -198,9 +179,6 @@ export default function Footer({ className = '' }: FooterProps) {
             </Link>
             <Link href="/terms" className="hover:text-white transition-colors">
               Terms of Service
-            </Link>
-            <Link href="/sitemap" className="hover:text-white transition-colors">
-              Sitemap
             </Link>
           </div>
         </motion.div>

@@ -2,6 +2,8 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import PropertyGallery from '@/components/properties/PropertyGallery';
+import { getLodgingBusinessSchema, SITE_URL } from '@/lib/seo/localBusiness';
+import { getBreadcrumbSchema } from '@/lib/seo/breadcrumb';
 
 const AIRBNB_URL = 'https://www.airbnb.com/rooms/1461278647776104058';
 
@@ -143,22 +145,12 @@ function AirbnbIcon({ className }: { className?: string }) {
   );
 }
 
-// ─── JSON-LD ───────────────────────────────────────────────────────────────────
+// ─── JSON-LD — canonical name/address/geo live in lib/seo/localBusiness.ts ──────
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'LodgingBusiness',
-  name: 'The Glamping Spot',
+const structuredData = getLodgingBusinessSchema({
   description: listing.description,
-  url: 'https://theglampingspot.com/properties',
+  url: `${SITE_URL}/properties`,
   image: listing.images.map((i) => i.src),
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Kountze',
-    addressRegion: 'TX',
-    addressCountry: 'US',
-  },
-  geo: { '@type': 'GeoCoordinates', latitude: 30.3727, longitude: -94.3099 },
   amenityFeature: listing.amenities.map((a) => ({
     '@type': 'LocationFeatureSpecification',
     name: a.label,
@@ -168,7 +160,12 @@ const structuredData = {
   checkoutTime: listing.checkOut,
   numberOfRooms: listing.bedrooms,
   petsAllowed: false,
-};
+});
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: SITE_URL },
+  { name: 'Our Dome', url: `${SITE_URL}/properties` },
+]);
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 
@@ -178,6 +175,10 @@ export default function PropertiesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <a

@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { getOrganizationSchema, BUSINESS_ADDRESS, SITE_URL } from '@/lib/seo/localBusiness';
 
 // Lazy load non-critical components for better performance
 const MotionDiv = dynamic(() => import('@/components/ui/MotionDiv'), {
@@ -573,44 +574,34 @@ export default function AboutPage() {
         </section>
       </main>
 
-      {/* Structured Data for SEO */}
+      {/* Structured Data for SEO — canonical facts live in lib/seo/localBusiness.ts;
+          founders/employees/foundingDate are specific to this page. */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "The Glamping Spot",
-            "description": "Sustainable luxury glamping experiences in geodesic domes in East Texas",
-            "url": "https://theglampingspot.com/about",
-            "logo": "https://theglampingspot.com/images/TheGlampingSpot_W.png",
-            "foundingDate": "2022",
-            "founders": [
-              {
-                "@type": "Person",
-                "name": "Ivann G Rocha",
-                "jobTitle": "Founder & CEO"
-              }
-            ],
-            "employee": teamMembers.map(member => ({
-              "@type": "Person",
-              "name": member.name,
-              "jobTitle": member.role
-            })),
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Kountze",
-              "addressRegion": "TX",
-              "addressCountry": "US"
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "customer service"
-            },
-            "sameAs": [
-              "https://www.facebook.com/people/The-Glamping-Spot/61574219567434/",
-              "https://www.instagram.com/the.glamping.spot"
-            ]
+            ...getOrganizationSchema({
+              description: 'Sustainable luxury glamping experiences in geodesic domes in East Texas',
+              url: `${SITE_URL}/about`,
+              foundingDate: '2022',
+              founders: [
+                {
+                  '@type': 'Person',
+                  name: 'Ivann G Rocha',
+                  jobTitle: 'Founder & CEO',
+                },
+              ],
+              employee: teamMembers.map((member) => ({
+                '@type': 'Person',
+                name: member.name,
+                jobTitle: member.role,
+              })),
+              address: BUSINESS_ADDRESS,
+              contactPoint: {
+                '@type': 'ContactPoint',
+                contactType: 'customer service',
+              },
+            }),
           })
         }}
       />

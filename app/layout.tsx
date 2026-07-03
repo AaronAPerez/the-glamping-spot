@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Suspense } from 'react'
+import { getLodgingBusinessSchema, getOrganizationSchema } from '@/lib/seo/localBusiness'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -115,8 +116,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/images/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/images/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
     ],
     apple: [
       { url: '/images/apple-touch-icon.png', sizes: '180x180' },
@@ -378,67 +380,26 @@ export default function RootLayout({
         {/* Resource hints for better performance */}
         <link rel="modulepreload" href="/_next/static/chunks/polyfills.js" />
         
-        {/* Structured data for better SEO */}
+        {/* Structured data for better SEO — canonical facts live in lib/seo/localBusiness.ts */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LodgingBusiness",
-              "name": "The Glamping Spot",
-              "description": "Luxury geodesic dome glamping experience near Houston, Texas",
-              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://theglampingspot.com",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Kountze",
-                "addressRegion": "TX",
-                "addressCountry": "US"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "30.3727",
-                "longitude": "-94.3099"
-              },
-              "amenityFeature": [
-                { "@type": "LocationFeatureSpecification", "name": "Lake access" },
-                { "@type": "LocationFeatureSpecification", "name": "Kitchen" },
-                { "@type": "LocationFeatureSpecification", "name": "WiFi" },
-                { "@type": "LocationFeatureSpecification", "name": "Free residential garage on premises" },
-                { "@type": "LocationFeatureSpecification", "name": "TV with premium cable" },
-                { "@type": "LocationFeatureSpecification", "name": "Spacious wooden deck" },
-                { "@type": "LocationFeatureSpecification", "name": "Private pond" },
-                { "@type": "LocationFeatureSpecification", "name": "Scenic trails" }
-              ],
-              "image": [
-                `${process.env.NEXT_PUBLIC_SITE_URL || 'https://theglampingspot.com'}/images/GlampingHero.jpg`,
-                `${process.env.NEXT_PUBLIC_SITE_URL || 'https://theglampingspot.com'}/images/geo-dome.jpg`
-              ]
-            })
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getLodgingBusinessSchema()) }}
         />
 
         {/* Additional structured data for organization */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "The Glamping Spot",
-              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://theglampingspot.com",
-              "logo": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://theglampingspot.com'}/images/TheGlampingSpot_W.png`,
-              "sameAs": [
-                "https://www.facebook.com/people/The-Glamping-Spot/61574219567434/",
-                "https://www.instagram.com/the.glamping.spot"
-              ],
-              "contactPoint": {
-                "@type": "ContactPoint",
-                // "telephone": "+1-123-456-7890",
-                "contactType": "customer service",
-                "areaServed": "US",
-                "availableLanguage": "English"
-              }
-            })
+            __html: JSON.stringify(
+              getOrganizationSchema({
+                contactPoint: {
+                  '@type': 'ContactPoint',
+                  contactType: 'customer service',
+                  areaServed: 'US',
+                  availableLanguage: 'English',
+                },
+              })
+            ),
           }}
         />
       </head>

@@ -42,6 +42,7 @@
     "@swc/cli": "^0.8.1",
     "@swc/core": "^1.13.3",
     "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
