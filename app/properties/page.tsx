@@ -15,8 +15,17 @@ export const metadata: Metadata = {
     'Stay in a luxury geodesic dome in Kountze, Texas. Sleeps up to 5 guests, 2 bedrooms, private pond, wooden deck, lake access, kitchen, Wifi, and more. Now booking on Airbnb.',
   keywords: [
     'glamping',
+    'glamping spot',
+    'the glamping spot',
     'glamping texas',
     'glamping near houston',
+    'glamping near me',
+    'camping',
+    'camping spot',
+    'the camping spot',
+    'camping texas',
+    'camping near houston',
+    'camping near me',
     'geodesic dome kountze texas',
     'glamping dome east texas',
     'glamping dome rental',
@@ -50,7 +59,7 @@ export const metadata: Metadata = {
     site: '@theglampingspot',
     title: 'Our Geodesic Dome | The Glamping Spot — Kountze, Texas',
     description: 'Luxury geodesic dome in Kountze, TX. Sleeps 5, private pond, wooden deck, lake access. Now booking on Airbnb.',
-    images: ['/images/glamping-dome.jpg'],
+    images: ['/images/exterior-2.avif'],
   },
   alternates: { canonical: 'https://theglampingspot.com/properties' },
   other: {
@@ -74,7 +83,7 @@ const listing = {
   description:
     'Explore scenic trails right outside your door, or simply relax on the spacious wooden deck overlooking a serene private pond. In the evenings, unwind under the stars with soft ambient lighting and the warm glow of the dome. Perfect for couples, solo travelers, or anyone looking to disconnect and recharge, this secluded getaway blends rustic charm with a one-of-a-kind stay you won’t forget.',
   images: [
-    { src: '/images/glamping-dome.jpg', alt: 'The Glamping Spot geodesic dome exterior at night with ambient lighting' },
+    { src: '/images/exterior-2.avif', alt: 'The Glamping Spot geodesic dome exterior at night with ambient lighting' },
     { src: '/images/exterior.avif', alt: 'Geodesic dome exterior overlooking the property' },
     { src: '/images/deck.avif', alt: 'Spacious wooden deck at The Glamping Spot' },
     { src: '/images/living-room.avif', alt: 'Interior living space inside the geodesic dome' },

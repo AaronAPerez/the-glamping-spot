@@ -62,7 +62,7 @@ export default function ExperiencesPage() {
       title: 'Tropical Bird Sanctuary Adventure',
       description: 'Our guests enjoyed an unforgettable day at the local bird sanctuary, where they got up close with beautiful tropical birds and learned about wildlife conservation efforts in the region.',
       location: 'Local Wildlife Sanctuary, East Texas',
-      date: 'Spring 2024'
+      date: 'Year-Round'
     },
     {
       id: 'experience-2',
@@ -72,7 +72,7 @@ export default function ExperiencesPage() {
       title: 'Thrilling ATV Forest Adventure',
       description: 'Exploring the rugged forest trails via ATV is one of the most popular activities among our adventurous guests, offering an exciting way to experience East Texas wilderness.',
       location: 'Big Thicket Region, Texas',
-      date: 'Summer 2024'
+      date: 'Year-Round'
     },
     {
       id: 'experience-3',
@@ -82,18 +82,7 @@ export default function ExperiencesPage() {
       title: 'Off-Road Excitement & Natural Beauty',
       description: 'Taking on challenging terrain while experiencing the thrill of off-road driving through beautiful natural landscapes surrounding our geodesic dome glamping site.',
       location: 'East Texas Trail System',
-      date: 'Summer 2024'
-    },
-    {
-      id: 'experience-4',
-      type: 'video' as const,
-      src: '/videos/glamping-adventure.mp4',
-      thumbnail: '/images/experiences/video-thumbnail.jpg',
-      alt: 'Video showcase of complete glamping experience at The Glamping Spot geodesic domes',
-      title: 'A Day in Geodesic Dome Paradise',
-      description: 'Experience the perfect blend of luxury and nature in this comprehensive video tour of our premium geodesic dome accommodations and surrounding activities.',
-      location: 'The Glamping Spot, Kountze, Texas',
-      date: 'Seasonal Highlights 2024'
+      date: 'Year-Round'
     },
     {
       id: 'experience-5',
@@ -104,16 +93,6 @@ export default function ExperiencesPage() {
       description: 'There\'s nothing like waking up to breathtaking East Texas sunrise views with a hot cup of locally-sourced coffee from the comfort of your geodesic dome.',
       location: 'The Glamping Spot, East Texas',
       date: 'Year-Round Experience'
-    },
-    {
-      id: 'experience-6',
-      type: 'image' as const,
-      src: '/images/treehouse.jpg',
-      alt: 'Unique treehouse accommodation nestled among towering trees',
-      title: 'Elevated Life Among the Trees',
-      description: 'Our treehouse accommodations offer a unique elevated perspective and deeper connection with nature, providing an alternative luxury glamping experience.',
-      location: 'Forest Canopy Location',
-      date: 'Seasonal Availability'
     }
   ];
 
@@ -236,10 +215,12 @@ export default function ExperiencesPage() {
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Book your geodesic dome glamping experience and start creating memories that will last a lifetime.
             </p>
-            <Link
-              href="/booking"
+            <a
+              href="https://www.airbnb.com/rooms/1461278647776104058"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
-              aria-label="Book your geodesic dome glamping experience now"
+              aria-label="Book your geodesic dome glamping experience on Airbnb — opens in a new tab"
             >
               <svg 
                 className="mr-3 h-5 w-5" 
@@ -256,7 +237,7 @@ export default function ExperiencesPage() {
                 />
               </svg>
               Book Your Stay
-            </Link>
+            </a>
           </div>
         </section>
       </main>

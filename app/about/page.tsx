@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     description: 'Discover the story behind The Glamping Spot and our mission to provide sustainable luxury glamping experiences in East Texas.',
     images: [
       {
-        url: '/images/about/team-hero.webp',
+        url: '/images/about/team-hero.jpg',
         width: 1200,
         height: 630,
         alt: 'The Glamping Spot team with geodesic domes in East Texas'
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     creator: '@theglampingspot',
     title: 'About The Glamping Spot | Our Story & Mission',
     description: 'Learn about our passion for sustainable luxury glamping in East Texas.',
-    images: ['/images/about/team-hero.webp']
+    images: ['/images/about/team-hero.jpg']
   },
   alternates: {
     canonical: '/about'
@@ -167,10 +167,6 @@ export default function AboutPage() {
       bio: 'Passionate adventurer and nature enthusiast who founded The Glamping Spot to redefine outdoor experiences through sustainable luxury accommodations. With over 15 years in hospitality, Ivann brings a vision of connecting people with nature.',
       image: '/images/TheGlampingSpot_W.png',
       // image: '/images/team/ivann-rocha.webp',
-      socialLinks: {
-        linkedin: 'https://linkedin.com/in/ivann-rocha',
-        email: 'ivann@theglampingspot.com'
-      }
     },
     {
       id: 'andrew-perez',
@@ -179,9 +175,6 @@ export default function AboutPage() {
       bio: 'Dedicated to ensuring every guest has an unforgettable and comfortable stay. Andrew oversees all aspects of guest services, from arrival to departure, ensuring exceptional experiences that exceed expectations.',
       image: '/images/TheGlampingSpot_W.png',
       // image: '/images/team/andrew-perez.webp',
-      socialLinks: {
-        email: 'andrew@theglampingspot.com'
-      }
     },
     {
       id: 'aaron-perez',
@@ -190,9 +183,6 @@ export default function AboutPage() {
       bio: 'Leading our efforts to minimize environmental impact and promote responsible tourism. Aaron ensures all operations align with our commitment to preserving the natural beauty of East Texas for future generations.',
       image: '/images/TheGlampingSpot_W.png',
       // image: '/images/team/aaron-perez.webp',
-      socialLinks: {
-        email: 'aaron@theglampingspot.com'
-      }
     }
   ];
 
@@ -288,7 +278,7 @@ export default function AboutPage() {
                     icon: '⭐'
                   },
                   {
-                    text: 'Educational programs about local ecosystems and conservation efforts',
+                    text: 'A genuine appreciation for the Big Thicket ecosystem and the wildlife around us',
                     icon: '📚'
                   },
                   {
@@ -315,9 +305,8 @@ export default function AboutPage() {
                   Our Sustainability Commitment
                 </h3>
                 <p className="text-emerald-700 leading-relaxed">
-                  We are committed to carbon-neutral operations by 2025, using renewable energy sources, 
-                  implementing waste reduction programs, and partnering with local conservation organizations 
-                  to protect the Big Thicket ecosystem.
+                  We're mindful of our environmental footprint and built our dome to sit lightly on the
+                  land, preserving the Big Thicket ecosystem that makes this place special.
                 </p>
               </div>
             </div>
@@ -411,59 +400,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Awards and Recognition Section */}
-        {/* <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="awards-heading">
-          <div className="text-center mb-12">
-            <h2 id="awards-heading" className="text-3xl font-bold text-gray-900 mb-4">
-              Awards & Recognition
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We're honored to be recognized for our commitment to sustainable luxury and exceptional guest experiences.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                award: 'Best Sustainable Accommodation',
-                organization: 'Texas Tourism Board',
-                year: '2024',
-                description: 'Recognized for innovative eco-friendly practices'
-              },
-              {
-                award: 'Excellence in Hospitality',
-                organization: 'East Texas Chamber',
-                year: '2024',
-                description: 'Outstanding guest service and community impact'
-              },
-              {
-                award: 'Green Business Certification',
-                organization: 'Environmental Alliance',
-                year: '2023',
-                description: 'Carbon-neutral operations and conservation efforts'
-              },
-              {
-                award: 'Top Glamping Destination',
-                organization: 'Travel & Leisure',
-                year: '2023',
-                description: 'Featured as premier luxury camping experience'
-              }
-            ].map((recognition, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6 text-center border border-gray-200">
-                <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{recognition.award}</h3>
-                <p className="text-emerald-600 font-medium mb-1">{recognition.organization}</p>
-                <p className="text-gray-500 text-sm mb-3">{recognition.year}</p>
-                <p className="text-gray-600 text-sm">{recognition.description}</p>
-              </div>
-            ))}
-          </div>
-        </section> */}
-
         {/* Enhanced CTA Section with accessibility improvements */}
         <section className="bg-gradient-to-r from-emerald-700 to-emerald-800 text-white py-16" aria-labelledby="cta-heading">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -476,21 +412,6 @@ export default function AboutPage() {
                   Join us in our mission to create meaningful, sustainable outdoor experiences that connect you 
                   with the natural beauty of East Texas while supporting local conservation efforts.
                 </p>
-                
-                {/* Key statistics */}
-                {/* <div className="grid grid-cols-2 gap-6 mb-8">
-                  {[
-                    { number: '500+', label: 'Happy Guests' },
-                    { number: '50+', label: 'Local Partnerships' },
-                    { number: '95%', label: 'Satisfaction Rate' },
-                    { number: '3', label: 'Awards Won' }
-                  ].map((stat, index) => (
-                    <div key={index} className="text-center">
-                      <div className="text-2xl font-bold text-white">{stat.number}</div>
-                      <div className="text-emerald-200 text-sm">{stat.label}</div>
-                    </div>
-                  ))}
-                </div> */}
               </div>
 
               <div className="text-center lg:text-right">
@@ -546,7 +467,7 @@ export default function AboutPage() {
                 },
                 {
                   question: "How do you ensure sustainability in your operations?",
-                  answer: "We implement comprehensive sustainability practices including solar power systems, water conservation measures, waste reduction programs, and partnerships with local conservation organizations. We're committed to achieving carbon-neutral operations by 2025."
+                  answer: "We're mindful of our environmental footprint and designed the property to minimize impact on the surrounding Big Thicket ecosystem, one of the most biodiverse regions in the country."
                 },
                 {
                   question: "What makes your geodesic domes unique?",
@@ -554,7 +475,7 @@ export default function AboutPage() {
                 },
                 {
                   question: "How do you support the local community?",
-                  answer: "We partner with local businesses for supplies and services, employ local staff, support conservation efforts in the Big Thicket region, and donate a portion of our profits to local environmental and community organizations."
+                  answer: "We're proud to be part of the Kountze and East Texas community, and we point guests toward local businesses, restaurants, and attractions throughout their stay."
                 }
               ].map((faq, index) => (
                 <details key={index} className="group bg-white rounded-lg shadow-sm border border-gray-200">

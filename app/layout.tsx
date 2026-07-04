@@ -335,9 +335,10 @@ export default function RootLayout({
   const isDevelopment = process.env.NODE_ENV === 'development';
 
   return (
-    <html 
-      lang="en" 
+    <html
+      lang="en"
       className={`${inter.variable} h-full scroll-smooth`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>

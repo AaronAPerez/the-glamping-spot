@@ -22,8 +22,8 @@ export default function ExperiencesPreview() {
               <h2 id="memories-heading" className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-2xl">
                 Adventure Memories
               </h2>
-              <div className="absolute -top-2 -left-4 w-3 h-3 bg-amber-500 rounded-full opacity-70"></div>
-              <div className="absolute -top-2 -right-4 w-3 h-3 bg-amber-500 rounded-full opacity-70"></div>
+              <div className="absolute -top-2 -left-4 w-3 h-3 bg-emerald-500 rounded-full opacity-70"></div>
+              <div className="absolute -top-2 -right-4 w-3 h-3 bg-emerald-500 rounded-full opacity-70"></div>
             </div>
             <p className="mt-6 text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto font-light">
               Real moments from real guests enjoying extraordinary experiences
@@ -35,31 +35,31 @@ export default function ExperiencesPreview() {
             {/* Film strip perforations - left side */}
             <div className="absolute left-0 top-0 bottom-0 w-8 hidden md:flex flex-col justify-around items-center py-8">
               {[...Array(8)].map((_, i) => (
-                <div key={`left-${i}`} className="w-4 h-4 border-2 border-amber-500/40 rounded-sm"></div>
+                <div key={`left-${i}`} className="w-4 h-4 border-2 border-emerald-500/40 rounded-sm"></div>
               ))}
             </div>
 
             {/* Film strip perforations - right side */}
             <div className="absolute right-0 top-0 bottom-0 w-8 hidden md:flex flex-col justify-around items-center py-8">
               {[...Array(8)].map((_, i) => (
-                <div key={`right-${i}`} className="w-4 h-4 border-2 border-amber-500/40 rounded-sm"></div>
+                <div key={`right-${i}`} className="w-4 h-4 border-2 border-emerald-500/40 rounded-sm"></div>
               ))}
             </div>
 
             {/* Main film strip content */}
-            <div className="md:mx-12 bg-gradient-to-b from-slate-800/40 to-slate-900/40 backdrop-blur-md border-y-4 border-amber-500/30 py-8">
+            <div className="md:mx-12 bg-gradient-to-b from-slate-800/40 to-slate-900/40 backdrop-blur-md border-y-4 border-emerald-500/30 py-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-8">
                 {/* Film frame cards */}
                 <CardContainer className="w-full">
-                  <CardBody className="bg-black/60 backdrop-blur-sm border-2 border-amber-500/20 rounded-lg overflow-hidden shadow-2xl hover:shadow-amber-500/20 hover:border-amber-500/40 transition-all duration-300">
+                  <CardBody className="bg-black/60 backdrop-blur-sm border-2 border-emerald-500/20 rounded-lg overflow-hidden shadow-2xl hover:shadow-emerald-500/20 hover:border-emerald-500/40 transition-all duration-300">
                     {/* Film frame top markers */}
-                    <div className="flex gap-2 p-2 bg-amber-500/10">
+                    <div className="flex gap-2 p-2 bg-emerald-500/10">
                       {[...Array(6)].map((_, i) => (
-                        <div key={i} className="w-2 h-2 bg-amber-500/30 rounded-full"></div>
+                        <div key={i} className="w-2 h-2 bg-emerald-500/30 rounded-full"></div>
                       ))}
                     </div>
 
-                    <div className="relative aspect-[4/3] border-y-2 border-amber-500/20">
+                    <div className="relative aspect-[4/3] border-y-2 border-emerald-500/20">
                       <Image
                         src="/images/experiences/group-birds.jpg"
                         alt="Group of visitors with colorful birds"
@@ -72,32 +72,32 @@ export default function ExperiencesPreview() {
                     </div>
 
                     <CardItem translateZ="30" className="p-5 bg-gradient-to-b from-slate-900/80 to-black/80">
-                      <h3 className="font-bold text-lg text-amber-400 mb-1">Tropical Bird Sanctuary</h3>
-                      <p className="text-sm text-gray-300">Costa Rica</p>
+                      <h3 className="font-bold text-lg text-emerald-400 mb-1">Bird Watching Excursion</h3>
+                      <p className="text-sm text-gray-300">Big Thicket, Texas</p>
                     </CardItem>
 
                     {/* Film frame bottom markers */}
-                    <div className="flex gap-2 p-2 bg-amber-500/10">
+                    <div className="flex gap-2 p-2 bg-emerald-500/10">
                       {[...Array(6)].map((_, i) => (
-                        <div key={i} className="w-2 h-2 bg-amber-500/30 rounded-full"></div>
+                        <div key={i} className="w-2 h-2 bg-emerald-500/30 rounded-full"></div>
                       ))}
                     </div>
                   </CardBody>
                 </CardContainer>
 
                 <CardContainer className="w-full">
-                  <CardBody className="bg-black/60 backdrop-blur-sm border-2 border-amber-500/20 rounded-lg overflow-hidden shadow-2xl hover:shadow-amber-500/20 hover:border-amber-500/40 transition-all duration-300">
+                  <CardBody className="bg-black/60 backdrop-blur-sm border-2 border-emerald-500/20 rounded-lg overflow-hidden shadow-2xl hover:shadow-emerald-500/20 hover:border-emerald-500/40 transition-all duration-300">
                     {/* Film frame top markers */}
-                    <div className="flex gap-2 p-2 bg-amber-500/10">
+                    <div className="flex gap-2 p-2 bg-emerald-500/10">
                       {[...Array(6)].map((_, i) => (
-                        <div key={i} className="w-2 h-2 bg-amber-500/30 rounded-full"></div>
+                        <div key={i} className="w-2 h-2 bg-emerald-500/30 rounded-full"></div>
                       ))}
                     </div>
 
-                    <div className="relative aspect-[4/3] border-y-2 border-amber-500/20">
+                    <div className="relative aspect-[4/3] border-y-2 border-emerald-500/20">
                       <Image
                         src="/images/experiences/atv-jungle.jpg"
-                        alt="Person riding ATV through jungle trail"
+                        alt="Person riding ATV through East Texas forest trail"
                         fill
                         style={{ objectFit: 'cover' }}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
@@ -107,29 +107,29 @@ export default function ExperiencesPreview() {
                     </div>
 
                     <CardItem translateZ="30" className="p-5 bg-gradient-to-b from-slate-900/80 to-black/80">
-                      <h3 className="font-bold text-lg text-amber-400 mb-1">Jungle ATV Adventure</h3>
-                      <p className="text-sm text-gray-300">Riviera Maya, Mexico</p>
+                      <h3 className="font-bold text-lg text-emerald-400 mb-1">ATV Trail Adventure</h3>
+                      <p className="text-sm text-gray-300">East Texas Wilderness</p>
                     </CardItem>
 
                     {/* Film frame bottom markers */}
-                    <div className="flex gap-2 p-2 bg-amber-500/10">
+                    <div className="flex gap-2 p-2 bg-emerald-500/10">
                       {[...Array(6)].map((_, i) => (
-                        <div key={i} className="w-2 h-2 bg-amber-500/30 rounded-full"></div>
+                        <div key={i} className="w-2 h-2 bg-emerald-500/30 rounded-full"></div>
                       ))}
                     </div>
                   </CardBody>
                 </CardContainer>
 
                 <CardContainer className="w-full">
-                  <CardBody className="bg-black/60 backdrop-blur-sm border-2 border-amber-500/20 rounded-lg overflow-hidden shadow-2xl hover:shadow-amber-500/20 hover:border-amber-500/40 transition-all duration-300">
+                  <CardBody className="bg-black/60 backdrop-blur-sm border-2 border-emerald-500/20 rounded-lg overflow-hidden shadow-2xl hover:shadow-emerald-500/20 hover:border-emerald-500/40 transition-all duration-300">
                     {/* Film frame top markers */}
-                    <div className="flex gap-2 p-2 bg-amber-500/10">
+                    <div className="flex gap-2 p-2 bg-emerald-500/10">
                       {[...Array(6)].map((_, i) => (
-                        <div key={i} className="w-2 h-2 bg-amber-500/30 rounded-full"></div>
+                        <div key={i} className="w-2 h-2 bg-emerald-500/30 rounded-full"></div>
                       ))}
                     </div>
 
-                    <div className="relative aspect-[4/3] border-y-2 border-amber-500/20">
+                    <div className="relative aspect-[4/3] border-y-2 border-emerald-500/20">
                       <Image
                         src="/images/experiences/video-thumbnail.jpg"
                         alt="Video thumbnail"
@@ -140,7 +140,7 @@ export default function ExperiencesPreview() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 bg-amber-500/90 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-xl">
+                        <div className="w-16 h-16 bg-emerald-500/90 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-xl">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-8 w-8 text-white ml-1"
@@ -166,14 +166,14 @@ export default function ExperiencesPreview() {
                     </div>
 
                     <CardItem translateZ="30" className="p-5 bg-gradient-to-b from-slate-900/80 to-black/80">
-                      <h3 className="font-bold text-lg text-amber-400 mb-1">Glamping Experiences</h3>
+                      <h3 className="font-bold text-lg text-emerald-400 mb-1">Glamping Experiences</h3>
                       <p className="text-sm text-gray-300">Guest Video Highlights</p>
                     </CardItem>
 
                     {/* Film frame bottom markers */}
-                    <div className="flex gap-2 p-2 bg-amber-500/10">
+                    <div className="flex gap-2 p-2 bg-emerald-500/10">
                       {[...Array(6)].map((_, i) => (
-                        <div key={i} className="w-2 h-2 bg-amber-500/30 rounded-full"></div>
+                        <div key={i} className="w-2 h-2 bg-emerald-500/30 rounded-full"></div>
                       ))}
                     </div>
                   </CardBody>
@@ -187,7 +187,7 @@ export default function ExperiencesPreview() {
           <div className="text-center mt-16">
             <Link
               href="/experiences"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold text-lg rounded-xl hover:from-amber-400 hover:to-amber-500 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-amber-500/50 transform hover:-translate-y-1"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-bold text-lg rounded-xl hover:from-emerald-500 hover:to-emerald-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-emerald-500/50 transform hover:-translate-y-1"
             >
               <svg className="w-6 h-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />

@@ -56,6 +56,19 @@
   }
 }
 
+/*
+ * Base element resets, wrapped in Tailwind's `base` cascade layer.
+ * Tailwind v4 emits utility classes (text-gray-900, etc.) inside `@layer
+ * utilities`, which always outranks *unlayered* CSS of equal or even higher
+ * specificity is irrelevant — cascade layers ignore specificity entirely.
+ * Previously these resets were unlayered, so e.g. `color: inherit` below
+ * silently beat every `text-*` utility applied directly to an input or
+ * textarea (this is what caused the waiver form's textarea text to render
+ * invisible in dark mode: `--foreground` flips near-white, and `inherit`
+ * always won over the component's `text-gray-900` class).
+ */
+@layer base {
+
 /* Base styles with performance optimizations */
 * {
   box-sizing: border-box;
@@ -206,6 +219,8 @@ select:disabled {
     min-width: 44px;
   }
 }
+
+} /* end @layer base */
 
 /* Performance optimized animations */
 @keyframes fadeIn {

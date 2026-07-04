@@ -111,8 +111,8 @@ export default function Footer({ className = '' }: FooterProps) {
               <Image
                 src="/images/TheGlampingSpot_W.png"
                 alt="The Glamping Spot"
-                width={180}
-                height={45}
+                width={90}
+                height={74}
                 className="h-auto"
               />
             </div>

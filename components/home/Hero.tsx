@@ -7,12 +7,6 @@ import Image from 'next/image';
 // Hero Section Component
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [searchData, setSearchData] = useState({
-    location: '',
-    checkIn: '',
-    checkOut: '',
-    guests: 2
-  });
 
   // Sample hero backgrounds
   const heroSlides = [
@@ -27,7 +21,7 @@ const Hero = () => {
       subtitle: 'Premium dome glamping with all the comforts of home'
     },
     {
-      image: '/images/experiences/GlampingHero.jpg',
+      image: '/images/backyard.avif',
       title: 'Where Glamping Meets Texas Wilderness',
       subtitle: 'Experience luxury dome glamping in the Big Thicket'
     }
@@ -42,7 +36,7 @@ const Hero = () => {
 
   return (
     <>
-    <section className="hero-section relative min-h-[85vh] md:min-h-[90vh]">
+    <section className="hero-section relative min-h-[60vh] sm:min-h-[75vh] md:min-h-[min(90vh,900px)] [@media(max-height:500px)]:min-h-0 [@media(max-height:500px)]:h-screen">
       {/* Background Slider */}
       <div className="absolute inset-0">
         {heroSlides.map((slide, index) => (
@@ -56,7 +50,7 @@ const Hero = () => {
               src={slide.image}
               alt={slide.title}
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'cover', objectPosition: 'center 70%' }}
               priority
               sizes="100vw"
               quality={85}
@@ -70,85 +64,24 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center min-h-[85vh] md:min-h-[90vh]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-24 md:py-32">
+      <div className="relative z-10 h-full flex items-center min-h-[60vh] sm:min-h-[75vh] md:min-h-[min(90vh,900px)] [@media(max-height:500px)]:min-h-0 [@media(max-height:500px)]:h-screen">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-24 md:py-32 [@media(max-height:500px)]:py-6">
           <div className="max-w-4xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl [@media(max-height:500px)]:text-2xl [@media(max-height:500px)]:mb-2">
               {heroSlides[currentSlide].title}
             </h1>
 
-            <p className="text-xl sm:text-2xl lg:text-3xl text-white/95 mb-10 font-light drop-shadow-lg max-w-2xl">
+            <p className="text-xl sm:text-2xl lg:text-3xl text-white/95 mb-10 font-light drop-shadow-lg max-w-2xl [@media(max-height:500px)]:text-base [@media(max-height:500px)]:mb-4">
               {heroSlides[currentSlide].subtitle}
             </p>
 
-            {/* Search Bar */}
-            {/* <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 shadow-2xl"> */}
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                {/* <div className="relative">
-                  <MapPin className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                  <input
-                    type="text"
-                    placeholder="Where to?"
-                    value={searchData.location}
-                    onChange={(e) => setSearchData({...searchData, location: e.target.value})}
-                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-colors"
-                  />
-                </div> */}
-
-                  {/* <div className="relative">
-                  <Users className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                  <select
-                    value={searchData.guests}
-                    onChange={(e) => setSearchData({...searchData, guests: parseInt(e.target.value)})}
-                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-colors appearance-none"
-                  >
-                    {[1,2,3,4,5,6,7,8].map(num => (
-                      <option key={num} value={num}>{num} Guest{num > 1 ? 's' : ''}</option>
-                    ))}
-                  </select>
-                </div>
-                
-                <div className="relative">
-                  <Calendar className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                  <input
-                    type="date"
-                    value={searchData.checkIn}
-                    onChange={(e) => setSearchData({...searchData, checkIn: e.target.value})}
-                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-colors"
-                  />
-                </div>
-                
-                <div className="relative">
-                  <Calendar className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                  <input
-                    type="date"
-                    value={searchData.checkOut}
-                    onChange={(e) => setSearchData({...searchData, checkOut: e.target.value})}
-                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-colors"
-                  />
-                </div> */}
-                
-                {/* <div className="relative">
-                  <Users className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                  <select
-                    value={searchData.guests}
-                    onChange={(e) => setSearchData({...searchData, guests: parseInt(e.target.value)})}
-                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-colors appearance-none"
-                  >
-                    {[1,2,3,4,5,6,7,8].map(num => (
-                      <option key={num} value={num}>{num} Guest{num > 1 ? 's' : ''}</option>
-                    ))}
-                  </select>
-                </div> */}
-              </div>
-              
-              {/* Airbnb Booking CTAs */}
-              <div className="mt-6 flex flex-col sm:flex-row items-start gap-4">
+            {/* Airbnb Booking CTAs */}
+              <div className="mt-6 flex flex-col sm:flex-row items-start gap-4 [@media(max-height:500px)]:mt-2 [@media(max-height:500px)]:gap-2">
                 <a
                   href="https://www.airbnb.com/rooms/1461278647776104058"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-[#FF385C] hover:bg-[#e0314f] text-white font-bold text-lg rounded-xl shadow-xl transition-all duration-200 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-2 focus:ring-offset-black"
+                  className="inline-flex items-center gap-3 px-8 py-4 [@media(max-height:500px)]:px-4 [@media(max-height:500px)]:py-2 [@media(max-height:500px)]:text-sm bg-[#FF385C] hover:bg-[#e0314f] text-white font-bold text-lg rounded-xl shadow-xl transition-all duration-200 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-2 focus:ring-offset-black"
                   aria-label="Book The Glamping Spot on Airbnb — opens in a new tab"
                 >
                   {/* Airbnb Bélo icon */}
@@ -159,7 +92,7 @@ const Hero = () => {
                 </a>
                 <a
                   href="#featured-properties"
-                  className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/60 hover:border-white text-white font-semibold text-lg rounded-xl transition-all duration-200 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+                  className="inline-flex items-center gap-2 px-8 py-4 [@media(max-height:500px)]:px-4 [@media(max-height:500px)]:py-2 [@media(max-height:500px)]:text-sm border-2 border-white/60 hover:border-white text-white font-semibold text-lg rounded-xl transition-all duration-200 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
                   aria-label="View our geodesic dome accommodations"
                 >
                   View Our Domes
@@ -171,20 +104,6 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      {/* </div> */}
-
-      {/* Slide Indicators */}
-      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {heroSlides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'bg-teal-400 w-8' : 'bg-white/50'
-            }`}
-          />
-        ))}
-      </div> */}
     </section>
     </>
   );
