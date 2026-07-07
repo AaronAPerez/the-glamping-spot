@@ -5,13 +5,10 @@ import { LoadingSkeleton } from '@/components/ui/LoadingSkeleton';
 import Hero from '@/components/home/Hero';
 import AboutSection from '@/components/home/AboutSection';
 import { Metadata } from 'next';
-// import MidpageBookingCTA from '@/components/booking/MidpageBookingCTA'; // DISABLED DURING DEVELOPMENT
-// import CTASection from '@/components/home/CTASection'; // DISABLED DURING DEVELOPMENT (Booking CTA)
 import ExperiencesPreview from '@/components/home/ExperiencesPreview';
 import FeaturedProperties from '@/components/home/FeaturedProperties';
 import AirbnbBookingCTA from '@/components/booking/AirbnbBookingCTA';
 import WeatherHighlightsClient from '@/components/home/WeatherHighlightsClient';
-// import NewsletterSignup from '@/components/marketing/NewsletterSignup';
 import { Suspense } from 'react';
 
 // Non-critical components - load dynamically
@@ -22,14 +19,6 @@ const InstagramFeed = dynamic(() => import('@/components/social/InstagramFeed'),
 const ActivitiesNearby = dynamic(() => import('@/location/ActivitiesNearby'), {
   loading: () => <LoadingSkeleton lines={5} height="h-48" />
 });
-
-// const TestimonialSection = dynamic(() => import('@/components/home/TestimonialSection'), {
-//   loading: () => <LoadingSkeleton lines={4} height="h-32" />
-// });
-
-// const UniqueExperiences = dynamic(() => import('@/components/home/UniqueExperiences'), {
-//   loading: () => <LoadingSkeleton lines={6} height="h-40" />
-// });
 
 /**
  * Enhanced SEO metadata for the homepage with comprehensive keywords and social sharing
@@ -84,7 +73,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://theglampingspot.com",
+    url: "https://theglampingspot.net",
     siteName: "The Glamping Spot",
     title: "The Glamping Spot - Luxury Geodesic Dome Glamping Near Houston, Texas",
     description: "Experience luxury glamping in geodesic domes near Houston, TX with premium amenities, stunning views, and exciting activities.",
@@ -112,7 +101,7 @@ export const metadata: Metadata = {
     images: ["/images/GlampingHero.jpg"]
   },
   alternates: {
-    canonical: "https://theglampingspot.com"
+    canonical: "https://theglampingspot.net"
   },
   other: {
     "geo.region": "US-TX",
@@ -156,8 +145,6 @@ export default function Home() {
           <Hero />
         </section>
 
-      
-
         {/* About Section highlighting value proposition */}
         <section id="about" aria-labelledby="about-heading">
           <AboutSection />
@@ -170,14 +157,7 @@ export default function Home() {
             subtitle="A secluded dome retreat in Kountze, Texas — overlooking a private pond, surrounded by nature, now booking on Airbnb."
           />
         </section>
-        
-        {/* Unique Experiences Section for activity upsells */}
-        {/* <section id="unique-experiences" aria-labelledby="unique-experiences-heading">
-          <UniqueExperiences />
-        </section> */}
 
-      
-        
         {/* Experiences/Gallery Section showcasing guest experiences */}
         <section id="experiences" aria-labelledby="memories-heading">
           <ExperiencesPreview />
@@ -192,17 +172,6 @@ export default function Home() {
           />
         </section>
 
-          {/* Mid-page Booking CTA - DISABLED DURING DEVELOPMENT */}
-        {/* <section id="mid-page-cta" aria-labelledby="mid-page-cta-heading">
-          <MidpageBookingCTA
-            heading="Reserve Your Texas Geodesic Dome Glamping Experience"
-            description="Our luxury geo domes book quickly, especially during peak seasons. Secure your preferred dates for an unforgettable glamping adventure in East Texas!"
-            backgroundImage="/images/projector.jpg"
-            ctaText="Check Availability and Book Now"
-            ctaLink="/booking"
-          />
-        </section> */}
-
           {/* Weather-based activity recommendations with proper loading states */}
         <section id="weather-highlights" aria-labelledby="weather-highlights-heading">
           <Suspense fallback={<SectionLoadingFallback ariaLabel="Loading weather-based activity recommendations" />}>
@@ -210,28 +179,12 @@ export default function Home() {
           </Suspense>
         </section>
 
-       
-
          {/* Activities near Kountze, Texas */}
         <section id="activities-nearby" aria-labelledby="activities-nearby-heading">
           <Suspense fallback={<SectionLoadingFallback ariaLabel="Loading nearby activities and attractions" />}>
             <ActivitiesNearby />
           </Suspense>
         </section>
-        
-        {/* Testimonial Section building trust */}
-        {/* <section id="testimonial" aria-labelledby="testimonial-heading">
-          <TestimonialSection />
-        </section> */}
-        
-        {/* Newsletter Signup for lead generation */}
-        {/* <section id="newsletter" aria-labelledby="newsletter-heading">
-          <NewsletterSignup
-            title="Join The Glamping Spot Community"
-            description="Subscribe to receive exclusive offers, availability updates, seasonal specials, and insider tips for your Texas glamping adventure."
-            incentive="Be the first to know when we launch and get exclusive early access to booking!"
-          />
-        </section> */}
 
         {/* Airbnb Booking CTA */}
         <section id="book" aria-labelledby="airbnb-cta-heading">

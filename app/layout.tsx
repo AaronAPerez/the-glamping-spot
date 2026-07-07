@@ -20,7 +20,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NODE_ENV === 'production' 
-      ? process.env.NEXT_PUBLIC_SITE_URL || 'https://theglampingspot.com'
+      ? process.env.NEXT_PUBLIC_SITE_URL || 'https://theglampingspot.net'
       : 'http://localhost:3000'
   ),
   title: {

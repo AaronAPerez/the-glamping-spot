@@ -170,7 +170,7 @@ export default function ExperiencesPage() {
             {/* Multiple sharing options */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a 
-                href="mailto:experiences@theglampingspot.com?subject=My%20Glamping%20Experience%20at%20The%20Glamping%20Spot" 
+                href="mailto:experiences@theglampingspot.net?subject=My%20Glamping%20Experience%20at%20The%20Glamping%20Spot"
                 className="inline-flex items-center px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
                 aria-label="Email us your glamping experience photos and stories"
               >

@@ -6,7 +6,7 @@
  * drift in one copy without the others being updated.
  */
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://theglampingspot.com';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://theglampingspot.net';
 
 export const BUSINESS_NAME = 'The Glamping Spot';
 export const BUSINESS_DESCRIPTION = 'Luxury geodesic dome glamping experience near Houston, Texas';

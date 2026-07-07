@@ -82,7 +82,7 @@ const ImmersiveExperience = () => {
                 <CardContainer className="w-full">
                   <CardBody className="relative h-56 md:h-64 rounded-xl overflow-hidden shadow-lg">
                     <Image 
-                      src="/images/stars1.jpg" 
+                      src="/images/exterior-4.avif" 
                       alt="Night sky view through a dome ceiling" 
                       fill 
                       style={{ objectFit: 'cover' }} 

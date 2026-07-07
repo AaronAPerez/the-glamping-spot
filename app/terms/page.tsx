@@ -3,7 +3,7 @@ import { LegalPageLayout } from '@/components/legal/LegalPageLayout';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | The Glamping Spot',
-  description: 'Terms governing use of the theglampingspot.com website.',
+  description: 'Terms governing use of the theglampingspot.net website.',
   robots: { index: true, follow: true },
 };
 
@@ -13,7 +13,7 @@ export default function TermsPage() {
       title="Terms of Service"
       path="/terms"
       lastUpdated="July 3, 2026"
-      intro="These terms govern your use of this website (theglampingspot.com). They are a general-purpose website terms template and have not been reviewed by an attorney — treat them as a starting point, not a substitute for legal advice."
+      intro="These terms govern your use of this website (theglampingspot.net). They are a general-purpose website terms template and have not been reviewed by an attorney — treat them as a starting point, not a substitute for legal advice."
     >
       <h2>Use of this website</h2>
       <p>

@@ -13,7 +13,7 @@ export default function AccessibilityPage() {
       title="Accessibility Statement"
       path="/accessibility"
       lastUpdated="July 3, 2026"
-      intro="We want theglampingspot.com to be usable by everyone, including people using screen readers, keyboard navigation, or other assistive technology."
+      intro="We want theglampingspot.net to be usable by everyone, including people using screen readers, keyboard navigation, or other assistive technology."
     >
       <h2>Our approach</h2>
       <p>

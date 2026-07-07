@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
       title="Privacy Policy"
       path="/privacy-policy"
       lastUpdated="July 3, 2026"
-      intro="This policy explains what information this website (theglampingspot.com) collects and how it's used. It does not cover Airbnb's own site or app, which has its own privacy policy."
+      intro="This policy explains what information this website (theglampingspot.net) collects and how it's used. It does not cover Airbnb's own site or app, which has its own privacy policy."
     >
       <h2>Information we collect</h2>
       <h3>Liability waiver form</h3>

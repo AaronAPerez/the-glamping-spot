@@ -253,7 +253,7 @@ npm run test
 ### **Environment Variables**
 ```bash
 # Site Configuration
-NEXT_PUBLIC_SITE_URL=https://theglampingspot.com
+NEXT_PUBLIC_SITE_URL=https://theglampingspot.net
 
 # Analytics
 NEXT_PUBLIC_GA_ID=your-google-analytics-id
@@ -373,9 +373,9 @@ This project is proprietary software for The Glamping Spot business. All rights 
 
 Ready to experience luxury glamping in Texas? Visit our website or contact us directly:
 
-- **Website**: [theglampingspot.com](https://theglampingspot.com)
+- **Website**: [theglampingspot.net](https://theglampingspot.net)
 - **Phone**: (123) 456-7890
-- **Email**: info@theglampingspot.com
+- **Email**: info@theglampingspot.net
 - **Location**: Kountze, Texas (Near Big Thicket National Preserve)
 
 **Follow us on social media for the latest updates and guest photos:**

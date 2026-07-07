@@ -52,7 +52,7 @@ const LISTING: FeaturedPropertyData = {
     '/images/deck.avif',
     '/images/bedroom.avif',
     '/images/living-room.avif',
-    '/images/glamping-dome.jpg',
+    // '/images/glamping-dome.jpg',
     '/images/deck-2.avif',
     '/images/backyard.avif',
     '/images/backyard-view.avif',

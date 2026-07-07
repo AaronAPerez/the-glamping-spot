@@ -112,7 +112,7 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' https: data: blob:",
               "font-src 'self' https://fonts.gstatic.com",
-              "connect-src 'self' https://api.theglampingspot.com",
+              "connect-src 'self' https://api.theglampingspot.net",
               "frame-ancestors 'none'",
               "object-src 'none'",
               "base-uri 'self'",

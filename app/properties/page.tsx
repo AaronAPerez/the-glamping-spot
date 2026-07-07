@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://theglampingspot.com/properties',
+    url: 'https://theglampingspot.net/properties',
     siteName: 'The Glamping Spot',
     title: 'Our Geodesic Dome | The Glamping Spot — Kountze, Texas',
     description:
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     description: 'Luxury geodesic dome in Kountze, TX. Sleeps 5, private pond, wooden deck, lake access. Now booking on Airbnb.',
     images: ['/images/exterior-2.avif'],
   },
-  alternates: { canonical: 'https://theglampingspot.com/properties' },
+  alternates: { canonical: 'https://theglampingspot.net/properties' },
   other: {
     'geo.region': 'US-TX',
     'geo.placename': 'Kountze, Texas',
