@@ -75,16 +75,16 @@ export const metadata: Metadata = {
     description: 'Experience luxury glamping in geodesic domes near Houston, TX with premium amenities, stunning views, and exciting activities.',
     images: [
       {
-        url: '/images/GlampingHero.jpg',
+        url: '/images/og/og-the-glamping-spot.jpg',
         width: 1200,
         height: 630,
         alt: 'Luxury geodesic dome glamping experience at The Glamping Spot near Houston, Texas',
       },
       {
-        url: '/images/geo-dome.jpg',
-        width: 800,
-        height: 600,
-        alt: 'Interior view of stargazing geodesic dome with transparent ceiling',
+        url: '/images/og/og-our-dome.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'The Glamping Spot dome at dusk, string lights along the wooden deck',
       }
     ],
   },
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     creator: '@theglampingspot',
     title: 'The Glamping Spot - Luxury Geodesic Dome Glamping Near Houston, Texas',
     description: 'Experience luxury glamping in geodesic domes near Houston, TX with premium amenities, stunning views, and exciting activities.',
-    images: ['/images/GlampingHero.jpg'],
+    images: ['/images/og/og-the-glamping-spot.jpg'],
   },
   robots: {
     index: true,
@@ -371,7 +371,6 @@ export default function RootLayout({
         <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
         
         {/* Performance hints - preload critical resources */}
-        <link rel="preload" href="/images/GlampingHero.jpg" as="image" type="image/jpeg" />
         {/* Logo preload is intentionally omitted here: the header's next/image
             `priority` prop already emits a correctly-sized preload link for the
             actual optimized asset served via /_next/image. A manual preload of

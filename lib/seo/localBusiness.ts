@@ -57,7 +57,11 @@ export function getLodgingBusinessSchema(overrides: Record<string, unknown> = {}
       '@type': 'LocationFeatureSpecification',
       name,
     })),
-    image: [`${SITE_URL}/images/GlampingHero.jpg`, `${SITE_URL}/images/geo-dome.jpg`],
+    image: [
+      `${SITE_URL}/images/og/og-the-glamping-spot.jpg`,
+      `${SITE_URL}/images/dome/geodesic-dome-glamping-kountze-texas-night.avif`,
+      `${SITE_URL}/images/dome/dome-interior-living-dining-kitchenette.avif`,
+    ],
     ...overrides,
   };
 }

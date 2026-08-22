@@ -144,7 +144,14 @@ the-glamping-spot/
 ├── hooks/                       # Custom React hooks
 ├── location/                    # Location-specific components
 ├── public/                      # Static assets
-│   ├── images/                  # Optimized images
+│   ├── images/                  # Optimized images (SEO-descriptive filenames)
+│   │   ├── dome/                # The dome listing: exterior, interior, deck, pond
+│   │   ├── about/               # About-page photography
+│   │   ├── activities/          # Nearby attractions and activities
+│   │   ├── experiences/         # Guest experience photography
+│   │   ├── instagram/           # Social feed images
+│   │   ├── og/                  # 1200x630 Open Graph / Twitter cards
+│   │   └── weather/             # Weather condition icons
 │   └── videos/                  # Video content
 ├── styles/                      # Global styles and CSS
 └── types/                       # TypeScript type definitions

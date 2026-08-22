@@ -12,7 +12,7 @@ interface FeaturedPropertyData {
   description: string;
   location: string;
   price: number | null;
-  imageUrls: string[];
+  images: { src: string; alt: string }[];
   capacity: number;
   bedrooms: number;
   beds: number;
@@ -48,15 +48,15 @@ const LISTING: FeaturedPropertyData = {
     'Explore scenic trails right outside your door, or simply relax on the spacious wooden deck overlooking a serene private pond. In the evenings, unwind under the stars with soft ambient lighting and the warm glow of the dome. Perfect for couples, solo travelers, or anyone looking to disconnect and recharge, this secluded getaway blends rustic charm with a one-of-a-kind stay you won’t forget.',
   location: 'Kountze, Texas, United States',
   price: null,
-  imageUrls: [
-    '/images/deck.avif',
-    '/images/bedroom.avif',
-    '/images/living-room.avif',
-    // '/images/glamping-dome.jpg',
-    '/images/deck-2.avif',
-    '/images/backyard.avif',
-    '/images/backyard-view.avif',
-    '/images/backyard-top-view.avif',
+  images: [
+    { src: '/images/dome/geodesic-dome-glamping-kountze-texas-night.avif', alt: 'Geodesic glamping dome glowing at twilight with string lights along the deck in Kountze, Texas' },
+    { src: '/images/dome/dome-interior-living-dining-kitchenette.avif', alt: 'Dome interior with dining table, leather sofa, kitchenette and spiral staircase to the loft' },
+    { src: '/images/dome/dome-master-bedroom-king-bed.avif', alt: 'Main bedroom in the dome with a king bed and crisp white linens' },
+    { src: '/images/dome/dome-wooden-deck-pine-forest-view.avif', alt: 'Spacious wooden deck looking out over the East Texas pine forest' },
+    { src: '/images/dome/dome-living-room-smart-tv-spiral-staircase.avif', alt: 'Dome living room at night with wall-mounted smart TV and sliding barn door' },
+    { src: '/images/dome/dome-bathroom-rustic-vanity-sink.avif', alt: 'Full bathroom with rustic reclaimed-wood wall and matte black fixtures' },
+    { src: '/images/dome/private-pond-glamping-dome-waterfront.avif', alt: 'Private pond at The Glamping Spot with the geodesic dome on the far shore' },
+    { src: '/images/dome/geodesic-dome-lit-pine-forest-night.avif', alt: 'Illuminated geodesic dome surrounded by East Texas pine forest at night' },
   ],
   capacity: 5,
   bedrooms: 2,
@@ -211,8 +211,8 @@ export default function FeaturedProperties({
               <div className="relative h-72 sm:h-96 lg:h-[420px] overflow-hidden">
                 <Image
                   key={activeImg}
-                  src={property.imageUrls[activeImg]}
-                  alt={`${property.name} — photo ${activeImg + 1}`}
+                  src={property.images[activeImg].src}
+                  alt={property.images[activeImg].alt}
                   fill
                   style={{ objectFit: 'cover' }}
                   sizes="(max-width: 1024px) 100vw, 60vw"
@@ -244,9 +244,9 @@ export default function FeaturedProperties({
 
               {/* Thumbnail strip */}
               <div className="grid grid-cols-4 gap-1 p-1 bg-gray-50">
-                {property.imageUrls.map((url, i) => (
+                {property.images.map((img, i) => (
                   <button
-                    key={url}
+                    key={img.src}
                     type="button"
                     onClick={() => setActiveImg(i)}
                     className={`relative h-20 sm:h-24 overflow-hidden rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-1 ${
@@ -254,12 +254,12 @@ export default function FeaturedProperties({
                         ? 'ring-2 ring-[#FF385C] ring-offset-1'
                         : 'opacity-70 hover:opacity-100'
                     }`}
-                    aria-label={`View photo ${i + 1}`}
+                    aria-label={`View photo ${i + 1}: ${img.alt}`}
                     aria-pressed={activeImg === i ? 'true' : 'false'}
                   >
                     <Image
-                      src={url}
-                      alt={`${property.name} thumbnail ${i + 1}`}
+                      src={img.src}
+                      alt={img.alt}
                       fill
                       style={{ objectFit: 'cover' }}
                       sizes="25vw"

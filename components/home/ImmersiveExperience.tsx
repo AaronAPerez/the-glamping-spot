@@ -68,7 +68,7 @@ const ImmersiveExperience = () => {
                 <CardContainer className="w-full">
                   <CardBody className="relative h-56 md:h-64 rounded-xl overflow-hidden shadow-lg">
                     <Image
-                      src="/images/living-room.avif"
+                      src="/images/dome/dome-interior-kitchen-spiral-staircase.avif"
                       alt="Interior living space inside the geodesic dome"
                       fill 
                       style={{ objectFit: 'cover' }} 
@@ -82,7 +82,7 @@ const ImmersiveExperience = () => {
                 <CardContainer className="w-full">
                   <CardBody className="relative h-56 md:h-64 rounded-xl overflow-hidden shadow-lg">
                     <Image 
-                      src="/images/exterior-4.avif" 
+                      src="/images/dome/private-pond-aerial-pine-forest.avif" 
                       alt="Night sky view through a dome ceiling" 
                       fill 
                       style={{ objectFit: 'cover' }} 
@@ -94,7 +94,7 @@ const ImmersiveExperience = () => {
                 <CardContainer className="w-full">
                   <CardBody className="relative h-56 md:h-64 rounded-xl overflow-hidden shadow-lg">
                     <Image
-                      src="/images/full-bathroom-1.avif"
+                      src="/images/dome/dome-bathroom-rustic-vanity-sink.avif"
                       alt="Luxury bathroom with outdoor view"
                       fill 
                       style={{ objectFit: 'cover' }} 

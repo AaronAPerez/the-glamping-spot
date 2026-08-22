@@ -52,14 +52,14 @@ export const metadata: Metadata = {
     title: 'Our Geodesic Dome | The Glamping Spot — Kountze, Texas',
     description:
       'Luxury geodesic dome in Kountze, TX. Sleeps 5, private pond, wooden deck, lake access. Now booking on Airbnb.',
-    images: [{ url: '/images/glamping-dome.jpg', width: 1200, height: 630, alt: 'The Glamping Spot geodesic dome at night' }],
+    images: [{ url: '/images/og/og-our-dome.jpg', width: 1200, height: 630, alt: 'The Glamping Spot geodesic dome glowing at night in Kountze, Texas' }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@theglampingspot',
     title: 'Our Geodesic Dome | The Glamping Spot — Kountze, Texas',
     description: 'Luxury geodesic dome in Kountze, TX. Sleeps 5, private pond, wooden deck, lake access. Now booking on Airbnb.',
-    images: ['/images/exterior-2.avif'],
+    images: ['/images/og/og-our-dome.jpg'],
   },
   alternates: { canonical: 'https://theglampingspot.net/properties' },
   other: {
@@ -83,23 +83,37 @@ const listing = {
   description:
     'Explore scenic trails right outside your door, or simply relax on the spacious wooden deck overlooking a serene private pond. In the evenings, unwind under the stars with soft ambient lighting and the warm glow of the dome. Perfect for couples, solo travelers, or anyone looking to disconnect and recharge, this secluded getaway blends rustic charm with a one-of-a-kind stay you won’t forget.',
   images: [
-    { src: '/images/exterior-2.avif', alt: 'The Glamping Spot geodesic dome exterior at night with ambient lighting' },
-    { src: '/images/exterior.avif', alt: 'Geodesic dome exterior overlooking the property' },
-    { src: '/images/deck.avif', alt: 'Spacious wooden deck at The Glamping Spot' },
-    { src: '/images/living-room.avif', alt: 'Interior living space inside the geodesic dome' },
-    { src: '/images/bedroom.avif', alt: 'Bedroom inside The Glamping Spot dome' },
-    { src: '/images/full-bathroom-1.avif', alt: 'Bathroom inside The Glamping Spot dome' },
-    { src: '/images/backyard.avif', alt: 'Backyard and private pond at The Glamping Spot' },
-    { src: '/images/exterior-2.avif', alt: 'Geodesic dome exterior, alternate view' },
-    { src: '/images/exterior-3.avif', alt: 'Geodesic dome exterior, alternate view' },
-    { src: '/images/exterior-4.avif', alt: 'Geodesic dome exterior, alternate view' },
-    { src: '/images/deck-2.avif', alt: 'Wooden deck at The Glamping Spot, alternate view' },
-    { src: '/images/bedroom-2.avif', alt: 'Bedroom inside The Glamping Spot dome, alternate view' },
-    { src: '/images/full-bathroom-2.avif', alt: 'Bathroom inside The Glamping Spot dome, alternate view' },
-    { src: '/images/full-bathroom-3.avif', alt: 'Bathroom inside The Glamping Spot dome, alternate view' },
-    { src: '/images/backyard-2.avif', alt: 'Backyard and private pond at The Glamping Spot, alternate view' },
-    { src: '/images/backyard-view.avif', alt: 'View of the private pond from the property' },
-    { src: '/images/backyard-top-view.avif', alt: 'Aerial view of the backyard and private pond' },
+    // ── Hero / exterior at night ──
+    { src: '/images/dome/geodesic-dome-glamping-kountze-texas-night.avif', alt: 'Geodesic glamping dome glowing at twilight with string lights along the wooden deck in Kountze, Texas' },
+    { src: '/images/dome/glamping-dome-deck-string-lights-dusk.avif', alt: 'The Glamping Spot dome at dusk with warm string lights and a red patio umbrella on the deck' },
+    { src: '/images/dome/geodesic-dome-lit-pine-forest-night.avif', alt: 'Illuminated geodesic dome surrounded by East Texas pine forest at night' },
+    { src: '/images/dome/geodesic-dome-exterior-night-deck-lights.avif', alt: 'Geodesic dome exterior at night with ambient deck lighting' },
+    { src: '/images/dome/geodesic-dome-deck-illuminated-night.avif', alt: 'Wooden deck and illuminated dome after dark at The Glamping Spot' },
+    // ── Interior ──
+    { src: '/images/dome/dome-interior-living-dining-kitchenette.avif', alt: 'Inside the geodesic dome: dining table, leather sofa, kitchenette and spiral staircase to the loft' },
+    { src: '/images/dome/dome-interior-loft-view-living-area.avif', alt: 'View from the dome loft down to the living area, dining table and kitchen counter' },
+    { src: '/images/dome/dome-living-room-smart-tv-spiral-staircase.avif', alt: 'Dome living room at night with wall-mounted smart TV, sliding barn door and spiral staircase' },
+    { src: '/images/dome/dome-interior-kitchen-spiral-staircase.avif', alt: 'Kitchen counter and spiral staircase inside the geodesic dome' },
+    { src: '/images/dome/dome-board-games-family-entertainment.avif', alt: 'Board game collection at The Glamping Spot including Monopoly, Uno, Jenga, Connect 4, chess and dominoes' },
+    // ── Bedrooms ──
+    { src: '/images/dome/dome-master-bedroom-king-bed.avif', alt: 'Main bedroom in the dome with a king bed, crisp white linens and bedside lamp' },
+    { src: '/images/dome/dome-loft-bedroom-queen-bed.avif', alt: 'Loft bedroom tucked under the geodesic dome canopy with a queen bed and reading lamp' },
+    // ── Bathroom ──
+    { src: '/images/dome/dome-bathroom-rustic-vanity-sink.avif', alt: 'Full bathroom with rustic reclaimed-wood wall, framed mirror and matte black fixtures' },
+    { src: '/images/dome/dome-bathroom-walk-in-shower.avif', alt: 'Full bathroom with walk-in shower and toilet inside the dome' },
+    { src: '/images/dome/dome-bathroom-shower-fixtures.avif', alt: 'Walk-in shower with matte black rainfall fixtures in the dome bathroom' },
+    // ── Deck & outdoors ──
+    { src: '/images/dome/dome-wooden-deck-pine-forest-view.avif', alt: 'Spacious wooden deck with seating looking out over the East Texas pine forest' },
+    { src: '/images/dome/glamping-dome-deck-forest-view.avif', alt: 'Wooden deck at The Glamping Spot overlooking tall pines on a clear day' },
+    { src: '/images/dome/glamping-dome-wooden-deck-daytime.avif', alt: 'Daytime view along the dome deck railing toward the surrounding woods' },
+    // ── Property & pond ──
+    { src: '/images/dome/private-pond-glamping-dome-waterfront.avif', alt: 'Private pond at The Glamping Spot with the geodesic dome on the far shore' },
+    { src: '/images/dome/glamping-property-aerial-private-pond.avif', alt: 'Aerial view of The Glamping Spot property, private pond and surrounding pine forest' },
+    { src: '/images/dome/glamping-dome-aerial-view-clearing.avif', alt: 'Aerial view of the geodesic dome and clearing at The Glamping Spot' },
+    { src: '/images/dome/private-pond-aerial-pine-forest.avif', alt: 'Aerial view of the private pond framed by East Texas pine forest' },
+    { src: '/images/dome/pine-forest-nature-trails-big-thicket.avif', alt: 'Scenic pine forest and sandy nature trails near Big Thicket National Preserve' },
+    { src: '/images/dome/atv-riding-trails-glamping-property.avif', alt: 'ATV on the sandy riding trails at The Glamping Spot property' },
+    { src: '/images/dome/aerial-view-east-texas-pine-forest-trails.avif', alt: 'Aerial view of the wooded trails winding through the East Texas property' },
   ],
   amenities: [
     { icon: 'lake', label: 'Lake access' },
@@ -113,8 +127,17 @@ const listing = {
     { icon: 'co', label: 'Carbon monoxide alarm' },
     { icon: 'smoke', label: 'Smoke alarm' },
     { icon: 'camera', label: 'Exterior security cameras on property' },
+    { icon: 'games', label: 'Board games — Monopoly, Uno, Jenga, chess & more' },
+  ],
+  bedLayout: [
+    { room: 'Bedroom', detail: '1 king bed' },
+    { room: 'Loft', detail: '1 queen bed' },
   ],
   host: 'Ivan',
+  hostSince: 2026,
+  hostResponseRate: '100%',
+  hostResponseTime: 'within an hour',
+  reviewCount: 0,
   checkIn: '2:00 PM',
   checkOut: '12:00 PM',
   maxGuests: 5,
@@ -135,6 +158,7 @@ function AmenityIcon({ type }: { type: string }) {
     trails: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />,
     co: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />,
     smoke: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />,
+    games: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V7a1 1 0 011-1zM8 10h.01M8 14h.01M16 10h.01M16 14h.01M12 12h.01" />,
     camera: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 00-2 2v4a2 2 0 002 2h9a2 2 0 002-2V10a2 2 0 00-2-2H3z" />,
   };
   return (
@@ -252,6 +276,9 @@ export default function PropertiesPage() {
                   <p className="text-gray-600 text-sm">
                     {listing.capacity} guests &nbsp;·&nbsp; {listing.bedrooms} bedrooms &nbsp;·&nbsp; {listing.beds} beds &nbsp;·&nbsp; {listing.bathrooms} bath
                   </p>
+                  <p className="text-gray-500 text-xs mt-2">
+                    Hosting since {listing.hostSince} &nbsp;·&nbsp; {listing.hostResponseRate} response rate &nbsp;·&nbsp; Responds {listing.hostResponseTime}
+                  </p>
                 </div>
                 <div className="shrink-0 w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-lg">
                   {listing.host[0]}
@@ -281,6 +308,22 @@ export default function PropertiesPage() {
             {/* Description */}
             <div className="pb-8 border-b border-gray-100">
               <p className="text-gray-700 leading-relaxed">{listing.description}</p>
+            </div>
+
+            {/* Where you'll sleep */}
+            <div className="pb-8 border-b border-gray-100">
+              <h2 className="text-xl font-semibold text-gray-900 mb-6">Where you&apos;ll sleep</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {listing.bedLayout.map(({ room, detail }) => (
+                  <div key={room} className="border border-gray-200 rounded-xl p-5">
+                    <svg className="w-6 h-6 text-gray-500 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 18v-3m0 0V9a2 2 0 012-2h14a2 2 0 012 2v6m-18 0h18m0 0v3M7 11h3a1 1 0 011 1v1H6v-1a1 1 0 011-1z" />
+                    </svg>
+                    <p className="font-semibold text-gray-900 text-sm">{room}</p>
+                    <p className="text-gray-500 text-sm">{detail}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Amenities */}
@@ -343,6 +386,27 @@ export default function PropertiesPage() {
                   </a>
                 </div>
               </div>
+            </div>
+
+            {/* Reviews */}
+            <div className="pb-8 border-b border-gray-100">
+              <h2 className="text-xl font-semibold text-gray-900 mb-2">Reviews</h2>
+              {listing.reviewCount === 0 ? (
+                <div className="mt-4 border border-dashed border-gray-200 rounded-xl px-6 py-8 text-center">
+                  <p className="font-semibold text-gray-900">No reviews (yet)</p>
+                  <p className="text-gray-500 text-sm mt-1">
+                    This is a brand-new listing — be the first to stay and share your experience.
+                  </p>
+                  <a
+                    href={AIRBNB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-gray-800 border border-gray-800 rounded-lg px-4 py-2.5 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-800"
+                  >
+                    Book your stay on Airbnb
+                  </a>
+                </div>
+              ) : null}
             </div>
 
             {/* Where you'll be */}

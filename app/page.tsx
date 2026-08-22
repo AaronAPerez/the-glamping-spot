@@ -8,7 +8,6 @@ import { Metadata } from 'next';
 import ExperiencesPreview from '@/components/home/ExperiencesPreview';
 import FeaturedProperties from '@/components/home/FeaturedProperties';
 import AirbnbBookingCTA from '@/components/booking/AirbnbBookingCTA';
-import WeatherHighlightsClient from '@/components/home/WeatherHighlightsClient';
 import { Suspense } from 'react';
 
 // Non-critical components - load dynamically
@@ -79,16 +78,16 @@ export const metadata: Metadata = {
     description: "Experience luxury glamping in geodesic domes near Houston, TX with premium amenities, stunning views, and exciting activities.",
     images: [
       {
-        url: "/images/GlampingHero.jpg",
+        url: "/images/og/og-the-glamping-spot.jpg",
         width: 1200,
         height: 630,
         alt: "Luxury geodesic dome glamping experience at The Glamping Spot near Houston, Texas"
       },
       {
-        url: "/images/geo-dome.jpg",
-        width: 800,
-        height: 600,
-        alt: "Interior view of stargazing geodesic dome with transparent ceiling"
+        url: "/images/og/og-our-dome.jpg",
+        width: 1200,
+        height: 630,
+        alt: "The Glamping Spot dome at dusk, string lights along the wooden deck"
       }
     ]
   },
@@ -98,7 +97,7 @@ export const metadata: Metadata = {
     creator: "@theglampingspot",
     title: "The Glamping Spot - Luxury Geodesic Dome Glamping Near Houston, Texas",
     description: "Experience luxury glamping in geodesic domes near Houston, TX with premium amenities, stunning views, and exciting activities.",
-    images: ["/images/GlampingHero.jpg"]
+    images: ["/images/og/og-the-glamping-spot.jpg"]
   },
   alternates: {
     canonical: "https://theglampingspot.net"
@@ -170,13 +169,6 @@ export default function Home() {
             title="Follow Our Glamping Adventures"
             subtitle="Tag your photos with #TheGlampingSpot for a chance to be featured on our feed and win a free night stay!"
           />
-        </section>
-
-          {/* Weather-based activity recommendations with proper loading states */}
-        <section id="weather-highlights" aria-labelledby="weather-highlights-heading">
-          <Suspense fallback={<SectionLoadingFallback ariaLabel="Loading weather-based activity recommendations" />}>
-            <WeatherHighlightsClient />
-          </Suspense>
         </section>
 
          {/* Activities near Kountze, Texas */}

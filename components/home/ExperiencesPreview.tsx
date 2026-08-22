@@ -12,7 +12,7 @@ export default function ExperiencesPreview() {
       {/* Experiences Preview Section - Cinematic Film Strip Design */}
       <section className="relative py-20 sm:py-24 overflow-hidden bg-gradient-to-b from-slate-900 to-black" aria-labelledby="memories-heading">
         {/* Backdrop blur overlay effect */}
-        <div className="absolute inset-0 bg-[url('/images/projector.jpg')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('/images/projector.avif')] bg-cover bg-center opacity-10"></div>
         <div className="absolute inset-0 backdrop-blur-3xl"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

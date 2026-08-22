@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useResponsiveLogoSize } from "@/hooks/useResponsiveLogoSize";
 
 /**
@@ -13,38 +13,23 @@ import { useResponsiveLogoSize } from "@/hooks/useResponsiveLogoSize";
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isBannerVisible, setIsBannerVisible] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
-  const logoSize = useResponsiveLogoSize();
-  
-  // Calculate height based on the width to maintain aspect ratio
-  const logoHeight = Math.round(logoSize * 0.25); // 4:1 ratio
+  const logoHeight = useResponsiveLogoSize();
+  const logoWidth = Math.round(logoHeight * 1.2225);
 
-  // Handle scroll and banner visibility
+  // Handle scroll state
   useEffect(() => {
-    // Check initial banner state from localStorage
-    const bannerDismissed = localStorage.getItem('maintenanceBannerDismissed') === 'true';
-    setIsBannerVisible(!bannerDismissed);
-    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    
-    // Listen for banner dismissal
-    const handleBannerDismiss = () => {
-      setIsBannerVisible(false);
-    };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('maintenanceBannerDismissed', handleBannerDismiss);
-    
+
     // Set initial state
     handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('maintenanceBannerDismissed', handleBannerDismiss);
     };
   }, []);
 
@@ -76,12 +61,12 @@ export default function Header() {
 
   return (
     <>
-      <header 
-        className={`nav-header fixed left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-black/90 backdrop-blur-sm h-16' 
+      <header
+        className={`nav-header fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-black/90 backdrop-blur-sm h-16'
             : 'bg-black/80 h-16'
-        } ${isBannerVisible ? 'top-[0px]' : 'top-0'}`}
+        }`}
         role="banner"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,15 +86,15 @@ export default function Header() {
                   />
                   
                   {/* Logo with optimized loading */}
-                  <div className="relative py-1 mt-2 px-0 rounded-full bg-black/60">
+                  <div className="relative py-1 px-0 mt-1 rounded-full bg-black/60">
                     <Image
                       src="/images/TheGlampingSpot_W.png"
                       alt="The Glamping Spot logo"
-                      width={110}
+                      width={logoWidth}
                       height={logoHeight}
                       priority
                       className="transition-all duration-300 rounded-full"
-                      sizes="(max-width: 768px) 120px, 160px"
+                      sizes="(max-width: 768px) 120x, 160px"
                     />
                   </div>
                 </div>
@@ -145,7 +130,7 @@ export default function Header() {
                 href="https://www.airbnb.com/rooms/1461278647776104058"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-[#FF385C] hover:bg-[#e0314f] text-white font-semibold rounded-lg shadow-lg transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-2 focus:ring-offset-black"
+                className="hidden md:inline-flex items-center gap-2 px-4 py-2 mt-2 bg-[#FF385C] hover:bg-[#e0314f] text-white font-semibold rounded-lg shadow-lg transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-2 focus:ring-offset-black"
                 aria-label="Book The Glamping Spot on Airbnb — opens in a new tab"
               >
                 <svg className="w-4 h-4" viewBox="0 0 1000 1000" fill="currentColor" aria-hidden="true">

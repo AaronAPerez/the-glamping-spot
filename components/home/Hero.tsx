@@ -11,19 +11,28 @@ const Hero = () => {
   // Sample hero backgrounds
   const heroSlides = [
     {
-      image:"/images/deck.png",
+      image: '/images/dome/geodesic-dome-glamping-kountze-texas-night.avif',
+      alt: 'Geodesic glamping dome glowing at twilight with string lights along the wooden deck in Kountze, Texas',
       title: 'Luxury Glamping in a Geodesic Dome',
       subtitle: 'A one-of-a-kind glamping getaway near Houston, Texas'
     },
     {
-      image: '/images/exterior-3.avif',
+      image: '/images/dome/glamping-dome-deck-forest-view.avif',
+      alt: 'Spacious wooden deck at The Glamping Spot overlooking tall East Texas pines',
       title: 'Unforgettable Glamping Adventures',
       subtitle: 'Premium dome glamping with all the comforts of home'
     },
     {
-      image: '/images/backyard.avif',
+      image: '/images/dome/private-pond-glamping-dome-waterfront.avif',
+      alt: 'Private pond at The Glamping Spot with the geodesic dome on the far shore',
       title: 'Where Glamping Meets Texas Wilderness',
       subtitle: 'Experience luxury dome glamping in the Big Thicket'
+    },
+    {
+      image: '/images/dome/glamping-dome-aerial-view-clearing.avif',
+      alt: 'Aerial view of the geodesic dome and clearing surrounded by East Texas pine forest',
+      title: 'Your Private Corner of the Big Thicket',
+      subtitle: 'Acres of pine forest, scenic trails and a private pond'
     }
   ];
 
@@ -36,7 +45,7 @@ const Hero = () => {
 
   return (
     <>
-    <section className="hero-section relative min-h-[60vh] sm:min-h-[75vh] md:min-h-[min(90vh,900px)] [@media(max-height:500px)]:min-h-0 [@media(max-height:500px)]:h-screen">
+    <section className="hero-section relative min-h-[50vh] sm:min-h-[65vh] md:min-h-[min(80vh,800px)] [@media(max-height:500px)]:min-h-0 [@media(max-height:500px)]:h-screen">
       {/* Background Slider */}
       <div className="absolute inset-0">
         {heroSlides.map((slide, index) => (
@@ -48,10 +57,11 @@ const Hero = () => {
           >
             <Image
               src={slide.image}
-              alt={slide.title}
+              alt={slide.alt}
               fill
-              style={{ objectFit: 'cover', objectPosition: 'center 70%' }}
-              priority
+              style={{ objectFit: 'cover', objectPosition: 'center 50%' }}
+              priority={index === 0}
+              loading={index === 0 ? 'eager' : 'lazy'}
               sizes="100vw"
               quality={85}
               placeholder="blur"
@@ -65,13 +75,13 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center min-h-[60vh] sm:min-h-[75vh] md:min-h-[min(90vh,900px)] [@media(max-height:500px)]:min-h-0 [@media(max-height:500px)]:h-screen">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-24 md:py-32 [@media(max-height:500px)]:py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-18 md:py-24 [@media(max-height:500px)]:py-6">
           <div className="max-w-4xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl [@media(max-height:500px)]:text-2xl [@media(max-height:500px)]:mb-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-2xl [@media(max-height:500px)]:text-2xl [@media(max-height:500px)]:mb-2">
               {heroSlides[currentSlide].title}
             </h1>
 
-            <p className="text-xl sm:text-2xl lg:text-3xl text-white/95 mb-10 font-light drop-shadow-lg max-w-2xl [@media(max-height:500px)]:text-base [@media(max-height:500px)]:mb-4">
+            <p className="text-lg sm:text-xl lg:text-2xl text-white/95 mb-10 font-light drop-shadow-lg max-w-2xl [@media(max-height:500px)]:text-base [@media(max-height:500px)]:mb-4">
               {heroSlides[currentSlide].subtitle}
             </p>
 
@@ -81,7 +91,7 @@ const Hero = () => {
                   href="https://www.airbnb.com/rooms/1461278647776104058"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-8 py-4 [@media(max-height:500px)]:px-4 [@media(max-height:500px)]:py-2 [@media(max-height:500px)]:text-sm bg-[#FF385C] hover:bg-[#e0314f] text-white font-bold text-lg rounded-xl shadow-xl transition-all duration-200 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-2 focus:ring-offset-black"
+                  className="inline-flex items-center gap-3 px-6 py-4 [@media(max-height:500px)]:px-4 [@media(max-height:500px)]:py-2 [@media(max-height:500px)]:text-sm bg-[#FF385C] hover:bg-[#e0314f] text-white font-bold text-lg rounded-xl shadow-xl transition-all duration-200 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-2 focus:ring-offset-black"
                   aria-label="Book The Glamping Spot on Airbnb — opens in a new tab"
                 >
                   {/* Airbnb Bélo icon */}
@@ -92,7 +102,7 @@ const Hero = () => {
                 </a>
                 <a
                   href="#featured-properties"
-                  className="inline-flex items-center gap-2 px-8 py-4 [@media(max-height:500px)]:px-4 [@media(max-height:500px)]:py-2 [@media(max-height:500px)]:text-sm border-2 border-white/60 hover:border-white text-white font-semibold text-lg rounded-xl transition-all duration-200 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+                  className="inline-flex items-center gap-2 px-6 py-4 [@media(max-height:500px)]:px-4 [@media(max-height:500px)]:py-2 [@media(max-height:500px)]:text-sm border-2 border-white/60 hover:border-white text-white font-semibold text-lg rounded-xl transition-all duration-200 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
                   aria-label="View our geodesic dome accommodations"
                 >
                   View Our Domes

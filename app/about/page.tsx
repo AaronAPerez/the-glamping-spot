@@ -201,12 +201,12 @@ export default function AboutPage() {
       title: 'Stargazing Experience'
     },
     {
-      src: '/images/living-room.avif',
+      src: '/images/dome/dome-interior-kitchen-spiral-staircase.avif',
       alt: 'Elegant living space inside luxury geodesic dome with modern amenities and natural lighting',
       title: 'Luxury Amenities'
     },
     {
-      src: '/images/full-bathroom-1.avif',
+      src: '/images/dome/dome-bathroom-rustic-vanity-sink.avif',
       alt: 'Guests connecting with nature while enjoying premium comfort at The Glamping Spot',
       title: 'Nature Connection'
     }

@@ -12,28 +12,39 @@ export default function AboutSection() {
   // Optimized image data with proper alt text and loading priorities
   const showcaseImages = [
     {
-      src: "/images/MorningCoffee.jpg",
-      alt: "Guest enjoying morning coffee with scenic East Texas landscape view from geodesic dome deck",
+      src: "/images/dome/geodesic-dome-glamping-kountze-texas-night.avif",
+      alt: "Geodesic glamping dome glowing at twilight, string lights along the wooden deck in Kountze, Texas",
+      // Below the fold — eager loading here would compete with the hero for LCP
       priority: false
     },
     {
-      src: "/images/stars1.jpg", 
-      alt: "Stunning night sky view through transparent geodesic dome ceiling, perfect for stargazing",
+      src: "/images/dome/dome-interior-living-dining-kitchenette.avif",
+      alt: "Dome interior living and dining area with kitchenette, leather sofa and spiral staircase to the loft",
       priority: false
     },
     {
-      src: "/images/living-room.avif",
-      alt: "Elegant living space inside luxury geodesic dome with modern amenities",
+      src: "/images/dome/dome-master-bedroom-king-bed.avif",
+      alt: "Main bedroom inside the dome with a king bed, crisp white linens and warm bedside lighting",
       priority: false
     },
     {
-      src: "/images/full-bathroom-1.avif",
-      alt: "Luxury bathroom with modern fixtures and premium amenities in geodesic dome",
+      src: "/images/dome/dome-wooden-deck-pine-forest-view.avif",
+      alt: "Spacious wooden deck with seating overlooking the East Texas pine forest",
       priority: false
     },
     {
-      src: "/images/exterior.avif",
-      alt: "Geodesic dome exterior surrounded by East Texas nature",
+      src: "/images/dome/dome-living-room-smart-tv-spiral-staircase.avif",
+      alt: "Dome living room in the evening with wall-mounted smart TV, sliding barn door and spiral staircase",
+      priority: false
+    },
+    {
+      src: "/images/dome/dome-bathroom-rustic-vanity-sink.avif",
+      alt: "Full bathroom with rustic reclaimed-wood wall, framed mirror and matte black fixtures",
+      priority: false
+    },
+    {
+      src: "/images/dome/private-pond-glamping-dome-waterfront.avif",
+      alt: "Private pond on the property with the geodesic dome resting on the far shore",
       priority: false
     }
   ];

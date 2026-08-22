@@ -36,10 +36,10 @@ export const metadata: Metadata = {
     description: 'See real adventures and memories from guests at our luxury geodesic dome glamping site near Houston, Texas.',
     images: [
       {
-        url: '/images/experiences/group-birds.jpg',
+        url: '/images/og/og-experiences.jpg',
         width: 1200,
         height: 630,
-        alt: 'Guests enjoying bird sanctuary visit during glamping experience'
+        alt: 'Wooden deck at The Glamping Spot looking out over the East Texas pine forest'
       }
     ]
   },
