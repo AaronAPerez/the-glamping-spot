@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import PhotoLightbox from '@/components/properties/PhotoLightbox';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -157,6 +158,7 @@ export default function FeaturedProperties({
   className = '',
 }: FeaturedPropertiesProps) {
   const [activeImg, setActiveImg] = useState(0);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const property = LISTING;
 
   return (
@@ -174,7 +176,7 @@ export default function FeaturedProperties({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 text-sm font-medium px-4 py-1.5 rounded-full mb-5 border border-emerald-200">
+          <div className="inline-flex items-center gap-2 bg-brand-50 text-brand-700 text-sm font-medium px-4 py-1.5 rounded-full mb-5 border border-brand-200">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -209,17 +211,24 @@ export default function FeaturedProperties({
 
               {/* Main image */}
               <div className="relative h-72 sm:h-96 lg:h-[420px] overflow-hidden">
-                <Image
-                  key={activeImg}
-                  src={property.images[activeImg].src}
-                  alt={property.images[activeImg].alt}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  sizes="(max-width: 1024px) 100vw, 60vw"
-                  quality={85}
-                  priority={activeImg === 0}
-                  className="transition-opacity duration-300"
-                />
+                <button
+                  type="button"
+                  onClick={() => setLightboxIndex(activeImg)}
+                  className="absolute inset-0 w-full h-full group focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-inset"
+                  aria-label={`Open photo gallery — ${property.images[activeImg].alt}`}
+                >
+                  <Image
+                    key={activeImg}
+                    src={property.images[activeImg].src}
+                    alt={property.images[activeImg].alt}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                    quality={85}
+                    priority={activeImg === 0}
+                    className="transition-transform duration-300 group-hover:scale-105"
+                  />
+                </button>
                 {/* Airbnb badge overlay */}
                 <div className="absolute top-4 left-4">
                   <span className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-[#FF385C] text-xs font-bold px-3 py-1.5 rounded-full shadow">
@@ -228,18 +237,16 @@ export default function FeaturedProperties({
                   </span>
                 </div>
                 {/* Photo count */}
-                <a
-                  href={property.airbnbUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={() => setLightboxIndex(activeImg)}
                   className="absolute bottom-4 right-4 inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm text-gray-800 text-xs font-medium px-3 py-2 rounded-lg border border-white/60 shadow hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#FF385C]"
-                  aria-label="View all photos on Airbnb"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                   </svg>
-                  Show all photos
-                </a>
+                  Show all {property.images.length} photos
+                </button>
               </div>
 
               {/* Thumbnail strip */}
@@ -270,6 +277,19 @@ export default function FeaturedProperties({
               </div>
             </div>
 
+            {lightboxIndex !== null && (
+              <PhotoLightbox
+                images={property.images}
+                index={lightboxIndex}
+                onIndexChange={setLightboxIndex}
+                onClose={() => {
+                  setActiveImg(lightboxIndex);
+                  setLightboxIndex(null);
+                }}
+                airbnbUrl={property.airbnbUrl}
+              />
+            )}
+
             {/* ── Right — Details + Booking ── */}
             <div className="lg:col-span-2 flex flex-col p-6 sm:p-8 gap-6 overflow-y-auto">
 
@@ -279,7 +299,7 @@ export default function FeaturedProperties({
                   <h3 className="text-2xl font-bold text-gray-900 leading-tight">
                     {property.name}
                   </h3>
-                  <span className="shrink-0 text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 font-semibold px-2.5 py-1 rounded-full">
+                  <span className="shrink-0 text-xs text-brand-700 bg-brand-50 border border-brand-200 font-semibold px-2.5 py-1 rounded-full">
                     New
                   </span>
                 </div>

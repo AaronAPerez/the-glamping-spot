@@ -83,7 +83,7 @@ const ErrorPage = ({
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 py-16">
       <div className="w-full max-w-md text-center">
         {/* Error Code */}
-        <h1 className="text-6xl font-bold text-emerald-600 mb-4" aria-live="assertive">
+        <h1 className="text-6xl font-bold text-brand-600 mb-4" aria-live="assertive">
           {errorType}
         </h1>
         
@@ -108,7 +108,7 @@ const ErrorPage = ({
           {reset ? (
             <button
               onClick={reset}
-              className="px-6 py-3 bg-emerald-600 text-white rounded-md font-medium hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
+              className="px-6 py-3 bg-brand-600 text-white rounded-md font-medium hover:bg-brand-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500"
               aria-label={actionText || config.actionDefault}
             >
               {actionText || config.actionDefault}
@@ -116,7 +116,7 @@ const ErrorPage = ({
           ) : (
             <Link
               href={actionLink}
-              className="px-6 py-3 bg-emerald-600 text-white rounded-md font-medium hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
+              className="px-6 py-3 bg-brand-600 text-white rounded-md font-medium hover:bg-brand-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500"
               aria-label={actionText || config.actionDefault}
             >
               {actionText || config.actionDefault}
@@ -127,7 +127,7 @@ const ErrorPage = ({
           {(reset || actionLink !== '/') && (
             <Link
               href="/"
-              className="px-6 py-3 border border-gray-300 bg-white rounded-md font-medium text-gray-700 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
+              className="px-6 py-3 border border-gray-300 bg-white rounded-md font-medium text-gray-700 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500"
               aria-label="Return to Home page"
             >
               Return Home

@@ -12,39 +12,31 @@ export default function AboutSection() {
   // Optimized image data with proper alt text and loading priorities
   const showcaseImages = [
     {
-      src: "/images/dome/geodesic-dome-glamping-kountze-texas-night.avif",
-      alt: "Geodesic glamping dome glowing at twilight, string lights along the wooden deck in Kountze, Texas",
-      // Below the fold — eager loading here would compete with the hero for LCP
+      // Tile 0 spans two columns — needs a landscape frame
+      src: "/images/dome/glamping-dome-deck-string-lights-dusk.avif",
+      alt: "The dome at dusk with string lights strung along the wooden deck, Kountze Texas",
       priority: false
     },
     {
-      src: "/images/dome/dome-interior-living-dining-kitchenette.avif",
-      alt: "Dome interior living and dining area with kitchenette, leather sofa and spiral staircase to the loft",
+      src: "/images/dome/dome-bathroom-walk-in-shower.avif",
+      alt: "The full bathroom, with a walk-in shower and reclaimed-wood walls",
       priority: false
     },
     {
-      src: "/images/dome/dome-master-bedroom-king-bed.avif",
-      alt: "Main bedroom inside the dome with a king bed, crisp white linens and warm bedside lighting",
+      src: "/images/dome/pine-forest-nature-trails-big-thicket.avif",
+      alt: "Sandy nature trails winding through the pines, minutes from Big Thicket National Preserve",
       priority: false
     },
     {
-      src: "/images/dome/dome-wooden-deck-pine-forest-view.avif",
-      alt: "Spacious wooden deck with seating overlooking the East Texas pine forest",
+      src: "/images/dome/glamping-dome-deck-forest-view.avif",
+      alt: "Sunlit wooden deck framed by tall East Texas pines",
       priority: false
     },
     {
-      src: "/images/dome/dome-living-room-smart-tv-spiral-staircase.avif",
-      alt: "Dome living room in the evening with wall-mounted smart TV, sliding barn door and spiral staircase",
-      priority: false
-    },
-    {
-      src: "/images/dome/dome-bathroom-rustic-vanity-sink.avif",
-      alt: "Full bathroom with rustic reclaimed-wood wall, framed mirror and matte black fixtures",
-      priority: false
-    },
-    {
-      src: "/images/dome/private-pond-glamping-dome-waterfront.avif",
-      alt: "Private pond on the property with the geodesic dome resting on the far shore",
+      // The two daylight forest frames above read as near-duplicates on their
+      // own — this night shot breaks them up
+      src: "/images/dome/geodesic-dome-deck-illuminated-night.avif",
+      alt: "The dome lit up on its deck after dark, glowing against the treeline",
       priority: false
     }
   ];
@@ -75,7 +67,7 @@ export default function AboutSection() {
 
   return (
     <section
-      className="py-20 sm:py-24 bg-gradient-to-b from-emerald-800 via-emerald-900 to-slate-900"
+      className="py-20 sm:py-24 bg-gradient-to-b from-brand-800 via-brand-900 to-slate-900"
       aria-labelledby="about-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,7 +89,7 @@ export default function AboutSection() {
             />
           </h2>
 
-          <div className="space-y-6 text-emerald-50">
+          <div className="space-y-6 text-brand-50">
             <p className="text-xl leading-relaxed font-light">
               Our geodesic dome glamping experiences offer the perfect balance of adventure and comfort.
               Wake up to stunning East Texas sunrises, fall asleep under star-filled skies, and connect
@@ -129,7 +121,7 @@ export default function AboutSection() {
                 />
               </h2>
 
-              <div className="space-y-6 text-emerald-50">
+              <div className="space-y-6 text-brand-50">
                 <p className="text-xl lg:text-2xl leading-relaxed font-light">
                   Our geodesic dome glamping experiences offer the perfect balance of adventure and comfort.
                   Wake up to stunning East Texas sunrises, fall asleep under star-filled skies, and connect
@@ -144,7 +136,7 @@ export default function AboutSection() {
             </div>
 
             {/* Mobile: Second paragraph only (shows after images) */}
-            <div className="lg:hidden space-y-6 text-emerald-50 mb-8">
+            <div className="lg:hidden space-y-6 text-brand-50 mb-8">
               <p className="text-lg leading-relaxed opacity-90 font-light">
                 Located in the heart of the Big Thicket region near Kountze, Texas, our luxury domes
                 provide an unparalleled glamping experience just minutes from Houston.
@@ -152,7 +144,7 @@ export default function AboutSection() {
             </div>
 
             {/* Enhanced Features Card */}
-            <div className="mt-10 bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-emerald-600/30">
+            <div className="mt-10 bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-brand-600/30">
               <h3 className="font-bold text-2xl mb-8 text-white">
                 Experience Luxury Glamping With:
               </h3>
@@ -171,28 +163,29 @@ export default function AboutSection() {
                     text: "Thoughtfully designed geodesic domes that connect you with the environment",
                     icon: "🏠"
                   },
-                  {
-                    text: "Sustainable practices that minimize environmental impact",
-                    icon: "♻️"
-                  },
+                  // {
+                  //   text: "Sustainable practices that minimize environmental impact",
+                  //   icon: "♻️"
+                  // },
                   {
                     text: "Stargazing through transparent dome ceilings",
                     icon: "⭐"
                   },
                   {
-                    text: "On-site activities including ATV trails and outdoor recreation",
-                    icon: "🏍️"
+                    text: 
+                    "On-site trails, private ponds, and scenic views for a true nature escape",
+                    icon: "🌄"
                   }
                 ].map((feature, index) => (
                   <li key={index} className="flex items-start group">
                     <span
-                      className="text-emerald-300 mr-4 mt-1 text-xl transition-transform group-hover:scale-110"
+                      className="text-brand-300 mr-4 mt-1 text-xl transition-transform group-hover:scale-110"
                       aria-hidden="true"
                       role="img"
                     >
                       {feature.icon}
                     </span>
-                    <span className="text-emerald-50 text-lg leading-relaxed">
+                    <span className="text-brand-50 text-lg leading-relaxed">
                       {feature.text}
                     </span>
                   </li>
@@ -244,8 +237,11 @@ export default function AboutSection() {
                     alt={image.alt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
-                    quality={80}
+                    sizes={
+                      index === 0
+                        ? "(min-width: 1024px) 576px, 92vw"
+                        : "(min-width: 1024px) 280px, 46vw"
+                    }
                     loading={image.priority ? "eager" : "lazy"}
                   />
 
@@ -291,7 +287,7 @@ export default function AboutSection() {
           ].map((feature, index) => (
             <div
               key={index}
-              className="text-center p-8 bg-white/10 backdrop-blur-md rounded-2xl border border-emerald-600/30 hover:bg-white/15 hover:border-emerald-500/50 transition-all duration-300 group"
+              className="text-center p-8 bg-white/10 backdrop-blur-md rounded-2xl border border-brand-600/30 hover:bg-white/15 hover:border-brand-500/50 transition-all duration-300 group"
             >
               <div className="text-5xl mb-5 group-hover:scale-110 transition-transform duration-300" role="img" aria-label={feature.title}>
                 {feature.icon}
@@ -299,7 +295,7 @@ export default function AboutSection() {
               <h3 className="text-xl font-bold text-white mb-3">
                 {feature.title}
               </h3>
-              <p className="text-emerald-50 text-base leading-relaxed">
+              <p className="text-brand-50 text-base leading-relaxed">
                 {feature.description}
               </p>
             </div>

@@ -5,7 +5,6 @@ import { LoadingSkeleton } from '@/components/ui/LoadingSkeleton';
 import Hero from '@/components/home/Hero';
 import AboutSection from '@/components/home/AboutSection';
 import { Metadata } from 'next';
-import ExperiencesPreview from '@/components/home/ExperiencesPreview';
 import FeaturedProperties from '@/components/home/FeaturedProperties';
 import AirbnbBookingCTA from '@/components/booking/AirbnbBookingCTA';
 import { Suspense } from 'react';
@@ -116,7 +115,7 @@ export const metadata: Metadata = {
  */
 const SectionLoadingFallback = ({ ariaLabel }: { ariaLabel: string }) => (
   <div className="py-16 text-center" role="status" aria-label={ariaLabel}>
-    <div className="w-8 h-8 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+    <div className="w-8 h-8 border-4 border-brand-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
     <span className="sr-only">{ariaLabel}</span>
     <p className="text-gray-600">Loading content...</p>
   </div>
@@ -132,13 +131,13 @@ export default function Home() {
       {/* Skip to main content link for accessibility */}
       <a 
         href="#main-content" 
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-emerald-600 text-white px-4 py-2 rounded-md z-50"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-600 text-white px-4 py-2 rounded-md z-50"
       >
         Skip to main content
       </a>
 
       {/* Main content landmark */}
-      <main id="main-content" className="pt-16" suppressHydrationWarning>
+      <main id="main-content" className="pt-[var(--header-height)]" suppressHydrationWarning>
         {/* Hero Section with priority loading */}
         <section id="hero" aria-labelledby="hero-heading">
           <Hero />
@@ -155,11 +154,6 @@ export default function Home() {
             title="Our Luxury Geodesic Dome"
             subtitle="A secluded dome retreat in Kountze, Texas — overlooking a private pond, surrounded by nature, now booking on Airbnb."
           />
-        </section>
-
-        {/* Experiences/Gallery Section showcasing guest experiences */}
-        <section id="experiences" aria-labelledby="memories-heading">
-          <ExperiencesPreview />
         </section>
         
         {/* Instagram Feed for social proof and engagement */}

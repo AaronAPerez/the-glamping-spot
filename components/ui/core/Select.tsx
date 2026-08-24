@@ -27,7 +27,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       transition-all duration-200 
       min-h-[44px]
       focus:outline-none 
-      focus:ring-4 focus:ring-emerald-500/20
+      focus:ring-4 focus:ring-brand-500/20
       disabled:opacity-50 disabled:cursor-not-allowed
       appearance-none
       bg-no-repeat bg-right
@@ -37,7 +37,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const variantClasses = {
       default: `
         border-gray-300 
-        focus:border-emerald-600 
+        focus:border-brand-600 
         hover:border-gray-400
       `,
       error: `
@@ -46,9 +46,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         bg-red-50
       `,
       success: `
-        border-emerald-500 
-        focus:border-emerald-600 
-        bg-emerald-50
+        border-brand-500 
+        focus:border-brand-600 
+        bg-brand-50
       `,
     };
 

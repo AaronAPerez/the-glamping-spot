@@ -29,13 +29,13 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
             id={id}
             className="
               w-5 h-5 
-              text-emerald-700 
+              text-brand-700 
               bg-white 
               border-2 border-gray-400 
-              focus:ring-4 focus:ring-emerald-500/20 
+              focus:ring-4 focus:ring-brand-500/20 
               focus:ring-offset-0
-              checked:bg-emerald-700 
-              checked:border-emerald-700
+              checked:bg-brand-700 
+              checked:border-brand-700
               transition-colors duration-200
             "
             aria-describedby={descriptionId}

@@ -92,7 +92,7 @@ export default function Footer({ className = '' }: FooterProps) {
 
   return (
     <motion.footer 
-      className={`${className}`}
+      className={`bg-[var(--brand-navy)] ${className}`}
       role="contentinfo"
       initial="hidden"
       whileInView="visible"
@@ -100,7 +100,7 @@ export default function Footer({ className = '' }: FooterProps) {
       variants={containerVariants}
     >
       {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 bg-black">
+      <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand and Newsletter Section */}
           <motion.div 
@@ -109,21 +109,21 @@ export default function Footer({ className = '' }: FooterProps) {
           >
             <div className="flex items-center mb-6">
               <Image
-                src="/images/TheGlampingSpot_W.png"
+                src="/images/the-glamping-spot-logo.png"
                 alt="The Glamping Spot"
                 width={90}
                 height={74}
                 className="h-auto"
               />
             </div>
-            <p className="text-gray-300 mb-6">
+            <p className="text-brand-50/80 mb-6">
               Experience luxury glamping in breathtaking locations with premium amenities and unparalleled natural beauty.
             </p>
             <a
               href="https://www.airbnb.com/rooms/1461278647776104058"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-gray-300 hover:text-white transition-colors mb-6"
+              className="inline-flex items-center text-brand-50/80 hover:text-white transition-colors mb-6"
               aria-label="Message us through Airbnb — opens in a new tab"
             >
               <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -139,7 +139,7 @@ export default function Footer({ className = '' }: FooterProps) {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-brand-50/80 hover:text-brand-300 transition-colors"
                   aria-label={social.ariaLabel}
                 >
                   {renderSocialIcon(social.icon)}
@@ -151,11 +151,11 @@ export default function Footer({ className = '' }: FooterProps) {
           {/* Navigation Links */}
           {linkCategories.map((category) => (
             <motion.div key={category.title} variants={itemVariants} className="md:col-span-1">
-              <h3 className="text-lg font-semibold mb-4 text-emerald-400">{category.title}</h3>
+              <h3 className="text-lg font-semibold mb-4 text-brand-400">{category.title}</h3>
               <ul className="space-y-3">
                 {category.links.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-gray-300 hover:text-white transition-colors">
+                    <Link href={link.href} className="text-brand-50/80 hover:text-brand-300 transition-colors">
                       {link.name}
                     </Link>
                   </li>
@@ -167,13 +167,13 @@ export default function Footer({ className = '' }: FooterProps) {
 
         {/* Bottom Footer */}
         <motion.div 
-          className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center"
+          className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center"
           variants={itemVariants}
         >
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-brand-100/60">
             &copy; {currentYear} The Glamping Spot. All rights reserved.
           </p>
-          <div className="mt-4 md:mt-0 flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+          <div className="mt-4 md:mt-0 flex flex-wrap justify-center gap-4 text-sm text-brand-100/60">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>

@@ -27,7 +27,7 @@ export default function DevelopmentBanner() {
 
   return (
     <div
-      className="fixed top-16 left-3/10 right-0 rounded-l-xl md:top-2 md:left-auto md:right-2 md:w-auto z-[100] bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-white shadow-lg backdrop-blur-2xl text-center md:rounded-xl"
+      className="fixed top-[calc(var(--header-height)+0.5rem)] left-3/10 right-0 rounded-l-xl md:top-2 md:left-auto md:right-2 md:w-auto z-[100] bg-gradient-to-r from-amber-600 via-orange-600 to-amber-600 text-white shadow-lg backdrop-blur-2xl text-center md:rounded-xl"
       role="alert"
       aria-live="polite"
     >

@@ -13,7 +13,7 @@ export const AccessibleLink: React.FC<AccessibleLinkProps> = ({
   className = '',
   ...props
 }) => {
-  const baseClasses = 'transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded';
+  const baseClasses = 'transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 rounded';
   
   if (external) {
     return (

@@ -28,10 +28,10 @@ export function LegalPageLayout({ title, path, lastUpdated, intro, children }: L
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
+      <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-[calc(var(--header-height)+1rem)] pb-20">
         <nav aria-label="Breadcrumb" className="mb-6">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-emerald-600 transition-colors focus:outline-none focus:underline">Home</Link></li>
+            <li><Link href="/" className="hover:text-brand-600 transition-colors focus:outline-none focus:underline">Home</Link></li>
             <li aria-hidden="true">/</li>
             <li className="text-gray-900 font-medium" aria-current="page">{title}</li>
           </ol>
