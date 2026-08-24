@@ -43,7 +43,8 @@ export default function InstagramFeed({
   subtitle,
   postCount = 6,
   showCaptions = false,
-  showStats = true,
+  // Off unless real API data supplies real numbers — never invent engagement.
+  showStats = false,
   accessToken,
   className = '',
 }: InstagramFeedProps) {
@@ -90,68 +91,56 @@ export default function InstagramFeed({
         
         setPosts(formattedPosts);
       } else {
-        // Enhanced mock data with better variety
-        const mockPosts: InstagramPost[] = [
+        /*
+         * Fallback shown until INSTAGRAM_ACCESS_TOKEN is wired up.
+         *
+         * These are real photographs of the property, not posts — the previous
+         * placeholders were stock photography (a mountain-view deck, a branded
+         * enamel mug, jungle ATV riders) that showed somewhere else entirely,
+         * paired with invented like and comment counts. Both are gone: nothing
+         * here claims to be a specific Instagram post or reports engagement we
+         * cannot verify. Each tile links to the real profile.
+         */
+        const fallbackPosts: InstagramPost[] = [
           {
-            id: 'mock-stargazing-dome',
-            imageUrl: '/images/instagram/post1sunset.jpg',
-            caption: 'Stargazing from your bed in our geodesic dome! 🌟✨ Book your magical night under the Texas stars. #TheGlampingSpot #TexasGlamping #Stargazing',
-            likes: 324,
-            comments: 28,
+            id: 'dome-living-room',
+            imageUrl: '/images/dome/dome-interior-kitchen-spiral-staircase.avif',
             postUrl: `https://instagram.com/${username}`,
-            alt: 'Sunset view from inside a geodesic dome with transparent ceiling for stargazing',
+            alt: 'Kitchen counter and spiral staircase inside the geodesic dome',
           },
           {
-            id: 'mock-morning-coffee',
-            imageUrl: '/images/instagram/post2coffee.jpg',
-            caption: 'Morning coffee with the best view in East Texas ☕🌄 Wake up refreshed in our luxury domes! #MorningVibes #GlampingLife',
-            likes: 198,
-            comments: 15,
+            id: 'dome-night-exterior',
+            imageUrl: '/images/dome/geodesic-dome-exterior-night-deck-lights.avif',
             postUrl: `https://instagram.com/${username}`,
-            alt: 'Person holding coffee mug with scenic East Texas landscape view from geodesic dome',
+            alt: 'Geodesic dome exterior at night with ambient deck lighting',
           },
           {
-            id: 'mock-atv-adventure',
-            imageUrl: '/images/instagram/post3atv.jpg',
-            caption: 'ATV adventures await! 🏍️ Explore our private trails and experience the thrill of East Texas terrain. #ATVAdventure #GlampingActivities',
-            likes: 256,
-            comments: 34,
+            id: 'dome-aerial',
+            imageUrl: '/images/dome/glamping-dome-aerial-view-clearing.avif',
             postUrl: `https://instagram.com/${username}`,
-            isVideo: true,
-            alt: 'ATV adventure trails near The Glamping Spot geodesic domes',
+            alt: 'Aerial view of the geodesic dome and clearing surrounded by East Texas pine forest',
           },
           {
-            id: 'mock-luxury-bathroom',
-            imageUrl: '/images/instagram/post4bed.jpg',
-            caption: 'Luxury meets nature in our premium geodesic domes 🛁✨ Every detail designed for your comfort. #LuxuryGlamping #EcoLuxury',
-            likes: 287,
-            comments: 42,
+            id: 'dome-bedroom',
+            imageUrl: '/images/dome/dome-board-games-family-entertainment.avif',
             postUrl: `https://instagram.com/${username}`,
-            alt: 'Luxury bathroom interior in geodesic dome with modern amenities',
+            alt: 'Board games at the dome — Monopoly, Uno, Jenga, Connect 4, chess and dominoes',
           },
           {
-            id: 'mock-dome-interior',
-            imageUrl: '/images/instagram/post5interior.jpg',
-            caption: 'Step inside paradise! 🏠💫 Our thoughtfully designed interiors blend comfort with nature. #DomeLife #InteriorDesign',
-            likes: 203,
-            comments: 19,
+            id: 'dome-deck',
+            imageUrl: '/images/dome/glamping-dome-wooden-deck-daytime.avif',
             postUrl: `https://instagram.com/${username}`,
-            alt: 'Beautifully designed interior of luxury geodesic dome with modern furnishings',
+            alt: 'Daytime view along the dome deck railing toward the surrounding woods',
           },
           {
-            id: 'mock-campfire-evening',
-            imageUrl: '/images/instagram/post6firepit.jpg',
-            caption: 'Evening vibes around the fire pit 🔥🌙 Perfect end to your glamping adventure! #CampfireNights #WeekendGetaway',
-            likes: 167,
-            comments: 23,
+            id: 'private-pond',
+            imageUrl: '/images/dome/atv-riding-trails-glamping-property.avif',
             postUrl: `https://instagram.com/${username}`,
-            alt: 'Glamping guests enjoying evening around fire pit with geodesic domes in background',
+            alt: 'ATV on the sandy riding trails at The Glamping Spot property',
           },
         ];
         
-        // Simulate realistic API delay
-        await new Promise(resolve => setTimeout(resolve, 400));
-        setPosts(mockPosts.slice(0, postCount));
+        setPosts(fallbackPosts.slice(0, postCount));
       }
     } catch (err) {
       console.error('Error fetching Instagram posts:', err);
@@ -227,7 +216,7 @@ export default function InstagramFeed({
             href={`https://instagram.com/${username}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center mt-4 text-emerald-600 hover:text-emerald-700 transition-colors font-medium focus:outline-none focus:underline"
+            className="inline-flex items-center mt-4 text-brand-600 hover:text-brand-700 transition-colors font-medium focus:outline-none focus:underline"
             aria-label={`Visit ${username} on Instagram (opens in new tab)`}
           >
             <span>@{username}</span>
@@ -240,7 +229,7 @@ export default function InstagramFeed({
         {/* Optimized loading state */}
         {isLoading && (
           <div className="flex flex-col items-center justify-center py-20" role="status" aria-label="Loading Instagram posts">
-            <div className="w-12 h-12 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mb-4"></div>
+            <div className="w-12 h-12 border-4 border-brand-600 border-t-transparent rounded-full animate-spin mb-4"></div>
             <p className="text-gray-600">Loading our latest Instagram posts...</p>
             <span className="sr-only">Loading Instagram feed from {username}</span>
           </div>
@@ -270,7 +259,7 @@ export default function InstagramFeed({
                 href={`https://instagram.com/${username}`} 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-emerald-600 hover:underline font-medium focus:outline-none focus:underline"
+                className="text-brand-600 hover:underline font-medium focus:outline-none focus:underline"
               >
                 Instagram
               </a>{' '}
@@ -297,7 +286,7 @@ export default function InstagramFeed({
                   href={post.postUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block h-full w-full focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                  className="block h-full w-full focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
                   aria-label={post.caption || `View Instagram post by ${username} (opens in new tab)`}
                 >
                   {/* Optimized post image */}
@@ -380,7 +369,7 @@ export default function InstagramFeed({
                 Follow Our Glamping Journey
               </h3>
               <p className="text-gray-600 mb-6">
-                Get daily inspiration and see what makes The Glamping Spot special through the eyes of our guests.
+                See the dome, the deck and the pond up close — and follow along for new photos, trail updates and giveaways.
               </p>
               <Link
                 href={`https://www.instagram.com/${username}`}
@@ -423,7 +412,7 @@ export default function InstagramFeed({
               href={`https://instagram.com/${username}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-emerald-600 hover:text-emerald-700 font-medium focus:outline-none focus:underline"
+              className="text-brand-600 hover:text-brand-700 font-medium focus:outline-none focus:underline"
             >
               Visit our Instagram page
             </Link>

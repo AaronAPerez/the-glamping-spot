@@ -83,15 +83,15 @@ export function WaiverForm() {
 
   if (submitState.status === 'success') {
     return (
-      <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
-        <h3 className="text-lg font-semibold text-emerald-900 mb-2">Waiver signed</h3>
-        <p className="text-sm text-emerald-800 mb-6">
+      <div className="rounded-2xl border border-brand-200 bg-brand-50 p-8 text-center">
+        <h3 className="text-lg font-semibold text-brand-900 mb-2">Waiver signed</h3>
+        <p className="text-sm text-brand-800 mb-6">
           A copy has been emailed to you and to the host. You can also download your copy now.
         </p>
         <a
           href={submitState.downloadUrl}
           download={submitState.filename}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-semibold rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-brand-700 hover:bg-brand-800 text-white font-semibold rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-brand-700 focus:ring-offset-2"
         >
           Download signed waiver (PDF)
         </a>
@@ -196,7 +196,7 @@ export function WaiverForm() {
       <button
         type="submit"
         disabled={submitState.status === 'submitting'}
-        className="w-full py-3.5 bg-emerald-700 hover:bg-emerald-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold rounded-xl shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2"
+        className="w-full py-3.5 bg-brand-700 hover:bg-brand-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold rounded-xl shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-brand-700 focus:ring-offset-2"
       >
         {submitState.status === 'submitting' ? 'Submitting…' : 'Sign & submit waiver'}
       </button>

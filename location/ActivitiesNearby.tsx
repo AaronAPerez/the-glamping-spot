@@ -156,7 +156,7 @@ export default function ActivitiesNearby() {
   
   return (
     <section 
-      className="py-16 bg-gradient-to-b from-slate-900 to-slate-800" 
+      className="py-16 bg-gradient-to-b from-brand-900 to-brand-950" 
       aria-labelledby="activities-heading"
     >
       <div className="container mx-auto px-4 max-w-7xl">
@@ -164,11 +164,11 @@ export default function ActivitiesNearby() {
         <div className="text-center mb-12">
           <h2 
             id="activities-heading" 
-            className="text-4xl font-bold text-emerald-400 mb-4"
+            className="text-4xl font-bold text-gold-300 mb-4"
           >
             Explore Kountze & East Texas
           </h2>
-          <p className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-brand-50 max-w-3xl mx-auto leading-relaxed">
             Discover the natural wonders, cultural attractions, and outdoor adventures surrounding 
             our geodesic dome glamping site in the heart of the Big Thicket region.
           </p>
@@ -178,7 +178,7 @@ export default function ActivitiesNearby() {
         <div className="hidden md:block mb-8">
           <div className="flex justify-center">
             <div 
-              className="inline-flex flex-wrap justify-center gap-2 bg-gray-800/50 p-2 rounded-xl backdrop-blur-sm"
+              className="inline-flex flex-wrap justify-center gap-2 bg-brand-950/60 border border-brand-800/50 p-2 rounded-xl backdrop-blur-sm"
               role="tablist"
               aria-label="Filter activities by category"
             >
@@ -186,10 +186,10 @@ export default function ActivitiesNearby() {
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-slate-800 ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2 focus:ring-offset-brand-950 ${
                     activeCategory === category
-                      ? "bg-emerald-600 text-white shadow-lg"
-                      : "bg-gray-700 text-gray-200 hover:bg-gray-600"
+                      ? "bg-brand-500 text-white shadow-lg"
+                      : "bg-white/5 text-brand-100 hover:bg-white/10 hover:text-white"
                   }`}
                   role="tab"
                   aria-selected={activeCategory === category}
@@ -207,16 +207,16 @@ export default function ActivitiesNearby() {
           <button
             type="button"
             onClick={() => setShowFilters(!showFilters)}
-            className="w-full flex items-center justify-between px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-colors"
+            className="w-full flex items-center justify-between px-4 py-3 bg-brand-950/60 border border-brand-800/60 rounded-lg text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-300 transition-colors"
             aria-expanded={showFilters}
             aria-controls="mobile-filters"
           >
             <span className="flex items-center">
-              <Filter className="mr-2 h-5 w-5 text-emerald-400" />
+              <Filter className="mr-2 h-5 w-5 text-gold-300" />
               Filter: {activeCategory}
             </span>
             <ChevronRight 
-              className={`h-5 w-5 text-gray-400 transition-transform ${showFilters ? "rotate-90" : ""}`} 
+              className={`h-5 w-5 text-brand-200 transition-transform ${showFilters ? "rotate-90" : ""}`} 
             />
           </button>
           
@@ -224,7 +224,7 @@ export default function ActivitiesNearby() {
           {showFilters && (
             <div 
               id="mobile-filters"
-              className="mt-2 p-2 bg-gray-800 rounded-lg shadow-lg border border-gray-600"
+              className="mt-2 p-2 bg-brand-950 rounded-lg shadow-lg border border-brand-800/60"
             >
               <div className="space-y-1" role="menu">
                 {CATEGORIES.map((category) => (
@@ -234,10 +234,10 @@ export default function ActivitiesNearby() {
                       setActiveCategory(category);
                       setShowFilters(false);
                     }}
-                    className={`block w-full text-left px-4 py-2 text-sm rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-400 ${
+                    className={`block w-full text-left px-4 py-2 text-sm rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-brand-300 ${
                       activeCategory === category
-                        ? "bg-emerald-600 text-white font-medium"
-                        : "text-gray-200 hover:bg-gray-700"
+                        ? "bg-brand-500 text-white font-medium"
+                        : "text-brand-100 hover:bg-white/10 hover:text-white"
                     }`}
                     role="menuitem"
                   >
@@ -290,7 +290,7 @@ export default function ActivitiesNearby() {
                       href={activity.linkUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-emerald-600 hover:text-emerald-700 transition-colors ml-2 p-1 focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded"
+                      className="text-brand-600 hover:text-brand-700 transition-colors ml-2 p-1 focus:outline-none focus:ring-2 focus:ring-brand-400 rounded"
                       aria-label={`Visit website for ${activity.name} (opens in new tab)`}
                     >
                       <ExternalLink className="h-5 w-5" />
@@ -304,8 +304,8 @@ export default function ActivitiesNearby() {
                 
                 {/* Accessibility information */}
                 {activity.accessibility && (
-                  <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-                    <p className="text-sm text-blue-800">
+                  <div className="mb-4 p-3 bg-brand-50 border border-brand-200 rounded-lg">
+                    <p className="text-sm text-brand-800">
                       <span className="font-medium">Accessibility:</span> {activity.accessibility}
                     </p>
                   </div>
@@ -316,7 +316,7 @@ export default function ActivitiesNearby() {
                   {activity.tags.map((tag, index) => (
                     <span
                       key={`${activity.id}-${tag}-${index}`}
-                      className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 border border-emerald-200"
+                      className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gold-100 text-brand-800 border border-gold-300"
                     >
                       {tag}
                     </span>
@@ -331,7 +331,7 @@ export default function ActivitiesNearby() {
         {filteredActivities.length === 0 && (
           <div className="text-center py-16" role="status">
             <svg 
-              className="h-16 w-16 text-gray-400 mx-auto mb-4" 
+              className="h-16 w-16 text-brand-300/50 mx-auto mb-4" 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor"
@@ -344,18 +344,18 @@ export default function ActivitiesNearby() {
                 d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.291-1.007-5.824-2.562M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" 
               />
             </svg>
-            <p className="text-gray-300 text-lg mb-2">No activities found in this category.</p>
-            <p className="text-gray-400">Try selecting a different filter to see more options.</p>
+            <p className="text-brand-100 text-lg mb-2">No activities found in this category.</p>
+            <p className="text-brand-200">Try selecting a different filter to see more options.</p>
           </div>
         )}
         
         {/* Enhanced call to action */}
         <div className="mt-16 text-center">
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto border border-gray-700">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto border border-brand-800/50">
             <h3 className="text-2xl font-bold text-white mb-4">
               Need Personalized Recommendations?
             </h3>
-            <p className="text-gray-200 mb-6 leading-relaxed">
+            <p className="text-brand-50 mb-6 leading-relaxed">
               Our local staff knows East Texas inside and out. We're happy to provide 
               personalized recommendations based on your interests, mobility needs, and the weather.
             </p>
@@ -364,7 +364,7 @@ export default function ActivitiesNearby() {
                 href="https://www.airbnb.com/rooms/1461278647776104058"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition-colors shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-slate-800"
+                className="inline-flex items-center justify-center px-6 py-3 bg-[#FF385C] text-white font-semibold rounded-lg hover:bg-[#e0314f] transition-colors shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-2 focus:ring-offset-brand-950"
                 aria-label="Message us on Airbnb for personalized recommendations — opens in a new tab"
               >
                 Message Us on Airbnb
@@ -375,33 +375,33 @@ export default function ActivitiesNearby() {
 
         {/* Additional local information */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center p-6 bg-gray-800/30 rounded-xl border border-gray-700">
-            <svg className="h-8 w-8 text-emerald-400 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <div className="text-center p-6 bg-white/5 rounded-xl border border-brand-800/50">
+            <svg className="h-8 w-8 text-gold-300 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <h4 className="text-lg font-semibold text-white mb-2">Best Times to Visit</h4>
-            <p className="text-gray-300 text-sm">
+            <p className="text-brand-100 text-sm">
               Spring and fall offer the most comfortable weather for outdoor activities. Summer is great for water activities.
             </p>
           </div>
           
-          <div className="text-center p-6 bg-gray-800/30 rounded-xl border border-gray-700">
-            <svg className="h-8 w-8 text-emerald-400 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <div className="text-center p-6 bg-white/5 rounded-xl border border-brand-800/50">
+            <svg className="h-8 w-8 text-gold-300 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
             <h4 className="text-lg font-semibold text-white mb-2">Getting Around</h4>
-            <p className="text-gray-300 text-sm">
+            <p className="text-brand-100 text-sm">
               Most attractions are easily accessible by car. We can provide detailed directions and local driving tips.
             </p>
           </div>
           
-          <div className="text-center p-6 bg-gray-800/30 rounded-xl border border-gray-700">
-            <svg className="h-8 w-8 text-emerald-400 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <div className="text-center p-6 bg-white/5 rounded-xl border border-brand-800/50">
+            <svg className="h-8 w-8 text-gold-300 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <h4 className="text-lg font-semibold text-white mb-2">Local Tips</h4>
-            <p className="text-gray-300 text-sm">
+            <p className="text-brand-100 text-sm">
               Bring insect repellent, comfortable walking shoes, and a camera to capture the natural beauty.
             </p>
           </div>

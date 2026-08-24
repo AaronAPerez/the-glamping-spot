@@ -281,7 +281,7 @@ function LoadingFallback({ message = "Loading..." }: { message?: string }) {
       aria-label={message}
     >
       <div className="text-center">
-        <div className="w-8 h-8 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+        <div className="w-8 h-8 border-4 border-brand-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
         <span className="sr-only">{message}</span>
         <p className="text-gray-600 text-sm">{message}</p>
       </div>
@@ -305,7 +305,7 @@ function ErrorFallback({ error }: { error: Error }) {
         <p className="text-gray-600 mb-4">We're sorry, but there was an error loading this content.</p>
         <button
           onClick={() => window.location.reload()}
-          className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+          className="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
         >
           Refresh Page
         </button>
@@ -409,7 +409,7 @@ export default function RootLayout({
         {/* Skip to main content link for accessibility */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-emerald-600 focus:text-white focus:rounded-md focus:shadow-lg transition-all duration-200"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand-600 focus:text-white focus:rounded-md focus:shadow-lg transition-all duration-200"
         >
           Skip to main content
         </a>

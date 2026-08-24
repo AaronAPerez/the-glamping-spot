@@ -62,7 +62,7 @@ export default function PropertyCard({
 
   return (
     <motion.article
-      className={`property-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-emerald-500 ${className}`}
+      className={`property-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 focus-within:ring-2 focus-within:ring-brand-500 ${className}`}
       // variants={cardVariants}
       initial="hidden"
       whileInView="visible"
@@ -93,7 +93,7 @@ export default function PropertyCard({
           {/* Enhanced badges with better contrast */}
           <div className="absolute top-4 left-4 flex gap-2">
             {featured && (
-              <span className="bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow-md border border-emerald-700">
+              <span className="bg-brand-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow-md border border-brand-700">
                 Featured
               </span>
             )}
@@ -143,7 +143,7 @@ export default function PropertyCard({
               </h3>
               <p className="text-gray-600 text-sm mb-2 flex items-start">
                 <svg 
-                  className="w-4 h-4 mr-1 mt-0.5 text-emerald-600 flex-shrink-0" 
+                  className="w-4 h-4 mr-1 mt-0.5 text-brand-600 flex-shrink-0" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"
@@ -166,7 +166,7 @@ export default function PropertyCard({
               </p>
             </div>
             <div className="text-right ml-4 flex-shrink-0">
-              <p className="text-emerald-600 font-bold text-xl leading-none">
+              <p className="text-brand-600 font-bold text-xl leading-none">
                 ${price}
               </p>
               <span className="text-sm text-gray-500 leading-none">per night</span>
@@ -214,7 +214,7 @@ export default function PropertyCard({
                 {amenities.slice(0, 4).map((amenity, index) => (
                   <span 
                     key={`${id}-amenity-${index}`}
-                    className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200"
+                    className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-brand-50 text-brand-800 border border-brand-200"
                   >
                     {amenity}
                   </span>
@@ -230,11 +230,11 @@ export default function PropertyCard({
           
           {/* Availability information with improved styling */}
           {availability.length > 0 && (
-            <div className="mb-4 p-3 bg-emerald-50 rounded-lg border border-emerald-200">
-              <p className="text-xs text-emerald-700 mb-1">
+            <div className="mb-4 p-3 bg-brand-50 rounded-lg border border-brand-200">
+              <p className="text-xs text-brand-700 mb-1">
                 <span className="font-medium">Availability:</span>
               </p>
-              <p className="text-sm font-medium text-emerald-800">
+              <p className="text-sm font-medium text-brand-800">
                 {availability[0]}
               </p>
             </div>
@@ -242,11 +242,11 @@ export default function PropertyCard({
           
           {/* Enhanced CTA with better accessibility and visual hierarchy */}
           <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-            <span className="text-emerald-600 font-semibold text-base">
+            <span className="text-brand-600 font-semibold text-base">
               View Details & Book
             </span>
             <svg 
-              className="w-5 h-5 text-emerald-600 transition-transform group-hover:translate-x-1" 
+              className="w-5 h-5 text-brand-600 transition-transform group-hover:translate-x-1" 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor"

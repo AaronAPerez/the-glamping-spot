@@ -6,11 +6,11 @@ import { TextGenerateEffect } from '../ui/TextGenerateEffect'
 
 const ImmersiveExperience = () => {
   return (
-    <section className="bg-emerald-900 text-white py-16 relative" aria-labelledby="immersive-experience-heading">
+    <section className="bg-brand-900 text-white py-16 relative" aria-labelledby="immersive-experience-heading">
       {/* Gradient Background */}
       <BackgroundGradient 
         className="absolute inset-0 opacity-30"
-        // gradientColor="from-emerald-700 via-emerald-900 to-emerald-800" 
+        // gradientColor="from-brand-700 via-brand-900 to-brand-800" 
         children={undefined} 
       />
       
@@ -23,7 +23,7 @@ const ImmersiveExperience = () => {
         <div className="md:flex md:items-start md:gap-16 lg:gap-20">
           {/* Text Content */}
           <div className="md:w-1/2 mb-12 md:mb-0">
-            <p className="text-lg mb-8 text-emerald-100 leading-relaxed">
+            <p className="text-lg mb-8 text-brand-100 leading-relaxed">
               Our glamping experiences offer the perfect balance of adventure and comfort. 
               Wake up to stunning sunrises, fall asleep under star-filled skies, and connect 
               with nature without sacrificing modern luxuries.
@@ -31,20 +31,20 @@ const ImmersiveExperience = () => {
             
             <ul className="space-y-5" aria-label="The Glamping Spot features">
               <li className="flex items-start">
-                <span className="text-emerald-300 mr-4 mt-1 flex-shrink-0" aria-hidden="true">✓</span>
-                <span className="text-emerald-50">Breathtaking locations away from crowds</span>
+                <span className="text-brand-300 mr-4 mt-1 flex-shrink-0" aria-hidden="true">✓</span>
+                <span className="text-brand-50">Breathtaking locations away from crowds</span>
               </li>
               <li className="flex items-start">
-                <span className="text-emerald-300 mr-4 mt-1 flex-shrink-0" aria-hidden="true">✓</span>
-                <span className="text-emerald-50">Luxury amenities including premium bedding and climate control</span>
+                <span className="text-brand-300 mr-4 mt-1 flex-shrink-0" aria-hidden="true">✓</span>
+                <span className="text-brand-50">Luxury amenities including premium bedding and climate control</span>
               </li>
               <li className="flex items-start">
-                <span className="text-emerald-300 mr-4 mt-1 flex-shrink-0" aria-hidden="true">✓</span>
-                <span className="text-emerald-50">Thoughtfully designed spaces that connect with the environment</span>
+                <span className="text-brand-300 mr-4 mt-1 flex-shrink-0" aria-hidden="true">✓</span>
+                <span className="text-brand-50">Thoughtfully designed spaces that connect with the environment</span>
               </li>
               <li className="flex items-start">
-                <span className="text-emerald-300 mr-4 mt-1 flex-shrink-0" aria-hidden="true">✓</span>
-                <span className="text-emerald-50">Sustainable practices that minimize environmental impact</span>
+                <span className="text-brand-300 mr-4 mt-1 flex-shrink-0" aria-hidden="true">✓</span>
+                <span className="text-brand-50">Sustainable practices that minimize environmental impact</span>
               </li>
             </ul>
           </div>

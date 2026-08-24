@@ -10,7 +10,7 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://theglamping
 
 export const BUSINESS_NAME = 'The Glamping Spot';
 export const BUSINESS_DESCRIPTION = 'Luxury geodesic dome glamping experience near Houston, Texas';
-export const LOGO_URL = `${SITE_URL}/images/TheGlampingSpot_W.png`;
+export const LOGO_URL = `${SITE_URL}/images/the-glamping-spot-logo.png`;
 
 export const BUSINESS_ADDRESS = {
   '@type': 'PostalAddress' as const,

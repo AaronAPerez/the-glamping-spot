@@ -30,7 +30,7 @@ const CategorySection = () => {
               <div className="absolute bottom-0 p-6 text-white">
                 <h3 className="text-2xl font-bold mb-2">Geodesic Dome</h3>
                 <p className="text-sm mb-4 opacity-90">Sleep under the stars in our transparent dome overlooking a private pond</p>
-                <Link href="/properties" className="text-emerald-300 hover:text-emerald-200 font-medium flex items-center">
+                <Link href="/properties" className="text-brand-300 hover:text-brand-200 font-medium flex items-center">
                   Explore the dome <span className="ml-2" aria-hidden="true">→</span>
                 </Link>
               </div>

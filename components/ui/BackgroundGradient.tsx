@@ -21,7 +21,7 @@ interface BackgroundGradientProps {
   
   /**
    * Color for the component's gradient
-   * @default 'from-emerald-300 via-emerald-100/70 to-emerald-300'
+   * @default 'from-brand-300 via-brand-100/70 to-brand-300'
    */
   gradientColor?: string;
   
@@ -39,7 +39,7 @@ export function BackgroundGradient({
   className, 
   children, 
   borderRadius = '1.5rem', 
-  gradientColor = 'from-emerald-300 via-emerald-100/70 to-emerald-300'
+  gradientColor = 'from-brand-300 via-brand-100/70 to-brand-300'
 }: BackgroundGradientProps) {
   return (
     <div

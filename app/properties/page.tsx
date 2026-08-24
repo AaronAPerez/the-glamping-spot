@@ -83,31 +83,43 @@ const listing = {
   description:
     'Explore scenic trails right outside your door, or simply relax on the spacious wooden deck overlooking a serene private pond. In the evenings, unwind under the stars with soft ambient lighting and the warm glow of the dome. Perfect for couples, solo travelers, or anyone looking to disconnect and recharge, this secluded getaway blends rustic charm with a one-of-a-kind stay you won’t forget.',
   images: [
-    // ── Hero / exterior at night ──
+    /*
+     * Order matters twice over: the first five fill the desktop hero grid, and
+     * the first is the LCP image. Lead with the night exterior, then break up
+     * the night shots with an interior, a bedroom, the deck and the pond so the
+     * grid doesn't read as five variations of the same dark photo.
+     */
     { src: '/images/dome/geodesic-dome-glamping-kountze-texas-night.avif', alt: 'Geodesic glamping dome glowing at twilight with string lights along the wooden deck in Kountze, Texas' },
+    { src: '/images/dome/dome-interior-living-dining-kitchenette.avif', alt: 'Inside the geodesic dome: dining table, leather sofa, kitchenette and spiral staircase to the loft' },
+    { src: '/images/dome/dome-master-bedroom-king-bed.avif', alt: 'Main bedroom in the dome with a king bed, crisp white linens and bedside lamp' },
+    { src: '/images/dome/dome-wooden-deck-pine-forest-view.avif', alt: 'Spacious wooden deck with seating looking out over the East Texas pine forest' },
+    { src: '/images/dome/private-pond-glamping-dome-waterfront.avif', alt: 'Private pond at The Glamping Spot with the geodesic dome on the far shore' },
+
+    // ── Exterior after dark ──
     { src: '/images/dome/glamping-dome-deck-string-lights-dusk.avif', alt: 'The Glamping Spot dome at dusk with warm string lights and a red patio umbrella on the deck' },
     { src: '/images/dome/geodesic-dome-lit-pine-forest-night.avif', alt: 'Illuminated geodesic dome surrounded by East Texas pine forest at night' },
     { src: '/images/dome/geodesic-dome-exterior-night-deck-lights.avif', alt: 'Geodesic dome exterior at night with ambient deck lighting' },
     { src: '/images/dome/geodesic-dome-deck-illuminated-night.avif', alt: 'Wooden deck and illuminated dome after dark at The Glamping Spot' },
+
     // ── Interior ──
-    { src: '/images/dome/dome-interior-living-dining-kitchenette.avif', alt: 'Inside the geodesic dome: dining table, leather sofa, kitchenette and spiral staircase to the loft' },
     { src: '/images/dome/dome-interior-loft-view-living-area.avif', alt: 'View from the dome loft down to the living area, dining table and kitchen counter' },
     { src: '/images/dome/dome-living-room-smart-tv-spiral-staircase.avif', alt: 'Dome living room at night with wall-mounted smart TV, sliding barn door and spiral staircase' },
     { src: '/images/dome/dome-interior-kitchen-spiral-staircase.avif', alt: 'Kitchen counter and spiral staircase inside the geodesic dome' },
     { src: '/images/dome/dome-board-games-family-entertainment.avif', alt: 'Board game collection at The Glamping Spot including Monopoly, Uno, Jenga, Connect 4, chess and dominoes' },
+
     // ── Bedrooms ──
-    { src: '/images/dome/dome-master-bedroom-king-bed.avif', alt: 'Main bedroom in the dome with a king bed, crisp white linens and bedside lamp' },
     { src: '/images/dome/dome-loft-bedroom-queen-bed.avif', alt: 'Loft bedroom tucked under the geodesic dome canopy with a queen bed and reading lamp' },
+
     // ── Bathroom ──
     { src: '/images/dome/dome-bathroom-rustic-vanity-sink.avif', alt: 'Full bathroom with rustic reclaimed-wood wall, framed mirror and matte black fixtures' },
     { src: '/images/dome/dome-bathroom-walk-in-shower.avif', alt: 'Full bathroom with walk-in shower and toilet inside the dome' },
     { src: '/images/dome/dome-bathroom-shower-fixtures.avif', alt: 'Walk-in shower with matte black rainfall fixtures in the dome bathroom' },
+
     // ── Deck & outdoors ──
-    { src: '/images/dome/dome-wooden-deck-pine-forest-view.avif', alt: 'Spacious wooden deck with seating looking out over the East Texas pine forest' },
     { src: '/images/dome/glamping-dome-deck-forest-view.avif', alt: 'Wooden deck at The Glamping Spot overlooking tall pines on a clear day' },
     { src: '/images/dome/glamping-dome-wooden-deck-daytime.avif', alt: 'Daytime view along the dome deck railing toward the surrounding woods' },
+
     // ── Property & pond ──
-    { src: '/images/dome/private-pond-glamping-dome-waterfront.avif', alt: 'Private pond at The Glamping Spot with the geodesic dome on the far shore' },
     { src: '/images/dome/glamping-property-aerial-private-pond.avif', alt: 'Aerial view of The Glamping Spot property, private pond and surrounding pine forest' },
     { src: '/images/dome/glamping-dome-aerial-view-clearing.avif', alt: 'Aerial view of the geodesic dome and clearing at The Glamping Spot' },
     { src: '/images/dome/private-pond-aerial-pine-forest.avif', alt: 'Aerial view of the private pond framed by East Texas pine forest' },
@@ -216,17 +228,17 @@ export default function PropertiesPage() {
 
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-emerald-600 focus:text-white focus:rounded-md"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand-600 focus:text-white focus:rounded-md"
       >
         Skip to main content
       </a>
 
-      <main id="main-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20">
+      <main id="main-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-[calc(var(--header-height)+2rem)] pb-20">
 
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-emerald-600 transition-colors focus:outline-none focus:underline">Home</Link></li>
+            <li><Link href="/" className="hover:text-brand-600 transition-colors focus:outline-none focus:underline">Home</Link></li>
             <li aria-hidden="true">/</li>
             <li className="text-gray-900 font-medium" aria-current="page">Our Dome</li>
           </ol>
@@ -238,7 +250,7 @@ export default function PropertiesPage() {
             <div>
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1">{listing.name}</h1>
               <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600">
-                <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full font-medium text-xs">
+                <span className="inline-flex items-center gap-1 bg-brand-50 text-brand-700 border border-brand-200 px-2.5 py-0.5 rounded-full font-medium text-xs">
                   ★ New listing
                 </span>
                 <span>{listing.type} · {listing.location}</span>
@@ -280,7 +292,7 @@ export default function PropertiesPage() {
                     Hosting since {listing.hostSince} &nbsp;·&nbsp; {listing.hostResponseRate} response rate &nbsp;·&nbsp; Responds {listing.hostResponseTime}
                   </p>
                 </div>
-                <div className="shrink-0 w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-lg">
+                <div className="shrink-0 w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-700 font-bold text-lg">
                   {listing.host[0]}
                 </div>
               </div>
@@ -423,7 +435,7 @@ export default function PropertiesPage() {
 
           {/* ── Right: Booking card ── */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24 border border-gray-200 rounded-2xl shadow-xl overflow-hidden">
+            <div className="sticky top-[calc(var(--header-height)+1rem)] border border-gray-200 rounded-2xl shadow-xl overflow-hidden">
 
               {/* Card header */}
               <div className="px-6 pt-6 pb-4 border-b border-gray-100">
@@ -491,7 +503,7 @@ export default function PropertiesPage() {
               <div className="px-6 py-4 border-t border-gray-100 text-center">
                 <p className="text-xs text-gray-500">
                   Already booked?{' '}
-                  <Link href="/waiver" className="font-semibold text-emerald-700 hover:text-emerald-800 underline focus:outline-none">
+                  <Link href="/waiver" className="font-semibold text-brand-700 hover:text-brand-800 underline focus:outline-none">
                     Sign your liability waiver
                   </Link>
                 </p>

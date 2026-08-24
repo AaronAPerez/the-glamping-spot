@@ -96,7 +96,7 @@ export function SignaturePad({ label = 'Signature', error, onChange, className }
           type="button"
           onClick={handleClear}
           disabled={isEmpty}
-          className="text-xs font-medium text-gray-500 hover:text-emerald-700 disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus:underline"
+          className="text-xs font-medium text-gray-500 hover:text-brand-700 disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus:underline"
         >
           Clear
         </button>

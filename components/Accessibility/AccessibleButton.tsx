@@ -14,11 +14,11 @@ export const AccessibleButton: React.FC<AccessibleButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variantClasses = {
-    primary: 'bg-emerald-600 hover:bg-emerald-700 text-white',
-    secondary: 'bg-white hover:bg-gray-50 text-emerald-600 border-2 border-emerald-600',
+    primary: 'bg-brand-600 hover:bg-brand-700 text-white',
+    secondary: 'bg-white hover:bg-gray-50 text-brand-600 border-2 border-brand-600',
   };
   
   const sizeClasses = {

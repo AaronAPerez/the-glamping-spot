@@ -3,6 +3,43 @@
 @tailwind utilities;
 
 /**
+ * Brand color scales, derived from the logo badge so the whole UI keys off the
+ * same palette as the mark (retro sunset over a geodesic dome).
+ *
+ *   brand-*  teal/cyan — the night sky and sky stripes. Replaces the previous
+ *            emerald as the primary interactive color. brand-600 clears 5.0:1
+ *            against white for normal text (brand-600 only managed 3.9:1).
+ *   gold-*   the "GLAMPING" lettering. Secondary accent, and the only one that
+ *            reads well on the dark navy chrome.
+ *
+ * The #FF385C used on booking CTAs is deliberately outside this system — it is
+ * Airbnb's color, kept so "Book on Airbnb" looks like what it is.
+ */
+@theme {
+  --color-brand-50: #e8f7fb;
+  --color-brand-100: #c5edf6;
+  --color-brand-200: #93dfef;
+  --color-brand-300: #54cbe5;
+  --color-brand-400: #1fb4d4;
+  --color-brand-500: #0b95b5;
+  --color-brand-600: #00799a;
+  --color-brand-700: #00647f;
+  --color-brand-800: #00486a;
+  --color-brand-900: #013145;
+  --color-brand-950: #001d2b;
+
+  --color-gold-100: #faf3d4;
+  --color-gold-200: #f0e3a0;
+  --color-gold-300: #e2d478;
+  --color-gold-400: #d5c558;
+  --color-gold-500: #b8a743;
+  --color-gold-600: #93852f;
+
+  --color-sunset-500: #ff460b;
+  --color-sunset-600: #d63a09;
+}
+
+/**
  * Optimized Global CSS with Lighthouse Performance, Accessibility, and Best Practices fixes
  * Addresses all major issues identified in the Lighthouse audit
  */
@@ -11,25 +48,39 @@
   /* Enhanced color variables with better contrast ratios (WCAG AA compliant) */
   --background: #ffffff;
   --foreground: #111827; /* Improved contrast from #171717 */
-  --primary: #059669;
-  --primary-hover: #047857;
-  --primary-light: #d1fae5;
+  --primary: #00799a;
+  --primary-hover: #00647f;
+  --primary-light: #c5edf6;
   --primary-foreground: #ffffff;
   --secondary: #f9fafb; /* Improved from #f3f4f6 */
   --secondary-foreground: #111827; /* Better contrast */
   --muted: #f3f4f6;
   --muted-foreground: #4b5563; /* Improved contrast from #6b7280 */
-  --accent: #ecfdf5; /* Better contrast */
-  --accent-foreground: #047857;
+  --accent: #e8f7fb;
+  --accent-foreground: #00647f;
   --border: #d1d5db; /* Improved contrast from #e5e7eb */
   --input: #d1d5db;
-  --ring: #059669;
+  --ring: #00799a;
   --radius: 0.5rem;
   
+  /*
+   * Brand palette — sampled from the logo badge (retro sunset over a geodesic
+   * dome). The header and hero key off these so the chrome reads as the same
+   * brand as the mark sitting inside it.
+   */
+  --brand-navy: #013145;        /* night-sky bar */
+  --brand-navy-deep: #001d2b;   /* scrolled bar / mobile drawer */
+  --brand-teal: #00486a;
+  --brand-cyan: #00c6e4;        /* sky stripes — interactive accent */
+  --brand-gold: #d5c558;        /* "GLAMPING" lettering */
+  --brand-gold-soft: #f0e3a0;
+  --brand-orange: #ff460b;      /* sunset stripes */
+  --brand-cream: #fff6d8;
+
   /* Performance optimizations */
   --banner-height: 41px;
-  --header-height: 80px;
-  --header-height-scrolled: 60px;
+  --header-height: 64px;
+  --header-height-scrolled: 64px;
   
   /* Enhanced focus ring for better accessibility */
   --focus-ring: 0 0 0 2px var(--ring);
@@ -40,19 +91,19 @@
   :root {
     --background: #0f172a; /* Better dark background */
     --foreground: #f8fafc; /* Better contrast */
-    --primary: #10b981; /* Adjusted for dark mode */
-    --primary-hover: #059669;
-    --primary-light: #064e3b;
+    --primary: #1fb4d4; /* Lifted for dark backgrounds */
+    --primary-hover: #54cbe5;
+    --primary-light: #013145;
     --primary-foreground: #ffffff;
     --secondary: #1e293b; /* Improved dark secondary */
     --secondary-foreground: #f1f5f9;
     --muted: #334155;
     --muted-foreground: #94a3b8; /* Better contrast */
-    --accent: #0f2f23;
-    --accent-foreground: #34d399;
+    --accent: #013145;
+    --accent-foreground: #54cbe5;
     --border: #475569; /* Better dark border */
     --input: #475569;
-    --ring: #10b981;
+    --ring: #1fb4d4;
   }
 }
 
@@ -505,7 +556,7 @@ select:disabled {
 
 /* Text utilities with improved contrast */
 .text-gradient {
-  background: linear-gradient(to right, var(--primary), #10b981);
+  background: linear-gradient(to right, var(--primary), #1fb4d4);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -604,8 +655,8 @@ select:disabled {
 @media (max-width: 640px) {
   :root {
     --banner-height: 50px;
-    --header-height: 60px;
-    --header-height-scrolled: 50px;
+    --header-height: 56px;
+    --header-height-scrolled: 56px;
   }
   
   .mobile-only {

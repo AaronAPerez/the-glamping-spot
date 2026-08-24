@@ -43,10 +43,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     // High contrast colors for accessibility compliance
     const variantClasses = {
       primary: `
-        bg-emerald-700 text-white 
-        hover:bg-emerald-800 
-        focus:ring-emerald-500 focus:ring-offset-white
-        active:bg-emerald-900
+        bg-brand-700 text-white 
+        hover:bg-brand-800 
+        focus:ring-brand-500 focus:ring-offset-white
+        active:bg-brand-900
         shadow-lg hover:shadow-xl
       `,
       secondary: `
@@ -71,11 +71,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         shadow-lg hover:shadow-xl
       `,
       outline: `
-        bg-transparent text-emerald-700 
-        border-2 border-emerald-700
-        hover:bg-emerald-700 hover:text-white
-        focus:ring-emerald-500 focus:ring-offset-white
-        active:bg-emerald-800
+        bg-transparent text-brand-700 
+        border-2 border-brand-700
+        hover:bg-brand-700 hover:text-white
+        focus:ring-brand-500 focus:ring-offset-white
+        active:bg-brand-800
       `,
     };
 

@@ -44,7 +44,7 @@ export default function NotFound() {
         {/* Search suggestion */}
         <p className="mt-6 text-sm text-gray-500">
           If you're looking for something specific, you can also try our{' '}
-          <Link href="/search" className="text-emerald-600 hover:text-emerald-700 font-medium">
+          <Link href="/search" className="text-brand-600 hover:text-brand-700 font-medium">
             search page
           </Link>
         </p>

@@ -80,7 +80,7 @@ export function AnimatedTooltip({
           {/* Avatar */}
           <motion.div
             className={cn(
-              "flex items-center justify-center rounded-full bg-emerald-100 border-2 border-white dark:border-gray-800 shadow-md overflow-hidden transition-transform",
+              "flex items-center justify-center rounded-full bg-brand-100 border-2 border-white dark:border-gray-800 shadow-md overflow-hidden transition-transform",
               avatarClassName
             )}
             style={{ 
@@ -99,7 +99,7 @@ export function AnimatedTooltip({
                 className="object-cover w-full h-full"
               />
             ) : (
-              <span className="text-2xl font-bold text-emerald-600">
+              <span className="text-2xl font-bold text-brand-600">
                 {/* Get initials if no image */}
                 {item.name.split(" ").map((n) => n[0]).join("")}
               </span>

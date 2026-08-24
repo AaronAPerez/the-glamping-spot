@@ -28,10 +28,10 @@ interface LocationWeather {
 
 // Define a fallback theme to use if useSeasonalTheme fails
 const defaultTheme = {
-  primary: 'emerald-600',
-  secondary: 'emerald-700',
-  accent: 'emerald-500',
-  background: 'from-emerald-50 to-white',
+  primary: 'brand-600',
+  secondary: 'brand-700',
+  accent: 'brand-500',
+  background: 'from-brand-50 to-white',
   textPrimary: 'gray-900',
   textSecondary: 'gray-700'
 };
@@ -168,7 +168,7 @@ export default function WeatherHighlights() {
   };
 
   return (
-    <section className={`py-16 bg-gradient-to-b from-emerald-50 to-white`} aria-labelledby="weather-heading">
+    <section className={`py-16 bg-gradient-to-b from-brand-50 to-white`} aria-labelledby="weather-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 
@@ -184,7 +184,7 @@ export default function WeatherHighlights() {
 
         {isLoading ? (
           <div className="flex justify-center py-20">
-            <div className="w-12 h-12 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
+            <div className="w-12 h-12 border-4 border-brand-600 border-t-transparent rounded-full animate-spin"></div>
           </div>
         ) : (
           <>
@@ -200,7 +200,7 @@ export default function WeatherHighlights() {
                   variants={cardVariants}
                   className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
                 >
-                  <div className="p-6 bg-emerald-600 bg-opacity-10">
+                  <div className="p-6 bg-brand-600 bg-opacity-10">
                     <div className="flex justify-between items-center mb-4">
                       <div>
                         <h3 className="font-bold text-lg">{location.name}</h3>
@@ -238,7 +238,7 @@ export default function WeatherHighlights() {
                       ))}
                     </div>
                     
-                    <div className="p-3 rounded bg-emerald-600 bg-opacity-5 text-sm mb-4">
+                    <div className="p-3 rounded bg-brand-600 bg-opacity-5 text-sm mb-4">
                       <p>{getWeatherRecommendation(location)}</p>
                     </div>
                     
@@ -248,7 +248,7 @@ export default function WeatherHighlights() {
                         {location.idealFor.map((activity) => (
                           <span 
                             key={activity} 
-                            className="inline-block px-2 py-1 text-xs rounded-full bg-emerald-500 bg-opacity-20 text-gray-700"
+                            className="inline-block px-2 py-1 text-xs rounded-full bg-brand-500 bg-opacity-20 text-gray-700"
                           >
                             {activity}
                           </span>
@@ -260,13 +260,13 @@ export default function WeatherHighlights() {
                   <div className="p-4 flex justify-between items-center">
                     <Link 
                       href={`/properties/${location.propertyId}`} 
-                      className="text-emerald-600 hover:underline font-medium text-sm"
+                      className="text-brand-600 hover:underline font-medium text-sm"
                     >
                       View Property
                     </Link>
                     <Link 
                       href={`/properties/${location.propertyId}/book`} 
-                      className="px-4 py-2 bg-emerald-600 text-white rounded-md text-sm font-medium hover:bg-emerald-700 transition-colors"
+                      className="px-4 py-2 bg-brand-600 text-white rounded-md text-sm font-medium hover:bg-brand-700 transition-colors"
                     >
                       Book Now
                     </Link>
@@ -276,7 +276,7 @@ export default function WeatherHighlights() {
             </div>
             
             {/* Seasonal activities */}
-            <div className="bg-emerald-700 bg-opacity-10 rounded-lg p-6 max-w-3xl mx-auto text-center">
+            <div className="bg-brand-700 bg-opacity-10 rounded-lg p-6 max-w-3xl mx-auto text-center">
               <h3 className="font-bold text-xl mb-3 text-gray-100">
                 {currentSeason.charAt(0).toUpperCase() + currentSeason.slice(1)} Activities
               </h3>
@@ -285,7 +285,7 @@ export default function WeatherHighlights() {
                 {getSeasonalActivities().map((activity) => (
                   <span 
                     key={activity} 
-                    className="inline-block px-3 py-2 text-sm rounded-md bg-emerald-600 bg-opacity-20 text-gray-700"
+                    className="inline-block px-3 py-2 text-sm rounded-md bg-brand-600 bg-opacity-20 text-gray-700"
                   >
                     {activity}
                   </span>
