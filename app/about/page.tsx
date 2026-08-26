@@ -194,7 +194,7 @@ export default function AboutPage() {
       title: 'Morning Moments'
     },
     {
-      src: '/images/stars1.jpg',
+      src: '/images/dome/glamping-dome-aerial-view-clearing.avif',
       // src: '/images/about/stargazing-dome-optimized.webp',
       alt: 'Stunning night sky view through transparent geodesic dome ceiling perfect for stargazing',
       title: 'Stargazing Experience'
@@ -341,66 +341,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Enhanced Team Section */}
-        <section className="bg-gray-50 py-16" aria-labelledby="team-heading">
-          <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 id="team-heading" className="text-3xl font-bold text-gray-900 mb-4">
-                Meet Our Team
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Meet the passionate individuals behind The Glamping Spot, dedicated to creating 
-                unforgettable outdoor experiences while preserving the natural beauty of East Texas.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => (
-                <TeamMemberCard 
-                  key={member.id} 
-                  member={member} 
-                  index={index}
-                />
-              ))}
-            </div>
-
-            {/* Company values */}
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: 'Sustainability First',
-                  description: 'Every decision we make considers environmental impact and long-term sustainability.',
-                  icon: '🌍'
-                },
-                {
-                  title: 'Guest Excellence',
-                  description: 'We strive to exceed expectations through personalized service and attention to detail.',
-                  icon: '✨'
-                },
-                {
-                  title: 'Community Partnership',
-                  description: 'We actively support local communities and conservation efforts in East Texas.',
-                  icon: '🤝'
-                }
-              ].map((value, index) => (
-                <div key={index} className="text-center p-6 bg-white rounded-xl shadow-md">
-                  <div className="text-4xl mb-4" role="img" aria-label={value.title}>
-                    {value.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Enhanced CTA Section with accessibility improvements */}
-        <section className="bg-gradient-to-r from-brand-700 to-brand-800 text-white py-16" aria-labelledby="cta-heading">
+        <section className="bg-gradient-to-r from-brand-700 to-brand-800 text-white py-16 mt-12" aria-labelledby="cta-heading">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
