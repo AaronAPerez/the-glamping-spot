@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { getOrganizationSchema, BUSINESS_ADDRESS, SITE_URL } from '@/lib/seo/localBusiness';
+
 
 // Lazy load non-critical components for better performance
 const MotionDiv = dynamic(() => import('@/components/ui/MotionDiv'), {
@@ -81,110 +81,11 @@ const ImageSkeleton = () => (
   </div>
 );
 
-/**
- * Optimized team member component with accessibility improvements
- */
-interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  bio: string;
-  image: string;
-  socialLinks?: {
-    linkedin?: string;
-    email?: string;
-  };
-}
-
-const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({ member, index }) => (
-  <article 
-    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 focus-within:ring-2 focus-within:ring-brand-500"
-    aria-labelledby={`team-member-${member.id}`}
-  >
-    <div className="relative h-64">
-      <Image
-        src={member.image}
-        alt={`${member.name}, ${member.role} at The Glamping Spot`}
-        fill
-        style={{ objectFit: 'cover' }}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className="transition-transform duration-300 hover:scale-105"
-        quality={80}
-        loading={index < 3 ? "eager" : "lazy"}
-        placeholder="blur"
-        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-      />
-    </div>
-    <div className="p-6">
-      <h3 id={`team-member-${member.id}`} className="text-xl font-semibold text-gray-900 mb-1">
-        {member.name}
-      </h3>
-      <p className="text-brand-600 font-medium mb-3">{member.role}</p>
-      <p className="text-gray-700 leading-relaxed">{member.bio}</p>
-      
-      {member.socialLinks && (
-        <div className="mt-4 flex gap-3">
-          {member.socialLinks.linkedin && (
-            <a
-              href={member.socialLinks.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-brand-600 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 rounded"
-              aria-label={`View ${member.name}'s LinkedIn profile`}
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clipRule="evenodd" />
-              </svg>
-            </a>
-          )}
-          {member.socialLinks.email && (
-            <a
-              href={`mailto:${member.socialLinks.email}`}
-              className="text-gray-400 hover:text-brand-600 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500 rounded"
-              aria-label={`Send email to ${member.name}`}
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </a>
-          )}
-        </div>
-      )}
-    </div>
-  </article>
-);
 
 /**
  * Main About page component with performance and accessibility optimizations
  */
 export default function AboutPage() {
-  // Enhanced team members data with proper accessibility descriptions
-  const teamMembers: TeamMember[] = [
-    {
-      id: 'ivann-rocha',
-      name: 'Ivann G Rocha',
-      role: 'Founder & CEO',
-      bio: 'Passionate adventurer and nature enthusiast who founded The Glamping Spot to redefine outdoor experiences through sustainable luxury accommodations. With over 15 years in hospitality, Ivann brings a vision of connecting people with nature.',
-      image: '/images/the-glamping-spot-logo.png',
-      // image: '/images/team/ivann-rocha.webp',
-    },
-    {
-      id: 'andrew-perez',
-      name: 'Andrew Perez',
-      role: 'Head of Guest Experience',
-      bio: 'Dedicated to ensuring every guest has an unforgettable and comfortable stay. Andrew oversees all aspects of guest services, from arrival to departure, ensuring exceptional experiences that exceed expectations.',
-      image: '/images/the-glamping-spot-logo.png',
-      // image: '/images/team/andrew-perez.webp',
-    },
-    {
-      id: 'aaron-perez',
-      name: 'Aaron Perez',
-      role: 'Sustainability Director',
-      bio: 'Leading our efforts to minimize environmental impact and promote responsible tourism. Aaron ensures all operations align with our commitment to preserving the natural beauty of East Texas for future generations.',
-      image: '/images/the-glamping-spot-logo.png',
-      // image: '/images/team/aaron-perez.webp',
-    }
-  ];
 
   // Optimized gallery images with proper alt text
   const galleryImages = [
@@ -195,7 +96,6 @@ export default function AboutPage() {
     },
     {
       src: '/images/dome/glamping-dome-aerial-view-clearing.avif',
-      // src: '/images/about/stargazing-dome-optimized.webp',
       alt: 'Stunning night sky view through transparent geodesic dome ceiling perfect for stargazing',
       title: 'Stargazing Experience'
     },
@@ -435,38 +335,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-
-      {/* Structured Data for SEO — canonical facts live in lib/seo/localBusiness.ts;
-          founders/employees/foundingDate are specific to this page. */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            ...getOrganizationSchema({
-              description: 'Sustainable luxury glamping experiences in geodesic domes in East Texas',
-              url: `${SITE_URL}/about`,
-              foundingDate: '2022',
-              founders: [
-                {
-                  '@type': 'Person',
-                  name: 'Ivann G Rocha',
-                  jobTitle: 'Founder & CEO',
-                },
-              ],
-              employee: teamMembers.map((member) => ({
-                '@type': 'Person',
-                name: member.name,
-                jobTitle: member.role,
-              })),
-              address: BUSINESS_ADDRESS,
-              contactPoint: {
-                '@type': 'ContactPoint',
-                contactType: 'customer service',
-              },
-            }),
-          })
-        }}
-      />
     </div>
   );
 }

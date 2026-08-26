@@ -103,20 +103,48 @@ const LISTING: FeaturedPropertyData = {
       alt: "Spacious wooden deck looking out over the East Texas pine forest",
     },
     {
+      src: "/images/dome/glamping-dome-deck-string-lights-dusk.avif",
+      alt: "The Glamping Spot dome at dusk with warm string lights and a red patio umbrella on the deck",
+    },
+    {
+      src: "/images/dome/geodesic-dome-lit-pine-forest-night.avif",
+      alt: "Illuminated geodesic dome surrounded by East Texas pine forest at night",
+    },
+    {
+      src: "/images/dome/geodesic-dome-exterior-night-deck-lights.avif",
+      alt: "Geodesic dome exterior at night with ambient deck lighting",
+    },
+    {
+      src: "/images/dome/dome-interior-loft-view-living-area.avif",
+      alt: "View from the dome loft down to the living area, dining table and kitchen counter",
+    },
+    {
       src: "/images/dome/dome-living-room-smart-tv-spiral-staircase.avif",
       alt: "Dome living room at night with wall-mounted smart TV and sliding barn door",
+    },
+    {
+      src: "/images/dome/dome-board-games-family-entertainment.avif",
+      alt: "Board game collection at The Glamping Spot including Monopoly, Uno, Jenga, Connect 4, chess and dominoes",
+    },
+    {
+      src: "/images/dome/dome-loft-bedroom-queen-bed.avif",
+      alt: "Loft bedroom tucked under the geodesic dome canopy with a queen bed and reading lamp",
     },
     {
       src: "/images/dome/dome-bathroom-rustic-vanity-sink.avif",
       alt: "Full bathroom with rustic reclaimed-wood wall and matte black fixtures",
     },
     {
-      src: "/images/dome/glamping-property-aerial-private-pond.avif",
-      alt: "Aerial view of the property, the private pond and the surrounding East Texas pine forest",
+      src: "/images/dome/dome-bathroom-walk-in-shower.avif",
+      alt: "Full bathroom with walk-in shower and toilet inside the dome",
     },
     {
-      src: "/images/dome/geodesic-dome-lit-pine-forest-night.avif",
-      alt: "Illuminated geodesic dome surrounded by East Texas pine forest at night",
+      src: "/images/dome/glamping-dome-aerial-view-clearing.avif",
+      alt: "Aerial view of the geodesic dome and clearing at The Glamping Spot",
+    },
+    {
+      src: "/images/dome/private-pond-aerial-pine-forest.avif",
+      alt: "Aerial view of the private pond framed by East Texas pine forest",
     },
   ],
   capacity: 5,
@@ -443,11 +471,12 @@ export default function FeaturedProperties({
   const property = LISTING;
 
   return (
-    <section
-      className={`py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-50 to-white ${className}`}
+     <section
+      className={`py-20 sm:py-24 bg-gradient-to-b from-slate-50 to-white ${className}`}
       aria-labelledby="featured-properties-heading"
     >
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* ── Section header ── */}
         <motion.div
           className="text-center mb-12"
@@ -456,37 +485,21 @@ export default function FeaturedProperties({
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 bg-brand-50 text-brand-700 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 rounded-full mb-4 sm:mb-5 border border-brand-200">
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-              />
+          <div className="inline-flex items-center gap-2 bg-brand-50 text-brand-700 text-sm font-medium px-4 py-1.5 rounded-full mb-5 border border-brand-200">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
             Kountze, Texas — East Texas
           </div>
           <h2
             id="featured-properties-heading"
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 text-balance"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4"
           >
             {title}
           </h2>
           {subtitle && (
-            <p className="text-base sm:text-lg lg:text-xl text-gray-500 max-w-3xl mx-auto font-light leading-relaxed">
+            <p className="text-xl text-gray-500 max-w-3xl mx-auto font-light leading-relaxed">
               {subtitle}
             </p>
           )}
@@ -494,200 +507,19 @@ export default function FeaturedProperties({
 
         {/* ── Showcase card ── */}
         <motion.div
-          className="max-w-7xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl overflow-hidden border border-gray-100"
+          className="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-5 lg:grid-rows-[auto_1fr]">
-            {/* ── Listing detail — left column on desktop, 2nd on mobile ── */}
-            <div className="order-2 lg:order-1 lg:col-start-1 lg:col-span-2 lg:row-start-1 lg:row-span-2 flex flex-col">
-           
-              {/*
-                The listing detail is far taller than the booking rail, so it
-                continues HERE — under the gallery, inside the same column —
-                rather than stacking beside it and leaving a tall blank gap
-                below the thumbnails.
-              */}
-              <div className="flex flex-col gap-5 sm:gap-6 p-5 sm:p-6 lg:p-8">
-                {/* Title + location */}
-                <div>
-                  <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2 mb-1">
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
-                      {property.name}
-                    </h3>
-                    {property.reviewCount > 0 && (
-                      <span className="shrink-0 text-xs text-brand-700 bg-brand-50 border border-brand-200 font-semibold px-2.5 py-1 rounded-full">
-                        {property.reviewCount} reviews
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-gray-500 text-sm mb-2">
-                    Dome · {property.location}
-                  </p>
-                  <p className="text-gray-700 text-sm font-medium">
-                    {property.capacity} guests · {property.bedrooms} bedrooms ·{" "}
-                    {property.beds} beds · {property.bathrooms} bath
-                  </p>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-5">
 
-                <hr className="border-gray-100" />
+            {/* ── Left — Photo gallery ── */}
+            <div className="lg:col-span-3 flex flex-col">
 
-                {/* Spec lines — verbatim from the top of the Airbnb description */}
-                <ul className="flex flex-wrap gap-2">
-                  {property.specs.map((spec) => (
-                    <li
-                      key={spec}
-                      className="rounded-full bg-brand-50 border border-brand-200 px-3 py-1 text-xs font-medium text-brand-700"
-                    >
-                      {spec}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Description */}
-                <div className="flex flex-col gap-3">
-                  {property.description.map((para) => (
-                    <p
-                      key={para.slice(0, 32)}
-                      className="text-gray-600 text-sm leading-relaxed"
-                    >
-                      {para}
-                    </p>
-                  ))}
-                </div>
-
-                <hr className="border-gray-100" />
-
-                {/* Listing highlights */}
-                <ul className="flex flex-col gap-3">
-                  {property.highlights.map(({ title, body }) => (
-                    <li key={title} className="flex items-start gap-3">
-                      <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-brand-600"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <div>
-                        <p className="text-xs font-semibold text-gray-900">
-                          {title}
-                        </p>
-                        <p className="text-xs text-gray-500 leading-relaxed">
-                          {body}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-
-                <hr className="border-gray-100" />
-
-                {/* Where you'll sleep */}
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">
-                    Where you&apos;ll sleep
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3">
-                    {property.bedLayout.map(({ room, detail, features }) => (
-                      <div
-                        key={room}
-                        className="rounded-xl border border-gray-200 px-3 py-2.5"
-                      >
-                        <p className="text-xs font-semibold text-gray-800">
-                          {room}
-                        </p>
-                        <p className="text-xs text-gray-600 mt-0.5">{detail}</p>
-                        <p className="text-[11px] text-gray-400 mt-1 leading-relaxed">
-                          {features.join(" · ")}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <hr className="border-gray-100" />
-
-                {/* Outdoor spaces */}
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">
-                    The outdoor space
-                  </h4>
-                  <div className="flex flex-col gap-2">
-                    {property.outdoorSpaces.map(({ name, features }) => (
-                      <div key={name} className="flex items-baseline gap-2">
-                        <span className="text-xs font-semibold text-gray-800 shrink-0">
-                          {name}
-                        </span>
-                        <span className="text-xs text-gray-500 leading-relaxed">
-                          {features.join(" · ")}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <hr className="border-gray-100" />
-
-                {/* Amenities — 2-col grid */}
-                <div>
-                  <div className="flex items-baseline justify-between gap-3 mb-3">
-                    <h4 className="text-sm font-semibold text-gray-900">
-                      What this place offers
-                    </h4>
-                    <a
-                      href={property.airbnbUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-medium text-gray-500 underline underline-offset-2 hover:text-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-[#FF385C] rounded-sm"
-                    >
-                      All {property.amenityCount} on Airbnb
-                    </a>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-y-3 gap-x-4">
-                    {property.amenities.map(({ icon, label }) => (
-                      <div
-                        key={label}
-                        className="flex items-center gap-2 text-gray-600 text-xs"
-                      >
-                        <span className="text-gray-400 shrink-0">{icon}</span>
-                        <span>{label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <hr className="border-gray-100" />
-              </div>
-            </div>
-
-            {lightboxIndex !== null && (
-              <PhotoLightbox
-                images={property.images}
-                index={lightboxIndex}
-                onIndexChange={setLightboxIndex}
-                onClose={() => {
-                  setActiveImg(lightboxIndex);
-                  setLightboxIndex(null);
-                }}
-                airbnbUrl={property.airbnbUrl}
-              />
-            )}
-
-            {/* ── Photo gallery — top-right on desktop, 1st on mobile ── */}
-
-            <div className="order-1 lg:order-2 lg:col-start-3 lg:col-span-3 lg:row-start-1 lg:self-start border-b lg:border-b-0 border-gray-100 lg:border-l">
               {/* Main image */}
-              <div className="relative h-64 sm:h-80 md:h-96 lg:h-[480px] xl:h-[560px] overflow-hidden">
+              <div className="relative h-72 sm:h-96 lg:h-[420px] overflow-hidden">
                 <button
                   type="button"
                   onClick={() => setLightboxIndex(activeImg)}
@@ -699,8 +531,8 @@ export default function FeaturedProperties({
                     src={property.images[activeImg].src}
                     alt={property.images[activeImg].alt}
                     fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 58vw, 780px"
+                    style={{ objectFit: 'cover' }}
+                    sizes="(max-width: 1024px) 100vw, 60vw"
                     quality={85}
                     priority={activeImg === 0}
                     className="transition-transform duration-300 group-hover:scale-105"
@@ -719,197 +551,123 @@ export default function FeaturedProperties({
                   onClick={() => setLightboxIndex(activeImg)}
                   className="absolute bottom-4 right-4 inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm text-gray-800 text-xs font-medium px-3 py-2 rounded-lg border border-white/60 shadow hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-[#FF385C]"
                 >
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                    />
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                   </svg>
                   Show all {property.images.length} photos
                 </button>
               </div>
 
               {/* Thumbnail strip */}
-              <div className="grid grid-cols-4 sm:grid-cols-4 gap-1 p-1 bg-gray-50">
+              <div className="grid grid-cols-4 gap-1 p-1 bg-gray-50">
                 {property.images.map((img, i) => (
                   <button
                     key={img.src}
                     type="button"
                     onClick={() => setActiveImg(i)}
-                    className={`relative h-16 sm:h-20 md:h-24 overflow-hidden rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-1 ${
+                    className={`relative h-20 sm:h-24 overflow-hidden rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-1 ${
                       activeImg === i
-                        ? "ring-2 ring-[#FF385C] ring-offset-1"
-                        : "opacity-70 hover:opacity-100"
+                        ? 'ring-2 ring-[#FF385C] ring-offset-1'
+                        : 'opacity-70 hover:opacity-100'
                     }`}
                     aria-label={`View photo ${i + 1}: ${img.alt}`}
-                    aria-pressed={activeImg === i ? "true" : "false"}
+                    aria-pressed={activeImg === i ? 'true' : 'false'}
                   >
                     <Image
                       src={img.src}
                       alt={img.alt}
                       fill
-                      style={{ objectFit: "cover" }}
-                      sizes="(max-width: 1024px) 25vw, 200px"
+                      style={{ objectFit: 'cover' }}
+                      sizes="25vw"
                       quality={60}
                     />
                   </button>
                 ))}
               </div>
-
             </div>
 
-            {/* ── Booking rail — under the gallery on desktop, last on mobile ── */}
-            <div className="lg:order-3 lg:col-start-3 lg:col-span-3 lg:row-start-2 border-t lg:border-t-0 border-gray-100 lg:border-l">
-              <div className="flex flex-col gap-4 sm:gap-5 p-5 sm:p-6 lg:p-8 lg:sticky lg:top-[calc(var(--header-height)+1rem)]">
-   
-                {/* Book CTA */}
-                <div className="flex flex-col gap-3">
-                  <a
-                    href={property.airbnbUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2.5 w-full py-3.5 bg-[#FF385C] hover:bg-[#e0314f] text-white font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[#FF385C]/30 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-2"
-                    aria-label="Book The Glamping Spot on Airbnb — opens in a new tab"
-                  >
-                    <AirbnbIcon className="w-5 h-5" />
-                    Book on Airbnb
-                  </a>
-                  <p className="text-center text-xs text-gray-400">
-                    You won&apos;t be charged yet
-                  </p>
-                </div>
+            {lightboxIndex !== null && (
+              <PhotoLightbox
+                images={property.images}
+                index={lightboxIndex}
+                onIndexChange={setLightboxIndex}
+                onClose={() => {
+                  setActiveImg(lightboxIndex);
+                  setLightboxIndex(null);
+                }}
+                airbnbUrl={property.airbnbUrl}
+              />
+            )}
 
-                {/* AirCover badge */}
-                <div className="flex items-start gap-3 bg-gray-50 rounded-xl px-4 py-3 border border-gray-100">
-                  <svg
-                    className="w-5 h-5 text-[#FF385C] shrink-0 mt-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                    />
-                  </svg>
-                  <div>
-                    <p className="text-xs font-bold text-gray-800">
-                      AirCover included
-                    </p>
-                    <p className="text-xs text-gray-500">
-                      Every stay includes top-to-bottom protection, only on
-                      Airbnb.
-                    </p>
-                  </div>
-                </div>
+            {/* ── Right — Details + Booking ── */}
+            <div className="lg:col-span-2 flex flex-col p-6 sm:p-8 gap-6 overflow-y-auto">
 
-                {/* House rules */}
-                <div className="flex flex-wrap gap-x-4 sm:gap-x-6 gap-y-1 text-xs text-gray-500">
-                  <span>
-                    <span className="font-semibold text-gray-700">
-                      Check-in:
-                    </span>{" "}
-                    After {property.checkIn}
-                  </span>
-                  <span>
-                    <span className="font-semibold text-gray-700">
-                      Checkout:
-                    </span>{" "}
-                    Before {property.checkOut}
-                  </span>
-                  <span>
-                    <span className="font-semibold text-gray-700">
-                      Max guests:
-                    </span>{" "}
-                    {property.capacity}
-                  </span>
+              {/* Title + location */}
+              <div>
+                <div className="flex items-start justify-between gap-3 mb-1">
+                  <h3 className="text-2xl font-bold text-gray-900 leading-tight">
+                    {property.name}
+                  </h3>
                 </div>
+                <p className="text-gray-500 text-sm mb-2">Dome · {property.location}</p>
+                <p className="text-gray-700 text-sm font-medium">
+                  {property.capacity} guests &nbsp;·&nbsp; {property.bedrooms} bedrooms &nbsp;·&nbsp; {property.beds} beds &nbsp;·&nbsp; {property.bathrooms} bath
+                </p>
+              </div>
 
-                {/* Other things to note — several of these carry a fine, so they
-                  belong in front of the guest before they book, not after. */}
+              {/* Description */}
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {property.description}
+              </p>
+
+              {/* Amenities — 2-col grid */}
+                <h4 className="text-sm font-semibold text-gray-900 mb-3">What this place offers</h4>
+                <div className="grid grid-cols-2 gap-y-2 gap-x-4">
+                  {property.amenities.map(({ icon, label }) => (
+                    <div key={label} className="flex items-center gap-2 text-gray-600 text-xs">
+                      <span className="text-gray-400 shrink-0">{icon}</span>
+                      <span>{label}</span>
+                    </div>
+                  ))}
+                </div>
+            
+
+              <hr className="border-gray-100" />
+
+              {/* Book CTA */}
+             
+                <a
+                  href={property.airbnbUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2.5 w-full py-3.5 bg-[#FF385C] hover:bg-[#e0314f] text-white font-bold rounded-xl shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[#FF385C]/30 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-2"
+                  aria-label="Book The Glamping Spot on Airbnb — opens in a new tab"
+                >
+                  <AirbnbIcon className="w-5 h-5" />
+                  Book on Airbnb
+                </a>
+                <p className="text-center text-xs text-gray-400">You won&apos;t be charged yet</p>
+          
+
+              {/* AirCover badge */}
+              <div className="flex items-start gap-3 bg-gray-50 rounded-xl px-4 py-3 border border-gray-100">
+                <svg className="w-5 h-5 text-[#FF385C] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
                 <div>
-                  <h4 className="text-xs font-semibold text-gray-700 mb-2">
-                    Other things to note
-                  </h4>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
-                    {property.houseRules.map((rule) => (
-                      <li
-                        key={rule}
-                        className="flex items-start gap-2 text-xs text-gray-500"
-                      >
-                        <span
-                          className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gray-300"
-                          aria-hidden="true"
-                        />
-                        {rule}
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-xs font-bold text-gray-800">AirCover included</p>
+                  <p className="text-xs text-gray-500">Every stay includes top-to-bottom protection, only on Airbnb.</p>
                 </div>
+              </div>
 
-                {/* Liability reminder — verbatim from the listing, linked to the
-                  waiver guests actually sign. */}
-                <div className="flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3">
-                  <svg
-                    className="mt-0.5 h-4 w-4 shrink-0 text-amber-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
-                    />
-                  </svg>
-                  <div>
-                    <p className="text-xs font-bold text-amber-900 mb-0.5">
-                      Liability reminder
-                    </p>
-                    <p className="text-xs text-amber-800 leading-relaxed">
-                      {property.liabilityNotice}
-                    </p>
-                    <Link
-                      href="/waiver"
-                      className="mt-1.5 inline-block text-xs font-semibold text-amber-900 underline underline-offset-2 hover:text-amber-950 focus:outline-none focus:ring-2 focus:ring-amber-500 rounded-sm"
-                    >
-                      Read the liability waiver
-                    </Link>
-                  </div>
-                </div>
-                     {/* Where you'll be */}
-                            <div>
-                              <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                                Where you&apos;ll be
-                              </h2>
-                              <p className="text-gray-600 text-sm mb-4">{listing.location}</p>
-                              <p className="text-gray-600 text-sm leading-relaxed mb-5">
-                                Located in the heart of the Big Thicket region — one of the most
-                                biodiverse areas in the United States, home to rare orchids,
-                                carnivorous plants, and abundant wildlife. The nearest city is
-                                Kountze, TX, with Houston just over an hour away.
-                              </p>
-                
-                              <LocationMap location={listing.location} />
-                            </div>
+              {/* House rules */}
+              <div className="flex flex-wrap gap-x-6 gap-y-1 text-xs text-gray-500 pb-2">
+                <span><span className="font-semibold text-gray-700">Check-in:</span> After {property.checkIn}</span>
+                <span><span className="font-semibold text-gray-700">Checkout:</span> Before {property.checkOut}</span>
+                <span><span className="font-semibold text-gray-700">Max guests:</span> {property.capacity}</span>
               </div>
             </div>
           </div>
-
-
         </motion.div>
       </div>
     </section>

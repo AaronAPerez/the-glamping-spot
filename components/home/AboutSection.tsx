@@ -35,7 +35,7 @@ export default function AboutSection() {
     {
       // The two daylight forest frames above read as near-duplicates on their
       // own — this night shot breaks them up
-      src: "/images/dome/geodesic-dome-deck-illuminated-night.avif",
+      src: "/images/dome/glamping-dome-aerial-view-clearing.avif",
       alt: "The dome lit up on its deck after dark, glowing against the treeline",
       priority: false
     }
