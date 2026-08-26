@@ -34,10 +34,12 @@ export default function AirbnbBookingCTA({ className = '' }: AirbnbBookingCTAPro
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/stars1.jpg"
-          alt="Starry night sky over geodesic dome at The Glamping Spot"
+          src="/images/dome/geodesic-dome-lit-pine-forest-night.avif"
+          alt="The geodesic dome at The Glamping Spot lit from within at night, surrounded by East Texas pines"
           fill
-          style={{ objectFit: 'cover' }}
+          // 4:3 source in a short, wide band, so it crops hard top and bottom.
+          // Hold the dome rather than the treetops.
+          className="object-cover object-[center_45%]"
           sizes="100vw"
           quality={80}
           loading="lazy"

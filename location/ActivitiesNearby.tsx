@@ -159,7 +159,7 @@ export default function ActivitiesNearby() {
       className="py-16 bg-gradient-to-b from-brand-900 to-brand-950" 
       aria-labelledby="activities-heading"
     >
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="container mx-auto px-4 max-w-8xl">
         {/* Enhanced header */}
         <div className="text-center mb-12">
           <h2 

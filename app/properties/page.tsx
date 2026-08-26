@@ -4,6 +4,7 @@ import Link from 'next/link';
 import PropertyGallery from '@/components/properties/PropertyGallery';
 import { getLodgingBusinessSchema, SITE_URL } from '@/lib/seo/localBusiness';
 import { getBreadcrumbSchema } from '@/lib/seo/breadcrumb';
+import LocationMap from '@/components/properties/LocationMap';
 
 const AIRBNB_URL = 'https://www.airbnb.com/rooms/1461278647776104058';
 
@@ -81,7 +82,7 @@ const listing = {
   beds: 2,
   bathrooms: 1,
   description:
-    'Explore scenic trails right outside your door, or simply relax on the spacious wooden deck overlooking a serene private pond. In the evenings, unwind under the stars with soft ambient lighting and the warm glow of the dome. Perfect for couples, solo travelers, or anyone looking to disconnect and recharge, this secluded getaway blends rustic charm with a one-of-a-kind stay you won’t forget.',
+    'Explore scenic trails right outside your door, or simply relax on the spacious wooden deck overlooking a serene private pond. Unwind under the stars. Perfect for couples, solo travelers, or anyone looking to disconnect and recharge, this secluded getaway blends rustic charm with a one-of-a-kind stay you won’t forget.',
   images: [
     /*
      * Order matters twice over: the first five fill the desktop hero grid, and
@@ -91,9 +92,8 @@ const listing = {
      */
     { src: '/images/dome/geodesic-dome-glamping-kountze-texas-night.avif', alt: 'Geodesic glamping dome glowing at twilight with string lights along the wooden deck in Kountze, Texas' },
     { src: '/images/dome/dome-interior-living-dining-kitchenette.avif', alt: 'Inside the geodesic dome: dining table, leather sofa, kitchenette and spiral staircase to the loft' },
-    { src: '/images/dome/dome-master-bedroom-king-bed.avif', alt: 'Main bedroom in the dome with a king bed, crisp white linens and bedside lamp' },
-    { src: '/images/dome/dome-wooden-deck-pine-forest-view.avif', alt: 'Spacious wooden deck with seating looking out over the East Texas pine forest' },
-    { src: '/images/dome/private-pond-glamping-dome-waterfront.avif', alt: 'Private pond at The Glamping Spot with the geodesic dome on the far shore' },
+    { src: '/images/dome/dome-master-bedroom-king-bed.avif', alt: 'Bedroom 1 in the dome with a queen bed, crisp white linens and bedside lamp' },
+    { src: '/images/dome/deck-table-wooden-deck-pine-forest-view.webp', alt: 'Spacious wooden deck with seating looking out over the East Texas pine forest' },
 
     // ── Exterior after dark ──
     { src: '/images/dome/glamping-dome-deck-string-lights-dusk.avif', alt: 'The Glamping Spot dome at dusk with warm string lights and a red patio umbrella on the deck' },
@@ -104,7 +104,6 @@ const listing = {
     // ── Interior ──
     { src: '/images/dome/dome-interior-loft-view-living-area.avif', alt: 'View from the dome loft down to the living area, dining table and kitchen counter' },
     { src: '/images/dome/dome-living-room-smart-tv-spiral-staircase.avif', alt: 'Dome living room at night with wall-mounted smart TV, sliding barn door and spiral staircase' },
-    { src: '/images/dome/dome-interior-kitchen-spiral-staircase.avif', alt: 'Kitchen counter and spiral staircase inside the geodesic dome' },
     { src: '/images/dome/dome-board-games-family-entertainment.avif', alt: 'Board game collection at The Glamping Spot including Monopoly, Uno, Jenga, Connect 4, chess and dominoes' },
 
     // ── Bedrooms ──
@@ -113,19 +112,11 @@ const listing = {
     // ── Bathroom ──
     { src: '/images/dome/dome-bathroom-rustic-vanity-sink.avif', alt: 'Full bathroom with rustic reclaimed-wood wall, framed mirror and matte black fixtures' },
     { src: '/images/dome/dome-bathroom-walk-in-shower.avif', alt: 'Full bathroom with walk-in shower and toilet inside the dome' },
-    { src: '/images/dome/dome-bathroom-shower-fixtures.avif', alt: 'Walk-in shower with matte black rainfall fixtures in the dome bathroom' },
-
-    // ── Deck & outdoors ──
-    { src: '/images/dome/glamping-dome-deck-forest-view.avif', alt: 'Wooden deck at The Glamping Spot overlooking tall pines on a clear day' },
-    { src: '/images/dome/glamping-dome-wooden-deck-daytime.avif', alt: 'Daytime view along the dome deck railing toward the surrounding woods' },
 
     // ── Property & pond ──
     { src: '/images/dome/glamping-property-aerial-private-pond.avif', alt: 'Aerial view of The Glamping Spot property, private pond and surrounding pine forest' },
     { src: '/images/dome/glamping-dome-aerial-view-clearing.avif', alt: 'Aerial view of the geodesic dome and clearing at The Glamping Spot' },
     { src: '/images/dome/private-pond-aerial-pine-forest.avif', alt: 'Aerial view of the private pond framed by East Texas pine forest' },
-    { src: '/images/dome/pine-forest-nature-trails-big-thicket.avif', alt: 'Scenic pine forest and sandy nature trails near Big Thicket National Preserve' },
-    { src: '/images/dome/atv-riding-trails-glamping-property.avif', alt: 'ATV on the sandy riding trails at The Glamping Spot property' },
-    { src: '/images/dome/aerial-view-east-texas-pine-forest-trails.avif', alt: 'Aerial view of the wooded trails winding through the East Texas property' },
   ],
   amenities: [
     { icon: 'lake', label: 'Lake access' },
@@ -142,17 +133,26 @@ const listing = {
     { icon: 'games', label: 'Board games — Monopoly, Uno, Jenga, chess & more' },
   ],
   bedLayout: [
-    { room: 'Bedroom', detail: '1 king bed' },
-    { room: 'Loft', detail: '1 queen bed' },
+    { room: 'Bedroom 1', detail: '1 queen bed' },
+    { room: 'Bedroom 2', detail: '1 double bed, 2 air mattresses' },
   ],
   host: 'Ivan',
-  hostSince: 2026,
+  hostTenure: '4 months hosting',
   hostResponseRate: '100%',
   hostResponseTime: 'within an hour',
   reviewCount: 0,
-  checkIn: '2:00 PM',
+  checkIn: '3:00 PM',
   checkOut: '12:00 PM',
   maxGuests: 5,
+  houseRules: [
+    'No events or parties',
+    'No pets ($200 fine)',
+    'No smoking ($200 fine)',
+    'No fireworks or firearms',
+    'Quiet hours 10:00 PM – 7:00 AM',
+  ],
+  liabilityNotice:
+    'Guests participate in all activities—including swimming, hiking, and kayaking—at their own risk. By booking this property, guests agree to the terms of the liability waiver provided.',
 };
 
 // ─── Amenity icon map ──────────────────────────────────────────────────────────
@@ -289,7 +289,7 @@ export default function PropertiesPage() {
                     {listing.capacity} guests &nbsp;·&nbsp; {listing.bedrooms} bedrooms &nbsp;·&nbsp; {listing.beds} beds &nbsp;·&nbsp; {listing.bathrooms} bath
                   </p>
                   <p className="text-gray-500 text-xs mt-2">
-                    Hosting since {listing.hostSince} &nbsp;·&nbsp; {listing.hostResponseRate} response rate &nbsp;·&nbsp; Responds {listing.hostResponseTime}
+                    {listing.hostTenure} &nbsp;·&nbsp; {listing.hostResponseRate} response rate &nbsp;·&nbsp; Responds {listing.hostResponseTime}
                   </p>
                 </div>
                 <div className="shrink-0 w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-700 font-bold text-lg">
@@ -373,6 +373,9 @@ export default function PropertiesPage() {
                     <li>Check-in after {listing.checkIn}</li>
                     <li>Checkout before {listing.checkOut}</li>
                     <li>{listing.maxGuests} guests maximum</li>
+                    {listing.houseRules.map((rule) => (
+                      <li key={rule}>{rule}</li>
+                    ))}
                   </ul>
                 </div>
                 <div>
@@ -396,6 +399,23 @@ export default function PropertiesPage() {
                   >
                     Add dates on Airbnb
                   </a>
+                </div>
+              </div>
+
+              {/* Liability reminder — verbatim from the listing. */}
+              <div className="mt-6 flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3">
+                <svg className="mt-0.5 h-5 w-5 shrink-0 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                </svg>
+                <div>
+                  <p className="text-sm font-bold text-amber-900 mb-0.5">Liability reminder</p>
+                  <p className="text-sm text-amber-800 leading-relaxed">{listing.liabilityNotice}</p>
+                  <Link
+                    href="/waiver"
+                    className="mt-1.5 inline-block text-sm font-semibold text-amber-900 underline underline-offset-2 hover:text-amber-950 focus:outline-none focus:ring-2 focus:ring-amber-500 rounded-sm"
+                  >
+                    Read the liability waiver
+                  </Link>
                 </div>
               </div>
             </div>
@@ -425,11 +445,13 @@ export default function PropertiesPage() {
             <div>
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Where you&apos;ll be</h2>
               <p className="text-gray-600 text-sm mb-4">{listing.location}</p>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed mb-5">
                 Located in the heart of the Big Thicket region — one of the most biodiverse areas in the
                 United States, home to rare orchids, carnivorous plants, and abundant wildlife. The nearest
                 city is Kountze, TX, with Houston just over an hour away.
               </p>
+
+              <LocationMap location={listing.location} />
             </div>
           </div>
 

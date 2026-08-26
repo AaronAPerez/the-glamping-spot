@@ -53,7 +53,7 @@ const FORMAT_LOCKED = new Set([
 const OG_CARDS = [
   ['dome/geodesic-dome-glamping-kountze-texas-night.avif', 'og-the-glamping-spot'],
   ['dome/glamping-dome-deck-string-lights-dusk.avif', 'og-our-dome'],
-  ['dome/dome-wooden-deck-pine-forest-view.avif', 'og-experiences'],
+  ['dome/deck-table-wooden-deck-pine-forest-view.webp', 'og-experiences'],
 ];
 
 const mb = (bytes) => (bytes / 1048576).toFixed(2) + 'MB';

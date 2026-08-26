@@ -404,7 +404,7 @@ export default function RootLayout({
         />
       </head>
       
-      <body className="min-h-full bg-white text-gray-900 antialiased">
+      <body className="min-h-full bg-white-50 text-gray-900 antialiased">
 
         {/* Skip to main content link for accessibility */}
         <a

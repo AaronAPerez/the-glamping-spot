@@ -23,12 +23,12 @@ export default function AboutSection() {
       priority: false
     },
     {
-      src: "/images/dome/pine-forest-nature-trails-big-thicket.avif",
-      alt: "Sandy nature trails winding through the pines, minutes from Big Thicket National Preserve",
+      src: "/images/dome/private-pond-aerial-pine-forest.avif",
+      alt: "The private pond framed by East Texas pines, minutes from Big Thicket National Preserve",
       priority: false
     },
     {
-      src: "/images/dome/glamping-dome-deck-forest-view.avif",
+      src: "/images/dome/deck-table-wooden-deck-pine-forest-view.webp",
       alt: "Sunlit wooden deck framed by tall East Texas pines",
       priority: false
     },
@@ -70,7 +70,7 @@ export default function AboutSection() {
       className="py-20 sm:py-24 bg-gradient-to-b from-brand-800 via-brand-900 to-slate-900"
       aria-labelledby="about-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading and Intro (Mobile: Shows First) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -192,30 +192,6 @@ export default function AboutSection() {
                 ))}
               </ul>
             </div>
-
-            {/* Call to Action - Opening Soon */}
-            {/* <div className="mt-10">
-              <span
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold text-lg rounded-xl shadow-xl cursor-default"
-                aria-label="The Glamping Spot is opening soon"
-              >
-                <svg
-                  className="w-5 h-5 mr-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                Opening Soon - Stay Tuned!
-              </span>
-            </div> */}
           </motion.div>
 
           {/* Optimized Image Grid */}

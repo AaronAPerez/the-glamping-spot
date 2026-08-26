@@ -7,7 +7,7 @@ const CategorySection = () => {
     <div>
          {/* Experience Categories Section */}
       <section className="py-16 bg-gray-50" aria-labelledby="categories-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 id="categories-heading" className="text-3xl font-bold text-gray-900">Extraordinary Stays</h2>
             <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">

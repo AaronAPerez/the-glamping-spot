@@ -15,13 +15,13 @@ import { usePathname } from "next/navigation";
  *
  * LOGO_SIZES just tells next/image which file to download; each entry is the
  * rendered width for that breakpoint, i.e. height x 3.4225. Keep the two lines
- * in step: 40->137, 44->151, 50->171, 52->178.
+ * in step: 48->164, 52->178, 60->205, 62->212.
  *
  * The BAR height is a separate knob: --header-height in app/globals.css.
  * Keep the tallest logo height ~10px under it or the badge crowds the edges.
  */
-const LOGO_HEIGHT_CLASSES = "h-10 min-[480px]:h-11 md:h-[50px] lg:h-[52px]";
-const LOGO_SIZES = "(max-width: 479px) 137px, (max-width: 767px) 151px, (max-width: 1023px) 171px, 178px";
+const LOGO_HEIGHT_CLASSES = "h-12 min-[480px]:h-13 md:h-[60px] lg:h-[62px]";
+const LOGO_SIZES = "(max-width: 479px) 164px, (max-width: 767px) 178px, (max-width: 1023px) 205px, 212px";
 
 /**
  * Main site header component with enhanced accessibility and performance optimizations
@@ -83,7 +83,7 @@ export default function Header() {
         }`}
         role="banner"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
           <div className="flex justify-between items-center h-full">
             {/* Logo with enhanced accessibility */}
             <div className="flex-shrink-0">

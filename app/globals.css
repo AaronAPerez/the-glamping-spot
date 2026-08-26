@@ -37,6 +37,13 @@
 
   --color-sunset-500: #ff460b;
   --color-sunset-600: #d63a09;
+
+  /**
+   * Site-wide content width. Tailwind's built-in scale stops at 7xl (80rem),
+   * which left every section capped at 1280px; 90rem/1440px matches the most
+   * common desktop viewport. Change this one value to retune the whole site.
+   */
+  --container-8xl: 90rem;
 }
 
 /**
@@ -79,8 +86,8 @@
 
   /* Performance optimizations */
   --banner-height: 41px;
-  --header-height: 64px;
-  --header-height-scrolled: 64px;
+  --header-height: 70px;
+  --header-height-scrolled: 70px;
   
   /* Enhanced focus ring for better accessibility */
   --focus-ring: 0 0 0 2px var(--ring);
@@ -655,8 +662,8 @@ select:disabled {
 @media (max-width: 640px) {
   :root {
     --banner-height: 50px;
-    --header-height: 56px;
-    --header-height-scrolled: 56px;
+    --header-height: 64px;
+    --header-height-scrolled: 64px;
   }
   
   .mobile-only {
