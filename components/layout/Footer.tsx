@@ -100,7 +100,7 @@ export default function Footer({ className = '' }: FooterProps) {
       variants={containerVariants}
     >
       {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand and Newsletter Section */}
           <motion.div 
@@ -111,9 +111,10 @@ export default function Footer({ className = '' }: FooterProps) {
               <Image
                 src="/images/the-glamping-spot-logo.png"
                 alt="The Glamping Spot"
-                width={90}
-                height={74}
-                className="h-auto"
+                width={140}
+                height={116}
+                sizes="(max-width: 639px) 120px, 140px"
+                className="h-auto w-[120px] sm:w-[140px]"
               />
             </div>
             <p className="text-brand-50/80 mb-6">

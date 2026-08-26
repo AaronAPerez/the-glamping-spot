@@ -31,7 +31,7 @@ export default function DevelopmentBanner() {
       role="alert"
       aria-live="polite"
     >
-      <div className="max-w-7xl mx-auto px-3 sm:px-4  md:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-3 sm:px-4  md:px-6 lg:px-8">
         <div className="flex items-center justify-between py-2 sm:py-3 gap-2 sm:gap-4">
           {/* Icon and Message */}
           <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">

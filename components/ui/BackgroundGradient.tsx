@@ -26,6 +26,12 @@ interface BackgroundGradientProps {
   gradientColor?: string;
   
   /**
+   * Classes for the inner content panel — its surface color and padding.
+   * @default 'bg-white p-4'
+   */
+  containerClassName?: string;
+
+  /**
    * Children elements to render inside the component
    */
   children: React.ReactNode;
@@ -39,7 +45,8 @@ export function BackgroundGradient({
   className, 
   children, 
   borderRadius = '1.5rem', 
-  gradientColor = 'from-brand-300 via-brand-100/70 to-brand-300'
+  gradientColor = 'from-brand-300 via-brand-100/70 to-brand-300',
+  containerClassName = 'bg-white p-4'
 }: BackgroundGradientProps) {
   return (
     <div
@@ -73,7 +80,10 @@ export function BackgroundGradient({
 
       {/* Content container */}
       <div
-        className="relative z-10 bg-white dark:bg-gray-950 rounded-xl h-full w-full p-4 overflow-hidden"
+        className={cn(
+          'relative z-10 rounded-xl h-full w-full overflow-hidden',
+          containerClassName
+        )}
         style={{ borderRadius: 'calc(1.5rem - 4px)' }}
       >
         {children}

@@ -189,9 +189,8 @@ export default function AboutPage() {
   // Optimized gallery images with proper alt text
   const galleryImages = [
     {
-      src: '/images/MorningCoffee.jpg',
-      // src: '/images/about/morning-coffee-optimized.webp',
-      alt: 'Guest enjoying morning coffee with panoramic East Texas landscape view from geodesic dome deck',
+      src: '/images/dome/deck-table-wooden-deck-pine-forest-view.webp',
+      alt: 'The dome deck in daylight, looking out over the East Texas pines',
       title: 'Morning Moments'
     },
     {
@@ -201,7 +200,7 @@ export default function AboutPage() {
       title: 'Stargazing Experience'
     },
     {
-      src: '/images/dome/dome-interior-kitchen-spiral-staircase.avif',
+      src: '/images/dome/dome-interior-living-dining-kitchenette.avif',
       alt: 'Elegant living space inside luxury geodesic dome with modern amenities and natural lighting',
       title: 'Luxury Amenities'
     },
@@ -238,7 +237,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-brand-800/70" aria-hidden="true"></div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Story</h1>
           <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
             Founded with a vision to reconnect people with nature through luxurious, 
@@ -250,7 +249,7 @@ export default function AboutPage() {
       {/* Main content with enhanced semantics */}
       <main id="main-content">
         {/* Mission Section with improved accessibility */}
-        <section className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8" aria-labelledby="mission-heading">
+        <section className="max-w-8xl mx-auto py-16 px-4 sm:px-6 lg:px-8" aria-labelledby="mission-heading">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 id="mission-heading" className="text-3xl font-bold mb-6 text-gray-900">
@@ -344,7 +343,7 @@ export default function AboutPage() {
 
         {/* Enhanced Team Section */}
         <section className="bg-gray-50 py-16" aria-labelledby="team-heading">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 id="team-heading" className="text-3xl font-bold text-gray-900 mb-4">
                 Meet Our Team
@@ -402,7 +401,7 @@ export default function AboutPage() {
 
         {/* Enhanced CTA Section with accessibility improvements */}
         <section className="bg-gradient-to-r from-brand-700 to-brand-800 text-white py-16" aria-labelledby="cta-heading">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 id="cta-heading" className="text-3xl font-bold mb-6">

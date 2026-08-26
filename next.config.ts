@@ -113,6 +113,9 @@ const nextConfig: NextConfig = {
               "img-src 'self' https: data: blob:",
               "font-src 'self' https://fonts.gstatic.com",
               "connect-src 'self' https://api.theglampingspot.net",
+              // LocationMap embeds an OpenStreetMap frame; without this the CSP
+              // falls back to default-src 'self' and blocks it silently.
+              "frame-src 'self' https://www.openstreetmap.org",
               "frame-ancestors 'none'",
               "object-src 'none'",
               "base-uri 'self'",
