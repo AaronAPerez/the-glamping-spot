@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import PhotoLightbox from "@/components/properties/PhotoLightbox";
+import LocationMap from "../properties/LocationMap";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -52,6 +53,12 @@ interface FeaturedPropertiesProps {
   className?: string;
 }
 
+export const listing = {
+  name: "The Glamping Spot",
+  type: "Dome",
+  location: "Kountze, Texas, United States",
+}
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function AirbnbIcon({ className }: { className?: string }) {
@@ -92,7 +99,7 @@ const LISTING: FeaturedPropertyData = {
       alt: "Bedroom 1 in the dome with a queen bed and crisp white linens",
     },
     {
-      src: "/images/dome//images/dome/deck-table-wooden-deck-pine-forest-view.webp",
+      src: "/images/dome/deck-table-wooden-deck-pine-forest-view.webp",
       alt: "Spacious wooden deck looking out over the East Texas pine forest",
     },
     {
@@ -493,7 +500,7 @@ export default function FeaturedProperties({
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-5">
+          <div className="grid grid-cols-1 lg:grid-cols-5 lg:grid-rows-[auto_1fr]">
             {/* ── Listing detail — left column on desktop, 2nd on mobile ── */}
             <div className="order-2 lg:order-1 lg:col-start-1 lg:col-span-2 lg:row-start-1 lg:row-span-2 flex flex-col">
            
@@ -678,7 +685,7 @@ export default function FeaturedProperties({
 
             {/* ── Photo gallery — top-right on desktop, 1st on mobile ── */}
 
-            <div className="order-1 lg:order-2 lg:col-start-3 lg:col-span-3 lg:row-start-1 border-b lg:border-b-0 border-gray-100 lg:border-l">
+            <div className="order-1 lg:order-2 lg:col-start-3 lg:col-span-3 lg:row-start-1 lg:self-start border-b lg:border-b-0 border-gray-100 lg:border-l">
               {/* Main image */}
               <div className="relative h-64 sm:h-80 md:h-96 lg:h-[480px] xl:h-[560px] overflow-hidden">
                 <button
@@ -760,7 +767,7 @@ export default function FeaturedProperties({
             </div>
 
             {/* ── Booking rail — under the gallery on desktop, last on mobile ── */}
-            <div className="order-3 lg:order-3 lg:col-start-3 lg:col-span-3 border-t lg:border-t-0 border-gray-100 lg:border-l">
+            <div className="lg:order-3 lg:col-start-3 lg:col-span-3 lg:row-start-2 border-t lg:border-t-0 border-gray-100 lg:border-l">
               <div className="flex flex-col gap-4 sm:gap-5 p-5 sm:p-6 lg:p-8 lg:sticky lg:top-[calc(var(--header-height)+1rem)]">
    
                 {/* Book CTA */}
@@ -835,7 +842,7 @@ export default function FeaturedProperties({
                   <h4 className="text-xs font-semibold text-gray-700 mb-2">
                     Other things to note
                   </h4>
-                  <ul className="flex flex-col gap-1">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
                     {property.houseRules.map((rule) => (
                       <li
                         key={rule}
@@ -883,6 +890,21 @@ export default function FeaturedProperties({
                     </Link>
                   </div>
                 </div>
+                     {/* Where you'll be */}
+                            <div>
+                              <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                                Where you&apos;ll be
+                              </h2>
+                              <p className="text-gray-600 text-sm mb-4">{listing.location}</p>
+                              <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                                Located in the heart of the Big Thicket region — one of the most
+                                biodiverse areas in the United States, home to rare orchids,
+                                carnivorous plants, and abundant wildlife. The nearest city is
+                                Kountze, TX, with Houston just over an hour away.
+                              </p>
+                
+                              <LocationMap location={listing.location} />
+                            </div>
               </div>
             </div>
           </div>
