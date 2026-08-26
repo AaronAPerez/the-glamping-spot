@@ -12,7 +12,6 @@ const Hero = () => {
   const heroSlides = [
     {
       image: '/images/dome/geodesic-dome-glamping-kountze-texas-night.avif',
-      blurDataURL: 'data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAAMABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwEG/8QAHRABAAICAgMAAAAAAAAAAAAAAQIDAAQREiFBUf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERIf/aAAwDAQACEQMRAD8Ay+pGydkYwevPtx93VsoQ7kx+OJSAeDJa85Wmof/Z',
       alt: 'Geodesic glamping dome glowing at twilight with string lights along the wooden deck in Kountze, Texas',
       // 4:3 source. Portrait phones crop hard left/right, so bias the focal point
       // up to keep the dome clear of the text block at the bottom.
@@ -25,17 +24,15 @@ const Hero = () => {
       // visibly upscaled across the full-bleed hero. This one is a true photo
       // at roughly twice the bits per pixel, so it holds up at full width.
       image: '/images/dome/geodesic-dome-exterior-night-deck-lights.avif',
-      blurDataURL: 'data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAAbABADASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAgQAAQMG/8QAIRAAAQUAAQQDAAAAAAAAAAAAAQACAwQREgUhIjEzQXH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/xAAWEQEBAQAAAAAAAAAAAAAAAAAAESH/2gAMAwEAAhEDEQA/AOP1TUzTpusu7HAtrdeOoOI8nFMZD06yI3cD9+kN6YmRzd0FKR/I39VykmQ6q4Y//9k=',
       alt: 'The dome’s wooden deck looking out over the East Texas pine forest under a clear sky',
       // 1:1 source. Wide viewports crop it vertically; centre lands the treeline
       // over the deck, which is the pairing the headline is about.
-      position: 'object-bottom md:object-[center_50%]',
+      position: 'object-stretch md:object-[center_50%]',
       title: 'Where Glamping Meets Texas Wilderness',
       subtitle: 'Experience luxury dome glamping in the Big Thicket'
     },
     {
       image: '/images/dome/dome-interior-loft-view-living-area.avif',
-      blurDataURL: 'data:image/jpeg;base64,/9j/2wBDABIMDRANCxIQDhAUExIVGywdGxgYGzYnKSAsQDlEQz85Pj1HUGZXR0thTT0+WXlaYWltcnNyRVV9hnxvhWZwcm7/2wBDARMUFBsXGzQdHTRuST5Jbm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm7/wAARCAAVABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQD/8QAIRAAAgICAQQDAAAAAAAAAAAAAQMAAgQREgUGIVExQWH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oADAMBAAIRAxEAPwDCq6LXybYVH7C7Ifbiq+7SbOYMuqgs+Nb1KOnrrjAMaANffqFMYYYqzKNjUDZ+JX3BUVx1EDWvURBP/9k=',
       alt: 'Inside the geodesic dome, seen from the loft: leather sofa, dining table and kitchen counter beneath the dome canopy',
       // Portrait 3:4 source. On phones the frame is cropped only slightly, so
       // bias toward the bottom to lift the dome frame and table clear of the
@@ -55,7 +52,7 @@ const Hero = () => {
 
   return (
     <>
-    <section className="hero-section relative flex flex-col min-h-[75svh] sm:min-h-[75vh] md:min-h-[min(90vh,900px)] [@media(max-height:500px)]:min-h-0 [@media(max-height:500px)]:h-screen">
+    <section className="hero-section relative flex flex-col min-h-[100svh] sm:min-h-[75vh] md:min-h-[min(90vh,900px)] [@media(max-height:500px)]:min-h-0 [@media(max-height:500px)]:h-screen">
       {/* Background Slider */}
       <div className="absolute inset-0">
         {heroSlides.map((slide, index) => (
@@ -75,7 +72,7 @@ const Hero = () => {
               sizes="100vw"
               quality={85}
               placeholder="blur"
-              blurDataURL={slide.blurDataURL}
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/20 sm:bg-gradient-to-r sm:from-black/85 sm:via-black/55 sm:to-black/15"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
@@ -102,27 +99,27 @@ const Hero = () => {
             </p>
 
             {/* Airbnb Booking CTAs */}
-              <div className="mt-7 sm:mt-8 flex flex-col items-start sm:flex-row sm:items-center gap-3 [@media(max-height:500px)]:mt-2 [@media(max-height:500px)]:gap-2">
+              <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center gap-3 max-w-xs sm:max-w-none [@media(max-height:500px)]:mt-2 [@media(max-height:500px)]:gap-2">
                 <a
                   href="https://www.airbnb.com/rooms/1461278647776104058"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-auto items-center justify-center gap-2.5 px-5 py-3 sm:py-2.5 [@media(max-height:500px)]:px-4 [@media(max-height:500px)]:py-2 [@media(max-height:500px)]:text-sm bg-[#FF385C] hover:bg-[#e0314f] text-white font-semibold text-sm rounded-lg shadow-lg transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-2 focus:ring-offset-black/60"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 px-6 py-3.5 sm:px-5 sm:py-2.5 [@media(max-height:500px)]:px-4 [@media(max-height:500px)]:py-2 [@media(max-height:500px)]:text-sm bg-[#FF385C] hover:bg-[#e0314f] text-white font-semibold text-base sm:text-sm rounded-lg shadow-lg transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-2 focus:ring-offset-black/60"
                   aria-label="Book The Glamping Spot on Airbnb — opens in a new tab"
                 >
                   {/* Airbnb Bélo icon */}
-                  <svg className="w-4 h-4" viewBox="0 0 1000 1000" fill="currentColor" aria-hidden="true">
+                  <svg className="w-5 h-5 sm:w-4 sm:h-4" viewBox="0 0 1000 1000" fill="currentColor" aria-hidden="true">
                     <path d="M499.3 736.7c-51-64-81-120.1-91-168.1-10-39-6-70 11-93 18-27 45-40 80-40s62 13 80 40c17 23 21 54 11 93-10 48-40 104.1-91 168.1zm362.2 43c-7 47-39 86-83 105-85 37-169.1-22-241.1-102 119.1-149.1 141.1-265.1 90-340.2-30-43-73-64-128.1-64-111 0-172.1 94-148.1 203.1 14 59 51 124.1 107 192.1-37 41-77.1 72-116.1 93-41 19-81 23-117 8-49-18-81-61-83-111-3-50 21-102 68-140.1l16-12s24-18 72.1-44c16-8 33-17 51-26-9-12-18-24-27-35-46-59-76-117.1-88-171.1C92 270.1 176 176 279 176c55 0 97 20 138.1 63l10 11 10-11c41-43 83-63 138.1-63 103 0 187.1 94.1 160.1 228.1-12 54-41 112.1-88 171.1-9 11-18 23-27 35 18 9 35 18 51 26 48.1 26 72.1 44 72.1 44l16 12c47 38.1 71 90.1 68 140.1z" />
                   </svg>
                   Book on Airbnb
                 </a>
                 <a
                   href="#featured-properties"
-                  className="inline-flex w-auto items-center justify-center gap-2 px-5 py-3 sm:py-2.5 [@media(max-height:500px)]:px-4 [@media(max-height:500px)]:py-2 [@media(max-height:500px)]:text-sm border border-brand-300/60 hover:border-brand-300 bg-brand-900/30 hover:bg-brand-400/15 backdrop-blur-sm text-white font-semibold text-sm rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2 focus:ring-offset-black/60"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3.5 sm:px-5 sm:py-2.5 [@media(max-height:500px)]:px-4 [@media(max-height:500px)]:py-2 [@media(max-height:500px)]:text-sm border border-brand-300/60 hover:border-brand-300 bg-brand-900/30 hover:bg-brand-400/15 backdrop-blur-sm text-white font-semibold text-base sm:text-sm rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2 focus:ring-offset-black/60"
                   aria-label="View our geodesic dome accommodations"
                 >
                   View Our Dome
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <svg className="w-5 h-5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </a>
