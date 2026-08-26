@@ -129,10 +129,6 @@ const listing = {
       src: "/images/dome/geodesic-dome-exterior-night-deck-lights.avif",
       alt: "Geodesic dome exterior at night with ambient deck lighting",
     },
-    {
-      src: "/images/dome/geodesic-dome-deck-illuminated-night.avif",
-      alt: "Wooden deck and illuminated dome after dark at The Glamping Spot",
-    },
 
     // ── Interior ──
     {
@@ -165,10 +161,6 @@ const listing = {
     },
 
     // ── Property & pond ──
-    {
-      src: "/images/dome/glamping-property-aerial-private-pond.avif",
-      alt: "Aerial view of The Glamping Spot property, private pond and surrounding pine forest",
-    },
     {
       src: "/images/dome/glamping-dome-aerial-view-clearing.avif",
       alt: "Aerial view of the geodesic dome and clearing at The Glamping Spot",

@@ -1,6 +1,6 @@
 # The Glamping Spot 🏕️
 
-A luxury geodesic dome glamping website built with Next.js 14+, TypeScript, and Tailwind CSS. Experience the perfect blend of luxury accommodation and nature in East Texas near Houston.
+A marketing site for a single luxury geodesic dome glamping listing, built with Next.js 16, React 19, TypeScript, and Tailwind CSS 4. Experience the perfect blend of luxury accommodation and nature in East Texas near Houston.
 
 ## 🚧 Status: In Development
 
@@ -8,14 +8,14 @@ A luxury geodesic dome glamping website built with Next.js 14+, TypeScript, and 
 
 ## 🌟 Project Overview
 
-The Glamping Spot is a modern, fully responsive website showcasing luxury geodesic dome accommodations in Kountze, Texas. The project focuses on providing an exceptional user experience with comprehensive SEO optimization, accessibility features, and performance enhancements designed to rank at the top of Google search results.
+The Glamping Spot markets a single geodesic dome listing ("Nice Dreams @ The Glamping Spot") in Kountze, Texas. Reservations are handled entirely on Airbnb — the site drives traffic there via "Book on Airbnb" CTAs rather than running its own checkout — while an in-house digital liability waiver flow (e-sign + PDF) is fully built for guests. The project focuses on providing an exceptional user experience with comprehensive SEO optimization, accessibility features, and performance enhancements designed to rank at the top of Google search results.
 
 ## 🚀 Key Features Implemented
 
 ### ✅ Production-Ready Features
 
 #### **🏗️ Core Architecture**
-- **Next.js 14+** with App Router and TypeScript
+- **Next.js 16** with App Router and TypeScript
 - **Server-side rendering (SSR)** for optimal SEO
 - **Responsive design** with mobile-first approach
 - **Tailwind CSS** for consistent, utility-first styling
@@ -55,12 +55,10 @@ The Glamping Spot is a modern, fully responsive website showcasing luxury geodes
 #### **🎨 User Interface Components**
 - **Header/Navigation** with sticky positioning and mobile menu
 - **Hero section** with call-to-action optimization
-- **Property cards** showcasing geodesic domes
-- **Contact forms** with validation and accessibility
-- **Weather highlights** with activity recommendations
+- **Featured listing showcase** with photo gallery and lightbox
 - **Activities section** featuring local attractions
 - **Social media integration** with Instagram feed
-- **Newsletter signup** for lead generation
+- **Accessible form components** (`components/Accessibility/`) — buttons, inputs, modals, links
 - **Footer** with comprehensive site links
 
 #### **📊 Analytics & Monitoring**
@@ -79,42 +77,51 @@ The Glamping Spot is a modern, fully responsive website showcasing luxury geodes
 
 ### 🏢 Business Features
 
-#### **🏡 Property Management**
-- **Geodesic dome showcases** with detailed descriptions
+#### **🏡 Listing Showcase**
+- **Single geodesic dome listing** ("Nice Dreams @ The Glamping Spot") with detailed descriptions
 - **Amenity listings** and feature highlights
-- **Image galleries** with optimized loading
-- **Booking CTAs** strategically placed throughout
+- **Image galleries** with lightbox and optimized loading (15 photos across exterior, interior, bedrooms, bathroom and aerial shots)
+- **"Book on Airbnb" CTAs** that link out to the live Airbnb listing — reservations are handled entirely on Airbnb
+
+#### **📝 Digital Liability Waiver**
+- **E-signature waiver form** (`/waiver`) with Zod validation
+- **Server-side PDF generation** of the signed waiver via `@react-pdf/renderer`
+- **API route** (`/api/waiver`) to receive and process submissions
 
 #### **📍 Location-Based Content**
 - **Big Thicket National Preserve** proximity highlighting
 - **Local activities** and attractions directory
-- **Weather-based recommendations** for seasonal activities
 - **East Texas tourism** integration
 
 #### **💬 Customer Engagement**
-- **Contact forms** with inquiry type categorization
-- **FAQ sections** addressing common questions
-- **Social proof** integration and testimonials
-- **Newsletter subscription** with incentives
+- **FAQ sections** addressing common questions (About and Properties pages)
+- **Signed liability waiver** flow for booked guests
 
 ## 🛠️ Technology Stack
 
 ### **Frontend Framework**
-- **Next.js 14+** - React framework with App Router
+- **Next.js 16** - React framework with App Router
 - **TypeScript** - Type-safe development
-- **React 18** - Latest React features and hooks
+- **React 19** - Latest React features and hooks
 
 ### **Styling & UI**
-- **Tailwind CSS** - Utility-first CSS framework
+- **Tailwind CSS 4** - Utility-first CSS framework
 - **Framer Motion** - Animation library
 - **Lucide React** - Icon library
 - **Custom CSS** - Enhanced styling and themes
+
+### **State & Forms**
+- **Zustand** - Lightweight global UI state (`stores/`)
+- **React Hook Form + Zod** - Form state and schema validation
+- **@react-pdf/renderer** - Server-side PDF generation (signed waivers)
+- **Nodemailer** - Transactional email for contact/waiver flows
 
 ### **Development Tools**
 - **ESLint** - Code linting and quality
 - **TypeScript** - Static type checking
 - **PostCSS** - CSS processing
 - **Next.js Image** - Image optimization
+- **Sharp / imagemin** - Image optimization scripts (`scripts/optimize-images.js`)
 
 ### **Analytics & Marketing**
 - **Google Analytics 4** - Web analytics
@@ -129,23 +136,38 @@ the-glamping-spot/
 ├── app/                          # Next.js App Router pages
 │   ├── layout.tsx               # Root layout with metadata
 │   ├── page.tsx                 # Homepage with SEO optimization
+│   ├── not-found.tsx            # Custom 404
+│   ├── robots.ts / sitemap.ts   # Metadata routes
 │   ├── about/                   # About page
-│   ├── contact/                 # Contact page with forms
-│   ├── properties/              # Properties/accommodations
-│   └── experiences/             # Activities and experiences
+│   ├── properties/              # The dome listing page (photo tour, amenities, Airbnb CTA)
+│   ├── booking/                 # In-house booking page (stub — reservations happen on Airbnb)
+│   ├── waiver/                  # Digital liability waiver (e-sign + PDF)
+│   ├── accessibility/           # Accessibility statement page
+│   ├── privacy-policy/          # Privacy policy
+│   ├── terms/                   # Terms of service
+│   └── api/                     # Route handlers (analytics/web-vitals, waiver submission)
 ├── components/                   # Reusable React components
-│   ├── booking/                 # Booking-related components
-│   ├── contact/                 # Contact forms and info
-│   ├── home/                    # Homepage sections
+│   ├── Accessibility/           # AccessibleButton, AccessibleModal, AccessibleInput, etc.
+│   ├── banners/                 # Dev/status banners
+│   ├── booking/                 # AirbnbBookingCTA
+│   ├── errors/                  # Error boundaries and error pages
+│   ├── home/                    # Homepage sections (Hero, FeaturedProperties, About, Category)
 │   ├── layout/                  # Header, Footer, Navigation
+│   ├── legal/                   # Privacy/terms content components
 │   ├── marketing/               # Marketing and lead generation
-│   ├── properties/              # Property showcase components
-│   └── social/                  # Social media integration
-├── hooks/                       # Custom React hooks
-├── location/                    # Location-specific components
+│   ├── performance/             # Lazy-loading and Web Vitals config
+│   ├── properties/              # PropertyCard, PropertyGallery, PhotoLightbox, LocationMap
+│   ├── social/                  # Social media integration (Instagram feed)
+│   ├── ui/                      # Generic UI primitives
+│   └── waiver/                  # WaiverForm, WaiverDocument (PDF)
+├── hooks/                       # Custom React hooks (bookings, weather, seasonal theme, a11y, perf)
+├── lib/                         # accessibility-utils, analytics, contrast, email, seo/, waiver/, utils
+├── location/                    # Location-specific components (ActivitiesNearby)
+├── stores/                      # Zustand global UI state
+├── scripts/                     # Build-time tooling (optimize-images.js)
 ├── public/                      # Static assets
 │   ├── images/                  # Optimized images (SEO-descriptive filenames)
-│   │   ├── dome/                # The dome listing: exterior, interior, deck, pond
+│   │   ├── dome/                # The dome listing: exterior, interior, bedrooms, bathroom, aerials
 │   │   ├── about/               # About-page photography
 │   │   ├── activities/          # Nearby attractions and activities
 │   │   ├── experiences/         # Guest experience photography
@@ -153,7 +175,6 @@ the-glamping-spot/
 │   │   ├── og/                  # 1200x630 Open Graph / Twitter cards
 │   │   └── weather/             # Weather condition icons
 │   └── videos/                  # Video content
-├── styles/                      # Global styles and CSS
 └── types/                       # TypeScript type definitions
 ```
 
@@ -161,7 +182,9 @@ the-glamping-spot/
 
 ### 🔄 Planned Development Phase 2
 
-#### **🛒 Booking System**
+Reservations currently happen entirely on Airbnb via the "Book on Airbnb" CTAs — the in-house `/booking` route is a placeholder ("Coming Soon"). The items below are for an eventual direct-booking flow that bypasses Airbnb.
+
+#### **🛒 In-House Booking System**
 - [ ] **Real-time availability** calendar integration
 - [ ] **Payment processing** with Stripe/PayPal
 - [ ] **Booking confirmation** and email notifications
@@ -238,7 +261,7 @@ npm run dev
 
 ### **Build Commands**
 ```bash
-# Development server
+# Development server (Turbopack)
 npm run dev
 
 # Production build
@@ -247,14 +270,23 @@ npm run build
 # Start production server
 npm run start
 
-# Type checking
-npm run type-check
-
 # Linting
 npm run lint
 
-# Testing (when implemented)
-npm run test
+# Bundle analysis
+npm run analyze
+
+# Optimize/compress images in public/images
+npm run optimize-images
+
+# Run a Lighthouse audit against a running build
+npm run lighthouse
+
+# Build + Lighthouse audit in one step
+npm run perf-test
+
+# Optimize images, build, and audit
+npm run performance
 ```
 
 ### **Environment Variables**
@@ -271,7 +303,7 @@ NEXT_PUBLIC_CLARITY_ID=your-microsoft-clarity-id
 GOOGLE_SITE_VERIFICATION=your-google-verification-code
 FACEBOOK_DOMAIN_VERIFICATION=your-facebook-verification-code
 
-# Email Configuration (for contact forms)
+# Email Configuration (for waiver submission notifications)
 SMTP_HOST=your-smtp-host
 SMTP_PORT=587
 SMTP_USER=your-email@domain.com
