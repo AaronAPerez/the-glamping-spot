@@ -29,6 +29,7 @@ const LOGO_SIZES = "(max-width: 479px) 164px, (max-width: 767px) 178px, (max-wid
  */
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showFloatingBook, setShowFloatingBook] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -36,6 +37,8 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      // Show the floating mobile CTA once the hero's own Airbnb button has scrolled out of view
+      setShowFloatingBook(window.scrollY > 480);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -173,6 +176,23 @@ export default function Header() {
           </div>
         </div>
       </header>
+
+      {/* Floating Book on Airbnb — Mobile only, once the hero CTA has scrolled out of view */}
+      {showFloatingBook && !isMobileMenuOpen && (
+        <a
+          href="https://www.airbnb.com/rooms/1461278647776104058"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="md:hidden fixed right-4 z-40 inline-flex items-center gap-2 px-4 py-3 bg-[#FF385C] hover:bg-[#e0314f] text-white text-sm font-semibold rounded-full shadow-xl shadow-black/40 transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#FF385C] focus:ring-offset-2 focus:ring-offset-[var(--brand-navy)]"
+          style={{ bottom: "calc(1rem + env(safe-area-inset-bottom))" }}
+          aria-label="Book The Glamping Spot on Airbnb — opens in a new tab"
+        >
+          <svg className="w-4 h-4" viewBox="0 0 1000 1000" fill="currentColor" aria-hidden="true">
+            <path d="M499.3 736.7c-51-64-81-120.1-91-168.1-10-39-6-70 11-93 18-27 45-40 80-40s62 13 80 40c17 23 21 54 11 93-10 48-40 104.1-91 168.1zm362.2 43c-7 47-39 86-83 105-85 37-169.1-22-241.1-102 119.1-149.1 141.1-265.1 90-340.2-30-43-73-64-128.1-64-111 0-172.1 94-148.1 203.1 14 59 51 124.1 107 192.1-37 41-77.1 72-116.1 93-41 19-81 23-117 8-49-18-81-61-83-111-3-50 21-102 68-140.1l16-12s24-18 72.1-44c16-8 33-17 51-26-9-12-18-24-27-35-46-59-76-117.1-88-171.1C92 270.1 176 176 279 176c55 0 97 20 138.1 63l10 11 10-11c41-43 83-63 138.1-63 103 0 187.1 94.1 160.1 228.1-12 54-41 112.1-88 171.1-9 11-18 23-27 35 18 9 35 18 51 26 48.1 26 72.1 44 72.1 44l16 12c47 38.1 71 90.1 68 140.1z" />
+          </svg>
+          Book on Airbnb
+        </a>
+      )}
 
       {/* Enhanced Mobile Menu */}
       {isMobileMenuOpen && (
