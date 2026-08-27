@@ -23,11 +23,11 @@ const Hero = () => {
       // Was the drone frame-grab of the pond — a soft, low-bitrate source that
       // visibly upscaled across the full-bleed hero. This one is a true photo
       // at roughly twice the bits per pixel, so it holds up at full width.
-      image: '/images/dome/geodesic-dome-exterior-night-deck-lights.avif',
+      image: '/images/dome/deck-table-wooden-deck-pine-forest-view.webp',
       alt: 'The dome’s wooden deck looking out over the East Texas pine forest under a clear sky',
       // 1:1 source. Wide viewports crop it vertically; centre lands the treeline
       // over the deck, which is the pairing the headline is about.
-      position: 'object-stretch md:object-[center_50%]',
+      position: 'object-[center_75%] md:object-[center_50%]',
       title: 'Where Glamping Meets Texas Wilderness',
       subtitle: 'Experience luxury dome glamping in the Big Thicket'
     },
